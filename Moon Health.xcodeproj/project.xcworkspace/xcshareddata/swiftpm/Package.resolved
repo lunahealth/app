@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Selene",
+        "repositoryURL": "https://github.com/lunahealth/selene.git",
+        "state": {
+          "branch": "main",
+          "revision": "2e08bd4156b32814631ebf3234a45378900486f0",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
