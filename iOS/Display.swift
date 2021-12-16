@@ -4,13 +4,10 @@ import Selene
 
 struct Display: View {
     @StateObject private var locator = Locator()
+    private let observatory = Observatory()
 
     var body: some View {
         VStack {
-            if let location = locator.location {
-                Text("Your location: \(location.latitude), \(location.longitude)")
-            }
-
             LocationButton(.currentLocation) {
                 locator.manager.requestLocation()
             }
@@ -18,6 +15,13 @@ struct Display: View {
             .symbolVariant(.fill)
             .clipShape(Capsule())
             .font(.callout)
+        }
+        .onChange(of: locator.location) {
+            guard let location = $0 else { return }
+            Task {
+                let moon = await observatory.moon(input: .init(date: .now, coords: location))
+                print(moon)
+            }
         }
     }
 }

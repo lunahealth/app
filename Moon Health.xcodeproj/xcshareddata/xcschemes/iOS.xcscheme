@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CEF83988276B674900134178"
-               BuildableName = "iOS.app"
+               BuildableName = "Moonhealth.app"
                BlueprintName = "iOS"
                ReferencedContainer = "container:Moon Health.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEF83988276B674900134178"
-            BuildableName = "iOS.app"
+            BuildableName = "Moonhealth.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Moon Health.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEF83988276B674900134178"
-            BuildableName = "iOS.app"
+            BuildableName = "Moonhealth.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Moon Health.xcodeproj">
          </BuildableReference>

@@ -1,7 +1,8 @@
 import CoreLocation
+import Selene
 
 final class Locator: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published private(set) var location: CLLocationCoordinate2D?
+    @Published private(set) var location: Coords?
     let manager = CLLocationManager()
 
     override init() {
@@ -10,7 +11,13 @@ final class Locator: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_: CLLocationManager, didUpdateLocations: [CLLocation]) {
-        location = didUpdateLocations.first?.coordinate
+        didUpdateLocations
+            .first
+            .map(\.coordinate)
+            .map(Coords.init(coordinate:))
+            .map {
+                location = $0
+            }
     }
     
     func locationManager(_: CLLocationManager, didFailWithError: Error) {
