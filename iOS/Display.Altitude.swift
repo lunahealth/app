@@ -21,8 +21,8 @@ extension Display {
 
                 if moon.azimuth >= -pi_2  && moon.azimuth <= pi_2 {
                     context.fill(.init {
-                        $0.addArc(center: .init(x: (size.width / 2) + (moon.azimuth / pi_2 * -150),
-                                                y: (size.height / 2) + (moon.altitude / pi_2 * -150)),
+                        $0.addArc(center: .init(x: (size.width / 2) - (moon.azimuth / pi_2 * 150),
+                                                y: (size.height / 2) + (moon.altitude > (pi_2 / 2) ? -(moon.altitude / pi_2 * 150) : (moon.altitude / pi_2 * 150))),
                                   radius: 10,
                                   startAngle: .degrees(0),
                                   endAngle: .degrees(360),
