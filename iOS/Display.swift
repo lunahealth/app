@@ -23,13 +23,6 @@ struct Display: View {
             }
             Slider(value: $slider, in: -48 ... 48)
                 .padding(.horizontal)
-            LocationButton(.currentLocation) {
-                locator.manager.requestLocation()
-            }
-            .foregroundColor(.white)
-            .symbolVariant(.fill)
-            .clipShape(Capsule())
-            .font(.callout)
         }
         .onChange(of: slider) {
             test = Calendar.current.date(byAdding: .hour, value: .init($0), to: date)!
