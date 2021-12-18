@@ -1,6 +1,8 @@
 import SwiftUI
 import Selene
 
+private let pi_2 = Double.pi / 2
+
 extension Display {
     struct Azimuth: View {
         let moon: Moon
@@ -17,22 +19,24 @@ extension Display {
                                   clockwise: true)
                     }, with: .color(.black), style: .init(lineWidth: 1))
 
-                context.fill(.init {
+                if moon.azimuth >= -pi_2  && moon.azimuth <= pi_2 {
+                    context.fill(.init {
+                        var p = Path()
+                        p.addArc(center: .init(x: size.width / 2, y: size.height / 2),
+                                 radius: 150,
+                                 startAngle: .radians(moon.azimuth + pi_2),
+                                 endAngle: .radians(moon.azimuth + pi_2),
+                                 clockwise: true)
+                        let point = p.currentPoint!
+                        
+                        $0.addArc(center: point,
+                                  radius: 10,
+                                  startAngle: .degrees(0),
+                                  endAngle: .degrees(360),
+                                  clockwise: false)
 
-                    let p = CGMutablePath()
-                    p.addArc(center: .init(x: size.width / 2, y: size.height / 2),
-                             radius: 150,
-                             startAngle: moon.azimuth + .pi / 2,
-                             endAngle: moon.azimuth + .pi / 2,
-                             clockwise: true)
-                    let point = p.currentPoint
-                    $0.addArc(center: point,
-                              radius: 10,
-                              startAngle: .degrees(0),
-                              endAngle: .degrees(360),
-                              clockwise: false)
-
-                }, with: .color(moon.altitude >= 0 ? .blue : .gray))
+                    }, with: .color(.blue))
+                }
             }
         }
     }

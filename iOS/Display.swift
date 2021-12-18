@@ -33,7 +33,7 @@ struct Display: View {
             }
             
             Text(test, format: .dateTime)
-            Slider(value: $slider, in: -48 ... 48)
+            Slider(value: $slider, in: -72 ... 72)
                 .padding(.horizontal)
         }
         .onChange(of: slider) {
@@ -49,7 +49,7 @@ struct Display: View {
         Task {
             moon = await observatory.moon(input: .init(date: test, coords: location))
             
-            print(moon?.azimuth)
+            print(moon!.altitude / .pi * 150)
         }
     }
 }
