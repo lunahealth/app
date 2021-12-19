@@ -19,7 +19,7 @@ extension Display {
                                   clockwise: true)
                     }, with: .color(.black), style: .init(lineWidth: 1))
 
-                if moon.azimuth >= -pi_2  && moon.azimuth <= pi_2 {
+                if moon.altitude >= 0 && moon.altitude <= .pi {
                     context.fill(.init {
                         var p = Path()
                         p.addArc(center: .init(x: size.width / 2, y: size.height / 2),
