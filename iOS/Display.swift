@@ -33,11 +33,11 @@ struct Display: View {
             }
             
             Text(test, format: .dateTime)
-            Slider(value: $slider, in: 0 ... 900)
+            Slider(value: $slider, in: 0 ... 300)
                 .padding(.horizontal)
         }
         .onChange(of: slider) {
-            test = Calendar.current.date(byAdding: .hour, value: .init($0), to: date)!
+            test = Calendar.current.date(byAdding: .minute, value: .init($0 * 5), to: date)!
             update()
         }
         .onAppear {
