@@ -37,19 +37,20 @@ extension Planetarium {
                     })
                 
                 case .waxingCrescent:
+                    let top = CGPoint(x: center.x, y: center.y - radius)
+                    let delta = radius2 * (1 - (.init(moon.fraction) / 50.0))
+                    let vertical = delta / 1.5
+                    
                     context.clip(to: .init {
-//                        $0.move(to: center)
-                        $0.addArc(center: .init(x: center.x - (radius * (1 - (.init(moon.fraction) / 100.0))), y: center.y),
+                        $0.move(to: top)
+                        $0.addArc(center: center,
                                   radius: radius,
-                                  startAngle: .degrees(0),
-                                  endAngle: .degrees(360),
+                                  startAngle: .degrees(-90),
+                                  endAngle: .degrees(90),
                                   clockwise: false)
-                        $0.addArc(center: .init(x: center.x - (radius * (1 - (.init(moon.fraction) / 100.0))), y: center.y),
-                                  radius: radius - 30,
-                                  startAngle: .degrees(360),
-                                  endAngle: .degrees(0),
-                                  clockwise: true)
-                        $0.closeSubpath()
+                        $0.addCurve(to: top,
+                                    control1: .init(x: center.x + delta, y: center.y + vertical),
+                                    control2: .init(x: center.x + delta, y: center.y - vertical))
                     })
                     
                 case .firstQuarter:
