@@ -33,13 +33,13 @@ extension Planetarium {
                                   startAngle: .degrees(0),
                                   endAngle: .degrees(0),
                                   clockwise: false)
-                        $0.closeSubpath()
                     })
                 
                 case .waxingCrescent:
                     let top = CGPoint(x: center.x, y: center.y - radius)
-                    let delta = radius2 * (1 - (.init(moon.fraction) / 50.0))
-                    let vertical = delta / 1.5
+                    let delta = radius * (1 - (.init(moon.fraction) / 50.0))
+                    let horizontal = delta * 1.25
+                    let vertical = delta / 1.25
                     
                     context.clip(to: .init {
                         $0.move(to: top)
@@ -49,8 +49,8 @@ extension Planetarium {
                                   endAngle: .degrees(90),
                                   clockwise: false)
                         $0.addCurve(to: top,
-                                    control1: .init(x: center.x + delta, y: center.y + vertical),
-                                    control2: .init(x: center.x + delta, y: center.y - vertical))
+                                    control1: .init(x: center.x + horizontal, y: center.y + vertical),
+                                    control2: .init(x: center.x + horizontal, y: center.y - vertical))
                     })
                     
                 case .firstQuarter:
@@ -61,7 +61,6 @@ extension Planetarium {
                                   startAngle: .degrees(-90),
                                   endAngle: .degrees(90),
                                   clockwise: false)
-                        $0.closeSubpath()
                     })
                     
                 case .waxingGibbous:
@@ -74,7 +73,46 @@ extension Planetarium {
                             y: center.y - radius - delta,
                             width: radius2,
                             height: radius2 + delta * 2))
-                        $0.closeSubpath()
+                    })
+                    
+                case .waningGibbous:
+                    let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
+                                 
+                    context.clip(to: .init {
+                        $0.move(to: center)
+                        $0.addEllipse(in: .init(
+                            x: center.x - radius - delta,
+                            y: center.y - radius - delta,
+                            width: radius2,
+                            height: radius2 + delta * 2))
+                    })
+                    
+                case .lastQuarter:
+                    context.clip(to: .init {
+                        $0.move(to: center)
+                        $0.addArc(center: center,
+                                  radius: radius,
+                                  startAngle: .degrees(90),
+                                  endAngle: .degrees(-90),
+                                  clockwise: false)
+                    })
+                    
+                case .waningCrescent:
+                    let bottom = CGPoint(x: center.x, y: center.y + radius)
+                    let delta = radius * (1 - (.init(moon.fraction) / 50.0))
+                    let horizontal = delta * 1.25
+                    let vertical = delta / 1.25
+                    
+                    context.clip(to: .init {
+                        $0.move(to: bottom)
+                        $0.addArc(center: center,
+                                  radius: radius,
+                                  startAngle: .degrees(90),
+                                  endAngle: .degrees(-90),
+                                  clockwise: false)
+                        $0.addCurve(to: bottom,
+                                    control1: .init(x: center.x - horizontal, y: center.y - vertical),
+                                    control2: .init(x: center.x - horizontal, y: center.y + vertical))
                     })
                     
                 default:
