@@ -2,6 +2,7 @@ import SwiftUI
 import Selene
 
 private let radius = 74.0
+private let radius2 = radius + radius
 
 extension Planetarium {
     struct Render: View {
@@ -63,13 +64,15 @@ extension Planetarium {
                     })
                     
                 case .waxingGibbous:
+                    let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
+                                 
                     context.clip(to: .init {
                         $0.move(to: center)
-                        $0.addArc(center: .init(x: center.x + (radius * (1 - (.init(moon.fraction) / 100.0))), y: center.y),
-                                  radius: radius,
-                                  startAngle: .degrees(0),
-                                  endAngle: .degrees(360),
-                                  clockwise: false)
+                        $0.addEllipse(in: .init(
+                            x: center.x - radius + delta,
+                            y: center.y - radius - delta,
+                            width: radius2,
+                            height: radius2 + delta * 2))
                         $0.closeSubpath()
                     })
                     
