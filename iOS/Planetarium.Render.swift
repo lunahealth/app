@@ -14,6 +14,10 @@ extension Planetarium {
                 
                 let center = CGPoint(x: size.width / 2, y: 200)
                 
+                context.translateBy(x: center.x, y: center.y)
+                context.rotate(by: .radians(abs(moon.angle) - .pi / 2))
+                context.translateBy(x: -center.x, y: -center.y)
+                
                 context.fill(.init {
                     $0.move(to: center)
                     $0.addArc(center: center,
