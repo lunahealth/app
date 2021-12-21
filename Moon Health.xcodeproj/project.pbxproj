@@ -13,6 +13,7 @@
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
 		CEE34010277202C9005A99E9 /* Home.Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400F277202C9005A99E9 /* Home.Map.swift */; };
+		CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Media.xcassets */; };
 		CEF8398D276B674900134178 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8398C276B674900134178 /* App.swift */; };
 		CEF83991276B674900134178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF83990276B674900134178 /* Assets.xcassets */; };
 		CEF8399A276B695200134178 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEF83999276B695200134178 /* Selene */; };
@@ -27,6 +28,7 @@
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
 		CEE3400F277202C9005A99E9 /* Home.Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Map.swift; sourceTree = "<group>"; };
+		CEE3401227721C2A005A99E9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF83989276B674900134178 /* Moonhealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonhealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8398C276B674900134178 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEF83990276B674900134178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +54,16 @@
 			children = (
 				CEF8398B276B674900134178 /* iOS */,
 				CEF8398A276B674900134178 /* Products */,
+				CEE3401127721C19005A99E9 /* Shared */,
 			);
+			sourceTree = "<group>";
+		};
+		CEE3401127721C19005A99E9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3401227721C2A005A99E9 /* Media.xcassets */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CEF8398A276B674900134178 /* Products */ = {
@@ -145,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */,
 				CEF83991276B674900134178 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

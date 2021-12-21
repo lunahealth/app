@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let radius = 74.0
+private let radius = 28.0
 private let radius2 = radius + radius
 
 extension Home {
@@ -12,20 +12,18 @@ extension Home {
         var body: some View {
             Canvas { context, size in
                 
-                let center = CGPoint(x: size.width / 2, y: 200)
-                
+                /*
+                let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 context.translateBy(x: center.x, y: center.y)
                 context.rotate(by: .radians(.pi / 2 - moon.angle))
                 context.translateBy(x: -center.x, y: -center.y)
                 
                 context.fill(.init {
-                    $0.move(to: center)
                     $0.addArc(center: center,
-                              radius: 75,
+                              radius: radius + 1,
                               startAngle: .degrees(0),
                               endAngle: .degrees(360),
                               clockwise: false)
-                    $0.closeSubpath()
                 }, with: .color(.init(.quaternarySystemFill)))
                 
                 switch moon.phase {
@@ -84,6 +82,7 @@ extension Home {
                 }
                 
                 context.draw(image, at: center)
+                 */
             }
         }
     }

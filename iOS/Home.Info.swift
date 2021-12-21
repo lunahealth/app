@@ -45,17 +45,13 @@ extension Home {
                 }
                 .padding(.top)
                 
-                HStack {
-                    Text(moon.fraction, format: .number)
-                        .font(.callout.monospaced())
-                    + Text("%  ")
-                        .foregroundColor(.secondary)
-                        .font(.caption2)
-                    + Text(phase)
-                        .font(.callout)
-                }
-                
-                Spacer()
+                Text(moon.fraction, format: .number)
+                    .font(.callout.monospaced())
+                + Text("%  ")
+                    .foregroundColor(.secondary)
+                    .font(.caption2)
+                + Text(phase)
+                    .font(.callout)
             }
         }
         
