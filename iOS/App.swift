@@ -2,8 +2,6 @@ import SwiftUI
 
 @main struct App: SwiftUI.App {
     var body: some Scene {
-        WindowGroup {
-            Display()
-        }
+        WindowGroup(content: Window.init)
     }
 }
