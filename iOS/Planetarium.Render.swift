@@ -15,7 +15,7 @@ extension Planetarium {
                 let center = CGPoint(x: size.width / 2, y: 200)
                 
                 context.translateBy(x: center.x, y: center.y)
-                context.rotate(by: .radians(abs(moon.angle) - .pi / 2))
+                context.rotate(by: .radians(.pi / 2 - moon.angle))
                 context.translateBy(x: -center.x, y: -center.y)
                 
                 context.fill(.init {
@@ -38,48 +38,8 @@ extension Planetarium {
                                   endAngle: .degrees(0),
                                   clockwise: false)
                     })
-                
-                case .waxingCrescent:
-                    let top = CGPoint(x: center.x, y: center.y - radius)
-                    let delta = radius * (1 - (.init(moon.fraction) / 50.0))
-                    let horizontal = delta * 1.25
-                    let vertical = delta / 1.25
                     
-                    context.clip(to: .init {
-                        $0.move(to: top)
-                        $0.addArc(center: center,
-                                  radius: radius,
-                                  startAngle: .degrees(-90),
-                                  endAngle: .degrees(90),
-                                  clockwise: false)
-                        $0.addCurve(to: top,
-                                    control1: .init(x: center.x + horizontal, y: center.y + vertical),
-                                    control2: .init(x: center.x + horizontal, y: center.y - vertical))
-                    })
-                    
-                case .firstQuarter:
-                    context.clip(to: .init {
-                        $0.move(to: center)
-                        $0.addArc(center: center,
-                                  radius: radius,
-                                  startAngle: .degrees(-90),
-                                  endAngle: .degrees(90),
-                                  clockwise: false)
-                    })
-                    
-                case .waxingGibbous:
-                    let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
-                                 
-                    context.clip(to: .init {
-                        $0.move(to: center)
-                        $0.addEllipse(in: .init(
-                            x: center.x - radius + delta,
-                            y: center.y - radius - delta,
-                            width: radius2,
-                            height: radius2 + delta * 2))
-                    })
-                    
-                case .waningGibbous:
+                case .waxingGibbous, .waningGibbous:
                     let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
                                  
                     context.clip(to: .init {
@@ -91,7 +51,7 @@ extension Planetarium {
                             height: radius2 + delta * 2))
                     })
                     
-                case .lastQuarter:
+                case .firstQuarter, .lastQuarter:
                     context.clip(to: .init {
                         $0.move(to: center)
                         $0.addArc(center: center,
@@ -101,7 +61,7 @@ extension Planetarium {
                                   clockwise: false)
                     })
                     
-                case .waningCrescent:
+                case .waxingCrescent, .waningCrescent:
                     let bottom = CGPoint(x: center.x, y: center.y + radius)
                     let delta = radius * (1 - (.init(moon.fraction) / 50.0))
                     let horizontal = delta * 1.25
@@ -127,5 +87,4 @@ extension Planetarium {
             }
         }
     }
-
 }
