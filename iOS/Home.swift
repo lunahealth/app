@@ -15,10 +15,10 @@ struct Home: View {
                     .stroke(Color(.tertiaryLabel), style: .init(lineWidth: 20))
                     .shadow(color: .init("Shadow"), radius: 10)
                     .opacity(0.2)
-                    .padding()
                     .padding(.horizontal, 50)
                 Map(moon: $moon)
             }
+            .padding()
         }
         .onAppear(perform: update)
         .onChange(of: date) { _ in

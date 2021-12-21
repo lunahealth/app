@@ -1,6 +1,7 @@
 import SwiftUI
 import Selene
 
+private let dayLapse = .pi * 2 / 29.53
 private let radius = 28.0
 private let radius2 = radius + radius
 
@@ -12,8 +13,14 @@ extension Home {
         var body: some View {
             Canvas { context, size in
                 
-                /*
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
+                let side = min(size.width, size.height) / 2 - 50
+                
+                draw(day: 0, context: &context, side: side, center: center)
+                draw(day: 11, context: &context, side: side, center: center)
+                
+                /*
+                
                 context.translateBy(x: center.x, y: center.y)
                 context.rotate(by: .radians(.pi / 2 - moon.angle))
                 context.translateBy(x: -center.x, y: -center.y)
@@ -29,7 +36,6 @@ extension Home {
                 switch moon.phase {
                 case .new:
                     context.clip(to: .init {
-                        $0.move(to: center)
                         $0.addArc(center: center,
                                   radius: radius,
                                   startAngle: .degrees(0),
@@ -41,7 +47,6 @@ extension Home {
                     let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
                                  
                     context.clip(to: .init {
-                        $0.move(to: center)
                         $0.addEllipse(in: .init(
                             x: center.x - radius - delta,
                             y: center.y - radius - delta,
@@ -51,7 +56,6 @@ extension Home {
                     
                 case .firstQuarter, .lastQuarter:
                     context.clip(to: .init {
-                        $0.move(to: center)
                         $0.addArc(center: center,
                                   radius: radius,
                                   startAngle: .degrees(90),
@@ -84,6 +88,25 @@ extension Home {
                 context.draw(image, at: center)
                  */
             }
+        }
+        
+        private func draw(day: Double, context: inout GraphicsContext, side: CGFloat, center: CGPoint) {
+            context.fill(.init {
+                let radians = day * dayLapse + .pi / 2
+                var pos = Path()
+                pos.addArc(center: center,
+                           radius: side,
+                           startAngle: .radians(radians),
+                          endAngle: .radians(radians),
+                          clockwise: false)
+                let point = pos.currentPoint!
+                
+                $0.addArc(center: point,
+                          radius: 10,
+                           startAngle: .degrees(0),
+                          endAngle: .degrees(360),
+                          clockwise: true)
+            }, with: .color(.primary))
         }
     }
 }
