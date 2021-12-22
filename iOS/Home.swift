@@ -9,14 +9,14 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            Info(date: $date, moon: $moon)
+            Info(date: $date, moon: moon)
             ZStack {
                 Circle()
                     .stroke(Color(.tertiaryLabel), style: .init(lineWidth: 20))
                     .shadow(color: .init("Shadow"), radius: 10)
                     .opacity(0.2)
                     .padding(.horizontal, 50)
-                Map(moon: $moon)
+                Wheel(date: $date, moon: moon, wheel: .init(date: date, moon: moon))
             }
             .padding()
         }

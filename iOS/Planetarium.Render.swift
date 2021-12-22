@@ -15,7 +15,7 @@ extension Planetarium {
                 let center = CGPoint(x: size.width / 2, y: 200)
                 
                 context.translateBy(x: center.x, y: center.y)
-                context.rotate(by: .radians(.pi / 2 - moon.angle))
+                context.rotate(by: .radians(.pi_2 - moon.angle))
                 context.translateBy(x: -center.x, y: -center.y)
                 
                 context.fill(.init {

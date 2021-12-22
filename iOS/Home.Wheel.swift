@@ -1,13 +1,14 @@
 import SwiftUI
 import Selene
 
-private let dayLapse = .pi * 2 / 29.53
 private let radius = 28.0
 private let radius2 = radius + radius
 
 extension Home {
-    struct Map: View {
-        @Binding var moon: Moon
+    struct Wheel: View {
+        @Binding var date: Date
+        let moon: Moon
+        let wheel: Selene.Wheel
         private let image = Image("Moon")
         
         var body: some View {
@@ -15,14 +16,12 @@ extension Home {
                 
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 let side = min(size.width, size.height) / 2 - 50
-                
-                draw(day: 0, context: &context, side: side, center: center)
-                draw(day: 11, context: &context, side: side, center: center)
+                draw(radians: wheel.progress + .pi_2, context: &context, side: side, center: center)
                 
                 /*
                 
                 context.translateBy(x: center.x, y: center.y)
-                context.rotate(by: .radians(.pi / 2 - moon.angle))
+                context.rotate(by: .radians(.pi_2 - moon.angle))
                 context.translateBy(x: -center.x, y: -center.y)
                 
                 context.fill(.init {
@@ -90,9 +89,8 @@ extension Home {
             }
         }
         
-        private func draw(day: Double, context: inout GraphicsContext, side: CGFloat, center: CGPoint) {
+        private func draw(radians: Double, context: inout GraphicsContext, side: CGFloat, center: CGPoint) {
             context.fill(.init {
-                let radians = day * dayLapse + .pi / 2
                 var pos = Path()
                 pos.addArc(center: center,
                            radius: side,

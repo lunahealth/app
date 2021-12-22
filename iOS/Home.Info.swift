@@ -4,7 +4,7 @@ import Selene
 extension Home {
     struct Info: View {
         @Binding var date: Date
-        @Binding var moon: Moon
+        let moon: Moon
         
         var body: some View {
             VStack(spacing: 20) {

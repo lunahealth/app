@@ -12,7 +12,7 @@
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
-		CEE34010277202C9005A99E9 /* Home.Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400F277202C9005A99E9 /* Home.Map.swift */; };
+		CEE34010277202C9005A99E9 /* Home.Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400F277202C9005A99E9 /* Home.Wheel.swift */; };
 		CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Media.xcassets */; };
 		CEF8398D276B674900134178 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8398C276B674900134178 /* App.swift */; };
 		CEF83991276B674900134178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF83990276B674900134178 /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
-		CEE3400F277202C9005A99E9 /* Home.Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Map.swift; sourceTree = "<group>"; };
+		CEE3400F277202C9005A99E9 /* Home.Wheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Wheel.swift; sourceTree = "<group>"; };
 		CEE3401227721C2A005A99E9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF83989276B674900134178 /* Moonhealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonhealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8398C276B674900134178 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				CEF8398C276B674900134178 /* App.swift */,
 				CEF8399C276B6CFE00134178 /* Display.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
-				CEE3400F277202C9005A99E9 /* Home.Map.swift */,
+				CEE3400F277202C9005A99E9 /* Home.Wheel.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
@@ -170,7 +170,7 @@
 			files = (
 				CEF8399D276B6CFE00134178 /* Display.swift in Sources */,
 				CEF8398D276B674900134178 /* App.swift in Sources */,
-				CEE34010277202C9005A99E9 /* Home.Map.swift in Sources */,
+				CEE34010277202C9005A99E9 /* Home.Wheel.swift in Sources */,
 				CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */,
 				CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */,
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
