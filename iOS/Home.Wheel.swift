@@ -6,7 +6,7 @@ private let radius2 = radius + radius
 
 extension Home {
     struct Wheel: View {
-        @Binding var date: Date
+        let date: Date
         let moon: Moon
         let wheel: Selene.Wheel
         private let image = Image("Moon")
@@ -100,7 +100,7 @@ extension Home {
                 let point = pos.currentPoint!
                 
                 $0.addArc(center: point,
-                          radius: 10,
+                          radius: 28,
                            startAngle: .degrees(0),
                           endAngle: .degrees(360),
                           clockwise: true)

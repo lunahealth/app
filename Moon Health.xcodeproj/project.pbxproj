@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
 		CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
 		CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.Render.swift; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				CEF8399C276B6CFE00134178 /* Display.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Wheel.swift */,
+				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF8399D276B6CFE00134178 /* Display.swift in Sources */,
+				CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */,
 				CEF8398D276B674900134178 /* App.swift in Sources */,
 				CEE34010277202C9005A99E9 /* Home.Wheel.swift in Sources */,
 				CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */,
