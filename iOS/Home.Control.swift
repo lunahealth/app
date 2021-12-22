@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let radius = 40.0
+private let radius = 60.0
 
 extension Home {
     struct Control: View {
@@ -21,6 +21,7 @@ extension Home {
                         DragGesture(coordinateSpace: .local)
                             .updating($source) { value, state, _ in
                                 
+                                
                                 guard let s = state else {
                                     let origin = wheel.point.origin(size: proxy.size, padding: 50)
                                     if abs(origin.x - value.location.x) < radius
@@ -34,8 +35,14 @@ extension Home {
 //                                    .angleToPoint
                                 let rads = CGPoint(x: proxy.size.width / 2, y: proxy.size.height / 2).angleToPoint(pointOnCircle: value.location)
                                 
-                                date = wheel.move(radians: rads - s)
-                                state = rads
+                                print("\(rads) - \(s)")
+                                var delta = rads - s
+                                if abs(delta) > .pi {
+                                    delta += .pi2
+                                    print(delta)
+                                }
+                                date = wheel.move(radians: delta)
+                                state = nil
                             }
                     )
             }
@@ -54,7 +61,7 @@ extension CGPoint {
             let originY = self.y - pointOnCircle.y
         var radians = atan2(originX, originY) - .pi_2
             
-            while radians < 0 {
+            if radians < 0 {
                 radians += CGFloat(2 * Double.pi)
             }
             
