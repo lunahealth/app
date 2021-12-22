@@ -21,7 +21,7 @@ extension Home {
                         DragGesture(coordinateSpace: .local)
                             .updating($source) { value, state, _ in
                                 
-                                guard let state = state else {
+                                guard let s = state else {
                                     let origin = wheel.point.origin(size: proxy.size, padding: 50)
                                     if abs(origin.x - value.location.x) < radius
                                         && abs(origin.y - value.location.y) < radius {
@@ -29,11 +29,13 @@ extension Home {
                                     }
                                     return
                                 }
-                                 let rads = CGPoint(x: value.location.x - proxy.size.width / 2,
-                                                     y: (proxy.size.height / 2) - value.location.y)
-                                    .radians
+//                                 let rads = CGPoint(x: value.location.x - proxy.size.width / 2,
+//                                                     y: (proxy.size.height / 2) - value.location.y)
+//                                    .angleToPoint
+                                let rads = CGPoint(x: proxy.size.width / 2, y: proxy.size.height / 2).angleToPoint(pointOnCircle: value.location)
                                 
-                                print("\(rads) - \(wheel.radians)")
+                                date = wheel.move(radians: rads - s)
+                                state = rads
                             }
                     )
             }
@@ -45,4 +47,17 @@ extension CGPoint {
     var radians: CGFloat {
         atan2(x, y)
     }
+    
+    func angleToPoint(pointOnCircle: CGPoint) -> CGFloat {
+            
+            let originX =  pointOnCircle.x - self.x
+            let originY = self.y - pointOnCircle.y
+        var radians = atan2(originX, originY) - .pi_2
+            
+            while radians < 0 {
+                radians += CGFloat(2 * Double.pi)
+            }
+            
+            return radians
+        }
 }
