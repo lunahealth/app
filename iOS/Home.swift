@@ -5,14 +5,14 @@ struct Home: View {
     weak var observatory: Observatory!
     @State private var date = Date.now
     @State private var moon = Moon.new
-    @State private var wheel = Selene.Wheel(date: .now, moon: .new)
+    @State private var wheel = Wheel(date: .now, moon: .new, correction: .pi_2)
     private let location = Coords(coordinate: .init(latitude: 52.498252, longitude: 13.423622))
     
     var body: some View {
         VStack {
             Info(date: $date, moon: moon)
             ZStack {
-                Wheel(date: date, moon: moon, wheel: wheel)
+                Render(date: date, moon: moon, wheel: wheel)
                 Control(date: $date, wheel: wheel)
             }
             .padding()
@@ -26,7 +26,7 @@ struct Home: View {
     private func update() {
         Task {
             moon = await observatory.moon(input: .init(date: date, coords: location))
-            wheel = .init(date: date, moon: moon)
+            wheel = .init(date: date, moon: moon, correction: .pi_2)
         }
     }
 }

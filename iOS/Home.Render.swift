@@ -5,18 +5,30 @@ private let radius = 28.0
 private let radius2 = radius + radius
 
 extension Home {
-    struct Wheel: View {
+    struct Render: View {
         let date: Date
         let moon: Moon
-        let wheel: Selene.Wheel
+        let wheel: Wheel
         private let image = Image("Moon")
         
         var body: some View {
             Canvas { context, size in
-                
-                let center = CGPoint(x: size.width / 2, y: size.height / 2)
-                let side = min(size.width, size.height) / 2 - 50
-                draw(radians: wheel.progress + .pi_2, context: &context, side: side, center: center)
+
+                context.fill(.init {
+    //                var pos = Path()
+    //                pos.addArc(center: center,
+    //                           radius: side,
+    //                           startAngle: .radians(radians),
+    //                          endAngle: .radians(radians),
+    //                          clockwise: false)
+    //                let point = pos.currentPoint!
+                    
+                    $0.addArc(center: wheel.point.origin(size: size, padding: 50),
+                              radius: 28,
+                               startAngle: .degrees(0),
+                              endAngle: .degrees(360),
+                              clockwise: true)
+                }, with: .color(.primary))
                 
                 /*
                 
@@ -87,24 +99,6 @@ extension Home {
                 context.draw(image, at: center)
                  */
             }
-        }
-        
-        private func draw(radians: Double, context: inout GraphicsContext, side: CGFloat, center: CGPoint) {
-            context.fill(.init {
-                var pos = Path()
-                pos.addArc(center: center,
-                           radius: side,
-                           startAngle: .radians(radians),
-                          endAngle: .radians(radians),
-                          clockwise: false)
-                let point = pos.currentPoint!
-                
-                $0.addArc(center: point,
-                          radius: 28,
-                           startAngle: .degrees(0),
-                          endAngle: .degrees(360),
-                          clockwise: true)
-            }, with: .color(.primary))
         }
     }
 }
