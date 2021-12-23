@@ -1,6 +1,8 @@
 import SwiftUI
 import Selene
 
+private let pad = 50.0
+
 extension Home {
     struct Control: View {
         @Binding var date: Date
@@ -13,7 +15,7 @@ extension Home {
                     .stroke(Color(.tertiaryLabel), style: .init(lineWidth: 20))
                     .shadow(color: .init("Shadow"), radius: 10)
                     .opacity(0.2)
-                    .padding(.horizontal, 50)
+                    .padding(pad)
                     .contentShape(Rectangle())
                     .onChange(of: proxy.size, perform: update(size:))
                     .onChange(of: moon) { _ in
@@ -35,7 +37,7 @@ extension Home {
         }
         
         private func update(size: CGSize) {
-            wheel = .init(date: date, moon: moon, correction: .pi_2, size: size, padding: 50)
+            wheel = .init(date: date, moon: moon, correction: .pi_2, size: size, padding: pad)
         }
     }
 }

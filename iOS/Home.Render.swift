@@ -3,7 +3,7 @@ import Selene
 
 private let radius = 28.0
 private let radius2 = radius + radius
-private let movement = 2.0
+private let movement = 3.0
 
 extension Home {
     struct Render: View {
