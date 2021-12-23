@@ -29,9 +29,9 @@ struct Display: View {
     }
     
     private func update() {
-        Task {
-            moon = await observatory.moon(input: .init(date: test, coords: location))
-            print(moon!.angle)
-        }
+//        Task {
+//            moon = await observatory.moon(input: .init(date: test, coords: location))
+//            print(moon!.angle)
+//        }
     }
 }

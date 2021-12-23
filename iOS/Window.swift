@@ -2,11 +2,11 @@ import SwiftUI
 import Selene
 
 struct Window: View {
-    private let observatory = Observatory()
+    @State private var observatory = Observatory()
     
     var body: some View {
         TabView {
-            Home(observatory: observatory)
+            Home(observatory: $observatory)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

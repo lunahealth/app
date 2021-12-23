@@ -23,7 +23,7 @@ extension Home {
     //                          clockwise: false)
     //                let point = pos.currentPoint!
                     
-                    $0.addArc(center: wheel.point.origin(size: size, padding: 50),
+                    $0.addArc(center: wheel.origin(size: size, padding: 50),
                               radius: 28,
                                startAngle: .degrees(0),
                               endAngle: .degrees(360),

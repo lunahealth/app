@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 struct Home: View {
-    weak var observatory: Observatory!
+    @Binding var observatory: Observatory
     @State private var date = Date.now
     @State private var moon = Moon.new
     @State private var wheel = Wheel(date: .now, moon: .new, correction: .pi_2)
@@ -24,9 +24,7 @@ struct Home: View {
     }
     
     private func update() {
-        Task {
-            moon = await observatory.moon(input: .init(date: date, coords: location))
-            wheel = .init(date: date, moon: moon, correction: .pi_2)
-        }
+        moon = observatory.moon(input: .init(date: date, coords: location))
+        wheel = .init(date: date, moon: moon, correction: .pi_2)
     }
 }
