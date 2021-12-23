@@ -3,32 +3,21 @@ import Selene
 
 private let radius = 28.0
 private let radius2 = radius + radius
-private let movement = 2.5
+private let movement = 2.0
 
 extension Home {
     struct Render: View {
         let moon: Moon
         let point: CGPoint
         @State var current: CGPoint
-        private let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+        private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
         private let image = Image("Moon")
         
         var body: some View {
             
             Canvas { context, size in
-                
-                
-                
                 context.fill(.init {
-                    //                var pos = Path()
-                    //                pos.addArc(center: center,
-                    //                           radius: side,
-                    //                           startAngle: .radians(radians),
-                    //                          endAngle: .radians(radians),
-                    //                          clockwise: false)
-                    //                let point = pos.currentPoint!
-                    
                     $0.addArc(center: current,
                               radius: radius,
                               startAngle: .degrees(0),
@@ -108,7 +97,7 @@ extension Home {
             .onReceive(timer) { _ in
                 let deltaX = point.x - current.x
                 let deltaY = point.y - current.y
-                
+
                 if deltaX != 0 {
                     if abs(deltaX) > movement {
                         current.x += deltaX > 0 ? movement : -movement
@@ -116,7 +105,7 @@ extension Home {
                         current.x = point.x
                     }
                 }
-                
+
                 if deltaY != 0 {
                     if abs(deltaY) > movement {
                         current.y += deltaY > 0 ? movement : -movement

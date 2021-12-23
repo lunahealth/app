@@ -27,6 +27,7 @@ extension Home {
                             .onChanged { value in
                                 if let move = wheel?.move(point: value.location) {
                                     date = move
+                                    print("update")
                                 }
                             }
                     )
