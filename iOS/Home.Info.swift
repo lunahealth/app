@@ -43,7 +43,6 @@ extension Home {
                             .frame(width: 50, height: 50)
                     }
                 }
-                .padding(.top)
                 
                 Text(moon.fraction, format: .number)
                     .font(.callout.monospaced())

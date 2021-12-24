@@ -7,19 +7,16 @@ struct Home: View {
     @State private var moon: Moon?
     @State private var wheel: Wheel?
     private let location = Coords(coordinate: .init(latitude: 52.498252, longitude: 13.423622))
+    @Environment(\.verticalSizeClass) private var vertical
     
     var body: some View {
         VStack {
             if let moon = moon {
-                Info(date: $date, moon: moon)
-                ZStack {
-                    Control(date: $date, wheel: $wheel, moon: moon)
-                    if let wheel = wheel {
-                        Render(moon: moon, wheel: wheel, current: wheel.origin)
-                            .allowsHitTesting(false)
-                    }
+                if vertical == .compact {
+                    Compact(date: $date, wheel: $wheel, moon: moon)
+                } else {
+                    Standard(date: $date, wheel: $wheel, moon: moon)
                 }
-                .padding()
             }
         }
         .onChange(of: date) {
