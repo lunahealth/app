@@ -21,13 +21,15 @@ struct Home: View {
                 .padding()
             }
         }
-        .onAppear(perform: update)
-        .onChange(of: date) { _ in
-            update()
+        .onChange(of: date) {
+            update(date: $0)
+        }
+        .onAppear {
+            update(date: date)
         }
     }
     
-    private func update() {
+    private func update(date: Date) {
         moon = observatory.moon(input: .init(date: date, coords: location))
     }
 }

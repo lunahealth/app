@@ -17,12 +17,14 @@ extension Home {
                     .opacity(0.2)
                     .padding(pad)
                     .contentShape(Rectangle())
-                    .onChange(of: proxy.size, perform: update(size:))
-                    .onChange(of: moon) { _ in
-                        update(size: proxy.size)
+                    .onChange(of: proxy.size) {
+                        update(moon: moon, size: $0)
+                    }
+                    .onChange(of: moon) {
+                        update(moon: $0, size: proxy.size)
                     }
                     .onAppear {
-                        update(size: proxy.size)
+                        update(moon: moon, size: proxy.size)
                     }
                     .gesture(
                         DragGesture(coordinateSpace: .local)
@@ -36,8 +38,9 @@ extension Home {
             }
         }
         
-        private func update(size: CGSize) {
+        private func update(moon: Moon, size: CGSize) {
             wheel = .init(date: date, moon: moon, correction: .pi_2, size: size, padding: pad)
+            print(wheel?.origin)
         }
     }
 }
