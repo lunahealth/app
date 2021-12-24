@@ -3,15 +3,13 @@ import Selene
 
 private let radius = 28.0
 private let radius2 = radius + radius
-private let movement = 1.0
 
 extension Home {
     struct Render: View {
         let moon: Moon
-        let point: CGPoint
+        let wheel: Wheel
         @State var current: CGPoint
         private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-        
         private let image = Image("Moon")
         
         var body: some View {
@@ -95,23 +93,8 @@ extension Home {
                  */
             }
             .onReceive(timer) { _ in
-                let deltaX = point.x - current.x
-                let deltaY = point.y - current.y
-
-                if deltaX != 0 {
-                    if abs(deltaX) > movement {
-                        current.x += deltaX > 0 ? movement : -movement
-                    } else {
-                        current.x = point.x
-                    }
-                }
-
-                if deltaY != 0 {
-                    if abs(deltaY) > movement {
-                        current.y += deltaY > 0 ? movement : -movement
-                    } else {
-                        current.y = point.y
-                    }
+                if wheel.origin != current {
+                    current = wheel.approach(from: current)
                 }
             }
         }

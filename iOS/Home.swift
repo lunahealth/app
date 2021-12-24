@@ -14,7 +14,7 @@ struct Home: View {
                 Info(date: $date, moon: moon)
                 ZStack {
                     if let wheel = wheel {
-                        Render(moon: moon, point: wheel.origin, current: wheel.origin)
+                        Render(moon: moon, wheel: wheel, current: wheel.origin)
                     }
                     Control(date: $date, wheel: $wheel, moon: moon)
                 }

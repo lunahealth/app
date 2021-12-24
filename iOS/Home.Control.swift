@@ -31,7 +31,6 @@ extension Home {
                             .onChanged { value in
                                 if let move = wheel?.move(point: value.location) {
                                     date = move
-                                    print("update")
                                 }
                             }
                     )
@@ -40,7 +39,6 @@ extension Home {
         
         private func update(moon: Moon, size: CGSize) {
             wheel = .init(date: date, moon: moon, correction: .pi_2, size: size, padding: pad)
-            print(wheel?.origin)
         }
     }
 }
