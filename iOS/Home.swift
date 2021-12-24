@@ -13,10 +13,11 @@ struct Home: View {
             if let moon = moon {
                 Info(date: $date, moon: moon)
                 ZStack {
+                    Control(date: $date, wheel: $wheel, moon: moon)
                     if let wheel = wheel {
                         Render(moon: moon, wheel: wheel, current: wheel.origin)
+                            .allowsHitTesting(false)
                     }
-                    Control(date: $date, wheel: $wheel, moon: moon)
                 }
                 .padding()
             }
