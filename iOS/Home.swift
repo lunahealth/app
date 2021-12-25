@@ -19,6 +19,10 @@ struct Home: View {
                 }
             }
         }
+        .background(Image("Background")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all))
         .onChange(of: date) {
             update(date: $0)
         }

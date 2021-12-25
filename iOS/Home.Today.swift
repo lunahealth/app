@@ -11,7 +11,7 @@ extension Home {
             } label: {
                 if !date.today {
                     Label("Today", systemImage: date < .now ? "arrow.forward" : "arrow.backward")
-                        .font(.callout)
+                        .font(.caption)
                 }
             }
             .buttonStyle(.bordered)

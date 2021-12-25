@@ -24,7 +24,7 @@ extension Home {
                               startAngle: .degrees(0),
                               endAngle: .degrees(360),
                               clockwise: false)
-                }, with: .color(.primary))
+                }, with: .color(.black))
                 
                 switch moon.phase {
                 case .new:
