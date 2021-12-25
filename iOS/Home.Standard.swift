@@ -12,7 +12,6 @@ extension Home {
                 .padding(.top)
             Spacer()
             Main(date: $date, wheel: $wheel, moon: moon)
-//                .padding(.horizontal)
             Today(date: $date)
             Spacer()
         }
