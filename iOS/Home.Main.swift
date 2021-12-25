@@ -7,6 +7,7 @@ extension Home {
         @Binding var wheel: Wheel?
         let moon: Moon
         @State private var track = false
+        @State private var alert = false
         
         var body: some View {
             ZStack {
@@ -16,7 +17,11 @@ extension Home {
                         .allowsHitTesting(false)
                 }
                 Button {
-                    track = true
+                    if date.trackable {
+                        track = true
+                    } else {
+                        alert = true
+                    }
                 } label: {
                     VStack {
                         Image(systemName: "plus.circle")
@@ -24,12 +29,18 @@ extension Home {
                         Text("Track")
                             .font(.footnote)
                     }
+                    .opacity(date.trackable ? 1 : 0.3)
                     .foregroundColor(.primary)
                     .contentShape(Rectangle())
                 }
-                .disabled(!date.trackable)
-                .opacity(date.trackable ? 1 : 0.3)
-                .sheet(isPresented: $track, content: Track.init)
+                .alert(date > .now ? "You can't track in the future" : "You can't track more than a week ago", isPresented: $alert) {
+                    Button("OK", role: .cancel) {
+                        
+                    }
+                }
+                .sheet(isPresented: $track) {
+                    Track(date: $date, week: Calendar.current.trackingWeek)
+                }
             }
             .frame(maxWidth: 450, maxHeight: 450)
         }
