@@ -11,6 +11,7 @@
 		CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588D2775F54D00B35407 /* Home.Compact.swift */; };
 		CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588F2775F7DE00B35407 /* Home.Today.swift */; };
 		CE1F58922775F83300B35407 /* Home.Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F58912775F83300B35407 /* Home.Main.swift */; };
+		CEA1E82727775A8400AFD07B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1E82627775A8400AFD07B /* Track.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
 		CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */; };
@@ -31,6 +32,7 @@
 		CE1F588D2775F54D00B35407 /* Home.Compact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Compact.swift; sourceTree = "<group>"; };
 		CE1F588F2775F7DE00B35407 /* Home.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Today.swift; sourceTree = "<group>"; };
 		CE1F58912775F83300B35407 /* Home.Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Main.swift; sourceTree = "<group>"; };
+		CEA1E82627775A8400AFD07B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
 		CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.Render.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
+				CEA1E82627775A8400AFD07B /* Track.swift */,
 				CEE340092771EA6D005A99E9 /* Window.swift */,
 				CEF83990276B674900134178 /* Assets.xcassets */,
 			);
@@ -194,6 +197,7 @@
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
 				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
+				CEA1E82727775A8400AFD07B /* Track.swift in Sources */,
 				CE1F588C2775F54600B35407 /* Home.Standard.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
 				CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */,
