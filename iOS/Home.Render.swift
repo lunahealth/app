@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let radius = 28.0
+private let radius = 34.0
 private let radius2 = radius + radius
 
 extension Home {
@@ -10,6 +10,7 @@ extension Home {
         let wheel: Wheel
         @State var current: CGPoint
         private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+        private let shadow = Image("Shadow")
         private let image = Image("Moon")
         
         var body: some View {
@@ -18,13 +19,7 @@ extension Home {
                 context.rotate(by: .radians(.pi_2 - moon.angle))
                 context.translateBy(x: -current.x, y: -current.y)
                 
-                context.fill(.init {
-                    $0.addArc(center: current,
-                              radius: radius + 1,
-                              startAngle: .degrees(0),
-                              endAngle: .degrees(360),
-                              clockwise: false)
-                }, with: .color(.black))
+                context.draw(shadow, at: current)
                 
                 switch moon.phase {
                 case .new:
@@ -37,16 +32,6 @@ extension Home {
                     })
                     
                 case .waxingGibbous, .waningGibbous:
-//                    let delta = radius2 * (1 - (.init(moon.fraction) / 100.0))
-//
-//                    context.clip(to: .init {
-//                        $0.addEllipse(in: .init(
-//                            x: current.x - radius - delta,
-//                            y: current.y - radius - delta,
-//                            width: radius2,
-//                            height: radius2 + delta * 2))
-//                    })
-                    
                     let bottom = CGPoint(x: current.x, y: current.y + radius)
                     let delta = radius * (1 - (.init(moon.fraction) / 50.0))
                     let horizontal = delta * 1.25

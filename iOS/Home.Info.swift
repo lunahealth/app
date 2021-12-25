@@ -16,6 +16,7 @@ extension Home {
                             .font(.title2)
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
+                            .foregroundColor(.primary)
                     }
 
                     Button {
@@ -41,6 +42,7 @@ extension Home {
                             .font(.title2)
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
+                            .foregroundColor(.primary)
                     }
                 }
                 
