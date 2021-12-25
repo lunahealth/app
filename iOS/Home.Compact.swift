@@ -13,10 +13,10 @@ extension Home {
                     Info(date: $date, moon: moon)
                     Today(date: $date)
                 }
-                .frame(width: 300)
+                .frame(width: 250)
                 Main(date: $date, wheel: $wheel, moon: moon)
-                    .padding(.vertical)
             }
+            .frame(maxWidth: .greatestFiniteMagnitude)
         }
     }
 }
