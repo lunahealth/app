@@ -4,8 +4,8 @@ import Selene
 extension Home {
     struct Compact: View {
         @Binding var date: Date
-        @Binding var wheel: Wheel?
         let moon: Moon
+        let main: Main
         
         var body: some View {
             HStack {
@@ -14,7 +14,7 @@ extension Home {
                     Today(date: $date)
                 }
                 .frame(width: 250)
-                Main(date: $date, wheel: $wheel, moon: moon)
+                main
             }
             .frame(maxWidth: .greatestFiniteMagnitude)
         }

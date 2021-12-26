@@ -6,16 +6,25 @@ struct Home: View {
     @State private var date = Date.now
     @State private var moon: Moon?
     @State private var wheel: Wheel?
-    private let location = Coords(coordinate: .init(latitude: 52.498252, longitude: 13.423622))
     @Environment(\.verticalSizeClass) private var vertical
     
     var body: some View {
         VStack {
             if let moon = moon {
                 if vertical == .compact {
-                    Compact(date: $date, wheel: $wheel, moon: moon)
+                    Compact(date: $date,
+                            moon: moon,
+                            main: .init(observatory: $observatory,
+                                        date: $date,
+                                        wheel: $wheel,
+                                        moon: moon))
                 } else {
-                    Standard(date: $date, wheel: $wheel, moon: moon)
+                    Standard(date: $date,
+                             moon: moon,
+                             main: .init(observatory: $observatory,
+                                         date: $date,
+                                         wheel: $wheel,
+                                         moon: moon))
                 }
             }
         }
@@ -24,14 +33,10 @@ struct Home: View {
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all))
         .onChange(of: date) {
-            update(date: $0)
+            moon = observatory.moon(for: $0)
         }
         .onAppear {
-            update(date: date)
+            moon = observatory.moon(for: date)
         }
-    }
-    
-    private func update(date: Date) {
-        moon = observatory.moon(input: .init(date: date, coords: location))
     }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 struct Window: View {
-    @State private var observatory = Observatory()
+    @State private var observatory = Observatory(coords: .init(coordinate: .init(latitude: 52.498252, longitude: 13.423622)))
     
     var body: some View {
         TabView {
