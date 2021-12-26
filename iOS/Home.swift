@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 struct Home: View {
-    @Binding var observatory: Observatory
+    let observatory: Observatory
     @State private var date = Date.now
     @State private var moon: Moon?
     @State private var wheel: Wheel?
@@ -14,16 +14,16 @@ struct Home: View {
                 if vertical == .compact {
                     Compact(date: $date,
                             moon: moon,
-                            main: .init(observatory: $observatory,
-                                        date: $date,
+                            main: .init(date: $date,
                                         wheel: $wheel,
+                                        observatory: observatory,
                                         moon: moon))
                 } else {
                     Standard(date: $date,
                              moon: moon,
-                             main: .init(observatory: $observatory,
-                                         date: $date,
+                             main: .init(date: $date,
                                          wheel: $wheel,
+                                         observatory: observatory,
                                          moon: moon))
                 }
             }

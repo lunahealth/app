@@ -18,7 +18,7 @@ extension Track {
                     .frame(maxWidth: .greatestFiniteMagnitude)
                 }
             }
-            .padding(.top)
+            .padding(.vertical)
             .padding(.horizontal, 20)
             .frame(maxWidth: 520)
         }

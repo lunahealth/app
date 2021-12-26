@@ -3,9 +3,9 @@ import Selene
 
 extension Home {
     struct Main: View {
-        @Binding var observatory: Observatory
         @Binding var date: Date
         @Binding var wheel: Wheel?
+        let observatory: Observatory
         let moon: Moon
         @State private var track = false
         @State private var alert = false
@@ -40,7 +40,7 @@ extension Home {
                     }
                 }
                 .sheet(isPresented: $track) {
-                    Track(date: $date, week: observatory.week())
+                    Track(date: $date, week: observatory.week)
                 }
             }
             .frame(maxWidth: 450, maxHeight: 450)
