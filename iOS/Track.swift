@@ -11,6 +11,7 @@ struct Track: View {
         NavigationView {
             VStack {
                 Header(date: $date, week: week)
+                    .equatable()
                 TabView(selection: $selection) {
                     ForEach(week) { day in
                         Content(day: day)

@@ -21,6 +21,7 @@ extension Track.Header {
                     .font(current ? .caption : .caption2)
                     .foregroundColor(current ? .primary : .secondary)
             }
+            .animation(.easeInOut(duration: 0.4), value: current)
         }
     }
 }

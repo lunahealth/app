@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 extension Track {
-    struct Header: View {
+    struct Header: View, Equatable {
         @Binding var date: Date
         let week: [Day]
         
@@ -21,6 +21,10 @@ extension Track {
             .padding(.vertical)
             .padding(.horizontal, 20)
             .frame(maxWidth: 520)
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            true
         }
     }
 }
