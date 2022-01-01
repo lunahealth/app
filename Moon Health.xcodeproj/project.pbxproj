@@ -15,6 +15,7 @@
 		CE37BE28277876B1004D93D5 /* Track.Header.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */; };
 		CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2927787882004D93D5 /* GraphicsContext.swift */; };
 		CE37BE2C277892E4004D93D5 /* Track.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2B277892E4004D93D5 /* Track.Content.swift */; };
+		CE532FD827807F070043B111 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE532FD727807F070043B111 /* CloudKit.framework */; };
 		CEA1E82727775A8400AFD07B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1E82627775A8400AFD07B /* Track.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
@@ -39,6 +40,8 @@
 		CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.Option.swift; sourceTree = "<group>"; };
 		CE37BE2927787882004D93D5 /* GraphicsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsContext.swift; sourceTree = "<group>"; };
 		CE37BE2B277892E4004D93D5 /* Track.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Content.swift; sourceTree = "<group>"; };
+		CE532FD527807F030043B111 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		CE532FD727807F070043B111 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEA1E82627775A8400AFD07B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
@@ -61,18 +64,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF8399A276B695200134178 /* Selene in Frameworks */,
+				CE532FD827807F070043B111 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE532FD627807F070043B111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE532FD727807F070043B111 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE5360E0276B6710000D3EE9 = {
 			isa = PBXGroup;
 			children = (
 				CEF8398B276B674900134178 /* iOS */,
 				CEF8398A276B674900134178 /* Products */,
 				CEE3401127721C19005A99E9 /* Shared */,
+				CE532FD627807F070043B111 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +109,7 @@
 		CEF8398B276B674900134178 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
 				CEF8398C276B674900134178 /* App.swift */,
 				CE1F588D2775F54D00B35407 /* Home.Compact.swift */,
@@ -288,6 +302,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -367,6 +382,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_ASSET_PATHS = "";
