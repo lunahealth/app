@@ -24,15 +24,11 @@ extension Home {
                     } label: {
                         VStack {
                             Text(date, format: .dateTime.weekday(.wide))
-                                .font(.caption)
-                                .foregroundColor(.secondary)
                             Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
                             Text(relative)
-                                .font(.footnote)
-                                .foregroundColor(.primary)
                         }
+                        .font(.body)
+                        .foregroundColor(.primary)
                     }
                     
                     Button {
@@ -47,12 +43,11 @@ extension Home {
                 }
                 
                 Text(moon.fraction, format: .number)
-                    .font(.callout.monospaced())
+                    .font(.body.weight(.medium).monospacedDigit())
                 + Text("%  ")
-                    .foregroundColor(.secondary)
-                    .font(.caption2)
+                    .font(.caption)
                 + Text(phase)
-                    .font(.callout)
+                    .font(.body)
             }
         }
         

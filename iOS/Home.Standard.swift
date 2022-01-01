@@ -8,12 +8,11 @@ extension Home {
         let main: Main
         
         var body: some View {
-            Info(date: $date, moon: moon)
-                .padding(.top)
             Spacer()
+            Info(date: $date, moon: moon)
             main
             Today(date: $date)
-            Spacer()
+                .padding(.bottom, 40)
         }
     }
 }

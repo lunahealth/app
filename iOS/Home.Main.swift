@@ -26,9 +26,9 @@ extension Home {
                 } label: {
                     VStack {
                         Image(systemName: "plus.circle")
-                            .font(.title.weight(.light))
+                            .font(.title)
                         Text("Track")
-                            .font(.footnote)
+                            .font(.body.weight(.medium))
                     }
                     .opacity(date.trackable ? 1 : 0.3)
                     .foregroundColor(.primary)
