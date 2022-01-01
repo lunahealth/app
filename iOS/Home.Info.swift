@@ -13,29 +13,26 @@ extension Home {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
-                            .font(.title2)
+                            .font(.title)
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
                             .foregroundColor(.primary)
                     }
 
-                    Button {
-                        date = .now
-                    } label: {
-                        VStack {
-                            Text(date, format: .dateTime.weekday(.wide))
-                            Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                            Text(relative)
-                        }
-                        .font(.body)
-                        .foregroundColor(.primary)
+                    VStack {
+                        Text(date, format: .dateTime.weekday(.wide))
+                        Text(verbatim: date.formatted(date: .numeric, time: .omitted))
+                        Text(relative)
+                            .fontWeight(today ? .medium : .light)
                     }
+                    .font(.body)
+                    .frame(width: 150)
                     
                     Button {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
-                            .font(.title2)
+                            .font(.title)
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
                             .foregroundColor(.primary)
@@ -51,8 +48,12 @@ extension Home {
             }
         }
         
+        private var today: Bool {
+            Calendar.current.isDateInToday(date)
+        }
+        
         private var relative: String {
-            if Calendar.current.isDateInToday(date) {
+            if today {
                 return "Today"
             } else if Calendar.current.isDate(date, inSameDayAs: Calendar.current.date(byAdding: .day, value: -1, to: .now)!) {
                 return "Yesterday"

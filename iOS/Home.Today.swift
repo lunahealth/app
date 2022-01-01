@@ -11,11 +11,11 @@ extension Home {
             } label: {
                 if !date.today {
                     Label("Today", systemImage: date < .now ? "arrow.forward" : "arrow.backward")
-                        .font(.caption)
+                        .font(.footnote)
                 }
             }
             .buttonStyle(.bordered)
-            .tint(.secondary)
+            .tint(.primary)
             .opacity(date.today ? 0 : 1)
             .frame(height: 40)
             .allowsHitTesting(!date.today)
