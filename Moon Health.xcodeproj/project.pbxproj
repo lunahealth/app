@@ -30,6 +30,7 @@
 		CE9B399F278333BE0006E8AF /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B399E278333BE0006E8AF /* Copy.swift */; };
 		CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A0278334040006E8AF /* UIApplication.swift */; };
 		CE9B39A3278334270006E8AF /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A2278334270006E8AF /* Froob.swift */; };
+		CE9B39A527833A770006E8AF /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A427833A770006E8AF /* Trait.swift */; };
 		CEA1E82727775A8400AFD07B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1E82627775A8400AFD07B /* Track.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
@@ -70,6 +71,7 @@
 		CE9B399E278333BE0006E8AF /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CE9B39A0278334040006E8AF /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE9B39A2278334270006E8AF /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
+		CE9B39A427833A770006E8AF /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		CEA1E82627775A8400AFD07B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				CE9B3994278331930006E8AF /* Store.Item.swift */,
 				CE9B3992278331860006E8AF /* Store.State.swift */,
 				CE9B39902783317A0006E8AF /* Store.swift */,
+				CE9B39A427833A770006E8AF /* Trait.swift */,
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
@@ -270,6 +273,7 @@
 				CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */,
 				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
+				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
 				CE9B399D278333420006E8AF /* Status.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Onboard.swift in Sources */,
