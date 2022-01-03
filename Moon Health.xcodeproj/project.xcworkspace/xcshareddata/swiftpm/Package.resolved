@@ -2,11 +2,20 @@
   "object": {
     "pins": [
       {
+        "package": "Archivable",
+        "repositoryURL": "https://github.com/archivable/package.git",
+        "state": {
+          "branch": "main",
+          "revision": "66097a4804f84111d495294464e06a2ae18eaf60",
+          "version": null
+        }
+      },
+      {
         "package": "Selene",
         "repositoryURL": "https://github.com/lunahealth/selene.git",
         "state": {
           "branch": "main",
-          "revision": "b54cd597c54d48903e97396e1078f9a6a36bf359",
+          "revision": "ccd89d50f337f0d3a564018c3ca9a3d96a4ac541",
           "version": null
         }
       }
