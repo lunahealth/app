@@ -18,6 +18,18 @@
 		CE532FD827807F070043B111 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE532FD727807F070043B111 /* CloudKit.framework */; };
 		CE9B398527832CC20006E8AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398427832CC20006E8AF /* Settings.swift */; };
 		CE9B398727832E0B0006E8AF /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398627832E0B0006E8AF /* Onboard.swift */; };
+		CE9B398927832FB50006E8AF /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398827832FB50006E8AF /* Global.swift */; };
+		CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398A27832FEE0006E8AF /* App.Delegate.swift */; };
+		CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */; };
+		CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398E2783316D0006E8AF /* Transaction.swift */; };
+		CE9B39912783317A0006E8AF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39902783317A0006E8AF /* Store.swift */; };
+		CE9B3993278331860006E8AF /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B3992278331860006E8AF /* Store.State.swift */; };
+		CE9B3995278331930006E8AF /* Store.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B3994278331930006E8AF /* Store.Item.swift */; };
+		CE9B399B278333190006E8AF /* Status.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B399A278333190006E8AF /* Status.Modal.swift */; };
+		CE9B399D278333420006E8AF /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B399C278333420006E8AF /* Status.swift */; };
+		CE9B399F278333BE0006E8AF /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B399E278333BE0006E8AF /* Copy.swift */; };
+		CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A0278334040006E8AF /* UIApplication.swift */; };
+		CE9B39A3278334270006E8AF /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A2278334270006E8AF /* Froob.swift */; };
 		CEA1E82727775A8400AFD07B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1E82627775A8400AFD07B /* Track.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
@@ -46,6 +58,18 @@
 		CE532FD727807F070043B111 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE9B398427832CC20006E8AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE9B398627832E0B0006E8AF /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
+		CE9B398827832FB50006E8AF /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		CE9B398A27832FEE0006E8AF /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		CE9B398E2783316D0006E8AF /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		CE9B39902783317A0006E8AF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CE9B3992278331860006E8AF /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
+		CE9B3994278331930006E8AF /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
+		CE9B399A278333190006E8AF /* Status.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.Modal.swift; sourceTree = "<group>"; };
+		CE9B399C278333420006E8AF /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		CE9B399E278333BE0006E8AF /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		CE9B39A0278334040006E8AF /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CE9B39A2278334270006E8AF /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
 		CEA1E82627775A8400AFD07B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
@@ -96,7 +120,14 @@
 		CEE3401127721C19005A99E9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CE9B399E278333BE0006E8AF /* Copy.swift */,
+				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
+				CE9B3994278331930006E8AF /* Store.Item.swift */,
+				CE9B3992278331860006E8AF /* Store.State.swift */,
+				CE9B39902783317A0006E8AF /* Store.swift */,
+				CE9B398E2783316D0006E8AF /* Transaction.swift */,
+				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
 			);
 			path = Shared;
@@ -115,7 +146,9 @@
 			children = (
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
+				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
+				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CE1F588D2775F54D00B35407 /* Home.Compact.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
@@ -129,10 +162,13 @@
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
 				CE9B398427832CC20006E8AF /* Settings.swift */,
+				CE9B399A278333190006E8AF /* Status.Modal.swift */,
+				CE9B399C278333420006E8AF /* Status.swift */,
 				CE37BE2B277892E4004D93D5 /* Track.Content.swift */,
 				CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */,
 				CE37BE2527786FCE004D93D5 /* Track.Header.swift */,
 				CEA1E82627775A8400AFD07B /* Track.swift */,
+				CE9B39A0278334040006E8AF /* UIApplication.swift */,
 				CEE340092771EA6D005A99E9 /* Window.swift */,
 				CEF83990276B674900134178 /* Assets.xcassets */,
 			);
@@ -217,24 +253,36 @@
 			files = (
 				CE37BE28277876B1004D93D5 /* Track.Header.Option.swift in Sources */,
 				CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */,
+				CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */,
 				CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */,
+				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
+				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
 				CEF8398D276B674900134178 /* App.swift in Sources */,
+				CE9B39912783317A0006E8AF /* Store.swift in Sources */,
 				CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */,
+				CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */,
 				CE37BE2C277892E4004D93D5 /* Track.Content.swift in Sources */,
 				CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */,
 				CE1F58922775F83300B35407 /* Home.Main.swift in Sources */,
+				CE9B399B278333190006E8AF /* Status.Modal.swift in Sources */,
 				CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */,
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
 				CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */,
 				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
+				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
+				CE9B399D278333420006E8AF /* Status.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Onboard.swift in Sources */,
 				CEA1E82727775A8400AFD07B /* Track.swift in Sources */,
 				CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */,
 				CE1F588C2775F54600B35407 /* Home.Standard.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
 				CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */,
+				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
+				CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */,
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,
+				CE9B39A3278334270006E8AF /* Froob.swift in Sources */,
+				CE9B398927832FB50006E8AF /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
