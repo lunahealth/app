@@ -43,6 +43,14 @@ extension Trait {
         }
     }
     
+    var low: String {
+        "Too little"
+    }
+    
+    var high: String {
+        "Too much"
+    }
+    
     var image: String {
         "Blood"
     }

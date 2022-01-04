@@ -6,7 +6,7 @@ extension Track.Content {
         
         var body: some View {
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 6)
                     .fill(Color(.secondarySystemBackground))
                 HStack {
                     Button {
@@ -22,12 +22,22 @@ extension Track.Content {
                     .frame(width: 40)
                     
                     if item.active {
-                        Slider(value: $item.value) {
-                            Text(item.id.title)
-                        } onEditingChanged: {
-                            if !$0 {
-                                
+                        VStack {
+                            Slider(value: $item.value) {
+                                Text(item.id.title)
+                            } onEditingChanged: {
+                                if !$0 {
+                                    
+                                }
                             }
+                            .tint(item.id.color)
+                            HStack {
+                                Text(item.id.low)
+                                Spacer()
+                                Text(item.id.high)
+                            }
+                            .foregroundColor(item.id.color)
+                            .font(.caption)
                         }
                         .padding(.horizontal)
                     } else {
@@ -35,7 +45,13 @@ extension Track.Content {
                     }
                     
                     VStack {
-                        Image(item.id.image)
+                        ZStack {
+                            Circle()
+                                .fill(item.active ? item.id.color : .init(.tertiaryLabel))
+                                .frame(width: 71, height: 71)
+                                .opacity(0.5)
+                            Image(item.id.image)
+                        }
                         Text(item.id.title)
                             .font(.footnote)
                     }
@@ -43,7 +59,7 @@ extension Track.Content {
                 }
                 .padding()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 4)
         }
     }
 }
