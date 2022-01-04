@@ -4,6 +4,7 @@ import Selene
 struct Track: View {
     @Binding var date: Date
     let week: [Day]
+    @State private var traits = [Trait]()
     @State private var selection = 0
     @State private var preferences = false
     @Environment(\.dismiss) private var dismiss
@@ -15,7 +16,7 @@ struct Track: View {
                     .equatable()
                 TabView(selection: $selection) {
                     ForEach(week) { day in
-                        Content(day: day)
+                        Content(traits: traits, day: day)
                             .tag(index(for: day.id))
                     }
                 }
@@ -36,7 +37,17 @@ struct Track: View {
         .navigationViewStyle(.stack)
         .sheet(isPresented: $preferences, content: Settings.Preferences.init)
         .onReceive(cloud.first()) {
-            if $0.settings.traits.isEmpty {
+            traits = $0
+                .settings
+                .traits
+                .filter {
+                    $0.active
+                }
+                .map {
+                    $0.id
+                }
+            
+            if traits.isEmpty {
                 preferences = true
             }
         }

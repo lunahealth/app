@@ -22,8 +22,8 @@ extension Home {
                     VStack {
                         Text(date, format: .dateTime.weekday(.wide))
                         Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                        Text(relative)
-                            .fontWeight(today ? .medium : .light)
+                        Text(date.relativeDays)
+                            .fontWeight(Calendar.current.isDateInToday(date) ? .medium : .light)
                     }
                     .font(.body)
                     .frame(width: 150)
@@ -45,22 +45,6 @@ extension Home {
                     .font(.caption)
                 + Text(phase)
                     .font(.body)
-            }
-        }
-        
-        private var today: Bool {
-            Calendar.current.isDateInToday(date)
-        }
-        
-        private var relative: String {
-            if today {
-                return "Today"
-            } else if Calendar.current.isDate(date, inSameDayAs: Calendar.current.date(byAdding: .day, value: -1, to: .now)!) {
-                return "Yesterday"
-            } else if Calendar.current.isDate(date, inSameDayAs: Calendar.current.date(byAdding: .day, value: 1, to: .now)!) {
-                return "Tomorrow"
-            } else {
-                return date.formatted(.relative(presentation: .named, unitsStyle: .wide)).capitalized
             }
         }
         
