@@ -18,9 +18,13 @@ extension Track {
                     .frame(maxWidth: .greatestFiniteMagnitude)
                 }
             }
-            .padding(.vertical)
+            .padding(.bottom)
             .padding(.horizontal, 20)
             .frame(maxWidth: 520)
+            Rectangle()
+                .foregroundColor(.init(.tertiaryLabel))
+                .frame(height: 1)
+                .ignoresSafeArea(edges: .all)
         }
     }
 }

@@ -45,6 +45,7 @@
 		CEFB5F5127845AB700CAA105 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F5027845AB700CAA105 /* Date.swift */; };
 		CEFB5F532784612A00CAA105 /* Track.Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F522784612A00CAA105 /* Track.Status.swift */; };
 		CEFB5F55278461F200CAA105 /* Track.Status.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */; };
+		CEFB5F592784728700CAA105 /* Track.Content.Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		CEFB5F5027845AB700CAA105 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEFB5F522784612A00CAA105 /* Track.Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.swift; sourceTree = "<group>"; };
 		CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.Item.swift; sourceTree = "<group>"; };
+		CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Content.Slide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9B399E278333BE0006E8AF /* Copy.swift */,
+				CEFB5F5027845AB700CAA105 /* Date.swift */,
 				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
 				CE9B3994278331930006E8AF /* Store.Item.swift */,
@@ -134,7 +137,6 @@
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
-				CEFB5F5027845AB700CAA105 /* Date.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -168,6 +170,7 @@
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
 				CE9B398627832E0B0006E8AF /* Settings.Preferences.swift */,
 				CE9B398427832CC20006E8AF /* Settings.swift */,
+				CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */,
 				CE37BE2B277892E4004D93D5 /* Track.Content.swift */,
 				CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */,
 				CE37BE2527786FCE004D93D5 /* Track.Header.swift */,
@@ -286,6 +289,7 @@
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
 				CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */,
 				CEFB5F532784612A00CAA105 /* Track.Status.swift in Sources */,
+				CEFB5F592784728700CAA105 /* Track.Content.Slide.swift in Sources */,
 				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
 				CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */,
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,

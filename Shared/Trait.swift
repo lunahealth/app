@@ -1,3 +1,4 @@
+import SwiftUI
 import Selene
 
 extension Trait {
@@ -39,6 +40,19 @@ extension Trait {
             return "How much screen time"
         case .pms:
             return "Premenstrual syndromes"
+        }
+    }
+    
+    var image: String {
+        "Blood"
+    }
+    
+    var color: Color {
+        switch self {
+        case .period:
+            return .red
+        default:
+            return .blue
         }
     }
 }

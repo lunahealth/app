@@ -21,15 +21,21 @@ struct Track: View, Equatable {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             }
-            .navigationTitle("Track")
+            .navigationTitle(date.relativeDays)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {
                         Text("Done")
+                            .fontWeight(.medium)
+                            .foregroundColor(.blue)
                     }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Track")
                 }
             }
         }
