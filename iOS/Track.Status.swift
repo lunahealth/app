@@ -4,9 +4,22 @@ import Selene
 
 extension Track {
     final class Status: ObservableObject {
-        @Published var items = [Item]()
+        @Published var items = [Item]() {
+            didSet {
+                update
+                    .send(items
+                            .filter {
+                        $0.active
+                    }
+                            .reduce(.init()) {
+                        $0.with(trait: $1.id, value: $1.value)
+                    })
+            }
+        }
+        
         let day: Day
         let traits = PassthroughSubject<[Trait], Never>()
+        private let update = PassthroughSubject<Journal, Never>()
         private var subs = Set<AnyCancellable>()
         
         init(day: Day) {
@@ -19,12 +32,22 @@ extension Track {
                                 .removeDuplicates()) { traits, journal in
                     traits
                         .map {
-                            .init(active: false,
-                                  value: 0,
+                            .init(active: journal?.traits[$0] != nil,
+                                  value: .init(journal?.traits[$0] ?? 0),
                                   id: $0)
                         }
                 }
                 .assign(to: &$items)
+            
+            update
+                .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+                .removeDuplicates()
+                .sink { journal in
+                    Task {
+                        await cloud.track(day: day, journal: journal)
+                    }
+                }
+                .store(in: &subs)
         }
     }
 }

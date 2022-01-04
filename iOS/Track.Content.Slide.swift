@@ -11,7 +11,7 @@ extension Track.Content {
                 HStack {
                     if item.active {
                         VStack {
-                            Slider(value: $item.value) {
+                            Slider(value: $item.value, in: 0 ... 100) {
                                 Text(item.id.title)
                             } onEditingChanged: {
                                 if !$0 {
@@ -42,7 +42,7 @@ extension Track.Content {
                                 Circle()
                                     .fill(item.active ? item.id.color : .init(.tertiaryLabel))
                                     .frame(width: 71, height: 71)
-                                    .opacity(0.5)
+                                    .opacity(0.34)
                                 Image(item.id.image)
                             }
                         }
