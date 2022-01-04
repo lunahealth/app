@@ -32,7 +32,7 @@ struct Window: View {
             case .froob:
                 Froob()
             case .onboard:
-                Onboard()
+                Settings.Preferences()
             }
         }
         .task {
