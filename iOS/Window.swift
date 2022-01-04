@@ -7,7 +7,7 @@ struct Window: View {
     
     var body: some View {
         TabView {
-            Home(observatory: observatory)
+            Home(status: status, observatory: observatory)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

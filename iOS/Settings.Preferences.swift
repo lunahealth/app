@@ -29,7 +29,7 @@ extension Settings {
                         }
                     } header: {
                         VStack(alignment: .leading) {
-                            Text("Choose and order the traits that you want to track every day with Moon Health.")
+                            Text("Choose the traits that you want to track every day with Moon Health and drag to rearrenge them.")
                                 .fixedSize(horizontal: false, vertical: true)
                             
                             if first {
@@ -58,8 +58,38 @@ extension Settings {
                                 .foregroundColor(.blue)
                                 .padding(.leading)
                                 .frame(height: 34)
-                                .allowsHitTesting(false)
                                 .contentShape(Rectangle())
+                                .allowsHitTesting(false)
+                        }
+                    }
+                    
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button {
+                            traits = traits
+                                .map {
+                                    var item = $0
+                                    item.active = false
+                                    return item
+                                }
+                        } label: {
+                            Image(systemName: "square")
+                                .foregroundColor(.pink)
+                                .contentShape(Rectangle())
+                                .allowsHitTesting(false)
+                        }
+                        
+                        Button {
+                            traits = traits
+                                .map {
+                                    var item = $0
+                                    item.active = true
+                                    return item
+                                }
+                        } label: {
+                            Image(systemName: "checkmark.square")
+                                .foregroundColor(.blue)
+                                .contentShape(Rectangle())
+                                .allowsHitTesting(false)
                         }
                     }
                 }

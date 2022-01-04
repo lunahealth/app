@@ -3,6 +3,7 @@ import Selene
 
 struct Track: View {
     @Binding var date: Date
+    let status: Status
     let week: [Day]
     @State private var selection = 0
     @Environment(\.dismiss) private var dismiss
@@ -33,6 +34,11 @@ struct Track: View {
             }
         }
         .navigationViewStyle(.stack)
+        .onReceive(cloud.first()) {
+            if $0.settings.traits.isEmpty || true {
+                status.modal = .onboard
+            }
+        }
         .onChange(of: selection) {
             date = week[$0].id
         }
