@@ -1,15 +1,16 @@
 import SwiftUI
 
 struct Settings: View {
-    let status: Status
+    @State private var preferences = false
     
     var body: some View {
         NavigationView {
             List {
                 Section("Personalize") {
                     Button("Preferences") {
-                        status.modal = .onboard
+                        preferences = true
                     }
+                    .sheet(isPresented: $preferences, content: Preferences.init)
                 }
                 .headerProminence(.increased)
                 
@@ -23,7 +24,7 @@ struct Settings: View {
             .listStyle(.insetGrouped)
             .onReceive(cloud.first()) {
                 if $0.settings.traits.isEmpty {
-                    status.modal = .onboard
+                    preferences = true
                 }
             }
         }

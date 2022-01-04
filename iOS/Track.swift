@@ -3,9 +3,9 @@ import Selene
 
 struct Track: View {
     @Binding var date: Date
-    let status: Status
     let week: [Day]
     @State private var selection = 0
+    @State private var preferences = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -34,9 +34,10 @@ struct Track: View {
             }
         }
         .navigationViewStyle(.stack)
+        .sheet(isPresented: $preferences, content: Settings.Preferences.init)
         .onReceive(cloud.first()) {
-            if $0.settings.traits.isEmpty || true {
-                status.modal = .onboard
+            if $0.settings.traits.isEmpty {
+                preferences = true
             }
         }
         .onChange(of: selection) {

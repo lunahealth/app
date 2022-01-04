@@ -2,7 +2,6 @@ import SwiftUI
 import Selene
 
 struct Home: View {
-    let status: Status
     let observatory: Observatory
     @State private var date = Date.now
     @State private var moon: Moon?
@@ -17,7 +16,6 @@ struct Home: View {
                             moon: moon,
                             main: .init(date: $date,
                                         wheel: $wheel,
-                                        status: status,
                                         observatory: observatory,
                                         moon: moon))
                 } else {
@@ -25,7 +23,6 @@ struct Home: View {
                              moon: moon,
                              main: .init(date: $date,
                                          wheel: $wheel,
-                                         status: status,
                                          observatory: observatory,
                                          moon: moon))
                 }

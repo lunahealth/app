@@ -5,7 +5,6 @@ extension Home {
     struct Main: View {
         @Binding var date: Date
         @Binding var wheel: Wheel?
-        let status: Status
         let observatory: Observatory
         let moon: Moon
         @State private var track = false
@@ -41,7 +40,7 @@ extension Home {
                     }
                 }
                 .sheet(isPresented: $track) {
-                    Track(date: $date, status: status, week: observatory.week)
+                    Track(date: $date, week: observatory.week)
                 }
             }
             .frame(maxWidth: 450, maxHeight: 450)

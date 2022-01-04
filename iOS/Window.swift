@@ -2,12 +2,12 @@ import SwiftUI
 import Selene
 
 struct Window: View {
-    @StateObject private var status = Status()
+    @State private var froob = false
     private let observatory = Observatory(coords: .init(coordinate: .init(latitude: 52.498252, longitude: 13.423622)))
     
     var body: some View {
         TabView {
-            Home(status: status, observatory: observatory)
+            Home(observatory: observatory)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -22,25 +22,18 @@ struct Window: View {
                     Label("Analysis", systemImage: "chart.bar")
                 }
 
-            Settings(status: status)
+            Settings()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
         }
-        .sheet(item: $status.modal) {
-            switch $0 {
-            case .froob:
-                Froob()
-            case .onboard:
-                Settings.Preferences()
-            }
-        }
+        .sheet(isPresented: $froob, content: Froob.init)
         .task {
             switch Defaults.action {
             case .rate:
                 UIApplication.shared.review()
             case .froob:
-                status.modal = .froob
+                froob = true
             case .none:
                 break
             }
