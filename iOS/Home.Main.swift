@@ -41,6 +41,7 @@ extension Home {
                 }
                 .sheet(isPresented: $track) {
                     Track(date: $date, week: observatory.week)
+                        .equatable()
                 }
             }
             .frame(maxWidth: 450, maxHeight: 450)

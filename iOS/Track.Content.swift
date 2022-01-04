@@ -3,20 +3,19 @@ import Selene
 
 extension Track {
     struct Content: View {
+        @StateObject var status: Status
         let traits: [Trait]
-        let day: Day
-        @State private var a = 0.0
         
         var body: some View {
             ScrollView {
-                Text(day.id.relativeDays)
-                    .fontWeight(Calendar.current.isDateInToday(day.id) ? .medium : .light)
+                Text(status.day.id.relativeDays)
+                    .fontWeight(Calendar.current.isDateInToday(status.day.id) ? .medium : .light)
                     .padding(.bottom)
                 
-                ForEach(traits, id: \.self) { trait in
+                ForEach($status.items) { item in
                     HStack {
-                        Slider(value: $a) {
-                            Text(trait.title)
+                        Slider(value: item.value) {
+                            Text(item.id.title)
                         } onEditingChanged: {
                             if !$0 {
                                 
@@ -26,12 +25,18 @@ extension Track {
                         
                         VStack {
                             Image(systemName: "ladybug")
-                            Text(trait.title)
+                            Text(item.id.title)
                                 .font(.footnote)
                         }
                     }
                     .padding()
                 }
+            }
+            .onChange(of: traits) {
+                status.traits.send($0)
+            }
+            .onAppear {
+                status.traits.send(traits)
             }
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-struct Track: View {
+struct Track: View, Equatable {
     @Binding var date: Date
     let week: [Day]
     @State private var traits = [Trait]()
@@ -13,10 +13,9 @@ struct Track: View {
         NavigationView {
             VStack {
                 Header(date: $date, week: week)
-                    .equatable()
                 TabView(selection: $selection) {
                     ForEach(week) { day in
-                        Content(traits: traits, day: day)
+                        Content(status: .init(day: day), traits: traits)
                             .tag(index(for: day.id))
                     }
                 }
@@ -64,5 +63,9 @@ struct Track: View {
     
     private func index(for date: Date) -> Int {
         week.firstIndex { Calendar.current.isDate($0.id, inSameDayAs: date) } ?? 0
+    }
+    
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        true
     }
 }
