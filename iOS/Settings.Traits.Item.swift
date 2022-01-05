@@ -12,14 +12,15 @@ extension Settings.Traits {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 20, maxHeight: 20)
-                        .foregroundColor(trait.id.color)
+                        .foregroundColor(trait.active ? trait.id.color : .init(.tertiaryLabel))
                     Text(trait.id.title)
                         .font(.callout)
+                        .foregroundColor(trait.active ? .primary : .secondary)
                     + Text("\n" + trait.id.description)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(trait.active ? .secondary : .init(.tertiaryLabel))
                         .font(.footnote)
                 }
-                .offset(x: -40)
+                .offset(x: -30)
             }
         }
     }
