@@ -19,7 +19,7 @@ extension Settings.Traits {
                         .foregroundColor(.secondary)
                         .font(.footnote)
                 }
-                .offset(x: -50)
+                .offset(x: -40)
             }
         }
     }

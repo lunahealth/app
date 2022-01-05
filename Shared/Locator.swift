@@ -18,7 +18,7 @@ final class Locator: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_: CLLocationManager, didFailWithError: Error) {
-        
+        manager.requestLocation()
     }
     
     #if os(iOS)
