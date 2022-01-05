@@ -12,21 +12,10 @@ extension Settings {
             NavigationView {
                 List {
                     Section {
-                        ForEach($traits) { trait in
-                            Toggle(isOn: trait.active) {
-                                Group {
-                                    Text(trait.id.title)
-                                        .font(.callout)
-                                    + Text("\n" + trait.id.description)
-                                        .foregroundColor(.secondary)
-                                        .font(.footnote)
-                                }
-                                .offset(x: -42)
+                        ForEach($traits, content: Item.init)
+                            .onMove { index, destination in
+                                traits.move(fromOffsets: index, toOffset: destination)
                             }
-                        }
-                        .onMove { index, destination in
-                            traits.move(fromOffsets: index, toOffset: destination)
-                        }
                     } header: {
                         VStack(alignment: .leading) {
                             Text("Choose the traits that you want to track every day with Moon Health and drag to rearrenge them.")
@@ -64,33 +53,7 @@ extension Settings {
                     }
                     
                     ToolbarItemGroup(placement: .bottomBar) {
-                        Button {
-                            traits = traits
-                                .map {
-                                    var item = $0
-                                    item.active = false
-                                    return item
-                                }
-                        } label: {
-                            Image(systemName: "square")
-                                .foregroundColor(.pink)
-                                .contentShape(Rectangle())
-                                .allowsHitTesting(false)
-                        }
-                        
-                        Button {
-                            traits = traits
-                                .map {
-                                    var item = $0
-                                    item.active = true
-                                    return item
-                                }
-                        } label: {
-                            Image(systemName: "checkmark.square")
-                                .foregroundColor(.blue)
-                                .contentShape(Rectangle())
-                                .allowsHitTesting(false)
-                        }
+                        Bar(traits: $traits)
                     }
                 }
             }

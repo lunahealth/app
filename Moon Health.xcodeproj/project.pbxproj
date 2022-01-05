@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE070FC12785A5DF0099B09D /* Settings.Preferences.Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC02785A5DF0099B09D /* Settings.Preferences.Bar.swift */; };
+		CE070FC32785A6AB0099B09D /* Settings.Preferences.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC22785A6AB0099B09D /* Settings.Preferences.Item.swift */; };
 		CE1F588C2775F54600B35407 /* Home.Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588B2775F54600B35407 /* Home.Standard.swift */; };
 		CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588D2775F54D00B35407 /* Home.Compact.swift */; };
 		CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588F2775F7DE00B35407 /* Home.Today.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE070FC02785A5DF0099B09D /* Settings.Preferences.Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Preferences.Bar.swift; sourceTree = "<group>"; };
+		CE070FC22785A6AB0099B09D /* Settings.Preferences.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Preferences.Item.swift; sourceTree = "<group>"; };
 		CE1F588B2775F54600B35407 /* Home.Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Standard.swift; sourceTree = "<group>"; };
 		CE1F588D2775F54D00B35407 /* Home.Compact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Compact.swift; sourceTree = "<group>"; };
 		CE1F588F2775F7DE00B35407 /* Home.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Today.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
+				CE070FC02785A5DF0099B09D /* Settings.Preferences.Bar.swift */,
+				CE070FC22785A6AB0099B09D /* Settings.Preferences.Item.swift */,
 				CE9B398627832E0B0006E8AF /* Settings.Preferences.swift */,
 				CE9B398427832CC20006E8AF /* Settings.swift */,
 				CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */,
@@ -273,6 +279,7 @@
 				CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */,
 				CE37BE2C277892E4004D93D5 /* Track.Content.swift in Sources */,
 				CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */,
+				CE070FC12785A5DF0099B09D /* Settings.Preferences.Bar.swift in Sources */,
 				CE1F58922775F83300B35407 /* Home.Main.swift in Sources */,
 				CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */,
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
@@ -281,6 +288,7 @@
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
 				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
 				CEFB5F55278461F200CAA105 /* Track.Status.Item.swift in Sources */,
+				CE070FC32785A6AB0099B09D /* Settings.Preferences.Item.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Settings.Preferences.swift in Sources */,
 				CEA1E82727775A8400AFD07B /* Track.swift in Sources */,
