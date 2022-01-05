@@ -11,7 +11,7 @@ extension Trait {
         case .period:
             return "Discharge during your menstrual cycle"
         case .mood:
-            return "Happy, sad or indifferent"
+            return "Happy, sad or in between"
         case .sleep:
             return "How much sleep you get at night"
         case .nutrition:
@@ -52,13 +52,21 @@ extension Trait {
     }
     
     var image: String {
-        "Blood"
+        "Trait.\(self)"
     }
     
     var color: Color {
         switch self {
         case .period:
             return .red
+        case .mood:
+            return .orange
+        case .sleep:
+            return .indigo
+        case .nutrition:
+            return .yellow
+        case .workout:
+            return .green
         default:
             return .blue
         }

@@ -7,14 +7,19 @@ extension Settings.Preferences {
         
         var body: some View {
             Toggle(isOn: $trait.active) {
-                Group {
+                HStack {
+                    Image(trait.id.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 20, maxHeight: 20)
+                        .foregroundColor(trait.id.color)
                     Text(trait.id.title)
                         .font(.callout)
                     + Text("\n" + trait.id.description)
                         .foregroundColor(.secondary)
                         .font(.footnote)
                 }
-                .offset(x: -42)
+                .offset(x: -50)
             }
         }
     }
