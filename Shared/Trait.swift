@@ -44,11 +44,37 @@ extension Trait {
     }
     
     var low: String {
-        "Too little"
+        switch self {
+        case .workout:
+            return "Nothing"
+        case .nutrition:
+            return "Junk food"
+        case .sleep:
+            return "No sleep"
+        case .mood:
+            return "Sad"
+        case .period:
+            return "None"
+        default:
+            return "Low"
+        }
     }
     
     var high: String {
-        "Too much"
+        switch self {
+        case .workout:
+            return "Too much"
+        case .nutrition:
+            return "Healthy"
+        case .sleep:
+            return "Too much"
+        case .mood:
+            return "Happy"
+        case .period:
+            return "A lot"
+        default:
+            return "High"
+        }
     }
     
     var image: String {

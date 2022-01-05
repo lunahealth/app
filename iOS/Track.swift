@@ -40,18 +40,13 @@ struct Track: View, Equatable {
             }
         }
         .navigationViewStyle(.stack)
-        .sheet(isPresented: $preferences, content: Settings.Traits.init)
+        .sheet(isPresented: $preferences, onDismiss: {
+            Task {
+                await update()
+            }
+        }, content: Settings.Traits.init)
         .task {
-            let model = await cloud.model
-            traits = model
-                .settings
-                .traits
-                .filter {
-                    $0.active
-                }
-                .map {
-                    $0.id
-                }
+            await update()
             
             if traits.isEmpty {
                 preferences = true
@@ -66,6 +61,19 @@ struct Track: View, Equatable {
         .onAppear {
             selection = index(for: date)
         }
+    }
+    
+    private func update() async {
+        let model = await cloud.model
+        traits = model
+            .settings
+            .traits
+            .filter {
+                $0.active
+            }
+            .map {
+                $0.id
+            }
     }
     
     private func index(for date: Date) -> Int {
