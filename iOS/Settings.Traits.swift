@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 extension Settings {
-    struct Preferences: View {
+    struct Traits: View {
         @State private var traits = [Selene.Settings.Option]()
         @State private var mode = EditMode.active
         @State private var first = false
@@ -32,7 +32,7 @@ extension Settings {
                     }
                     .textCase(.none)
                 }
-                .navigationTitle("Preferences")
+                .navigationTitle("Traits")
                 .navigationBarTitleDisplayMode(.inline)
                 .toggleStyle(SwitchToggleStyle(tint: .mint))
                 .environment(\.editMode, $mode)

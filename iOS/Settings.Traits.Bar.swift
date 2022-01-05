@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-extension Settings.Preferences {
+extension Settings.Traits {
     struct Bar: View {
         @Binding var traits: [Selene.Settings.Option]
         

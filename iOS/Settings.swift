@@ -1,16 +1,26 @@
 import SwiftUI
 
 struct Settings: View {
-    @State private var preferences = false
+    @State private var location = false
+    @State private var traits = false
     
     var body: some View {
         NavigationView {
             List {
                 Section("Personalize") {
-                    Button("Preferences") {
-                        preferences = true
+                    Option(title: "Location",
+                           subtitle: "Accurately keep track of the Moon",
+                           symbol: "location") {
+                        location = true
                     }
-                    .sheet(isPresented: $preferences, content: Preferences.init)
+                    .sheet(isPresented: $location, content: Location.init)
+                    
+                    Option(title: "Traits",
+                           subtitle: "Your tracking preferences",
+                           symbol: "slider.vertical.3") {
+                        traits = true
+                    }
+                    .sheet(isPresented: $traits, content: Traits.init)
                 }
                 .headerProminence(.increased)
                 
@@ -24,7 +34,7 @@ struct Settings: View {
             .listStyle(.insetGrouped)
             .onReceive(cloud.first()) {
                 if $0.settings.traits.isEmpty {
-                    preferences = true
+                    traits = true
                 }
             }
         }
