@@ -41,8 +41,9 @@ struct Track: View, Equatable {
         }
         .navigationViewStyle(.stack)
         .sheet(isPresented: $preferences, content: Settings.Traits.init)
-        .onReceive(cloud.first()) {
-            traits = $0
+        .task {
+            let model = await cloud.model
+            traits = model
                 .settings
                 .traits
                 .filter {

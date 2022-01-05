@@ -32,8 +32,9 @@ struct Settings: View {
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
             .listStyle(.insetGrouped)
-            .onReceive(cloud.first()) {
-                if $0.settings.traits.isEmpty {
+            .task {
+                let model = await cloud.model
+                if model.settings.traits.isEmpty {
                     traits = true
                 }
             }

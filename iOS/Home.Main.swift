@@ -5,7 +5,7 @@ extension Home {
     struct Main: View {
         @Binding var date: Date
         @Binding var wheel: Wheel?
-        let observatory: Observatory
+        weak var observatory: Observatory!
         let moon: Moon
         @State private var track = false
         @State private var alert = false

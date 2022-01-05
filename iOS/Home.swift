@@ -2,11 +2,11 @@ import SwiftUI
 import Selene
 
 struct Home: View {
-    let observatory: Observatory
     @State private var date = Date.now
     @State private var moon: Moon?
     @State private var wheel: Wheel?
     @Environment(\.verticalSizeClass) private var vertical
+    private let observatory = Observatory()
     
     var body: some View {
         VStack {
@@ -32,6 +32,10 @@ struct Home: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all))
+        .onReceive(cloud) {
+            observatory.update(to: $0.coords)
+            moon = observatory.moon(for: date)
+        }
         .onChange(of: date) {
             moon = observatory.moon(for: $0)
         }

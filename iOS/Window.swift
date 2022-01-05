@@ -2,12 +2,12 @@ import SwiftUI
 import Selene
 
 struct Window: View {
+    @State private var location = false
     @State private var froob = false
-    private let observatory = Observatory(coords: .init(coordinate: .init(latitude: 52.498252, longitude: 13.423622)))
     
     var body: some View {
         TabView {
-            Home(observatory: observatory)
+            Home()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -27,6 +27,10 @@ struct Window: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
+        .sheet(isPresented: $location) {
+            Settings.Location()
+                .equatable()
+        }
         .sheet(isPresented: $froob, content: Froob.init)
         .task {
             switch Defaults.action {
@@ -36,6 +40,11 @@ struct Window: View {
                 froob = true
             case .none:
                 break
+            }
+            
+            if !Defaults.hasLocated {
+                location = true
+                Defaults.hasLocated = true
             }
         }
     }

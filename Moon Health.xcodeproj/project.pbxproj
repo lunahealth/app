@@ -93,7 +93,7 @@
 		CEF8398C276B674900134178 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEF83990276B674900134178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF8399B276B6BEF00134178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		CEF8399E276B6DC300134178 /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Locator.swift; path = "../../moon health/iOS/Locator.swift"; sourceTree = "<group>"; };
+		CEF8399E276B6DC300134178 /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
 		CEFB5F5027845AB700CAA105 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEFB5F522784612A00CAA105 /* Track.Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.swift; sourceTree = "<group>"; };
 		CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.Item.swift; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 				CEFB5F5027845AB700CAA105 /* Date.swift */,
 				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
+				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CE9B3994278331930006E8AF /* Store.Item.swift */,
 				CE9B3992278331860006E8AF /* Store.State.swift */,
 				CE9B39902783317A0006E8AF /* Store.swift */,
@@ -173,7 +174,6 @@
 				CE1F588B2775F54600B35407 /* Home.Standard.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CE1F588F2775F7DE00B35407 /* Home.Today.swift */,
-				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
