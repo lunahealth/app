@@ -15,7 +15,7 @@ extension Trait {
         case .sleep:
             return "How much sleep you get at night"
         case .nutrition:
-            return "How weel you eat"
+            return "How well you eat"
         case .workout:
             return "How much excercise"
         case .walk:
