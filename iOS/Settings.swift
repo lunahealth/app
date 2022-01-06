@@ -24,10 +24,7 @@ struct Settings: View {
                 }
                 .headerProminence(.increased)
                 
-                Section("Features") {
-
-                }
-                .headerProminence(.increased)
+                Notifications()
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
