@@ -49,8 +49,10 @@ extension Settings {
             }
             .onChange(of: locator.coordinate) {
                 if let coordinate = $0 {
-                    Task {
-                        await save(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        Task {
+                            await save(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                        }
                     }
                 }
             }
