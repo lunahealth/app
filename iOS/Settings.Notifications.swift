@@ -7,9 +7,7 @@ extension Settings {
         
         var body: some View {
             Section("Notifications") {
-                Option(title: enabled ? "Configure" : "Activate",
-                       subtitle: Copy.notifications,
-                       symbol: "app.badge") {
+                Button {
                     if enabled || requested {
                         UIApplication.shared.settings()
                     } else {
@@ -19,6 +17,10 @@ extension Settings {
                             await check()
                         }
                     }
+                } label: {
+                    Option(title: enabled ? "Configure" : "Activate",
+                           subtitle: Copy.notifications,
+                           symbol: "app.badge")
                 }
             }
             .headerProminence(.increased)

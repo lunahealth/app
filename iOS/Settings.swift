@@ -8,23 +8,42 @@ struct Settings: View {
         NavigationView {
             List {
                 Section("Personalize") {
-                    Option(title: "Location",
-                           subtitle: "Accurately keep track of the Moon",
-                           symbol: "location") {
+                    Button {
                         location = true
+                    } label: {
+                        Option(title: "Location",
+                               subtitle: "Accurately keep track of the Moon",
+                               symbol: "location")
                     }
                     .sheet(isPresented: $location, content: Location.init)
                     
-                    Option(title: "Traits",
-                           subtitle: "Your tracking preferences",
-                           symbol: "slider.vertical.3") {
+                    Button {
                         traits = true
+                    } label: {
+                        Option(title: "Traits",
+                               subtitle: "Your tracking preferences",
+                               symbol: "slider.vertical.3")
                     }
                     .sheet(isPresented: $traits, content: Traits.init)
                 }
                 .headerProminence(.increased)
                 
                 Notifications()
+                
+                Section("Moon Health") {
+                    NavigationLink(destination: About()) {
+                        Option(title: "About",
+                               subtitle: "App details",
+                               symbol: "moon.circle")
+                    }
+                    
+                    NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
+                        Option(title: "Privacy policy",
+                               subtitle: "What we do with your data",
+                               symbol: "hand.raised")
+                    }
+                }
+                .headerProminence(.increased)
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)

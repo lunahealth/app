@@ -36,6 +36,8 @@
 		CEA1E82727775A8400AFD07B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1E82627775A8400AFD07B /* Track.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
+		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
+		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
 		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
 		CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
@@ -84,6 +86,8 @@
 		CEA1E82627775A8400AFD07B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
+		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
+		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
 		CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.Render.swift; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -176,8 +180,10 @@
 				CE1F588B2775F54600B35407 /* Home.Standard.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CE1F588F2775F7DE00B35407 /* Home.Today.swift */,
+				CEB0A76227872EB900B5F5BF /* Info.swift */,
 				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
 				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
+				CEB0A76027872C9000B5F5BF /* Settings.About.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
 				CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */,
 				CE070FC42785B1590099B09D /* Settings.Option.swift */,
@@ -302,6 +308,7 @@
 				CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */,
+				CEB0A76327872EB900B5F5BF /* Info.swift in Sources */,
 				CEA1E82727775A8400AFD07B /* Track.swift in Sources */,
 				CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */,
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,
@@ -312,6 +319,7 @@
 				CEFB5F592784728700CAA105 /* Track.Content.Slide.swift in Sources */,
 				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
 				CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */,
+				CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */,
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,
 				CE9B39A3278334270006E8AF /* Froob.swift in Sources */,
 				CE9B398927832FB50006E8AF /* Global.swift in Sources */,
