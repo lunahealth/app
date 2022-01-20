@@ -64,16 +64,16 @@ struct TrackOld: View, Equatable {
     }
     
     private func update() async {
-        let model = await cloud.model
-        traits = model
-            .settings
-            .traits
-            .filter {
-                $0.active
-            }
-            .map {
-                $0.id
-            }
+//        let model = await cloud.model
+//        traits = model
+//            .settings
+//            .traits
+//            .filter {
+//                $0.active
+//            }
+//            .map {
+//                $0.id
+//            }
     }
     
     private func index(for date: Date) -> Int {

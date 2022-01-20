@@ -6,14 +6,21 @@ struct Track: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 14))
+                        .frame(width: 60, height: 60)
+                        .contentShape(Rectangle())
+                }
             }
-            .navigationTitle("Track")
-            .navigationBarTitleDisplayMode(.inline)
+            Spacer()
         }
-        .navigationViewStyle(.stack)
+        .background(.thinMaterial)
         .sheet(isPresented: $status.preferences, onDismiss: {
             Task {
                 await status.update()

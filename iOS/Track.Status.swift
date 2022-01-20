@@ -4,8 +4,7 @@ import Selene
 extension Track {
     final class Status: ObservableObject {
         @Published var preferences = false
-        @Published private(set) var items = [Item]()
-        @Published private(set) var waiting = [Trait]()
+        @Published private(set) var items = [Trait : Double]()
         
         func update() async {
             let model = await cloud.model
@@ -19,7 +18,7 @@ extension Track {
 //                    $0.id
 //                }
             
-            preferences = true
+//            preferences = true
         }
     }
 }

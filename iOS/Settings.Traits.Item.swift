@@ -3,24 +3,29 @@ import Selene
 
 extension Settings.Traits {
     struct Item: View {
-        @Binding var trait: Selene.Settings.Option
+        @State var active: Bool
+        let trait: Trait
         
         var body: some View {
-            Toggle(isOn: $trait.active) {
+            Toggle(isOn: $active) {
                 HStack {
-                    Image(trait.id.image)
+                    Image(trait.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 20, maxHeight: 20)
-                        .foregroundColor(trait.active ? trait.id.color : .init(.tertiaryLabel))
-                    Text(trait.id.title)
+                        .foregroundColor(active ? trait.color : .init(.tertiaryLabel))
+                    Text(trait.title)
                         .font(.callout)
-                        .foregroundColor(trait.active ? .primary : .secondary)
-                    + Text("\n" + trait.id.description)
-                        .foregroundColor(trait.active ? .secondary : .init(.tertiaryLabel))
+                        .foregroundColor(active ? .primary : .secondary)
+                    + Text("\n" + trait.description)
+                        .foregroundColor(active ? .secondary : .init(.tertiaryLabel))
                         .font(.footnote)
                 }
-                .offset(x: -30)
+            }
+            .onChange(of: active) { mode in
+                Task {
+                    await cloud.toggle(trait: trait, mode: mode)
+                }
             }
         }
     }

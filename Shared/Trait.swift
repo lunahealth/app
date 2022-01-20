@@ -9,43 +9,23 @@ extension Trait {
     var description: String {
         switch self {
         case .period:
-            return "Discharge during your menstrual cycle"
+            return "Track your menstrual bleeding"
         case .mood:
             return "Happy, sad or in between"
         case .sleep:
-            return "How much sleep you get at night"
+            return "How much sleep did you get"
         case .nutrition:
-            return "How well you eat"
-        case .workout:
-            return "How much excercise"
-        case .walk:
-            return "How much you walk"
+            return "Did you eat healthy"
+        case .exercise:
+            return "Did you move your body"
         case .focus:
-            return "Are you able to focus"
-        case .water:
-            return "How much water you drink"
-        case .work:
-            return "How long you work"
-        case .eat:
-            return "How much you eat"
-        case .sweets:
-            return "How much indulgement"
-        case .drink:
-            return "Alcoholic drinks"
-        case .smoke:
-            return "Cigarettes"
-        case .cramps:
-            return "Muscle contractions"
-        case .online:
-            return "How much screen time"
-        case .pms:
-            return "Premenstrual syndromes"
+            return "Were you able to focus"
         }
     }
     
     var low: String {
         switch self {
-        case .workout:
+        case .exercise:
             return "Nothing"
         case .nutrition:
             return "Junk food"
@@ -55,14 +35,14 @@ extension Trait {
             return "Sad"
         case .period:
             return "None"
-        default:
-            return "Low"
+        case .focus:
+            return "Unable"
         }
     }
     
     var high: String {
         switch self {
-        case .workout:
+        case .exercise:
             return "Too much"
         case .nutrition:
             return "Healthy"
@@ -72,8 +52,8 @@ extension Trait {
             return "Happy"
         case .period:
             return "A lot"
-        default:
-            return "High"
+        case .focus:
+            return "On the zone"
         }
     }
     
@@ -91,9 +71,9 @@ extension Trait {
             return .indigo
         case .nutrition:
             return .yellow
-        case .workout:
+        case .exercise:
             return .green
-        default:
+        case .focus:
             return .blue
         }
     }

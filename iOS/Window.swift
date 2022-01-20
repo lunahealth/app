@@ -46,6 +46,7 @@ struct Window: View {
                     .sheet(isPresented: $track) {
                         Sheet(rootView: Track())
                             .equatable()
+                            .edgesIgnoringSafeArea(.all)
                     }
                 }
                 .padding(.bottom)

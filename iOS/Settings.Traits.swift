@@ -3,22 +3,21 @@ import Selene
 
 extension Settings {
     struct Traits: View {
-        @State private var traits = [Selene.Settings.Option]()
-        @State private var mode = EditMode.active
+        @State private var active = Set<Trait>()
         @State private var first = false
         @Environment(\.dismiss) private var dismiss
+        private let all = Trait.allCases.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
         
         var body: some View {
             NavigationView {
                 List {
                     Section {
-                        ForEach($traits, content: Item.init)
-                            .onMove { index, destination in
-                                traits.move(fromOffsets: index, toOffset: destination)
-                            }
+                        ForEach(all, id: \.self) { trait in
+                            Item(active: active.contains(trait), trait: trait)
+                        }
                     } header: {
                         VStack(alignment: .leading) {
-                            Text("Choose the traits that you want to track every day and drag to rearrenge them.")
+                            Text("Choose the traits you want to track.")
                                 .fixedSize(horizontal: false, vertical: true)
                             
                             if first {
@@ -35,7 +34,6 @@ extension Settings {
                 .navigationTitle("Traits")
                 .navigationBarTitleDisplayMode(.inline)
                 .toggleStyle(SwitchToggleStyle(tint: .mint))
-                .environment(\.editMode, $mode)
                 .listStyle(.grouped)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -48,31 +46,14 @@ extension Settings {
                                 .padding(.leading)
                                 .frame(height: 34)
                                 .contentShape(Rectangle())
-                                .allowsHitTesting(false)
                         }
                     }
                 }
             }
             .navigationViewStyle(.stack)
-            .onChange(of: traits) { updated in
-                Task {
-                    await cloud.update(traits: updated)
-                }
-            }
             .onReceive(cloud) {
-                if $0.settings.traits.isEmpty {
-                    first = true
-                    traits = Trait
-                        .allCases
-                        .sorted {
-                            $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending
-                        }
-                        .map {
-                            .init(trait: $0, active: true)
-                        }
-                } else {
-                    traits = $0.settings.traits
-                }
+                first = $0.settings.traits.isEmpty
+                active = $0.settings.traits
             }
         }
     }
