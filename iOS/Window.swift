@@ -9,17 +9,18 @@ struct Window: View {
         TabView {
             Home()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Moon", systemImage: "moon")
                 }
 
             Rectangle()
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
-
+            
             Circle()
                 .tabItem {
                     Label("Analysis", systemImage: "chart.bar")
+                        .padding(.trailing, 100)
                 }
 
             Settings()
@@ -33,6 +34,10 @@ struct Window: View {
         }
         .sheet(isPresented: $froob, content: Froob.init)
         .task {
+            cloud.ready.notify(queue: .main) {
+                cloud.pull.send()
+            }
+            
             switch Defaults.action {
             case .rate:
                 UIApplication.shared.review()

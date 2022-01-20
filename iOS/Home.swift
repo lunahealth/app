@@ -5,28 +5,20 @@ struct Home: View {
     @State private var date = Date.now
     @State private var moon: Moon?
     @State private var wheel: Wheel?
-    @Environment(\.verticalSizeClass) private var vertical
     private let observatory = Observatory()
     private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
         VStack {
             if let moon = moon {
-                if vertical == .compact {
-                    Compact(date: $date,
-                            moon: moon,
-                            main: .init(date: $date,
-                                        wheel: $wheel,
-                                        observatory: observatory,
-                                        moon: moon))
-                } else {
-                    Standard(date: $date,
-                             moon: moon,
-                             main: .init(date: $date,
-                                         wheel: $wheel,
-                                         observatory: observatory,
-                                         moon: moon))
-                }
+                Spacer()
+                Info(date: $date, moon: moon)
+                Main(date: $date,
+                     wheel: $wheel,
+                     observatory: observatory,
+                     moon: moon)
+                Today(date: $date)
+                    .padding(.bottom, 40)
             }
         }
         .background(Image("Background")

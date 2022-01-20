@@ -8,7 +8,6 @@ extension Home {
         weak var observatory: Observatory!
         let moon: Moon
         @State private var track = false
-        @State private var alert = false
         
         var body: some View {
             ZStack {
@@ -18,26 +17,19 @@ extension Home {
                         .allowsHitTesting(false)
                 }
                 Button {
-                    if date.trackable {
-                        track = true
-                    } else {
-                        alert = true
-                    }
+                    track = true
                 } label: {
-                    VStack {
-                        Image(systemName: "plus.circle")
-                            .font(.title)
+                    ZStack {
+                        Circle()
+                            .fill(Color.primary)
                         Text("Track")
                             .font(.body.weight(.medium))
+                            .foregroundColor(.primary)
+                            .colorInvert()
+                            .padding(24)
                     }
-                    .opacity(date.trackable ? 1 : 0.3)
-                    .foregroundColor(.primary)
+                    .fixedSize()
                     .contentShape(Rectangle())
-                }
-                .alert(date > .now ? "You can't track in the future" : "You can't track more than a week ago", isPresented: $alert) {
-                    Button("OK", role: .cancel) {
-                        
-                    }
                 }
                 .sheet(isPresented: $track) {
                     Track(date: $date, week: observatory.week)

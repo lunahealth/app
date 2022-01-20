@@ -11,8 +11,6 @@
 		CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */; };
 		CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC42785B1590099B09D /* Settings.Option.swift */; };
 		CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC62785B3540099B09D /* Settings.Location.swift */; };
-		CE1F588C2775F54600B35407 /* Home.Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588B2775F54600B35407 /* Home.Standard.swift */; };
-		CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588D2775F54D00B35407 /* Home.Compact.swift */; };
 		CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588F2775F7DE00B35407 /* Home.Today.swift */; };
 		CE1F58922775F83300B35407 /* Home.Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F58912775F83300B35407 /* Home.Main.swift */; };
 		CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2527786FCE004D93D5 /* Track.Header.swift */; };
@@ -60,8 +58,6 @@
 		CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Traits.Item.swift; sourceTree = "<group>"; };
 		CE070FC42785B1590099B09D /* Settings.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Option.swift; sourceTree = "<group>"; };
 		CE070FC62785B3540099B09D /* Settings.Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Location.swift; sourceTree = "<group>"; };
-		CE1F588B2775F54600B35407 /* Home.Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Standard.swift; sourceTree = "<group>"; };
-		CE1F588D2775F54D00B35407 /* Home.Compact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Compact.swift; sourceTree = "<group>"; };
 		CE1F588F2775F7DE00B35407 /* Home.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Today.swift; sourceTree = "<group>"; };
 		CE1F58912775F83300B35407 /* Home.Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Main.swift; sourceTree = "<group>"; };
 		CE37BE2527786FCE004D93D5 /* Track.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.swift; sourceTree = "<group>"; };
@@ -172,12 +168,10 @@
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
 				CE9B39A2278334270006E8AF /* Froob.swift */,
-				CE1F588D2775F54D00B35407 /* Home.Compact.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
 				CE1F58912775F83300B35407 /* Home.Main.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
-				CE1F588B2775F54600B35407 /* Home.Standard.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CE1F588F2775F7DE00B35407 /* Home.Today.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
@@ -312,9 +306,7 @@
 				CEA1E82727775A8400AFD07B /* Track.swift in Sources */,
 				CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */,
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,
-				CE1F588C2775F54600B35407 /* Home.Standard.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
-				CE1F588E2775F54D00B35407 /* Home.Compact.swift in Sources */,
 				CEFB5F532784612A00CAA105 /* Track.Status.swift in Sources */,
 				CEFB5F592784728700CAA105 /* Track.Content.Slide.swift in Sources */,
 				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
@@ -422,12 +414,12 @@
 				INFOPLIST_FILE = iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,12 +490,12 @@
 				INFOPLIST_FILE = iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
