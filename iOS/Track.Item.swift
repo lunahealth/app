@@ -1,9 +1,8 @@
 import Foundation
 import Selene
 
-extension TrackOld.Status {
-    struct Item: Identifiable {
-        var active: Bool
+extension Track {
+    struct Item {
         var value: Double
         let id: Trait
     }

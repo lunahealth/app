@@ -4,55 +4,77 @@ import Selene
 struct Window: View {
     @State private var location = false
     @State private var froob = false
+    @State private var settings = false
+    @State private var calendar = false
+    @State private var analysis = false
+    @State private var track = false
     
     var body: some View {
-        TabView {
-            Home()
-                .tabItem {
-                    Label("Moon", systemImage: "moon")
+        Home()
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                HStack(spacing: 0) {
+                    Option(active: $settings,
+                           title: "Settings",
+                           symbol: "gear")
+                        .padding(.leading)
+                        .sheet(isPresented: $settings, content: Settings.init)
+                    
+                    Option(active: $calendar,
+                           title: "Calendar",
+                           symbol: "calendar")
+                    Option(active: $analysis,
+                           title: "Analysis",
+                           symbol: "chart.line.uptrend.xyaxis")
+                    Spacer()
+                    Button {
+                        track = true
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color.primary)
+                                .shadow(color: .primary, radius: 6)
+                            Text("Track")
+                                .font(.footnote.weight(.medium))
+                                .foregroundColor(.primary)
+                                .colorInvert()
+                                .padding(22)
+                        }
+                        .fixedSize()
+                        .contentShape(Rectangle())
+                    }
+                    .padding(.trailing)
+                    .sheet(isPresented: $track) {
+                        Sheet(rootView: Track())
+                            .equatable()
+                    }
                 }
-
-            Rectangle()
-                .tabItem {
-                    Label("Calendar", systemImage: "calendar")
-                }
-            
-            Circle()
-                .tabItem {
-                    Label("Analysis", systemImage: "chart.bar")
-                        .padding(.trailing, 100)
-                }
-
-            Settings()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-        }
-        .sheet(isPresented: $location) {
-            Settings.Location()
-                .equatable()
-        }
-        .sheet(isPresented: $froob, content: Froob.init)
-        .task {
-            cloud.ready.notify(queue: .main) {
-                cloud.pull.send()
+                .padding(.bottom)
             }
-            
-            switch Defaults.action {
-            case .rate:
-                UIApplication.shared.review()
-            case .froob:
-                froob = true
-            case .none:
-                break
+            .sheet(isPresented: $location) {
+                Settings.Location()
+                    .equatable()
             }
-            
-            if !Defaults.hasLocated {
-                location = true
-                Defaults.hasLocated = true
+            .sheet(isPresented: $froob, content: Froob.init)
+            .task {
+                cloud.ready.notify(queue: .main) {
+                    cloud.pull.send()
+                }
+                
+                switch Defaults.action {
+                case .rate:
+                    UIApplication.shared.review()
+                case .froob:
+                    froob = true
+                case .none:
+                    break
+                }
+                
+                if !Defaults.hasLocated {
+                    location = true
+                    Defaults.hasLocated = true
+                }
+                
+                _ = await UNUserNotificationCenter.request()
             }
-            
-            _ = await UNUserNotificationCenter.request()
-        }
     }
 }

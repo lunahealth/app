@@ -18,7 +18,7 @@ extension Settings {
                             }
                     } header: {
                         VStack(alignment: .leading) {
-                            Text("Choose the traits that you want to track every day with Moon Health and drag to rearrenge them.")
+                            Text("Choose the traits that you want to track every day and drag to rearrenge them.")
                                 .fixedSize(horizontal: false, vertical: true)
                             
                             if first {
@@ -50,10 +50,6 @@ extension Settings {
                                 .contentShape(Rectangle())
                                 .allowsHitTesting(false)
                         }
-                    }
-                    
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        Bar(traits: $traits)
                     }
                 }
             }

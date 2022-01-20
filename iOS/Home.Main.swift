@@ -7,7 +7,6 @@ extension Home {
         @Binding var wheel: Wheel?
         weak var observatory: Observatory!
         let moon: Moon
-        @State private var track = false
         
         var body: some View {
             ZStack {
@@ -16,25 +15,7 @@ extension Home {
                     Render(moon: moon, wheel: wheel, current: wheel.origin)
                         .allowsHitTesting(false)
                 }
-                Button {
-                    track = true
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(Color.primary)
-                        Text("Track")
-                            .font(.body.weight(.medium))
-                            .foregroundColor(.primary)
-                            .colorInvert()
-                            .padding(24)
-                    }
-                    .fixedSize()
-                    .contentShape(Rectangle())
-                }
-                .sheet(isPresented: $track) {
-                    Track(date: $date, week: observatory.week)
-                        .equatable()
-                }
+                Text("here")
             }
             .frame(maxWidth: 450, maxHeight: 450)
         }

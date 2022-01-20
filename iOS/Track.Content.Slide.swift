@@ -1,8 +1,8 @@
 import SwiftUI
 
-extension Track.Content {
+extension TrackOld.Content {
     struct Slide: View {
-        @Binding var item: Track.Status.Item
+        @Binding var item: TrackOld.Status.Item
         
         var body: some View {
             ZStack {

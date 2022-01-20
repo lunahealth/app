@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-extension Track {
+extension TrackOld {
     struct Content: View {
         @StateObject var status: Status
         let traits: [Trait]
