@@ -3,8 +3,8 @@ import Selene
 
 extension Settings.Traits {
     struct Item: View {
-        @State var active: Bool
         let trait: Trait
+        @State private var active = false
         
         var body: some View {
             Toggle(isOn: $active) {
@@ -21,6 +21,9 @@ extension Settings.Traits {
                         .foregroundColor(active ? .secondary : .init(.tertiaryLabel))
                         .font(.footnote)
                 }
+            }
+            .onReceive(cloud) {
+                active = $0.settings.traits.contains(trait)
             }
             .onChange(of: active) { mode in
                 Task {

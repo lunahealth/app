@@ -3,7 +3,6 @@ import Selene
 
 extension Settings {
     struct Traits: View {
-        @State private var active = Set<Trait>()
         @State private var first = false
         @Environment(\.dismiss) private var dismiss
         private let all = Trait.allCases.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
@@ -13,7 +12,7 @@ extension Settings {
                 List {
                     Section {
                         ForEach(all, id: \.self) { trait in
-                            Item(active: active.contains(trait), trait: trait)
+                            Item(trait: trait)
                         }
                     } header: {
                         VStack(alignment: .leading) {
@@ -53,7 +52,6 @@ extension Settings {
             .navigationViewStyle(.stack)
             .onReceive(cloud) {
                 first = $0.settings.traits.isEmpty
-                active = $0.settings.traits
             }
         }
     }
