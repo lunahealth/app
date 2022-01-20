@@ -11,7 +11,7 @@ extension Settings {
                 Text(title)
                     .foregroundColor(.primary)
                     .font(.body)
-                + Text("\n" + subtitle)
+                + Text(.init("\n" + subtitle))
                     .foregroundColor(.secondary)
                     .font(.footnote)
                 Spacer()
