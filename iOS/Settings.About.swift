@@ -11,13 +11,14 @@ extension Settings {
                         VStack {
                             Image("Logo")
                             Text(verbatim: "Moon Health")
-                                .font(.title3.weight(.medium))
+                                .font(.body.weight(.medium))
                                 .foregroundStyle(.primary)
                             Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
-                                .font(.body.monospacedDigit().weight(.medium))
+                                .font(.footnote.monospacedDigit().weight(.medium))
                                 .foregroundStyle(.secondary)
                         }
-                        .padding(.vertical, 70)
+                        .padding(.top, 70)
+                        .padding(.bottom, 150)
                         Spacer()
                     }
                 }
