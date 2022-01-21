@@ -14,7 +14,7 @@ extension Settings {
                                 .font(.title3.weight(.medium))
                                 .foregroundStyle(.primary)
                             Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
-                                .font(.body.monospaced().weight(.medium))
+                                .font(.body.monospacedDigit().weight(.medium))
                                 .foregroundStyle(.secondary)
                         }
                         .padding(.vertical, 70)
@@ -31,7 +31,7 @@ extension Settings {
                                 .font(.callout)
                             Spacer()
                             Image(systemName: "link")
-                                .font(.title3)
+                                .font(.system(size: 20).weight(.light))
                         }
                     }
                     
@@ -44,7 +44,7 @@ extension Settings {
                                 .font(.callout)
                             Spacer()
                             Image(systemName: "star")
-                                .font(.title3)
+                                .font(.system(size: 20).weight(.light))
                         }
                     }
                 }
@@ -54,6 +54,7 @@ extension Settings {
                         Spacer()
                         Text("From Berlin with ")
                         Image(systemName: "heart")
+                            .font(.system(size: 18).weight(.light))
                         Spacer()
                     }
                 }

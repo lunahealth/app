@@ -34,7 +34,7 @@ struct Window: View {
                                 .fill(Color.primary)
                                 .shadow(color: .primary, radius: 6)
                             Text("Track")
-                                .font(.footnote.weight(.medium))
+                                .font(.system(size: 14).weight(.medium))
                                 .foregroundColor(.primary)
                                 .colorInvert()
                                 .padding(22)

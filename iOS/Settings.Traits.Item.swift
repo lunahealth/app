@@ -9,17 +9,16 @@ extension Settings.Traits {
         var body: some View {
             Toggle(isOn: $active) {
                 HStack {
-                    Image(trait.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 20, maxHeight: 20)
+                    Image(systemName: trait.image)
+                        .font(.system(size: 16))
                         .foregroundColor(active ? trait.color : .init(.tertiaryLabel))
+                        .frame(width: 34, height: 34)
                     Text(trait.title)
                         .font(.callout)
                         .foregroundColor(active ? .primary : .secondary)
                     + Text("\n" + trait.description)
-                        .foregroundColor(active ? .secondary : .init(.tertiaryLabel))
                         .font(.footnote)
+                        .foregroundColor(active ? .secondary : .init(.tertiaryLabel))
                 }
             }
             .onReceive(cloud) {

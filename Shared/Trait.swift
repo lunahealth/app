@@ -58,7 +58,20 @@ extension Trait {
     }
     
     var image: String {
-        "Trait.\(self)"
+        switch self {
+        case .exercise:
+            return "bicycle"
+        case .focus:
+            return "aqi.medium"
+        case .period:
+            return "drop.fill"
+        case .mood:
+            return "theatermasks.fill"
+        case .nutrition:
+            return "fork.knife"
+        case .sleep:
+            return "bed.double.fill"
+        }
     }
     
     var color: Color {
@@ -72,7 +85,7 @@ extension Trait {
         case .nutrition:
             return .yellow
         case .exercise:
-            return .green
+            return .purple
         case .focus:
             return .blue
         }

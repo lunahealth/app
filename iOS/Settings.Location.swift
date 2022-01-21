@@ -16,7 +16,6 @@ extension Settings {
                         showsUserLocation: true,
                         userTrackingMode: .constant(.none))
                         .edgesIgnoringSafeArea(.all)
-                        .padding(.bottom)
                 }
                 Text(.init(Copy.location))
                     .font(.footnote)
@@ -29,23 +28,20 @@ extension Settings {
                 .symbolVariant(.fill)
                 .clipShape(Capsule())
                 .font(.callout)
-                .padding(.vertical)
-                .padding(.top)
                 
                 Button {
                     Task {
                         await save(latitude: region.center.latitude, longitude: region.center.longitude)
                     }
                 } label: {
-                    Text("Use map position instead")
+                    Text("Use map position")
                         .font(.footnote)
-                        .frame(height: 40)
+                        .frame(height: 45)
                         .contentShape(Rectangle())
-                        .allowsHitTesting(false)
                 }
                 .buttonStyle(.borderless)
                 .tint(.secondary)
-                .padding(.vertical)
+                .padding(.bottom)
             }
             .onChange(of: locator.coordinate) {
                 if let coordinate = $0 {

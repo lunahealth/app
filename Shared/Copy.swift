@@ -6,7 +6,7 @@ No In-App Purchases available at the moment, try again later.
 """
     
     static let location = """
-**Moon Health** uses your location to accurately follow the _Phases of the Moon_.
+Update your location to follow the Moon.
 """
     
     static let notifications = """

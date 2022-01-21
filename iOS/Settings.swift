@@ -3,6 +3,7 @@ import SwiftUI
 struct Settings: View {
     @State private var location = false
     @State private var traits = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
@@ -45,9 +46,23 @@ struct Settings: View {
                 }
                 .headerProminence(.increased)
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
-            .listStyle(.insetGrouped)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 20))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(.secondary)
+                            .frame(width: 35, height: 35)
+                            .contentShape(Rectangle())
+                    }
+                }
+            }
             .task {
                 let model = await cloud.model
                 if model.settings.traits.isEmpty {

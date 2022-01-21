@@ -13,14 +13,15 @@ struct Track: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
-                        .font(.system(size: 14))
+                        .font(.system(size: 15))
+                        .foregroundColor(.secondary)
                         .frame(width: 60, height: 60)
                         .contentShape(Rectangle())
                 }
             }
             Spacer()
         }
-        .background(.thinMaterial)
+        .background(.ultraThinMaterial)
         .sheet(isPresented: $status.preferences, onDismiss: {
             Task {
                 await status.update()

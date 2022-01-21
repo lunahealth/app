@@ -11,7 +11,6 @@
 		CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC42785B1590099B09D /* Settings.Option.swift */; };
 		CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC62785B3540099B09D /* Settings.Location.swift */; };
 		CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588F2775F7DE00B35407 /* Home.Today.swift */; };
-		CE1F58922775F83300B35407 /* Home.Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F58912775F83300B35407 /* Home.Main.swift */; };
 		CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2527786FCE004D93D5 /* Track.Header.swift */; };
 		CE37BE28277876B1004D93D5 /* Track.Header.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */; };
 		CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2927787882004D93D5 /* GraphicsContext.swift */; };
@@ -40,8 +39,6 @@
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
-		CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F991276F6076003EB9F8 /* Planetarium.swift */; };
-		CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
@@ -62,7 +59,6 @@
 		CE070FC42785B1590099B09D /* Settings.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Option.swift; sourceTree = "<group>"; };
 		CE070FC62785B3540099B09D /* Settings.Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Location.swift; sourceTree = "<group>"; };
 		CE1F588F2775F7DE00B35407 /* Home.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Today.swift; sourceTree = "<group>"; };
-		CE1F58912775F83300B35407 /* Home.Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Main.swift; sourceTree = "<group>"; };
 		CE37BE2527786FCE004D93D5 /* Track.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.swift; sourceTree = "<group>"; };
 		CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.Option.swift; sourceTree = "<group>"; };
 		CE37BE2927787882004D93D5 /* GraphicsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsContext.swift; sourceTree = "<group>"; };
@@ -92,8 +88,6 @@
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		CEC3F991276F6076003EB9F8 /* Planetarium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.swift; sourceTree = "<group>"; };
-		CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planetarium.Render.swift; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
@@ -178,13 +172,10 @@
 				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
-				CE1F58912775F83300B35407 /* Home.Main.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CE1F588F2775F7DE00B35407 /* Home.Today.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
-				CEC3F993276F67A2003EB9F8 /* Planetarium.Render.swift */,
-				CEC3F991276F6076003EB9F8 /* Planetarium.swift */,
 				CEB0A76027872C9000B5F5BF /* Settings.About.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
 				CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */,
@@ -301,11 +292,8 @@
 				CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */,
 				CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */,
 				CE37BE2C277892E4004D93D5 /* Track.Content.swift in Sources */,
-				CEC3F992276F6076003EB9F8 /* Planetarium.swift in Sources */,
-				CE1F58922775F83300B35407 /* Home.Main.swift in Sources */,
 				CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */,
 				CE62AEC827997CFA000E7470 /* Window.Option.swift in Sources */,
-				CEC3F994276F67A2003EB9F8 /* Planetarium.Render.swift in Sources */,
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
 				CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */,
 				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,

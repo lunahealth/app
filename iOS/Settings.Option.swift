@@ -16,6 +16,7 @@ extension Settings {
                     .font(.footnote)
                 Spacer()
                 Image(systemName: symbol)
+                    .font(.system(size: 20).weight(.light))
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.primary)
             }

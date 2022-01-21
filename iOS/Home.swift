@@ -13,10 +13,15 @@ struct Home: View {
             if let moon = moon {
                 Spacer()
                 Info(date: $date, moon: moon)
-                Main(date: $date,
-                     wheel: $wheel,
-                     observatory: observatory,
-                     moon: moon)
+                ZStack {
+                    Control(date: $date, wheel: $wheel, moon: moon)
+                    if let wheel = wheel {
+                        Render(moon: moon, wheel: wheel, current: wheel.origin)
+                            .allowsHitTesting(false)
+                    }
+                    Text("here")
+                }
+                .frame(maxWidth: 450, maxHeight: 450)
                 Today(date: $date)
                     .padding(.bottom, 40)
             }

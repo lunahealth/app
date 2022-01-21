@@ -4,7 +4,7 @@ final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable wher
     required init?(coder: NSCoder) { nil }
     override init(rootView: C) {
         super.init(rootView: rootView)
-//        modalPresentationStyle = .overCurrentContext
+        modalPresentationStyle = .overCurrentContext
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -17,7 +17,6 @@ final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable wher
     
     override func willMove(toParent: UIViewController?) {
         super.willMove(toParent: toParent)
-        parent?.modalPresentationStyle = .overCurrentContext
         parent?.view.backgroundColor = .clear
         view.backgroundColor = .clear
     }

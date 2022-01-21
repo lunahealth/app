@@ -13,7 +13,7 @@ extension Home {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
-                            .font(.title)
+                            .font(.system(size: 30).weight(.light))
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
                             .foregroundColor(.primary)
@@ -32,7 +32,7 @@ extension Home {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
-                            .font(.title)
+                            .font(.system(size: 30).weight(.light))
                             .symbolRenderingMode(.hierarchical)
                             .frame(width: 50, height: 50)
                             .foregroundColor(.primary)
