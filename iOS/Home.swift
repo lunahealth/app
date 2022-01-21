@@ -10,6 +10,9 @@ struct Home: View {
     
     var body: some View {
         ZStack(alignment: .top) {
+            Stars()
+                .equatable()
+            
             if let moon = moon {
                 VStack {
                     Group {
@@ -24,7 +27,7 @@ struct Home: View {
                 }
                 .frame(maxHeight: .greatestFiniteMagnitude)
                 .allowsHitTesting(false)
-                
+
                 Group {
                     Control(date: $date, wheel: $wheel, moon: moon)
                     if let wheel = wheel {
@@ -33,7 +36,7 @@ struct Home: View {
                     }
                 }
                 .frame(maxWidth: 450)
-                
+
                 Info(date: $date, moon: moon)
             }
         }
