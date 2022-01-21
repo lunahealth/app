@@ -3,32 +3,18 @@ import Selene
 
 extension Settings {
     struct Traits: View {
-        @State private var first = false
         @Environment(\.dismiss) private var dismiss
         private let all = Trait.allCases.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
         
         var body: some View {
             NavigationView {
                 List {
-                    Section {
+                    Section("Choose the traits you want to track.") {
                         ForEach(all, id: \.self) { trait in
                             Item(trait: trait)
                         }
-                    } header: {
-                        VStack(alignment: .leading) {
-                            Text("Choose the traits you want to track.")
-                                .fixedSize(horizontal: false, vertical: true)
-                            
-                            if first {
-                                Text("You can always update your preferences in Settings.")
-                                    .foregroundColor(.secondary)
-                                    .font(.footnote)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .padding(.vertical)
-                            }
-                        }
                     }
-                    .textCase(.none)
+                    .headerProminence(.increased)
                 }
                 .navigationTitle("Traits")
                 .navigationBarTitleDisplayMode(.inline)
@@ -50,9 +36,6 @@ extension Settings {
                 }
             }
             .navigationViewStyle(.stack)
-            .onReceive(cloud) {
-                first = $0.settings.traits.isEmpty
-            }
         }
     }
 }

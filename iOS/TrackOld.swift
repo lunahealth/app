@@ -21,7 +21,7 @@ struct TrackOld: View, Equatable {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             }
-            .navigationTitle(date.relativeDays)
+//            .navigationTitle(date.relativeDays)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

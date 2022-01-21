@@ -10,7 +10,6 @@
 		CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */; };
 		CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC42785B1590099B09D /* Settings.Option.swift */; };
 		CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE070FC62785B3540099B09D /* Settings.Location.swift */; };
-		CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F588F2775F7DE00B35407 /* Home.Today.swift */; };
 		CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2527786FCE004D93D5 /* Track.Header.swift */; };
 		CE37BE28277876B1004D93D5 /* Track.Header.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */; };
 		CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2927787882004D93D5 /* GraphicsContext.swift */; };
@@ -39,6 +38,8 @@
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
+		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
+		CEBA5D54279AD91A00002D12 /* Home.Info.Back.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
@@ -48,7 +49,6 @@
 		CEF83991276B674900134178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF83990276B674900134178 /* Assets.xcassets */; };
 		CEF8399A276B695200134178 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEF83999276B695200134178 /* Selene */; };
 		CEF8399F276B6DC300134178 /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8399E276B6DC300134178 /* Locator.swift */; };
-		CEFB5F5127845AB700CAA105 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F5027845AB700CAA105 /* Date.swift */; };
 		CEFB5F532784612A00CAA105 /* TrackOld.Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F522784612A00CAA105 /* TrackOld.Status.swift */; };
 		CEFB5F55278461F200CAA105 /* Track.Status.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */; };
 		CEFB5F592784728700CAA105 /* Track.Content.Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */; };
@@ -58,7 +58,6 @@
 		CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Traits.Item.swift; sourceTree = "<group>"; };
 		CE070FC42785B1590099B09D /* Settings.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Option.swift; sourceTree = "<group>"; };
 		CE070FC62785B3540099B09D /* Settings.Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Location.swift; sourceTree = "<group>"; };
-		CE1F588F2775F7DE00B35407 /* Home.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Today.swift; sourceTree = "<group>"; };
 		CE37BE2527786FCE004D93D5 /* Track.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.swift; sourceTree = "<group>"; };
 		CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Header.Option.swift; sourceTree = "<group>"; };
 		CE37BE2927787882004D93D5 /* GraphicsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsContext.swift; sourceTree = "<group>"; };
@@ -88,6 +87,8 @@
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
+		CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.Back.swift; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		CEF83990276B674900134178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF8399B276B6BEF00134178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEF8399E276B6DC300134178 /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
-		CEFB5F5027845AB700CAA105 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEFB5F522784612A00CAA105 /* TrackOld.Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackOld.Status.swift; sourceTree = "<group>"; };
 		CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.Item.swift; sourceTree = "<group>"; };
 		CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Content.Slide.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				CE9B399E278333BE0006E8AF /* Copy.swift */,
-				CEFB5F5027845AB700CAA105 /* Date.swift */,
 				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
 				CEF8399E276B6DC300134178 /* Locator.swift */,
@@ -150,6 +149,7 @@
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
+				CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -171,10 +171,10 @@
 				CEF8398C276B674900134178 /* App.swift */,
 				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
+				CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
-				CE1F588F2775F7DE00B35407 /* Home.Today.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
 				CEB0A76027872C9000B5F5BF /* Settings.About.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
@@ -184,15 +184,15 @@
 				CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */,
 				CE9B398627832E0B0006E8AF /* Settings.Traits.swift */,
 				CE62AECB27998740000E7470 /* Sheet.swift */,
+				CE62AECD27998F9D000E7470 /* Track.Active.swift */,
 				CEFB5F582784728700CAA105 /* Track.Content.Slide.swift */,
 				CE37BE2B277892E4004D93D5 /* Track.Content.swift */,
 				CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */,
 				CE37BE2527786FCE004D93D5 /* Track.Header.swift */,
-				CE62AECD27998F9D000E7470 /* Track.Active.swift */,
 				CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */,
-				CEFB5F522784612A00CAA105 /* TrackOld.Status.swift */,
-				CE62AEC9279986D8000E7470 /* Track.swift */,
 				CE62AED1279991FF000E7470 /* Track.Status.swift */,
+				CE62AEC9279986D8000E7470 /* Track.swift */,
+				CEFB5F522784612A00CAA105 /* TrackOld.Status.swift */,
 				CEA1E82627775A8400AFD07B /* TrackOld.swift */,
 				CE9B39A0278334040006E8AF /* UIApplication.swift */,
 				CE62AEC727997CFA000E7470 /* Window.Option.swift */,
@@ -283,10 +283,9 @@
 				CE62AED2279991FF000E7470 /* Track.Status.swift in Sources */,
 				CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */,
 				CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */,
-				CEFB5F5127845AB700CAA105 /* Date.swift in Sources */,
-				CE1F58902775F7DE00B35407 /* Home.Today.swift in Sources */,
 				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
 				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
+				CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */,
 				CEF8398D276B674900134178 /* App.swift in Sources */,
 				CE9B39912783317A0006E8AF /* Store.swift in Sources */,
 				CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */,
@@ -317,6 +316,7 @@
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,
 				CE62AECC27998740000E7470 /* Sheet.swift in Sources */,
 				CE9B39A3278334270006E8AF /* Froob.swift in Sources */,
+				CEBA5D54279AD91A00002D12 /* Home.Info.Back.swift in Sources */,
 				CE9B398927832FB50006E8AF /* Global.swift in Sources */,
 				CE62AECA279986D8000E7470 /* Track.swift in Sources */,
 			);

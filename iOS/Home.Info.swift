@@ -7,65 +7,52 @@ extension Home {
         let moon: Moon
         
         var body: some View {
-            VStack(spacing: 20) {
-                HStack(spacing: 20) {
-                    Button {
-                        date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
-                    } label: {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .font(.system(size: 30).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.primary)
-                    }
+            HStack(spacing: 20) {
+                Button {
+                    date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
+                } label: {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .font(.system(size: 32).weight(.light))
+                        .symbolRenderingMode(.hierarchical)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.primary)
+                }
 
-                    VStack {
-                        Text(date, format: .dateTime.weekday(.wide))
-                        Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                        Text(date.relativeDays)
-                            .fontWeight(Calendar.current.isDateInToday(date) ? .medium : .light)
-                    }
-                    .font(.body)
-                    .frame(width: 150)
-                    
-                    Button {
-                        date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
-                    } label: {
-                        Image(systemName: "chevron.right.circle.fill")
-                            .font(.system(size: 30).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.primary)
+                VStack {
+                    Text(date, format: .dateTime.weekday(.wide))
+                    Text(verbatim: date.formatted(date: .numeric, time: .omitted))
+                    if Calendar.current.isDateInToday(date) {
+                        Text("Today")
+                            .font(.callout)
+                            .foregroundColor(.secondary)
+                            .frame(height: 26)
+                    } else {
+                        Back(date: $date, text: offset, forward: date < .now)
+                            .frame(height: 26)
                     }
                 }
+                .frame(width: 150)
                 
-                Text(moon.fraction, format: .number)
-                    .font(.body.weight(.medium).monospacedDigit())
-                + Text("%  ")
-                    .font(.caption)
-                + Text(phase)
-                    .font(.body)
+                Button {
+                    date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
+                } label: {
+                    Image(systemName: "chevron.right.circle.fill")
+                        .font(.system(size: 32).weight(.light))
+                        .symbolRenderingMode(.hierarchical)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.primary)
+                }
             }
+            .padding(.top, 70)
         }
         
-        private var phase: String {
-            switch moon.phase {
-            case .new:
-                return "New Moon"
-            case .waxingCrescent:
-                return "Waxing Crescent"
-            case .firstQuarter:
-                return "First Quarter"
-            case .waxingGibbous:
-                return "Waxing Gibbous"
-            case .full:
-                return "Full Moon"
-            case .waningGibbous:
-                return "Waning Gibbous"
-            case .lastQuarter:
-                return "Last Quarter"
-            case .waningCrescent:
-                return "Waning Crescent"
+        private var offset: Text {
+            if Calendar.current.isDate(date, inSameDayAs: Calendar.current.date(byAdding: .day, value: -1, to: .now)!) {
+                return .init("Yesterday")
+            } else if Calendar.current.isDate(date, inSameDayAs: Calendar.current.date(byAdding: .day, value: 1, to: .now)!) {
+                return .init("Tomorrow")
+            } else {
+                return .init(date, format: .relative(presentation: .named, unitsStyle: .wide))
             }
         }
     }

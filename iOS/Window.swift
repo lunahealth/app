@@ -30,14 +30,10 @@ struct Window: View {
                         track = true
                     } label: {
                         ZStack {
-                            Circle()
-                                .fill(Color.primary)
-                                .shadow(color: .primary, radius: 6)
+                            Image("Track")
                             Text("Track")
-                                .font(.system(size: 14).weight(.medium))
-                                .foregroundColor(.primary)
-                                .colorInvert()
-                                .padding(22)
+                                .font(.system(size: 11).weight(.medium))
+                                .foregroundColor(.black)
                         }
                         .fixedSize()
                         .contentShape(Rectangle())

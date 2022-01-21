@@ -15,7 +15,7 @@ struct Track: View {
                     Image(systemName: "xmark")
                         .font(.system(size: 15))
                         .foregroundColor(.secondary)
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                         .contentShape(Rectangle())
                 }
             }

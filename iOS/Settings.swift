@@ -55,10 +55,10 @@ struct Settings: View {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 20))
+                            .font(.system(size: 20).weight(.light))
                             .symbolRenderingMode(.hierarchical)
                             .foregroundColor(.secondary)
-                            .frame(width: 35, height: 35)
+                            .frame(width: 30, height: 35)
                             .contentShape(Rectangle())
                     }
                 }
