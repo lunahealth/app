@@ -12,7 +12,7 @@ extension Home.Info {
             } label: {
                 ZStack {
                     Capsule()
-                        .fill(Color.primary.opacity(0.3))
+                        .fill(Color.accentColor.opacity(0.5))
                     HStack {
                         if forward {
                             text
@@ -23,6 +23,7 @@ extension Home.Info {
                         }
                     }
                     .font(.footnote.weight(.light))
+                    .foregroundColor(.primary)
                     .padding(.horizontal, 6)
                     .padding(5)
                 }

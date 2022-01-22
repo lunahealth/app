@@ -3,6 +3,16 @@
     {
       "filename" : "Shadow.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "ShadowDark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

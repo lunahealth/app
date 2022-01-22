@@ -7,7 +7,6 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Window()
-                .preferredColorScheme(.dark)
         }
         .onChange(of: phase) {
             switch $0 {

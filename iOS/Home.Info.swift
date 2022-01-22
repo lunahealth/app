@@ -15,7 +15,7 @@ extension Home {
                         .font(.system(size: 32).weight(.light))
                         .symbolRenderingMode(.hierarchical)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.primary)
+                        .foregroundColor(.secondary)
                 }
 
                 VStack {
@@ -40,7 +40,7 @@ extension Home {
                         .font(.system(size: 32).weight(.light))
                         .symbolRenderingMode(.hierarchical)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.primary)
+                        .foregroundColor(.secondary)
                 }
             }
             .padding(.top, 70)

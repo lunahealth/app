@@ -148,6 +148,7 @@
 				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
 				CEF8399E276B6DC300134178 /* Locator.swift */,
+				CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */,
 				CE9B3994278331930006E8AF /* Store.Item.swift */,
 				CE9B3992278331860006E8AF /* Store.State.swift */,
 				CE9B39902783317A0006E8AF /* Store.swift */,
@@ -155,7 +156,6 @@
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
-				CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

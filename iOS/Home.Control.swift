@@ -13,7 +13,7 @@ extension Home {
             GeometryReader { proxy in
                 Circle()
                     .stroke(Color("Path").opacity(0.4), style: .init(lineWidth: 16))
-                    .shadow(color: .init("Purple").opacity(0.6), radius: 15)
+                    .shadow(color: .accentColor.opacity(0.6), radius: 15)
                     .padding(pad)
                     .contentShape(Rectangle())
                     .onChange(of: proxy.size) {
