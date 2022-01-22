@@ -18,12 +18,12 @@ struct Home: View {
                     Group {
                         Text(moon.fraction, format: .number)
                             .font(.title.weight(.medium).monospacedDigit())
-                        + Text("%  ")
+                        + Text("%")
                             .font(.caption)
                     }
-                    .padding(.leading, 10)
+                    .padding(.leading, 7)
                     Text(moon.phase.name)
-                        .font(.footnote)
+                        .font(.footnote.weight(.light))
                 }
                 .frame(maxHeight: .greatestFiniteMagnitude)
                 .allowsHitTesting(false)
