@@ -13,6 +13,7 @@ final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable wher
             .map {
                 $0.detents = [.medium()]
                 $0.preferredCornerRadius = 40
+                $0.prefersGrabberVisible = true
             }
     }
     

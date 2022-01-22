@@ -6,22 +6,40 @@ struct Track: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Spacer()
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 15))
-                        .foregroundColor(.secondary)
-                        .frame(width: 50, height: 50)
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 25))
+                        .symbolRenderingMode(.hierarchical)
+                        .frame(width: 40, height: 40)
                         .contentShape(Rectangle())
+                        .padding([.top, .trailing], 15)
                 }
             }
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(Trait.allCases, id: \.self) {
+                        Category(trait: $0)
+                    }
+                }
+                .padding(.horizontal, 20)
+            }
+            .padding(.vertical)
+            
+            Spacer()
+            
+            Text("Select a trait to track")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            
             Spacer()
         }
-        .background(.ultraThinMaterial)
+        .background(.thinMaterial)
         .sheet(isPresented: $status.preferences, onDismiss: {
             Task {
                 await status.update()
