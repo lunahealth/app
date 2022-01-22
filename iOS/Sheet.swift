@@ -12,6 +12,7 @@ final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable wher
         sheetPresentationController
             .map {
                 $0.detents = [.medium()]
+                $0.preferredCornerRadius = 40
             }
     }
     

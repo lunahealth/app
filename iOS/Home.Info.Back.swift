@@ -10,26 +10,20 @@ extension Home.Info {
             Button {
                 date = .now
             } label: {
-                ZStack {
-                    Capsule()
-                        .fill(Color.accentColor.opacity(0.5))
-                    HStack {
-                        if forward {
-                            text
-                            Image(systemName: "arrow.forward")
-                        } else {
-                            Image(systemName: "arrow.backward")
-                            text
-                        }
+                HStack {
+                    if forward {
+                        text
+                        Image(systemName: "arrow.forward")
+                    } else {
+                        Image(systemName: "arrow.backward")
+                        text
                     }
-                    .font(.footnote.weight(.light))
-                    .foregroundColor(.primary)
-                    .padding(.horizontal, 6)
-                    .padding(5)
                 }
-                .fixedSize()
-                .contentShape(Rectangle())
+                .font(.footnote.weight(.medium))
             }
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            .tint(.accentColor)
         }
     }
 }

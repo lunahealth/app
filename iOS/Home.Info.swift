@@ -7,40 +7,40 @@ extension Home {
         let moon: Moon
         
         var body: some View {
-            HStack(spacing: 20) {
-                Button {
-                    date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
-                } label: {
-                    Image(systemName: "chevron.left.circle.fill")
-                        .font(.system(size: 32).weight(.light))
-                        .symbolRenderingMode(.hierarchical)
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.secondary)
-                }
-
-                VStack {
-                    Text(date, format: .dateTime.weekday(.wide))
-                    Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                    if Calendar.current.isDateInToday(date) {
-                        Text("Today")
-                            .font(.callout)
-                            .foregroundColor(.secondary)
-                            .frame(height: 26)
-                    } else {
-                        Back(date: $date, text: offset, forward: date < .now)
-                            .frame(height: 26)
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
+                    Button {
+                        date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
+                    } label: {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .font(.system(size: 25).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .frame(width: 40, height: 50)
+                    }
+                    
+                    VStack {
+                        Text(date, format: .dateTime.weekday(.wide))
+                        Text(verbatim: date.formatted(date: .numeric, time: .omitted))
+                            .font(.footnote)
+                    }
+                    .frame(width: 140)
+                    
+                    Button {
+                        date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
+                    } label: {
+                        Image(systemName: "chevron.right.circle.fill")
+                            .font(.system(size: 25).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .frame(width: 40, height: 50)
                     }
                 }
-                .frame(width: 150)
-                
-                Button {
-                    date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
-                } label: {
-                    Image(systemName: "chevron.right.circle.fill")
-                        .font(.system(size: 32).weight(.light))
-                        .symbolRenderingMode(.hierarchical)
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.secondary)
+                if Calendar.current.isDateInToday(date) {
+                    Text("Today")
+                        .font(.footnote.weight(.light))
+                        .frame(height: 36)
+                } else {
+                    Back(date: $date, text: offset, forward: date < .now)
+                        .frame(height: 36)
                 }
             }
             .padding(.top, 70)

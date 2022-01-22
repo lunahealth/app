@@ -45,7 +45,6 @@ struct Window: View {
                             .edgesIgnoringSafeArea(.all)
                     }
                 }
-                .padding(.bottom)
             }
             .sheet(isPresented: $location) {
                 Settings.Location()
