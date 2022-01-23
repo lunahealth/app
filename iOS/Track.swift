@@ -3,33 +3,30 @@ import Selene
 
 struct Track: View {
     @StateObject private var status = Status()
+    @Namespace private var animation
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
-//            HStack {
-//                Spacer()
-//                Button {
-//                    dismiss()
-//                } label: {
-//                    Image(systemName: "xmark.circle.fill")
-//                        .font(.system(size: 25))
-//                        .symbolRenderingMode(.hierarchical)
-//                        .frame(width: 40, height: 40)
-//                        .contentShape(Rectangle())
-//                        .padding([.top, .trailing], 15)
-//                }
-//            }
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(Trait.allCases, id: \.self) {
-                        Category(trait: $0)
+            if let selected = status.selected {
+                Detail(trait: selected, animation: animation)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Trait.allCases, id: \.self) { trait in
+                            Category(trait: trait, animation: animation) {
+                                withAnimation(.easeInOut(duration: 0.7)) {
+                                    status.selected = trait
+                                }
+                            }
+                        }
                     }
+                    .padding(.horizontal, 20)
+                    .frame(maxHeight: .greatestFiniteMagnitude)
                 }
-                .padding(.horizontal, 20)
-                .frame(maxHeight: .greatestFiniteMagnitude)
             }
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .background(.ultraThinMaterial)
         .sheet(isPresented: $status.preferences, onDismiss: {
             Task {
