@@ -22,7 +22,7 @@ struct Track: View {
                             .frame(width: 16)
                         ForEach(Trait.allCases, id: \.self) { trait in
                             Category(trait: trait, animation: animation) {
-                                withAnimation(.easeInOut(duration: 0.5)) {
+                                withAnimation(.easeInOut(duration: 0.4)) {
                                     status.selected = trait
                                 }
                             }

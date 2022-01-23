@@ -22,13 +22,13 @@ extension TrackOld.Content {
                             .padding(.leading, 8)
                             .padding(.trailing)
                             
-                            HStack {
-                                Text(item.id.low)
-                                Spacer()
-                                Text(item.id.high)
-                            }
-                            .foregroundColor(item.id.color)
-                            .font(.caption2)
+//                            HStack {
+//                                Text(item.id.low)
+//                                Spacer()
+//                                Text(item.id.high)
+//                            }
+//                            .foregroundColor(item.id.color)
+//                            .font(.caption2)
                         }
                     } else {
                         Spacer()

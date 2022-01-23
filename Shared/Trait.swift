@@ -23,37 +23,44 @@ extension Trait {
         }
     }
     
-    var low: String {
+    var levels: [String] {
         switch self {
         case .exercise:
-            return "Nothing"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         case .nutrition:
-            return "Junk food"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         case .sleep:
-            return "No sleep"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         case .mood:
-            return "Sad"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         case .period:
-            return "None"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         case .focus:
-            return "Unable"
-        }
-    }
-    
-    var high: String {
-        switch self {
-        case .exercise:
-            return "Too much"
-        case .nutrition:
-            return "Healthy"
-        case .sleep:
-            return "Too much"
-        case .mood:
-            return "Happy"
-        case .period:
-            return "A lot"
-        case .focus:
-            return "On the zone"
+            return ["None",
+                    "Little",
+                    "Some",
+                    "Decent",
+                    "A lot"]
         }
     }
     

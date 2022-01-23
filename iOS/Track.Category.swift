@@ -11,7 +11,7 @@ extension Track {
             Button(action: action) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(.thinMaterial)
+                        .fill(.quaternary)
                     Image(systemName: "checkmark.circle.fill")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 25).weight(.light))
@@ -32,6 +32,7 @@ extension Track {
                 }
                 .frame(width: 140, height: 140)
             }
+            .foregroundColor(.secondary)
             .id(trait)
         }
     }
