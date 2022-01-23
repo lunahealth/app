@@ -9,20 +9,24 @@ extension Track {
             Button {
                 
             } label: {
-                HStack {
-                    Image(systemName: trait.image)
-                        .font(.system(size: 18))
-                        .foregroundColor(trait.color)
-                    Text(trait.title)
-                        .font(.callout)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(.thinMaterial)
                     Image(systemName: "checkmark.circle.fill")
                         .symbolRenderingMode(.hierarchical)
-                        .font(.title3.weight(.light))
+                        .font(.system(size: 25).weight(.light))
+                        .padding([.top, .trailing], 5)
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topTrailing)
+                    Text(trait.title)
+                        .font(.footnote)
+                        .padding(.bottom, 10)
+                        .frame(maxHeight: .greatestFiniteMagnitude, alignment: .bottom)
+                    Image(systemName: trait.image)
+                        .font(.system(size: 30))
+                        .foregroundColor(trait.color)
                 }
+                .frame(width: 140, height: 140)
             }
-            .buttonStyle(.bordered)
-            .buttonBorderShape(.capsule)
-            .tint(.accentColor)
         }
     }
 }
