@@ -18,7 +18,7 @@ extension Settings {
                 }
                 .navigationTitle("Traits")
                 .navigationBarTitleDisplayMode(.inline)
-                .toggleStyle(SwitchToggleStyle(tint: .mint))
+                .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 .listStyle(.grouped)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -27,7 +27,6 @@ extension Settings {
                         } label: {
                             Text("Done")
                                 .font(.callout.weight(.medium))
-                                .foregroundColor(.blue)
                                 .padding(.leading)
                                 .frame(height: 34)
                                 .contentShape(Rectangle())

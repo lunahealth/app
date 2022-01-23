@@ -20,6 +20,7 @@ extension Track {
                     Text(trait.title)
                         .matchedGeometryEffect(id: "\(trait).text", in: animation)
                         .font(.footnote)
+                        .foregroundColor(.primary)
                         .padding(.bottom, 10)
                         .frame(maxHeight: .greatestFiniteMagnitude, alignment: .bottom)
                     Image(systemName: trait.image)

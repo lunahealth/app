@@ -81,11 +81,11 @@ extension Trait {
         case .mood:
             return .orange
         case .sleep:
-            return .indigo
+            return .cyan
         case .nutrition:
             return .yellow
         case .exercise:
-            return .purple
+            return .mint
         case .focus:
             return .blue
         }
