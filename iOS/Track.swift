@@ -7,22 +7,35 @@ struct Track: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack {
+        ScrollViewReader { proxy in
             if let selected = status.selected {
-                Detail(trait: selected, animation: animation)
+                Detail(trait: selected, animation: animation) {
+                    status.previous = selected
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        status.selected = nil
+                    }
+                }
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
+                        Spacer()
+                            .frame(width: 16)
                         ForEach(Trait.allCases, id: \.self) { trait in
                             Category(trait: trait, animation: animation) {
-                                withAnimation(.easeInOut(duration: 0.7)) {
+                                withAnimation(.easeInOut(duration: 0.5)) {
                                     status.selected = trait
                                 }
                             }
                         }
+                        Spacer()
+                            .frame(width: 16)
                     }
-                    .padding(.horizontal, 20)
                     .frame(maxHeight: .greatestFiniteMagnitude)
+                }
+                .onAppear {
+                    if let previous = status.previous {
+                        proxy.scrollTo(previous, anchor: .bottom)
+                    }
                 }
             }
         }

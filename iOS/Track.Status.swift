@@ -5,6 +5,7 @@ extension Track {
     final class Status: ObservableObject {
         @Published var preferences = false
         @Published var selected: Trait?
+        @Published var previous: Trait?
         @Published private(set) var items = [Trait : Double]()
         
         

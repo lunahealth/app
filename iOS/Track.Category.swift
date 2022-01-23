@@ -31,6 +31,7 @@ extension Track {
                 }
                 .frame(width: 140, height: 140)
             }
+            .id(trait)
         }
     }
 }
