@@ -5,6 +5,7 @@ extension Track.Detail {
     struct Item: View {
         let index: Int
         let trait: Trait
+        let selected: Bool
         let action: () -> Void
         
         var body: some View {
@@ -12,16 +13,16 @@ extension Track.Detail {
                 VStack {
                     ZStack {
                         Circle()
-                            .fill(.quaternary)
-                            .foregroundColor(.secondary)
+                            .fill(selected ? .secondary : .quaternary)
+                            .foregroundColor(selected ? .accentColor : .secondary)
                             .frame(width: 44, height: 44)
                         Image(systemName: symbol)
                             .font(.system(size: 16).weight(.light))
-                            .foregroundColor(.primary)
+                            .foregroundColor(selected ? .primary : .secondary)
                     }
                     Text(trait.levels[index])
                         .font(.caption2)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(selected ? .primary : .secondary)
                 }
                 .frame(width: 70)
             }

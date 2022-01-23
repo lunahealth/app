@@ -6,7 +6,7 @@ extension Track {
         let trait: Trait
         let animation: Namespace.ID
         let back: () -> Void
-        @State private var slide = 0.0
+        @State private var selected: Int?
         
         var body: some View {
             ZStack {
@@ -21,7 +21,23 @@ extension Track {
                                     .padding(.leading)
                             }
                             Spacer()
+                            
+                            if selected != nil {
+                                Button {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        selected = nil
+                                    }
+                                } label: {
+                                    Text("Clear")
+                                        .font(.footnote)
+                                }
+                                .buttonStyle(.bordered)
+                                .buttonBorderShape(.capsule)
+                                .tint(.pink)
+                                .padding(.trailing)
+                            }
                         }
+                        
                         HStack {
                             Image(systemName: trait.image)
                                 .resizable()
@@ -39,23 +55,25 @@ extension Track {
                     Spacer()
                 }
                 
-                VStack {
-                    Spacer()
-                    Button {
+                if selected != nil {
+                    VStack {
+                        Spacer()
                         
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 34).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.pink)
+                        Button(action: back) {
+                            Text("Done")
+                                .font(.callout)
+                        }
+                        .buttonStyle(.bordered)
+                        .padding(.bottom, 50)
                     }
-                    .padding(.bottom, 30)
                 }
                 
                 HStack(spacing: 0) {
                     ForEach(0 ..< 5) { index in
-                        Item(index: index, trait: trait) {
-                            
+                        Item(index: index, trait: trait, selected: selected == index) {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                selected = index
+                            }
                         }
                     }
                 }
