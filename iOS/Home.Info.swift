@@ -14,14 +14,14 @@ extension Home {
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
                             .font(.system(size: 25).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
                             .frame(width: 40, height: 50)
                     }
                     
                     VStack {
                         Text(date, format: .dateTime.weekday(.wide))
+                            .font(.title3.weight(.regular))
                         Text(verbatim: date.formatted(date: .numeric, time: .omitted))
-                            .font(.footnote)
+                            .font(.callout)
                     }
                     .frame(width: 140)
                     
@@ -30,17 +30,14 @@ extension Home {
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
                             .font(.system(size: 25).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
                             .frame(width: 40, height: 50)
                     }
                 }
                 if Calendar.current.isDateInToday(date) {
                     Text("Today")
-                        .font(.footnote.weight(.light))
-                        .frame(height: 36)
+                        .font(.callout)
                 } else {
                     Back(date: $date, text: offset, forward: date < .now)
-                        .frame(height: 36)
                 }
             }
             .padding(.top, 70)

@@ -25,10 +25,11 @@ struct Track: View {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.title.weight(.light))
                                 .symbolRenderingMode(.hierarchical)
-                                .foregroundColor(.accentColor)
-                            Text("You tracked everything for Today\ncome back tomorrow.")
+                                .foregroundColor(.blue)
+                            Text("You tracked Today,\ncome back tomorrow.")
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.primary)
+                                .multilineTextAlignment(.center)
                                 .padding(.vertical)
                         }
                     }

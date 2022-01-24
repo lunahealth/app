@@ -19,7 +19,7 @@ extension Track {
                     .matchedGeometryEffect(id: "\(trait).text", in: animation)
                     .font(.title3)
                     .minimumScaleFactor(0.1)
-                Track.Leveling(trait: trait, level: level, selected: true, animation: animation)
+                Track.Item(trait: trait, level: level, selected: true, animation: animation)
                     .font(.largeTitle.weight(.light))
                     .frame(width: 70, height: 70)
                 Spacer()

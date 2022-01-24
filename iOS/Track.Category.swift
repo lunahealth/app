@@ -20,7 +20,7 @@ extension Track {
                         .shadow(color: .black.opacity(0.2), radius: status.journal?.traits[trait] == nil ? 3 : 0)
                     if let level = status.journal?.traits[trait] {
                         VStack(alignment: .trailing) {
-                            Track.Leveling(trait: trait, level: level, selected: true, animation: animation)
+                            Track.Item(trait: trait, level: level, selected: true, animation: animation)
                                 .font(.footnote.weight(.light))
                                 .frame(width: 24, height: 24)
                                 .padding([.top, .trailing], 6)

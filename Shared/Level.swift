@@ -25,11 +25,11 @@ extension Level {
             case .focus:
                 return "None"
             case .period:
-                return "None"
+                return "Nothing"
             case .mood:
-                return "None"
+                return "Very low"
             case .nutrition:
-                return "None"
+                return "Worst"
             case .sleep:
                 return "None"
             }
@@ -42,9 +42,9 @@ extension Level {
             case .period:
                 return "Little"
             case .mood:
-                return "Little"
+                return "Low"
             case .nutrition:
-                return "Little"
+                return "Bad"
             case .sleep:
                 return "Little"
             }
@@ -55,26 +55,26 @@ extension Level {
             case .focus:
                 return "Some"
             case .period:
-                return "Some"
+                return "Regular"
             case .mood:
-                return "Some"
+                return "Indifferent"
             case .nutrition:
-                return "Some"
+                return "Regular"
             case .sleep:
-                return "Some"
+                return "Enough"
             }
         case .high:
             switch trait {
             case .exercise:
                 return "Decent"
             case .focus:
-                return "Decent"
+                return "Much"
             case .period:
-                return "Decent"
+                return "Much"
             case .mood:
-                return "Decent"
+                return "Happy"
             case .nutrition:
-                return "Decent"
+                return "Good"
             case .sleep:
                 return "Decent"
             }
@@ -87,9 +87,9 @@ extension Level {
             case .period:
                 return "A lot"
             case .mood:
-                return "A lot"
+                return "Hyped"
             case .nutrition:
-                return "A lot"
+                return "Best"
             case .sleep:
                 return "A lot"
             }

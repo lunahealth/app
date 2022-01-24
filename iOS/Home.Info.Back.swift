@@ -19,9 +19,9 @@ extension Home.Info {
                         text
                     }
                 }
-                .font(.footnote.weight(.medium))
+                .font(.callout)
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(.borderedProminent)
             .buttonBorderShape(.capsule)
             .tint(.accentColor)
         }

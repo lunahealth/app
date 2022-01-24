@@ -15,7 +15,7 @@ extension Window {
                         .font(.system(size: 20).weight(.light))
                         .frame(height: 28)
                     Text(title)
-                        .font(.system(size: 9))
+                        .font(.system(size: 10))
                 }
                 .foregroundColor(.primary)
                 .frame(width: 70)

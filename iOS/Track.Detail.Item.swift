@@ -18,7 +18,7 @@ extension Track.Detail {
                 }
             } label: {
                 VStack {
-                    Track.Leveling(trait: trait, level: level, selected: selected, animation: animation)
+                    Track.Item(trait: trait, level: level, selected: selected, animation: animation)
                         .font(.body.weight(.light))
                         .frame(width: 44, height: 44)
                     Text(level.title(for: trait))

@@ -19,7 +19,7 @@
 		CE37BE2C277892E4004D93D5 /* Track.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2B277892E4004D93D5 /* Track.Content.swift */; };
 		CE50FFCC279EDDE3005C2EE6 /* Track.Detail.Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50FFCB279EDDE3005C2EE6 /* Track.Detail.Heading.swift */; };
 		CE50FFCE279EF622005C2EE6 /* Track.Leveled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50FFCD279EF622005C2EE6 /* Track.Leveled.swift */; };
-		CE50FFD0279EF751005C2EE6 /* Track.Leveling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50FFCF279EF751005C2EE6 /* Track.Leveling.swift */; };
+		CE50FFD0279EF751005C2EE6 /* Track.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50FFCF279EF751005C2EE6 /* Track.Item.swift */; };
 		CE532FD827807F070043B111 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE532FD727807F070043B111 /* CloudKit.framework */; };
 		CE62AEC827997CFA000E7470 /* Window.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62AEC727997CFA000E7470 /* Window.Option.swift */; };
 		CE62AECA279986D8000E7470 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62AEC9279986D8000E7470 /* Track.swift */; };
@@ -77,7 +77,7 @@
 		CE37BE2B277892E4004D93D5 /* Track.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Content.swift; sourceTree = "<group>"; };
 		CE50FFCB279EDDE3005C2EE6 /* Track.Detail.Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Heading.swift; sourceTree = "<group>"; };
 		CE50FFCD279EF622005C2EE6 /* Track.Leveled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Leveled.swift; sourceTree = "<group>"; };
-		CE50FFCF279EF751005C2EE6 /* Track.Leveling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Leveling.swift; sourceTree = "<group>"; };
+		CE50FFCF279EF751005C2EE6 /* Track.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Item.swift; sourceTree = "<group>"; };
 		CE532FD527807F030043B111 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CE532FD727807F070043B111 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE62AEC727997CFA000E7470 /* Window.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.Option.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				CE37BE27277876B1004D93D5 /* Track.Header.Option.swift */,
 				CE37BE2527786FCE004D93D5 /* Track.Header.swift */,
 				CE50FFCD279EF622005C2EE6 /* Track.Leveled.swift */,
-				CE50FFCF279EF751005C2EE6 /* Track.Leveling.swift */,
+				CE50FFCF279EF751005C2EE6 /* Track.Item.swift */,
 				CEFB5F54278461F200CAA105 /* Track.Status.Item.swift */,
 				CE62AED1279991FF000E7470 /* Track.Status.swift */,
 				CE62AEC9279986D8000E7470 /* Track.swift */,
@@ -331,7 +331,7 @@
 				CE281D0E279B102100C8BA3C /* Stars.Model.Item.swift in Sources */,
 				CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */,
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
-				CE50FFD0279EF751005C2EE6 /* Track.Leveling.swift in Sources */,
+				CE50FFD0279EF751005C2EE6 /* Track.Item.swift in Sources */,
 				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
 				CEFB5F55278461F200CAA105 /* Track.Status.Item.swift in Sources */,
 				CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */,

@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 extension Track {
-    struct Leveling: View {
+    struct Item: View {
         let trait: Trait
         let level: Level
         let selected: Bool
@@ -17,7 +17,7 @@ extension Track {
                     .shadow(color: .black.opacity(0.2), radius: 2)
                 Image(systemName: level.symbol)
                     .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
-                    .foregroundColor(selected ? .primary : .secondary)
+                    .foregroundColor(.primary)
             }
         }
     }
