@@ -21,7 +21,7 @@ extension Track {
                     if let level = status.journal?.traits[trait] {
                         VStack(alignment: .trailing) {
                             Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                                .font(.footnote.weight(.light))
+                                .font(.footnote)
                                 .frame(width: 24, height: 24)
                                 .padding([.top, .trailing], 6)
                             Spacer()

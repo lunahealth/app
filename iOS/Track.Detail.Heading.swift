@@ -39,7 +39,7 @@ extension Track.Detail {
                         }
                         .buttonStyle(.bordered)
                         .buttonBorderShape(.capsule)
-                        .tint(.pink)
+                        .tint(.primary)
                         .padding(.trailing)
                     }
                 }

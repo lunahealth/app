@@ -20,7 +20,7 @@ extension Track {
                     .font(.title3)
                     .minimumScaleFactor(0.1)
                 Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                    .font(.largeTitle.weight(.light))
+                    .font(.largeTitle)
                     .frame(width: 70, height: 70)
                 Spacer()
             }
