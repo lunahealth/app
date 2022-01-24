@@ -12,17 +12,41 @@ struct Track: View {
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
             } else {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                ZStack {
+                    VStack {
+                        Text("Track")
+                            .padding(.top, 30)
+                        Text("Today's traits")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
                         Spacer()
-                            .frame(width: 20)
-                        ForEach(status.traits, id: \.self) { trait in
-                            Category(status: status, trait: trait, animation: animation)
+                        
+                        if !status.traits.isEmpty && status.traits.count <= (status.journal?.traits.count ?? 0) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.title.weight(.light))
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.accentColor)
+                            Text("You tracked everything for Today\ncome back tomorrow.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .padding(.vertical)
                         }
-                        Spacer()
-                            .frame(width: 20)
                     }
-                    .frame(maxHeight: .greatestFiniteMagnitude)
+                    .allowsHitTesting(false)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 20) {
+                            Spacer()
+                                .frame(width: 20)
+                            ForEach(status.traits, id: \.self) { trait in
+                                Category(status: status, trait: trait, animation: animation)
+                            }
+                            Spacer()
+                                .frame(width: 20)
+                        }
+                        .frame(maxHeight: .greatestFiniteMagnitude)
+                    }
                 }
                 .onAppear {
                     if let previous = status.previous {

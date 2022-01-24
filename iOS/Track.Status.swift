@@ -15,8 +15,6 @@ extension Track {
         private var subs = Set<AnyCancellable>()
         
         init() {
-            print("status init")
-            
             cloud
                 .sink { [weak self] model in
                     guard let self = self else { return }
@@ -35,10 +33,6 @@ extension Track {
                     }
                 }
                 .store(in: &subs)
-        }
-        
-        deinit {
-            print("status gone")
         }
     }
 }
