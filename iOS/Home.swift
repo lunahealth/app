@@ -23,7 +23,7 @@ struct Home: View {
                     }
                     .padding(.leading, 7)
                     Text(moon.phase.name)
-                        .font(.footnote.weight(.light))
+                        .font(.callout)
                 }
                 .frame(maxHeight: .greatestFiniteMagnitude)
                 .allowsHitTesting(false)

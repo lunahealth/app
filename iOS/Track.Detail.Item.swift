@@ -19,11 +19,11 @@ extension Track.Detail {
             } label: {
                 VStack {
                     Track.Item(trait: trait, level: level, selected: selected, animation: animation)
-                        .font(.body)
+                        .font(.body.weight(.medium))
                         .frame(width: 44, height: 44)
                     Text(level.title(for: trait))
                         .font(.caption2)
-                        .foregroundColor(selected ? .primary : .secondary)
+                        .foregroundColor(.primary)
                 }
                 .frame(width: 70)
             }

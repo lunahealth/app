@@ -23,7 +23,7 @@ extension Track {
                             Track.Item(trait: trait, level: level, selected: true, animation: animation)
                                 .font(.footnote)
                                 .frame(width: 24, height: 24)
-                                .padding([.top, .trailing], 6)
+                                .padding([.top, .trailing], 7)
                             Spacer()
                         }
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)

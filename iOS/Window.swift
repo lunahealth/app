@@ -32,7 +32,7 @@ struct Window: View {
                         ZStack {
                             Image("Track")
                             Text("Track")
-                                .font(.system(size: 11).weight(.medium))
+                                .font(.system(size: 12).weight(.medium))
                                 .foregroundColor(.black)
                         }
                         .fixedSize()

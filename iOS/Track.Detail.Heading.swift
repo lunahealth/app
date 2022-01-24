@@ -18,7 +18,6 @@ extension Track.Detail {
                     } label: {
                         Image(systemName: "arrow.backward.circle.fill")
                             .font(.system(size: 28).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
                             .frame(width: 40, height: 40)
                             .padding(.leading)
                     }
