@@ -3,34 +3,43 @@ import Selene
 
 extension Track {
     struct Category: View {
+        @ObservedObject var status: Track.Status
         let trait: Trait
         let animation: Namespace.ID
-        let action: () -> Void
         
         var body: some View {
-            Button(action: action) {
+            Button {
+                withAnimation(.easeInOut(duration: 0.4)) {
+                    status.trait = trait
+                }
+            } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(.quaternary)
-                    Image(systemName: "checkmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.system(size: 25).weight(.light))
-                        .padding([.top, .trailing], 5)
-                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topTrailing)
+                        .fill(status.journal?.traits[trait] == nil ? .primary : .quaternary)
+                        .foregroundColor(status.journal?.traits[trait] == nil ? .init(.tertiarySystemBackground) : .accentColor)
+                        .shadow(color: .black.opacity(0.2), radius: status.journal?.traits[trait] == nil ? 3 : 0)
+                    if let level = status.journal?.traits[trait] {
+                        VStack(alignment: .trailing) {
+                            Track.Leveling(trait: trait, level: level, selected: true, animation: animation)
+                                .font(.footnote.weight(.light))
+                                .frame(width: 24, height: 24)
+                                .padding([.top, .trailing], 6)
+                            Spacer()
+                        }
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
+                    }
                     Text(trait.title)
                         .matchedGeometryEffect(id: "\(trait).text", in: animation)
                         .font(.footnote)
                         .foregroundColor(.primary)
                         .padding(.bottom, 10)
                         .frame(maxHeight: .greatestFiniteMagnitude, alignment: .bottom)
-                    Image(systemName: trait.image)
-                        .resizable()
+                    Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 30)
+                        .font(.title2.weight(.light))
                         .foregroundColor(trait.color)
                 }
-                .frame(width: 140, height: 140)
+                .frame(width: 120, height: 120)
             }
             .foregroundColor(.secondary)
             .id(trait)

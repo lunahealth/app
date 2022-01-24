@@ -3,24 +3,25 @@ import Selene
 
 extension Track.Detail {
     struct Item: View {
-        let index: Int
+        @ObservedObject var status: Track.Status
         let trait: Trait
-        let selected: Bool
-        let action: () -> Void
+        let level: Level
+        let animation: Namespace.ID
         
         var body: some View {
-            Button(action: action) {
+            Button {
+                Task {
+                    await cloud.track(journal: status.day, trait: trait, level: level)
+                }
+                withAnimation(.easeInOut(duration: 0.35)) {
+                    status.level = level
+                }
+            } label: {
                 VStack {
-                    ZStack {
-                        Circle()
-                            .fill(selected ? .secondary : .quaternary)
-                            .foregroundColor(selected ? .accentColor : .secondary)
-                            .frame(width: 44, height: 44)
-                        Image(systemName: symbol)
-                            .font(.system(size: 16).weight(.light))
-                            .foregroundColor(selected ? .primary : .secondary)
-                    }
-                    Text(trait.levels[index])
+                    Track.Leveling(trait: trait, level: level, selected: selected, animation: animation)
+                        .font(.body.weight(.light))
+                        .frame(width: 44, height: 44)
+                    Text(level.title(for: trait))
                         .font(.caption2)
                         .foregroundColor(selected ? .primary : .secondary)
                 }
@@ -28,19 +29,8 @@ extension Track.Detail {
             }
         }
         
-        private var symbol: String {
-            switch index {
-            case 0:
-                return "minus"
-            case 1:
-                return "chevron.down"
-            case 2:
-                return "chevron.up.chevron.down"
-            case 3:
-                return "chevron.up"
-            default:
-                return "arrow.up"
-            }
+        var selected: Bool {
+            status.journal?.traits[trait] == level
         }
     }
 }

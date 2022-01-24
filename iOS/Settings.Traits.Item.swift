@@ -9,7 +9,7 @@ extension Settings.Traits {
         var body: some View {
             Toggle(isOn: $active) {
                 HStack {
-                    Image(systemName: trait.image)
+                    Image(systemName: trait.symbol)
                         .font(.system(size: 16))
                         .foregroundColor(active ? trait.color : .init(.tertiaryLabel))
                         .frame(width: 34, height: 34)

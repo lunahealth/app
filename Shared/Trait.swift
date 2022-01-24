@@ -23,48 +23,7 @@ extension Trait {
         }
     }
     
-    var levels: [String] {
-        switch self {
-        case .exercise:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        case .nutrition:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        case .sleep:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        case .mood:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        case .period:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        case .focus:
-            return ["None",
-                    "Little",
-                    "Some",
-                    "Decent",
-                    "A lot"]
-        }
-    }
-    
-    var image: String {
+    var symbol: String {
         switch self {
         case .exercise:
             return "bicycle"

@@ -43,7 +43,7 @@ extension TrackOld.Content {
                                     .fill(item.active ? item.id.color : .init(.tertiaryLabel))
                                     .frame(width: 71, height: 71)
                                     .opacity(0.34)
-                                Image(item.id.image)
+                                Image(item.id.symbol)
                             }
                         }
                         
