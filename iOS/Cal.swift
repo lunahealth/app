@@ -3,6 +3,8 @@ import Selene
 
 struct Cal: View {
     weak var observatory: Observatory!
+    private let moonImage = Image("MoonSmall")
+    private let shadowImage = Image("ShadowSmall")
     
     var body: some View {
         ZStack {
@@ -36,6 +38,14 @@ struct Cal: View {
                             $0.move(to: center)
                             $0.addLine(to: .init(x: center.x, y: center.y + radius))
                         }, with: .color(.primary.opacity(0.3)))
+                        
+                        context.drawLayer { con in
+                            con.draw(moon: observatory.moon(for: .now),
+                                         image: moonImage,
+                                         shadow: shadowImage,
+                                         radius: 13,
+                                     center: .init(x: center.x - 17, y: center.y + radius - 18))
+                        }
                         
                         context.translateBy(x: center.x, y: center.y)
                         context.rotate(by: .degrees(360 / 31 * Double(-index)))

@@ -72,7 +72,6 @@ extension GraphicsContext {
                           endAngle: .degrees(360),
                           clockwise: false)
             })
-            
         }
         
         draw(image, at: center)
