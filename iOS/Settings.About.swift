@@ -30,6 +30,7 @@ extension Settings {
                         HStack {
                             Text("Moon Health")
                                 .font(.callout)
+                                .foregroundColor(.primary)
                             Spacer()
                             Image(systemName: "link")
                                 .font(.system(size: 20).weight(.light))
@@ -43,6 +44,7 @@ extension Settings {
                         HStack {
                             Text("Rate on the App Store")
                                 .font(.callout)
+                                .foregroundColor(.primary)
                             Spacer()
                             Image(systemName: "star")
                                 .font(.system(size: 20).weight(.light))
