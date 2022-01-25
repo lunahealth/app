@@ -19,8 +19,8 @@ extension Track.Detail {
             } label: {
                 VStack {
                     Track.Item(trait: trait, level: level, selected: selected, animation: animation)
-                        .font(.body.weight(.medium))
-                        .frame(width: 44, height: 44)
+                        .font(.system(size: 18).weight(.medium))
+                        .frame(width: 50, height: 50)
                     Text(level.title(for: trait))
                         .font(.caption2)
                         .foregroundColor(.primary)

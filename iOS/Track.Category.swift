@@ -15,14 +15,14 @@ extension Track {
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(status.journal?.traits[trait] == nil ? .primary : .quaternary)
+                        .fill(status.journal?.traits[trait] == nil ? .primary : .secondary)
                         .foregroundColor(status.journal?.traits[trait] == nil ? .init(.tertiarySystemBackground) : .accentColor)
-                        .shadow(color: .black.opacity(0.2), radius: status.journal?.traits[trait] == nil ? 3 : 0)
+                        .shadow(color: .black.opacity(0.2), radius: 3)
                     if let level = status.journal?.traits[trait] {
                         VStack(alignment: .trailing) {
                             Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                                .font(.footnote)
-                                .frame(width: 24, height: 24)
+                                .font(.system(size: 12))
+                                .frame(width: 25, height: 25)
                                 .padding([.top, .trailing], 7)
                             Spacer()
                         }

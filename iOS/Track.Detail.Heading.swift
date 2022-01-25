@@ -18,7 +18,7 @@ extension Track.Detail {
                     } label: {
                         Image(systemName: "arrow.backward.circle.fill")
                             .font(.system(size: 28).weight(.light))
-                            .frame(width: 40, height: 40)
+                            .frame(width: 45, height: 40)
                             .padding(.leading)
                     }
                     Spacer()
@@ -35,11 +35,9 @@ extension Track.Detail {
                         } label: {
                             Text("Clear")
                                 .font(.callout)
+                                .frame(maxWidth: 90)
                         }
-                        .buttonStyle(.bordered)
-                        .buttonBorderShape(.capsule)
                         .tint(.primary)
-                        .padding(.trailing)
                     }
                 }
                 
@@ -48,6 +46,7 @@ extension Track.Detail {
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.largeTitle.weight(.light))
                         .foregroundColor(trait.color)
+                        .shadow(color: .black.opacity(0.4), radius: 1)
                     Text(trait.title)
                         .matchedGeometryEffect(id: "\(trait).text", in: animation)
                         .font(.title3)

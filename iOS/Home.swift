@@ -2,32 +2,19 @@ import SwiftUI
 import Selene
 
 struct Home: View {
+    weak var observatory: Observatory!
     @State private var date = Date.now
     @State private var moon: Moon?
     @State private var wheel: Wheel?
-    private let observatory = Observatory()
+    @State private var calendar = false
     private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack {
             Stars()
                 .equatable()
             
             if let moon = moon {
-                VStack {
-                    Group {
-                        Text(moon.fraction, format: .number)
-                            .font(.title.weight(.medium).monospacedDigit())
-                        + Text("%")
-                            .font(.caption)
-                    }
-                    .padding(.leading, 7)
-                    Text(moon.phase.name)
-                        .font(.callout)
-                }
-                .frame(maxHeight: .greatestFiniteMagnitude)
-                .allowsHitTesting(false)
-
                 Group {
                     Control(date: $date, wheel: $wheel, moon: moon)
                     if let wheel = wheel {
@@ -37,6 +24,24 @@ struct Home: View {
                 }
                 .frame(maxWidth: 450)
 
+                Button {
+                    calendar = true
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(.tertiary)
+                        Image(systemName: "calendar")
+                            .font(.system(size: 24).weight(.light))
+                            .foregroundColor(.primary)
+                            .padding(8)
+                    }
+                    .fixedSize()
+                    .contentShape(Rectangle())
+                }
+                .sheet(isPresented: $calendar) {
+                    Cal(observatory: observatory)
+                }
+                
                 Info(date: $date, moon: moon)
             }
         }

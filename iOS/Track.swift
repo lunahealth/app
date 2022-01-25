@@ -2,6 +2,7 @@ import SwiftUI
 import Selene
 
 struct Track: View {
+    weak var observatory: Observatory!
     @StateObject private var status = Status()
     @Namespace private var animation
     
@@ -12,48 +13,7 @@ struct Track: View {
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
             } else {
-                ZStack {
-                    VStack {
-                        Text("Track")
-                            .padding(.top, 30)
-                        Text("Today's traits")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                        Spacer()
-                        
-                        if !status.traits.isEmpty && status.traits.count <= (status.journal?.traits.count ?? 0) {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.title.weight(.light))
-                                .symbolRenderingMode(.hierarchical)
-                                .foregroundColor(.blue)
-                            Text("You tracked today,\ncome back tomorrow.")
-                                .font(.footnote)
-                                .foregroundStyle(.primary)
-                                .multilineTextAlignment(.center)
-                                .padding(.vertical)
-                        }
-                    }
-                    .allowsHitTesting(false)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        
-                        HStack(spacing: 20) {
-                            Spacer()
-                                .frame(width: 20)
-                            ForEach(status.traits, id: \.self) { trait in
-                                Category(status: status, trait: trait, animation: animation)
-                            }
-                            Spacer()
-                                .frame(width: 20)
-                        }
-                        .frame(maxHeight: .greatestFiniteMagnitude)
-                    }
-                }
-                .onAppear {
-                    if let previous = status.previous {
-                        proxy.scrollTo(previous, anchor: .bottom)
-                    }
-                }
+                Today(status: status, moon: observatory.moon(for: .now), proxy: proxy, animation: animation)
             }
         }
         .frame(maxWidth: .greatestFiniteMagnitude)

@@ -8,9 +8,10 @@ struct Window: View {
     @State private var calendar = false
     @State private var analysis = false
     @State private var track = false
+    @State private var observatory = Observatory()
     
     var body: some View {
-        Home()
+        Home(observatory: observatory)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 ZStack {
                     HStack {
@@ -39,7 +40,7 @@ struct Window: View {
                         .contentShape(Rectangle())
                     }
                     .sheet(isPresented: $track) {
-                        Sheet(rootView: Track())
+                        Sheet(rootView: Track(observatory: observatory))
                             .equatable()
                             .edgesIgnoringSafeArea(.all)
                     }

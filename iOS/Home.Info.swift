@@ -42,6 +42,7 @@ extension Home {
                             .frame(width: 40, height: 50)
                     }
                 }
+                Spacer()
             }
             .frame(width: 220)
             .padding(.top, 60)
