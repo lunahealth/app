@@ -12,8 +12,8 @@ extension Home {
         var body: some View {
             GeometryReader { proxy in
                 Circle()
-                    .stroke(Color("Path").opacity(0.4), style: .init(lineWidth: 16))
-                    .shadow(color: .accentColor.opacity(0.6), radius: 15)
+                    .stroke(Color.white.opacity(0.4), style: .init(lineWidth: 16))
+                    .shadow(color: .init("Path").opacity(0.5), radius: 10)
                     .padding(pad)
                     .contentShape(Rectangle())
                     .onChange(of: proxy.size) {
