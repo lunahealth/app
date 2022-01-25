@@ -57,7 +57,7 @@ struct Track: View {
             }
         }
         .frame(maxWidth: .greatestFiniteMagnitude)
-        .background(.regularMaterial)
+        .background(.ultraThinMaterial)
         .sheet(isPresented: $status.preferences, content: Settings.Traits.init)
     }
 }

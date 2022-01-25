@@ -19,11 +19,12 @@ extension Home.Info {
                         text
                     }
                 }
-                .font(.callout)
+                .font(.footnote)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)
             .tint(.accentColor)
+            .foregroundColor(.primary)
         }
     }
 }

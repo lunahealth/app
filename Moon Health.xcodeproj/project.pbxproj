@@ -28,6 +28,7 @@
 		CE62AED2279991FF000E7470 /* Track.Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62AED1279991FF000E7470 /* Track.Status.swift */; };
 		CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */; };
 		CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */; };
+		CE8B89A227A02483006490BB /* Home.Info.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Info.Detail.swift */; };
 		CE9B398527832CC20006E8AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398427832CC20006E8AF /* Settings.swift */; };
 		CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398627832E0B0006E8AF /* Settings.Traits.swift */; };
 		CE9B398927832FB50006E8AF /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398827832FB50006E8AF /* Global.swift */; };
@@ -87,6 +88,7 @@
 		CE62AED1279991FF000E7470 /* Track.Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.swift; sourceTree = "<group>"; };
 		CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.swift; sourceTree = "<group>"; };
 		CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Item.swift; sourceTree = "<group>"; };
+		CE8B89A127A02483006490BB /* Home.Info.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.Detail.swift; sourceTree = "<group>"; };
 		CE9B398427832CC20006E8AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE9B398627832E0B0006E8AF /* Settings.Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Traits.swift; sourceTree = "<group>"; };
 		CE9B398827832FB50006E8AF /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
+				CE8B89A127A02483006490BB /* Home.Info.Detail.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
@@ -313,6 +316,7 @@
 				CE62AED2279991FF000E7470 /* Track.Status.swift in Sources */,
 				CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */,
 				CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */,
+				CE8B89A227A02483006490BB /* Home.Info.Detail.swift in Sources */,
 				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
 				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
 				CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */,

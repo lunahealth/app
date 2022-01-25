@@ -13,11 +13,12 @@ extension Window {
                 VStack(spacing: 0) {
                     Image(systemName: symbol)
                         .font(.system(size: 22).weight(.light))
-                        .frame(height: 30)
+                        .frame(height: 25)
                     Text(title)
                         .font(.system(size: 11))
                 }
-                .foregroundColor(.primary)
+                .foregroundStyle(.secondary)
+                .tint(.primary)
                 .frame(width: 74)
                 .contentShape(Rectangle())
             }

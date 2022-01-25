@@ -12,33 +12,32 @@ struct Window: View {
     var body: some View {
         Home()
             .safeAreaInset(edge: .bottom, spacing: 0) {
-                HStack(spacing: 0) {
-                    Option(active: $settings,
-                           title: "Settings",
-                           symbol: "gear")
-                        .padding(.leading)
-                        .sheet(isPresented: $settings, content: Settings.init)
+                ZStack {
+                    HStack {
+                        Option(active: $analysis,
+                               title: "Analysis",
+                               symbol: "chart.line.uptrend.xyaxis")
+                            .padding(.leading)
+                        Spacer()
+                        Option(active: $settings,
+                               title: "Settings",
+                               symbol: "gear")
+                            .sheet(isPresented: $settings, content: Settings.init)
+                            .padding(.trailing)
+                    }
                     
-                    Option(active: $calendar,
-                           title: "Calendar",
-                           symbol: "calendar")
-                    Option(active: $analysis,
-                           title: "Analysis",
-                           symbol: "chart.line.uptrend.xyaxis")
-                    Spacer()
                     Button {
                         track = true
                     } label: {
                         ZStack {
                             Image("Track")
                             Text("Track")
-                                .font(.system(size: 12).weight(.medium))
+                                .font(.system(size: 13).weight(.medium))
                                 .foregroundColor(.black)
                         }
                         .fixedSize()
                         .contentShape(Rectangle())
                     }
-                    .padding(.trailing)
                     .sheet(isPresented: $track) {
                         Sheet(rootView: Track())
                             .equatable()
