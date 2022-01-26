@@ -8,9 +8,15 @@ extension Home {
         
         var body: some View {
             VStack(spacing: 0) {
-                Detail(moon: moon, date: date)
-                    .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                    .padding(.bottom)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 9)
+                        .fill(Color("Detail"))
+                    Detail(moon: moon, date: date)
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                        .padding()
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom)
                 
                 HStack(spacing: 0) {
                     Button {
@@ -44,7 +50,7 @@ extension Home {
                 }
                 Spacer()
             }
-            .frame(width: 220)
+            .frame(width: 250)
             .padding(.top, 60)
         }
         

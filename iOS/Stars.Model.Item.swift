@@ -16,7 +16,7 @@ extension Stars.Model {
             .init(radius: .random(in: 0.2 ... 3),
                   x: .random(in: 0 ..< size.width),
                   y: .random(in: 0 ..< size.height),
-                  opacity: .random(in: 0 ... 0.9),
+                  opacity: .random(in: 0 ... 0.95),
                   direction: .random(),
                   delta: .random(in: 0 ... 0.01),
                   step: 0,
@@ -97,7 +97,7 @@ extension Stars.Model {
         }
         
         private var apply: Double {
-            max(min(direction ? opacity + delta : opacity - delta, 0.9), 0)
+            max(min(direction ? opacity + delta : opacity - delta, 0.95), 0)
         }
     }
 }

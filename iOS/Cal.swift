@@ -22,21 +22,29 @@ struct Cal: View {
                 let radius = min(size.width, size.height) * 0.48
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 
-                context.fill(.init {
+                context.stroke(.init {
                     $0.addArc(center: center,
-                              radius: radius - 5,
+                              radius: radius - 37,
                               startAngle: .degrees(0),
                               endAngle: .degrees(360),
                               clockwise: false)
-                }, with: .color(.accentColor.opacity(0.1)))
+                }, with: .color(.accentColor.opacity(0.15)), style: .init(lineWidth: 65))
                 
-                context.fill(.init {
+                context.stroke(.init {
                     $0.addArc(center: center,
-                              radius: radius - 32,
+                              radius: radius - 52,
                               startAngle: .degrees(0),
                               endAngle: .degrees(360),
                               clockwise: false)
-                }, with: .color(.init("Path").opacity(0.1)))
+                }, with: .color(.init("Path").opacity(0.1)), style: .init(lineWidth: 40))
+
+                context.stroke(.init {
+                    $0.addArc(center: center,
+                              radius: radius - 65,
+                              startAngle: .degrees(0),
+                              endAngle: .degrees(360),
+                              clockwise: false)
+                }, with: .color(.accentColor.opacity(0.1)), style: .init(lineWidth: 5))
                 
                 let rad = Double.pi2 / .init(dates.count)
                 let half = rad / 2
@@ -53,7 +61,12 @@ struct Cal: View {
                         
                         context.stroke(.init {
                             $0.move(to: center)
-                            $0.addLine(to: .init(x: center.x, y: center.y + radius))
+                            $0.addLine(to: .init(x: center.x, y: center.y - 105))
+                        }, with: .color(.primary.opacity(0.1)), style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+                        
+                        context.stroke(.init {
+                            $0.move(to: .init(x: center.x, y: center.y - 105))
+                            $0.addLine(to: .init(x: center.x, y: center.y - radius))
                         }, with: .color(.primary.opacity(0.4)), style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
                         
                         context.translateBy(x: center.x, y: center.y)
@@ -65,11 +78,11 @@ struct Cal: View {
                                          image: moonImage,
                                          shadow: shadowImage,
                                          radius: 10,
-                                     center: .init(x: center.x, y: center.y + radius - 18))
+                                     center: .init(x: center.x, y: center.y - radius + 18))
                         }
                         
                         context.draw(Text((date.0 + 1).formatted())
-                                        .font(.system(size: 12)), at: .init(x: center.x, y: center.y + radius - 45))
+                                        .font(.system(size: 12)), at: .init(x: center.x, y: center.y - radius + 46))
                         
                         context.translateBy(x: center.x, y: center.y)
                         context.rotate(by: .radians(-(rotation + half)))
