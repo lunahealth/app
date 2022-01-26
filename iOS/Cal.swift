@@ -6,6 +6,8 @@ struct Cal: View {
     private let moonImage = Image("MoonMini")
     private let shadowImage = Image("ShadowMini")
     
+    let dates = Array(repeating: Date(), count: 31)
+    
     var body: some View {
         ZStack {
             VStack {
@@ -17,38 +19,60 @@ struct Cal: View {
             }
             
             Canvas { context, size in
-                let radius = min(size.width, size.height) * 0.45
+                let radius = min(size.width, size.height) * 0.48
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 
                 context.fill(.init {
                     $0.addArc(center: center,
-                              radius: radius,
+                              radius: radius - 5,
                               startAngle: .degrees(0),
                               endAngle: .degrees(360),
                               clockwise: false)
-                }, with: .color(.primary.opacity(0.1)))
+                }, with: .color(.accentColor.opacity(0.1)))
                 
-                (0 ..< 9)
-                    .forEach { index in
+                context.fill(.init {
+                    $0.addArc(center: center,
+                              radius: radius - 32,
+                              startAngle: .degrees(0),
+                              endAngle: .degrees(360),
+                              clockwise: false)
+                }, with: .color(.init("Path").opacity(0.1)))
+                
+                let rad = Double.pi2 / .init(dates.count)
+                let half = rad / 2
+                
+                dates
+                    .enumerated()
+                    .forEach { date in
+                        
+                        let rotation = rad * .init(date.0)
+                        
                         context.translateBy(x: center.x, y: center.y)
-                        context.rotate(by: .degrees(360 / 31 * Double(index)))
+                        context.rotate(by: .radians(rotation))
                         context.translateBy(x: -center.x, y: -center.y)
                         
                         context.stroke(.init {
                             $0.move(to: center)
                             $0.addLine(to: .init(x: center.x, y: center.y + radius))
-                        }, with: .color(.primary.opacity(0.3)))
+                        }, with: .color(.primary.opacity(0.4)), style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+                        
+                        context.translateBy(x: center.x, y: center.y)
+                        context.rotate(by: .radians(half))
+                        context.translateBy(x: -center.x, y: -center.y)
                         
                         context.drawLayer { con in
                             con.draw(moon: observatory.moon(for: .now),
                                          image: moonImage,
                                          shadow: shadowImage,
                                          radius: 10,
-                                     center: .init(x: center.x - 17, y: center.y + radius - 18))
+                                     center: .init(x: center.x, y: center.y + radius - 18))
                         }
                         
+                        context.draw(Text((date.0 + 1).formatted())
+                                        .font(.system(size: 12)), at: .init(x: center.x, y: center.y + radius - 45))
+                        
                         context.translateBy(x: center.x, y: center.y)
-                        context.rotate(by: .degrees(360 / 31 * Double(-index)))
+                        context.rotate(by: .radians(-(rotation + half)))
                         context.translateBy(x: -center.x, y: -center.y)
                     }
             }

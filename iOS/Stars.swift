@@ -1,7 +1,5 @@
 import SwiftUI
 
-private let pi2 = Double.pi * 2
-
 struct Stars: View, Equatable {
     @StateObject private var model = Stars.Model()
     
@@ -17,7 +15,7 @@ struct Stars: View, Equatable {
                             $0.addArc(center: .init(x: item.x, y: item.y),
                                       radius: item.radius + (item.radius * 4 * item.blur),
                                       startAngle: .radians(0),
-                                      endAngle: .radians(pi2),
+                                      endAngle: .radians(.pi2),
                                       clockwise: false)
                         }, with: .radialGradient(.init(stops: [.init(color: .white.opacity(item.opacity), location: 0),
                                                                .init(color: .white.opacity(item.opacity), location: 1 - item.blur),
