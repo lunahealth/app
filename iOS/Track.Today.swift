@@ -15,10 +15,10 @@ extension Track {
                         context.draw(moon: moon,
                                      image: .init("MoonSmall"),
                                      shadow: .init("ShadowSmall"),
-                                     radius: 13,
+                                     radius: 17,
                                      center: .init(x: size.width / 2, y: size.height / 2))
                     }
-                    .frame(width: 30, height: 30)
+                    .frame(width: 36, height: 36)
                     .padding(.top, 30)
                     Text("Today")
                         .font(.body.weight(.medium))
@@ -41,7 +41,6 @@ extension Track {
                 .allowsHitTesting(false)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    
                     HStack(spacing: 20) {
                         Spacer()
                             .frame(width: 20)

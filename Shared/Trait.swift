@@ -1,7 +1,11 @@
 import SwiftUI
 import Selene
 
-extension Trait {
+extension Trait: Comparable {
+    public static func < (lhs: Trait, rhs: Trait) -> Bool {
+        lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
+    }
+    
     var title: String {
         "\(self)".capitalized
     }

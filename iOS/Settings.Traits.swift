@@ -4,7 +4,7 @@ import Selene
 extension Settings {
     struct Traits: View {
         @Environment(\.dismiss) private var dismiss
-        private let all = Trait.allCases.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+        private let all = Trait.allCases.sorted()
         
         var body: some View {
             NavigationView {

@@ -3,8 +3,8 @@ import Selene
 
 struct Cal: View {
     weak var observatory: Observatory!
-    private let moonImage = Image("MoonSmall")
-    private let shadowImage = Image("ShadowSmall")
+    private let moonImage = Image("MoonMini")
+    private let shadowImage = Image("ShadowMini")
     
     var body: some View {
         ZStack {
@@ -17,7 +17,7 @@ struct Cal: View {
             }
             
             Canvas { context, size in
-                let radius = min(size.width, size.height) * 0.48
+                let radius = min(size.width, size.height) * 0.45
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 
                 context.fill(.init {
@@ -43,7 +43,7 @@ struct Cal: View {
                             con.draw(moon: observatory.moon(for: .now),
                                          image: moonImage,
                                          shadow: shadowImage,
-                                         radius: 13,
+                                         radius: 10,
                                      center: .init(x: center.x - 17, y: center.y + radius - 18))
                         }
                         

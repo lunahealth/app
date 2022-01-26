@@ -24,7 +24,7 @@ extension Track {
                         .filter {
                             model.settings.traits.contains($0)
                         }
-                        .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+                        .sorted()
                     
                     self.journal = model[self.date]
                     
