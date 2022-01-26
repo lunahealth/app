@@ -11,7 +11,7 @@ extension Track.Detail {
         var body: some View {
             Button {
                 Task {
-                    await cloud.track(journal: status.day, trait: trait, level: level)
+                    await cloud.track(trait: trait, level: level)
                 }
                 withAnimation(.easeInOut(duration: 0.35)) {
                     status.level = level

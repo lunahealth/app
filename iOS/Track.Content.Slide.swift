@@ -1,5 +1,5 @@
 import SwiftUI
-
+/*
 extension TrackOld.Content {
     struct Slide: View {
         @Binding var item: TrackOld.Status.Item
@@ -58,3 +58,4 @@ extension TrackOld.Content {
         }
     }
 }
+*/

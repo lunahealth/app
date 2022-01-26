@@ -1,6 +1,6 @@
 import SwiftUI
 import Selene
-
+/*
 struct TrackOld: View, Equatable {
     @Binding var date: Date
     let week: [Day]
@@ -84,3 +84,4 @@ struct TrackOld: View, Equatable {
         true
     }
 }
+*/

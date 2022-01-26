@@ -10,7 +10,7 @@ extension Track {
         @Published var previous: Trait?
         @Published private(set) var traits = [Trait]()
         @Published private(set) var journal: Journal?
-        let day = Date.now.journal
+        let date = Date.now
         private var first = true
         private var subs = Set<AnyCancellable>()
         
@@ -26,7 +26,7 @@ extension Track {
                         }
                         .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
                     
-                    self.journal = model.journal[self.day]
+                    self.journal = model[self.date]
                     
                     if self.first && self.traits.isEmpty {
                         self.preferences = true

@@ -1,6 +1,6 @@
 import SwiftUI
 import Selene
-
+/*
 extension TrackOld {
     struct Content: View {
         @StateObject var status: Status
@@ -19,3 +19,4 @@ extension TrackOld {
         }
     }
 }
+*/

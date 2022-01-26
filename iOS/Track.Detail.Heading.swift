@@ -26,7 +26,7 @@ extension Track.Detail {
                     if status.journal?.traits[trait] != nil {
                         Button {
                             Task {
-                                await cloud.remove(journal: status.day, trait: trait)
+                                await cloud.remove(trait: trait)
                             }
                             
                             withAnimation(.easeInOut(duration: 0.4)) {
