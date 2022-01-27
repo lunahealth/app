@@ -1,10 +1,11 @@
 import SwiftUI
+import Dater
 import Selene
 
 extension Cal {
     struct Ring: View {
         weak var observatory: Observatory!
-        let dates = Array(repeating: Date(), count: 31)
+        let calendar: [Days<Journal>.Item]
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
         
@@ -29,13 +30,13 @@ extension Cal {
                               clockwise: false)
                 }, with: .color(.init("Path").opacity(0.3)), style: .init(lineWidth: 28))
 
-                let rad = Double.pi2 / .init(dates.count)
+                let rad = Double.pi2 / .init(calendar.count)
                 let half = rad / 2
+                var rotation = -rad
                 
-                dates
-                    .enumerated()
-                    .forEach { date in
-                        let rotation = rad * .init(date.0)
+                calendar
+                    .forEach { day in
+                        rotation += rad
 
                         context.translateBy(x: center.x, y: center.y)
                         context.rotate(by: .radians(rotation))
@@ -51,14 +52,20 @@ extension Cal {
                         context.translateBy(x: -center.x, y: -center.y)
 
                         context.drawLayer { con in
-                            con.draw(moon: observatory.moon(for: .now),
+                            let center = CGPoint(x: center.x, y: center.y - radius + 18)
+                            
+                            con.translateBy(x: center.x, y: center.y)
+                            con.rotate(by: .radians(-rotation))
+                            con.translateBy(x: -center.x, y: -center.y)
+                            
+                            con.draw(moon: observatory.moon(for: day.content.date),
                                          image: moonImage,
                                          shadow: shadowImage,
-                                         radius: 10,
-                                     center: .init(x: center.x, y: center.y - radius + 18))
+                                         radius: 7,
+                                     center: center)
                         }
 
-                        context.draw(Text((date.0 + 1).formatted())
+                        context.draw(Text(day.value.formatted())
                                         .font(.system(size: 11).monospacedDigit()), at: .init(x: center.x, y: center.y - radius + 46))
 
                         context.translateBy(x: center.x, y: center.y)

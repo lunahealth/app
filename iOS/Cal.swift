@@ -1,8 +1,10 @@
 import SwiftUI
+import Dater
 import Selene
 
 struct Cal: View {
     weak var observatory: Observatory!
+    @State private var calendar = [Days<Journal>]()
     
     var body: some View {
         ZStack {
@@ -19,7 +21,10 @@ struct Cal: View {
                 Spacer()
             }
             
-            Ring(observatory: observatory)
+            Ring(observatory: observatory, calendar: calendar.flatMap { $0.items.flatMap { $0 } })
+        }
+        .task {
+            calendar = await cloud.model.calendar
         }
     }
 }
