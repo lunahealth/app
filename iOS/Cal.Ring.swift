@@ -10,24 +10,24 @@ extension Cal {
         
         var body: some View {
             Canvas { context, size in
-                let radius = min(size.width, size.height) * 0.43
+                let radius = min(size.width, size.height) * 0.5
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 
                 context.stroke(.init {
                     $0.addArc(center: center,
-                              radius: radius - 33,
+                              radius: radius - 31,
                               startAngle: .radians(0),
                               endAngle: .radians(.pi2 + 0.1),
                               clockwise: false)
-                }, with: .color(.accentColor.opacity(0.35)), style: .init(lineWidth: 58))
+                }, with: .color(.accentColor.opacity(0.35)), style: .init(lineWidth: 56))
 
                 context.stroke(.init {
                     $0.addArc(center: center,
-                              radius: radius - 47,
+                              radius: radius - 45,
                               startAngle: .radians(0),
                               endAngle: .radians(.pi2 + 0.1),
                               clockwise: false)
-                }, with: .color(.init("Path").opacity(0.3)), style: .init(lineWidth: 30))
+                }, with: .color(.init("Path").opacity(0.3)), style: .init(lineWidth: 28))
 
                 let rad = Double.pi2 / .init(dates.count)
                 let half = rad / 2
@@ -42,7 +42,7 @@ extension Cal {
                         context.translateBy(x: -center.x, y: -center.y)
 
                         context.stroke(.init {
-                            $0.move(to: .init(x: center.x, y: center.y - 120))
+                            $0.move(to: .init(x: center.x, y: center.y - 95))
                             $0.addLine(to: .init(x: center.x, y: center.y - radius))
                         }, with: .color(.primary.opacity(0.4)), style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
 
@@ -59,13 +59,14 @@ extension Cal {
                         }
 
                         context.draw(Text((date.0 + 1).formatted())
-                                        .font(.system(size: 12).monospacedDigit()), at: .init(x: center.x, y: center.y - radius + 46))
+                                        .font(.system(size: 11).monospacedDigit()), at: .init(x: center.x, y: center.y - radius + 46))
 
                         context.translateBy(x: center.x, y: center.y)
                         context.rotate(by: .radians(-(rotation + half)))
                         context.translateBy(x: -center.x, y: -center.y)
                     }
             }
+            .frame(width: 320, height: 320)
         }
     }
 }
