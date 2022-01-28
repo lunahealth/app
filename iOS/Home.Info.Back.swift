@@ -19,7 +19,7 @@ extension Home.Info {
                         text
                     }
                 }
-                .font(.footnote)
+                .font(.callout)
             }
             .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)

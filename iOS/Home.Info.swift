@@ -23,10 +23,11 @@ extension Home {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
-                            .font(.system(size: 25).weight(.light))
+                            .font(.system(size: 30).weight(.light))
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                            .frame(width: 40, height: 50)
+                            .frame(width: 50, height: 50)
+                            .contentShape(Rectangle())
                     }
                     
                     if Calendar.current.isDateInToday(date) {
@@ -42,15 +43,16 @@ extension Home {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
-                            .font(.system(size: 25).weight(.light))
+                            .font(.system(size: 30).weight(.light))
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                            .frame(width: 40, height: 50)
+                            .frame(width: 50, height: 50)
+                            .contentShape(Rectangle())
                     }
                 }
                 Spacer()
             }
-            .frame(width: 250)
+            .frame(width: 280)
             .padding(.top, 60)
         }
         
