@@ -26,7 +26,7 @@ extension Home {
                         update(moon: moon, size: proxy.size)
                     }
                     .gesture(
-                        DragGesture(coordinateSpace: .local)
+                        DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged { value in
                                 if let move = wheel?.move(point: value.location) {
                                     date = move

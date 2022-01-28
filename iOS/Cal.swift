@@ -37,7 +37,6 @@ struct Cal: View {
                 Ring(observatory: observatory, month: month.items.flatMap { $0 })
             }
             Spacer()
-            Spacer()
         }
         .background(Image("Background")
                         .resizable()

@@ -4,8 +4,8 @@ import Selene
 
 extension Cal {
     struct Month: View {
+        @Binding var selection: Int
         let month: [Days<Journal>.Item]
-        @State private var selection = 0
         @Environment(\.dismiss) private var dismiss
         
         var body: some View {
@@ -28,12 +28,12 @@ extension Cal {
                     }
                 }
                 
-                Header(month: month)
+                Header(selection: $selection, month: month)
                 
                 TabView(selection: $selection) {
                     ForEach(month, id: \.value) { day in
-                        Circle()
-                            .tag(day.value)
+                        Item(day: day)
+                            .tag(day.value - 1)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))

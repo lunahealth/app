@@ -2,27 +2,30 @@ import SwiftUI
 import Dater
 import Selene
 
+private let side = 340.0
+private let radius = side / 2
+private let center = CGPoint(x: radius, y: radius)
+
 extension Cal {
     struct Ring: View {
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
+        @State private var selection = -1
         @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
         
         var body: some View {
             Canvas { context, size in
-                let radius = min(size.width, size.height) * 0.5
-                let center = CGPoint(x: size.width / 2, y: size.height / 2)
-                let rad = Double.pi2 / .init(month.count)
-                let half = rad / 2
+                
+                let half = radPerItem / 2
                 let start = -(.pi_2 - 0.005)
-                let end = (start + rad) - 0.01
-                var rotation = -(rad + half)
+                let end = (start + radPerItem) - 0.01
+                var rotation = -(radPerItem + half)
                 
                 month
                     .forEach { day in
-                        rotation += rad
+                        rotation += radPerItem
                         let date = day.content.date
                         
                         context.translateBy(x: center.x, y: center.y)
@@ -37,7 +40,7 @@ extension Cal {
                                               startAngle: .radians(start),
                                               endAngle: .radians(end),
                                               clockwise: false)
-                                }, with: .color(.accentColor.opacity(1)),
+                                }, with: .color(.accentColor),
                                                style: .init(lineWidth: radius, lineCap: .butt))
                                 
                                 context.stroke(.init {
@@ -67,13 +70,24 @@ extension Cal {
                                 }, with: .color(.init("Path").opacity(0.2)),
                                                style: .init(lineWidth: 28, lineCap: .butt))
                             }
-                            
                         } else if date >= Calendar.global.date(byAdding: .day, value: 1, to: .now)! {
                             context.stroke(.init {
                                 $0.move(to: .init(x: center.x, y: center.y))
                                 $0.addLine(to: .init(x: center.x, y: center.y - radius))
                             }, with: .color(.primary.opacity(0.3)),
                                            style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+                        }
+                        
+                        if selection >= 0,
+                           month[selection] == day {
+                            context.stroke(.init {
+                                $0.addArc(center: center,
+                                          radius: radius / 2,
+                                          startAngle: .radians(start),
+                                          endAngle: .radians(end),
+                                          clockwise: false)
+                            }, with: .color(.blue),
+                                           style: .init(lineWidth: radius, lineCap: .butt))
                         }
 
                         context.translateBy(x: center.x, y: center.y)
@@ -104,13 +118,39 @@ extension Cal {
                         context.translateBy(x: -center.x, y: -center.y)
                     }
             }
-            .frame(width: 340, height: 340)
-            .onTapGesture {
-                detail = true
-            }
+            .frame(width: side, height: side)
+            .gesture(
+                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                    .onEnded { point in
+                        selection = item(for: point.location)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            detail = true
+                        }
+                    }
+            )
             .sheet(isPresented: $detail) {
-                Month(month: month)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    selection = -1
+                }
+            } content: {
+                Month(selection: $selection, month: month)
             }
+        }
+        
+        private func item(for point: CGPoint) -> Int {
+            let originX = point.x - center.x
+            let originY = center.y - point.y
+            var position = Double(atan2(originX, originY))
+            
+            if position <= radPerItem / -2 {
+                position += .pi2
+            }
+            
+            return min(max(0, Int(round(position / radPerItem))), month.count - 1)
+        }
+        
+        private var radPerItem: Double {
+            .pi2 / .init(month.count)
         }
     }
 }
