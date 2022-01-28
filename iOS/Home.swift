@@ -22,7 +22,7 @@ struct Home: View {
                     }
                     
                     Info(date: $date, moon: moon)
-                        .padding(.horizontal, 85)
+                        .padding(.horizontal, 90)
                         .frame(height: 150)
                 }
                 .frame(maxWidth: 550)

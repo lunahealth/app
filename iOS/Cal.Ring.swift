@@ -16,8 +16,8 @@ extension Cal {
                 let center = CGPoint(x: size.width / 2, y: size.height / 2)
                 let rad = Double.pi2 / .init(month.count)
                 let half = rad / 2
-                let start = -(.pi_2 - 0.01)
-                let end = (start + rad) - 0.02
+                let start = -(.pi_2 - 0.005)
+                let end = (start + rad) - 0.01
                 var rotation = -(rad + half)
                 
                 month
@@ -30,27 +30,47 @@ extension Cal {
                         context.translateBy(x: -center.x, y: -center.y)
                         
                         if date <= .now {
-                            context.stroke(.init {
-                                $0.addArc(center: center,
-                                          radius: radius - 31,
-                                          startAngle: .radians(start),
-                                          endAngle: .radians(end),
-                                          clockwise: false)
-                            }, with: .color(.accentColor.opacity(day.today ? 1 : 0.25)),
-                                           style: .init(lineWidth: 56, lineCap: .butt))
-                            
-                            context.stroke(.init {
-                                $0.addArc(center: center,
-                                          radius: radius - 45,
-                                          startAngle: .radians(start),
-                                          endAngle: .radians(end),
-                                          clockwise: false)
-                            }, with: .color(.init("Path").opacity(day.today ? 0.3 : 0.2)),
-                                           style: .init(lineWidth: 28, lineCap: .butt))
+                            if day.today {
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: radius / 2,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.accentColor.opacity(1)),
+                                               style: .init(lineWidth: radius, lineCap: .butt))
+                                
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: radius - 45,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.init(.systemBackground).opacity(0.3)),
+                                               style: .init(lineWidth: 28, lineCap: .butt))
+                            } else {
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: radius - 31,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.accentColor.opacity(0.25)),
+                                               style: .init(lineWidth: 56, lineCap: .butt))
+                                
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: radius - 45,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.init("Path").opacity(0.2)),
+                                               style: .init(lineWidth: 28, lineCap: .butt))
+                            }
                             
                         } else if date >= Calendar.global.date(byAdding: .day, value: 1, to: .now)! {
                             context.stroke(.init {
-                                $0.move(to: .init(x: center.x, y: center.y - 90))
+                                $0.move(to: .init(x: center.x, y: center.y))
                                 $0.addLine(to: .init(x: center.x, y: center.y - radius))
                             }, with: .color(.primary.opacity(0.3)),
                                            style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))

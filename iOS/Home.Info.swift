@@ -15,7 +15,7 @@ extension Home {
                         .font(.system(size: 30).weight(.light))
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                        .frame(width: 45, height: 50)
+                        .frame(width: 40, height: 50)
                         .contentShape(Rectangle())
                 }
                 
@@ -42,7 +42,7 @@ extension Home {
                         .font(.system(size: 30).weight(.light))
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                        .frame(width: 45, height: 50)
+                        .frame(width: 40, height: 50)
                         .contentShape(Rectangle())
                 }
             }

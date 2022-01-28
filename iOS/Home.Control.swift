@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let pad = 40.0
+private let pad = 45.0
 
 extension Home {
     struct Control: View {
