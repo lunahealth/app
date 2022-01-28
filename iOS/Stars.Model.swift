@@ -13,7 +13,7 @@ extension Stars {
         func tick(date: Date, size: CGSize) {
             if first {
                 first = false
-                items = (0 ..< .random(in: 50 ..< 200)).map { _ in .new(size: size) }
+                items = (0 ..< .random(in: 20 ..< 200)).map { _ in .new(size: size) }
             } else {
                 items = items
                     .map(\.tick)

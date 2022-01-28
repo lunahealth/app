@@ -6,6 +6,7 @@ extension Cal {
     struct Ring: View {
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
+        @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
         
@@ -44,7 +45,7 @@ extension Cal {
                                           startAngle: .radians(start),
                                           endAngle: .radians(end),
                                           clockwise: false)
-                            }, with: .color(.init("Path").opacity(day.today ? 0.5 : 0.25)),
+                            }, with: .color(.init("Path").opacity(day.today ? 0.3 : 0.2)),
                                            style: .init(lineWidth: 28, lineCap: .butt))
                             
                         } else if date >= Calendar.global.date(byAdding: .day, value: 1, to: .now)! {
@@ -83,7 +84,13 @@ extension Cal {
                         context.translateBy(x: -center.x, y: -center.y)
                     }
             }
-            .frame(width: 320, height: 320)
+            .frame(width: 340, height: 340)
+            .onTapGesture {
+                detail = true
+            }
+            .sheet(isPresented: $detail) {
+                Month(month: month)
+            }
         }
     }
 }

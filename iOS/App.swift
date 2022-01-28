@@ -7,6 +7,11 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Window()
+                .background(Image("Background")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .edgesIgnoringSafeArea(.all)
+                                .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
         }
         .onChange(of: phase) {
             switch $0 {

@@ -12,7 +12,7 @@ extension Window {
             } label: {
                 VStack(spacing: 0) {
                     Image(systemName: symbol)
-                        .font(.system(size: 22).weight(.light))
+                        .font(.system(size: 22))
                         .frame(height: 25)
                     Text(title)
                         .font(.system(size: 11))

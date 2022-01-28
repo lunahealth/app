@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let pad = 54.0
+private let pad = 40.0
 
 extension Home {
     struct Control: View {
@@ -12,7 +12,7 @@ extension Home {
         var body: some View {
             GeometryReader { proxy in
                 Circle()
-                    .stroke(Color.white.opacity(0.3), style: .init(lineWidth: 16))
+                    .stroke(Color.white.opacity(0.3), style: .init(lineWidth: 9))
                     .shadow(color: .init("Path").opacity(0.3), radius: 10)
                     .padding(pad)
                     .contentShape(Rectangle())

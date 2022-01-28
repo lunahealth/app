@@ -25,6 +25,8 @@ extension Track.Detail {
                     
                     if status.journal?.traits[trait] != nil {
                         Button {
+                            status.previous = status.trait
+                            
                             Task {
                                 await cloud.remove(trait: trait)
                             }

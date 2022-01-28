@@ -5,6 +5,7 @@ import Selene
 struct Cal: View {
     weak var observatory: Observatory!
     @State private var calendar = [Days<Journal>]()
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
@@ -12,6 +13,24 @@ struct Cal: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 30).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundStyle(.secondary)
+                            .frame(width: 60, height: 60)
+                            .contentShape(Rectangle())
+                    }
+                    .padding(.trailing)
+                }
+                Spacer()
+            }
             
             if let month = calendar.last {
                 Text(Calendar.current.date(from: .init(year: month.year, month: month.month))!,

@@ -28,7 +28,7 @@
 		CE62AED2279991FF000E7470 /* Track.Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62AED1279991FF000E7470 /* Track.Status.swift */; };
 		CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */; };
 		CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */; };
-		CE8B89A227A02483006490BB /* Home.Info.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Info.Detail.swift */; };
+		CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Detail.swift */; };
 		CE8B89A427A03DAE006490BB /* Track.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A327A03DAE006490BB /* Track.Today.swift */; };
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
 		CE96636E27A2AD6A00EF43C1 /* Cal.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */; };
@@ -52,8 +52,10 @@
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
+		CEB59D1127A3F871002FDED9 /* Cal.Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1027A3F871002FDED9 /* Cal.Month.swift */; };
+		CEB59D1327A40AEC002FDED9 /* Cal.Month.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1227A40AEC002FDED9 /* Cal.Month.Header.swift */; };
+		CEB59D1527A40D77002FDED9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1427A40D77002FDED9 /* Date.swift */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
-		CEBA5D54279AD91A00002D12 /* Home.Info.Back.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
@@ -91,7 +93,7 @@
 		CE62AED1279991FF000E7470 /* Track.Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Status.swift; sourceTree = "<group>"; };
 		CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.swift; sourceTree = "<group>"; };
 		CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Item.swift; sourceTree = "<group>"; };
-		CE8B89A127A02483006490BB /* Home.Info.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.Detail.swift; sourceTree = "<group>"; };
+		CE8B89A127A02483006490BB /* Home.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Detail.swift; sourceTree = "<group>"; };
 		CE8B89A327A03DAE006490BB /* Track.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Today.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Ring.swift; sourceTree = "<group>"; };
@@ -115,8 +117,10 @@
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		CEB59D1027A3F871002FDED9 /* Cal.Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Month.swift; sourceTree = "<group>"; };
+		CEB59D1227A40AEC002FDED9 /* Cal.Month.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Month.Header.swift; sourceTree = "<group>"; };
+		CEB59D1427A40D77002FDED9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
-		CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.Back.swift; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9B399E278333BE0006E8AF /* Copy.swift */,
+				CEB59D1427A40D77002FDED9 /* Date.swift */,
 				CE9B398827832FB50006E8AF /* Global.swift */,
 				CE37BE2927787882004D93D5 /* GraphicsContext.swift */,
 				CEA44A72279ED12C0031DDD0 /* Level.swift */,
@@ -198,12 +203,13 @@
 				CEF8399B276B6BEF00134178 /* Info.plist */,
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
-				CE8B89A527A044CD006490BB /* Cal.swift */,
+				CEB59D1227A40AEC002FDED9 /* Cal.Month.Header.swift */,
+				CEB59D1027A3F871002FDED9 /* Cal.Month.swift */,
 				CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */,
+				CE8B89A527A044CD006490BB /* Cal.swift */,
 				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
-				CEBA5D53279AD91A00002D12 /* Home.Info.Back.swift */,
-				CE8B89A127A02483006490BB /* Home.Info.Detail.swift */,
+				CE8B89A127A02483006490BB /* Home.Detail.swift */,
 				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
@@ -325,7 +331,9 @@
 				CE62AED2279991FF000E7470 /* Track.Status.swift in Sources */,
 				CE070FC52785B1590099B09D /* Settings.Option.swift in Sources */,
 				CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */,
-				CE8B89A227A02483006490BB /* Home.Info.Detail.swift in Sources */,
+				CEB59D1527A40D77002FDED9 /* Date.swift in Sources */,
+				CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */,
+				CEB59D1127A3F871002FDED9 /* Cal.Month.swift in Sources */,
 				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
 				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
 				CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */,
@@ -348,6 +356,7 @@
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
 				CE50FFD0279EF751005C2EE6 /* Track.Item.swift in Sources */,
 				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
+				CEB59D1327A40AEC002FDED9 /* Cal.Month.Header.swift in Sources */,
 				CEFB5F55278461F200CAA105 /* Track.Status.Item.swift in Sources */,
 				CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
@@ -372,7 +381,6 @@
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,
 				CE62AECC27998740000E7470 /* Sheet.swift in Sources */,
 				CE9B39A3278334270006E8AF /* Froob.swift in Sources */,
-				CEBA5D54279AD91A00002D12 /* Home.Info.Back.swift in Sources */,
 				CE9B398927832FB50006E8AF /* Global.swift in Sources */,
 				CE62AECA279986D8000E7470 /* Track.swift in Sources */,
 			);

@@ -13,19 +13,13 @@ struct Window: View {
     var body: some View {
         Home(observatory: observatory)
             .safeAreaInset(edge: .bottom, spacing: 0) {
-                ZStack {
-                    HStack {
-                        Option(active: $analysis,
-                               title: "Analysis",
-                               symbol: "chart.line.uptrend.xyaxis")
-                            .padding(.leading)
-                        Spacer()
-                        Option(active: $settings,
-                               title: "Settings",
-                               symbol: "gear")
-                            .sheet(isPresented: $settings, content: Settings.init)
-                            .padding(.trailing)
-                    }
+                HStack {
+                    Option(active: $analysis,
+                           title: "Analysis",
+                           symbol: "chart.line.uptrend.xyaxis")
+                        .padding(.leading)
+                    
+                    Spacer()
                     
                     Button {
                         track = true
@@ -44,7 +38,16 @@ struct Window: View {
                             .equatable()
                             .edgesIgnoringSafeArea(.all)
                     }
+                    
+                    Spacer()
+                    
+                    Option(active: $settings,
+                           title: "Settings",
+                           symbol: "gear")
+                        .sheet(isPresented: $settings, content: Settings.init)
+                        .padding(.trailing)
                 }
+                .padding(.bottom, 10)
             }
             .sheet(isPresented: $location) {
                 Settings.Location()
