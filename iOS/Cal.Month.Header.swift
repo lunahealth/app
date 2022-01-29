@@ -5,34 +5,34 @@ import Selene
 extension Cal.Month {
     struct Header: View {
         @Binding var selection: Int
+        weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
         
         var body: some View {
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
+                    HStack(spacing: 0) {
                         Spacer()
                             .frame(width: 50)
                         
-                        ForEach(month, id: \.value) { day in
-                            Text(day.value.formatted())
-                                .tag(day.value - 1)
+                        ForEach(month, id: \.value) {
+                            Item(selection: $selection, day: $0, moon: observatory.moon(for: $0.content.date))
                         }
                         
                         Spacer()
                             .frame(width: 50)
                     }
+                    .frame(height: 160)
                 }
                 .onChange(of: selection) { selected in
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        proxy.scrollTo(selected, anchor: .center)
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        proxy.scrollTo(selected, anchor: .bottom)
                     }
                 }
                 .onAppear {
-                    proxy.scrollTo(selection, anchor: .center)
+                    proxy.scrollTo(selection, anchor: .bottom)
                 }
             }
-            .frame(height: 100)
         }
     }
 }

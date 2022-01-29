@@ -9,15 +9,16 @@ struct Cal: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing: 0) {
                 Spacer()
-                    .frame(width: 50)
+                    .frame(width: 42)
                 Spacer()
                 
                 if let month = calendar.last {
                     Text(Calendar.current.date(from: .init(year: month.year, month: month.month))!,
                          format: .dateTime.year().month(.wide))
                         .font(.footnote)
+                        .padding(.top, 10)
                 }
                 
                 Spacer()
@@ -28,7 +29,8 @@ struct Cal: View {
                         .font(.system(size: 30).weight(.light))
                         .symbolRenderingMode(.hierarchical)
                         .foregroundStyle(.secondary)
-                        .frame(width: 50, height: 55)
+                        .frame(width: 32, height: 36)
+                        .padding([.top, .trailing], 10)
                         .contentShape(Rectangle())
                 }
             }

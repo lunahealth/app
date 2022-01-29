@@ -16,7 +16,7 @@ extension Track {
                                      image: .init("MoonSmall"),
                                      shadow: .init("ShadowSmall"),
                                      radius: 17,
-                                     center: .init(x: size.width / 2, y: size.height / 2))
+                                     center: .init(x: 18, y: 18))
                     }
                     .frame(width: 36, height: 36)
                     .padding(.top, 30)

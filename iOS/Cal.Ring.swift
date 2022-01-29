@@ -10,7 +10,7 @@ extension Cal {
     struct Ring: View {
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
-        @State private var selection = -1
+        @State private var selection = 0
         @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
@@ -78,8 +78,8 @@ extension Cal {
                                            style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
                         }
                         
-                        if selection >= 0,
-                           month[selection] == day {
+                        if selection > 0,
+                           selection == day.value {
                             context.stroke(.init {
                                 $0.addArc(center: center,
                                           radius: radius / 2,
@@ -128,10 +128,10 @@ extension Cal {
             )
             .sheet(isPresented: $detail) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    selection = -1
+                    selection = 0
                 }
             } content: {
-                Month(selection: $selection, month: month)
+                Month(selection: $selection, observatory: observatory, month: month)
             }
         }
         
@@ -144,7 +144,7 @@ extension Cal {
                 position += .pi2
             }
             
-            return min(max(0, Int(round(position / radPerItem))), month.count - 1)
+            return month[min(max(0, Int(round(position / radPerItem))), month.count - 1)].value
         }
         
         private var radPerItem: Double {
