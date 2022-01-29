@@ -121,11 +121,9 @@ extension Cal {
             .frame(width: side, height: side)
             .gesture(
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                    .onEnded { point in
+                    .onChanged { point in
                         selection = item(for: point.location)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            detail = true
-                        }
+                        detail = true
                     }
             )
             .sheet(isPresented: $detail) {
