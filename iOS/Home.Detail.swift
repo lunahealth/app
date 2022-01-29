@@ -33,6 +33,7 @@ extension Home {
                 }
                 .sheet(isPresented: $calendar) {
                     Cal(observatory: observatory)
+                        .equatable()
                 }
             }
             .padding(.horizontal, 20)

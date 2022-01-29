@@ -3,7 +3,7 @@ import Dater
 import Selene
 
 extension Cal {
-    struct Month: View {
+    struct Month: View, Equatable {
         @Binding var selection: Int
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
@@ -49,6 +49,10 @@ extension Cal {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             }
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            true
         }
     }
 }

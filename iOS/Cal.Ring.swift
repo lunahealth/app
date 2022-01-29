@@ -132,6 +132,7 @@ extension Cal {
                 }
             } content: {
                 Month(selection: $selection, observatory: observatory, month: month)
+                    .equatable()
             }
         }
         

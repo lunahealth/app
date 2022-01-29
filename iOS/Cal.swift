@@ -2,8 +2,9 @@ import SwiftUI
 import Dater
 import Selene
 
-struct Cal: View {
+struct Cal: View, Equatable {
     weak var observatory: Observatory!
+    @State private var month = 0
     @State private var calendar = [Days<Journal>]()
     @Environment(\.dismiss) private var dismiss
     
@@ -14,13 +15,43 @@ struct Cal: View {
                     .frame(width: 42)
                 Spacer()
                 
-                if let month = calendar.last {
-                    Text(Calendar.current.date(from: .init(year: month.year, month: month.month))!,
+                Button {
+                    month -= 1
+                } label: {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .font(.system(size: 28).weight(.light))
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
+                        .frame(width: 40, height: 35)
+                        .padding(.top, 10)
+                        .contentShape(Rectangle())
+                }
+                .disabled(month < 1)
+                .opacity(month < 1 ? 0.3 : 1)
+
+                if !calendar.isEmpty, month < calendar.count, month >= 0 {
+                    Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
                          format: .dateTime.year().month(.wide))
-                        .font(.footnote)
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(.secondary)
+                        .frame(width: 170)
                         .padding(.top, 10)
                 }
                 
+                Button {
+                    month += 1
+                } label: {
+                    Image(systemName: "chevron.right.circle.fill")
+                        .font(.system(size: 28).weight(.light))
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
+                        .frame(width: 40, height: 35)
+                        .padding(.top, 10)
+                        .contentShape(Rectangle())
+                }
+                .disabled(month >= calendar.count - 1)
+                .opacity(month >= calendar.count - 1 ? 0.3 : 1)
+
                 Spacer()
                 Button {
                     dismiss()
@@ -46,7 +77,13 @@ struct Cal: View {
                         .edgesIgnoringSafeArea(.all)
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
         .task {
-            calendar = await cloud.model.calendar
+            let update = await cloud.model.calendar
+            let month = update.count - 1
+            calendar = update
         }
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        true
     }
 }

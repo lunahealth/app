@@ -7,7 +7,7 @@ extension Cal.Month {
         @Binding var selection: Int
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
-        
+
         var body: some View {
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -17,6 +17,8 @@ extension Cal.Month {
                         
                         ForEach(month, id: \.value) {
                             Item(selection: $selection, day: $0, moon: observatory.moon(for: $0.content.date))
+                                .tag($0.value)
+                                .id($0.value)
                         }
                         
                         Spacer()
@@ -25,7 +27,7 @@ extension Cal.Month {
                     .frame(height: 160)
                 }
                 .onChange(of: selection) { selected in
-                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: 5)) {
                         proxy.scrollTo(selected, anchor: .bottom)
                     }
                 }
