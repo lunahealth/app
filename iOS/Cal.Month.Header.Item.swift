@@ -33,7 +33,9 @@ extension Cal.Month.Header {
             .frame(width: 66, height: 90)
             .contentShape(Rectangle())
             .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.35)) {
                     selection = day.value
+                }
             }
         }
     }

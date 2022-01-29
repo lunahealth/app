@@ -27,7 +27,7 @@ extension Cal.Month {
                     .frame(height: 160)
                 }
                 .onChange(of: selection) { selected in
-                    withAnimation(.easeInOut(duration: 5)) {
+                    withAnimation(.easeInOut(duration: 0.35)) {
                         proxy.scrollTo(selected, anchor: .bottom)
                     }
                 }
