@@ -78,7 +78,7 @@ struct Cal: View, Equatable {
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
         .task {
             let update = await cloud.model.calendar
-            let month = update.count - 1
+            month = update.count - 1
             calendar = update
         }
     }
