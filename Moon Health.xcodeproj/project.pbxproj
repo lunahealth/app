@@ -32,6 +32,7 @@
 		CE89018927A6CEE700744526 /* Analysis.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018827A6CEE700744526 /* Analysis.Item.swift */; };
 		CE89018B27A6D24500744526 /* Analysis.Item.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018A27A6D24500744526 /* Analysis.Item.Header.swift */; };
 		CE89018D27A6D5CB00744526 /* Analysis.Item.Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018C27A6D5CB00744526 /* Analysis.Item.Display.swift */; };
+		CE89019027A6EA5900744526 /* Analysis.Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018F27A6EA5900744526 /* Analysis.Filter.swift */; };
 		CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Detail.swift */; };
 		CE8B89A427A03DAE006490BB /* Track.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A327A03DAE006490BB /* Track.Today.swift */; };
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
@@ -103,6 +104,7 @@
 		CE89018827A6CEE700744526 /* Analysis.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Item.swift; sourceTree = "<group>"; };
 		CE89018A27A6D24500744526 /* Analysis.Item.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Item.Header.swift; sourceTree = "<group>"; };
 		CE89018C27A6D5CB00744526 /* Analysis.Item.Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Item.Display.swift; sourceTree = "<group>"; };
+		CE89018F27A6EA5900744526 /* Analysis.Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Filter.swift; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Detail.swift; sourceTree = "<group>"; };
 		CE8B89A327A03DAE006490BB /* Track.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Today.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
+				CE89018F27A6EA5900744526 /* Analysis.Filter.swift */,
 				CE89018C27A6D5CB00744526 /* Analysis.Item.Display.swift */,
 				CE89018A27A6D24500744526 /* Analysis.Item.Header.swift */,
 				CE89018827A6CEE700744526 /* Analysis.Item.swift */,
@@ -352,6 +355,7 @@
 				CEB59D1527A40D77002FDED9 /* Date.swift in Sources */,
 				CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */,
 				CEB59D1127A3F871002FDED9 /* Cal.Month.swift in Sources */,
+				CE89019027A6EA5900744526 /* Analysis.Filter.swift in Sources */,
 				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
 				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
 				CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */,

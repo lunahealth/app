@@ -29,6 +29,18 @@ struct Analysis: View, Equatable {
             .navigationTitle("Analysis")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Label("Filter", systemImage: "slider.horizontal.3")
+                            .font(.footnote)
+                            .symbolRenderingMode(.hierarchical)
+                            .labelStyle(.titleAndIcon)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.bordered)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
