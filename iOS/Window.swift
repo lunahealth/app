@@ -5,7 +5,6 @@ struct Window: View {
     @State private var location = false
     @State private var froob = false
     @State private var settings = false
-    @State private var calendar = false
     @State private var analysis = false
     @State private var track = false
     @State private var observatory = Observatory()
@@ -18,6 +17,10 @@ struct Window: View {
                            title: "Analysis",
                            symbol: "chart.line.uptrend.xyaxis")
                         .padding(.leading)
+                        .sheet(isPresented: $analysis) {
+                            Analysis(observatory: observatory)
+                                .equatable()
+                        }
                     
                     Spacer()
                     
@@ -44,8 +47,8 @@ struct Window: View {
                     Option(active: $settings,
                            title: "Settings",
                            symbol: "gear")
-                        .sheet(isPresented: $settings, content: Settings.init)
                         .padding(.trailing)
+                        .sheet(isPresented: $settings, content: Settings.init)
                 }
                 .padding(.bottom, 10)
             }
