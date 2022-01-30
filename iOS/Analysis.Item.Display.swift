@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let bottom = 30.0
+private let bottom = 70.0
 
 extension Analysis.Item {
     struct Display: View {
@@ -11,14 +11,14 @@ extension Analysis.Item {
         
         var body: some View {
             Canvas { context, size in
-                let width = size.width / .init(Moon.Phase.allCases.count)
+                let width = (size.width - 20) / .init(Moon.Phase.allCases.count)
                 let height = (size.height - bottom) / .init(Level.allCases.count)
                 let spacing = size.height - bottom
-                var x = width / 2
+                var x = (width / 2) + 10
                 
                 Moon.Phase.allCases.forEach { phase in
                     if let level = value[phase] {
-                        let bottom = CGPoint(x: x, y: size.height - 20)
+                        let bottom = CGPoint(x: x, y: size.height - 22)
                         let top = CGPoint(x: x, y: spacing - (.init(Level.allCases.firstIndex(of: level)!) * height))
                         
                         context

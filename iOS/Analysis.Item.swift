@@ -20,7 +20,7 @@ extension Analysis {
                         .fill(Color(.systemBackground))
                     Display(value: value)
                 }
-                .frame(height: 200)
+                .frame(height: 220)
                 
                 Rectangle()
                     .fill(Color(.secondarySystemFill))

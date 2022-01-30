@@ -10,6 +10,16 @@ struct Analysis: View, Equatable {
     var body: some View {
         NavigationView {
             ScrollView {
+                Item(trait: .period, value: [.new : .top,
+                                             .waxingCrescent : .top,
+                                             .firstQuarter : .bottom,
+                                             .waxingGibbous : .medium,
+                                             .full : .low,
+                                             .waningGibbous : .high,
+                                             .lastQuarter : .bottom,
+                                             .waningCrescent : .bottom])
+                    .padding(.top)
+                
                 ForEach(traits, id: \.self) {
                     Item(trait: $0, value: analysis[$0] ?? [:])
                         .padding(.top)
