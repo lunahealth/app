@@ -571,7 +571,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
@@ -647,7 +646,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
