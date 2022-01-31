@@ -9,22 +9,33 @@ struct Analysis: View, Equatable {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                Item(trait: .period, value: [.new : .top,
-                                             .waxingCrescent : .top,
-                                             .firstQuarter : .bottom,
-                                             .waxingGibbous : .medium,
-                                             .full : .low,
-                                             .waningGibbous : .high,
-                                             .lastQuarter : .bottom,
-                                             .waningCrescent : .bottom])
-                    .padding(.top)
+            List {
+                Section {
+                    Item(value: [.new : .top,
+                                 .waxingCrescent : .top,
+                                 .firstQuarter : .bottom,
+                                 .waxingGibbous : .medium,
+                                 .full : .low,
+                                 .waningGibbous : .high,
+                                 .lastQuarter : .bottom,
+                                 .waningCrescent : .bottom])
+                } header: {
+                    Header(trait: .period)
+                }
+                .listRowBackground(Color.clear)
+                .listSectionSeparator(.hidden)
                 
-                ForEach(traits, id: \.self) {
-                    Item(trait: $0, value: analysis[$0] ?? [:])
-                        .padding(.top)
+                ForEach(traits, id: \.self) { trait in
+                    Section {
+                        Item(value: analysis[trait] ?? [:])
+                    } header: {
+                        Header(trait: trait)
+                    }
+                    .listRowBackground(Color.clear)
+                    .listSectionSeparator(.hidden)
                 }
             }
+            .listStyle(.plain)
             .background(Color(.secondarySystemBackground))
             .navigationTitle("Analysis")
             .navigationBarTitleDisplayMode(.large)
