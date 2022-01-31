@@ -6,26 +6,27 @@ private let bottom = 70.0
 extension Analysis {
     struct Item: View, Equatable {
         let value: [Moon.Phase : Level]
+        let phases: [Moon.Phase]
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
-        private let dates = (20 ..< 80).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 1000_000_0, to: .now)! }
+        private let dates = (40 ..< 110).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 1000_000_0, to: .now)! }
         
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
                 Canvas { context, size in
-                    let width = (size.width - 20) / .init(Moon.Phase.allCases.count)
+                    let width = (size.width - 20) / .init(phases.count)
                     let height = (size.height - bottom) / .init(Level.allCases.count)
                     let spacing = size.height - bottom
-                    let frame = min(CGFloat(dates.firstIndex(of: timeline.date)!), 45)
+                    let frame = min(CGFloat(dates.firstIndex(of: timeline.date)!), 55)
                     var x = (width / 2) + 10
                     
-                    Moon.Phase.allCases.forEach { phase in
+                    phases.forEach { phase in
                         if let level = value[phase] {
                             let bottom = CGPoint(x: x, y: size.height - 22)
                             let expected = spacing - (.init(Level.allCases.firstIndex(of: level)!) * height)
-                            let delta = (bottom.y - expected) / 45 * frame
+                            let delta = (bottom.y - expected) / 55 * frame
                             let top = CGPoint(x: x, y: bottom.y - delta)
-                            let alpha = frame / 45
+                            let alpha = frame / 55
 
                             context
                                 .drawLayer { layer in
@@ -123,7 +124,7 @@ extension Analysis {
         }
         
         static func == (lhs: Self, rhs: Self) -> Bool {
-            lhs.value == rhs.value
+            lhs.value == rhs.value && lhs.phases == rhs.phases
         }
     }
 }

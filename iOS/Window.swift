@@ -37,7 +37,7 @@ struct Window: View {
                         .contentShape(Rectangle())
                     }
                     .sheet(isPresented: $track) {
-                        Sheet(rootView: Track(observatory: observatory))
+                        SheetMinimal(rootView: Track(observatory: observatory))
                             .equatable()
                             .edgesIgnoringSafeArea(.all)
                     }

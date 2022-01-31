@@ -5,6 +5,8 @@ struct Analysis: View, Equatable {
     weak var observatory: Observatory!
     @State private var traits = [Trait]()
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
+    @State private var phases = Moon.Phase.allCases.map { ($0, true) }
+    @State private var filter = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -18,7 +20,8 @@ struct Analysis: View, Equatable {
                                  .full : .low,
                                  .waningGibbous : .high,
                                  .lastQuarter : .bottom,
-                                 .waningCrescent : .bottom])
+                                 .waningCrescent : .bottom],
+                         phases: phases.compactMap { $0.1 ? $0.0 : nil })
                         .equatable()
                 } header: {
                     Header(trait: .period)
@@ -28,7 +31,8 @@ struct Analysis: View, Equatable {
                 
                 ForEach(traits, id: \.self) { trait in
                     Section {
-                        Item(value: analysis[trait] ?? [:])
+                        Item(value: analysis[trait] ?? [:],
+                             phases: phases.compactMap { $0.1 ? $0.0 : nil })
                             .equatable()
                     } header: {
                         Header(trait: trait)
@@ -44,7 +48,7 @@ struct Analysis: View, Equatable {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        dismiss()
+                        filter = true
                     } label: {
                         Label("Filter", systemImage: "slider.horizontal.3")
                             .font(.footnote)
@@ -53,6 +57,11 @@ struct Analysis: View, Equatable {
                             .contentShape(Rectangle())
                     }
                     .buttonStyle(.bordered)
+                    .sheet(isPresented: $filter) {
+                        SheetBasic(rootView: Filter(phases: $phases))
+                            .equatable()
+                            .edgesIgnoringSafeArea(.bottom)
+                    }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

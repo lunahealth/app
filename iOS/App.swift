@@ -3,6 +3,7 @@ import SwiftUI
 @main struct App: SwiftUI.App {
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
+    @State private var a = ""
     
     var body: some Scene {
         WindowGroup {

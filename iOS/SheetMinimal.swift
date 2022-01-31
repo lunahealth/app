@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable where C : View {
+final class SheetMinimal<C>: UIHostingController<C>, UIViewControllerRepresentable where C : View {
     required init?(coder: NSCoder) { nil }
     override init(rootView: C) {
         super.init(rootView: rootView)
@@ -23,11 +23,11 @@ final class Sheet<C>: UIHostingController<C>, UIViewControllerRepresentable wher
         view.backgroundColor = .clear
     }
     
-    func makeUIViewController(context: Context) -> Sheet {
+    func makeUIViewController(context: Context) -> SheetMinimal {
         self
     }
     
-    func updateUIViewController(_: Sheet, context: Context) {
+    func updateUIViewController(_: SheetMinimal, context: Context) {
         
     }
 }
