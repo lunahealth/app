@@ -32,6 +32,12 @@ struct Settings: View {
                 Notifications()
                 
                 Section("Moon Health") {
+                    NavigationLink(destination: Plus()) {
+                        Option(title: "The Dark Side of the Moon",
+                               subtitle: "Support Moon Health",
+                               symbol: "triangle.inset.filled")
+                    }
+                    
                     NavigationLink(destination: About()) {
                         Option(title: "About",
                                subtitle: "App details",

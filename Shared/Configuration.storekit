@@ -1,0 +1,33 @@
+{
+  "identifier" : "E3323699",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "52CD12E5",
+      "localizations" : [
+        {
+          "description" : "Support the development of Moon Health.",
+          "displayName" : "The Dark Side of the Moon.",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "moonhealth.darkside",
+      "referenceName" : "The Dark Side of the Moon.",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

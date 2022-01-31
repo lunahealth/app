@@ -63,6 +63,7 @@
 		CEB59D1527A40D77002FDED9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1427A40D77002FDED9 /* Date.swift */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
 		CEDA52EA27A80C74004DBDB9 /* SheetBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA52E927A80C74004DBDB9 /* SheetBasic.swift */; };
+		CEDA52EC27A83DD1004DBDB9 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA52EB27A83DD1004DBDB9 /* Plus.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
@@ -135,6 +136,8 @@
 		CEB59D1427A40D77002FDED9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
 		CEDA52E927A80C74004DBDB9 /* SheetBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetBasic.swift; sourceTree = "<group>"; };
+		CEDA52EB27A83DD1004DBDB9 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
+		CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
+				CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
+				CEDA52EB27A83DD1004DBDB9 /* Plus.swift */,
 				CEB0A76027872C9000B5F5BF /* Settings.About.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
 				CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */,
@@ -375,6 +380,7 @@
 				CE37BE2627786FCE004D93D5 /* Track.Header.swift in Sources */,
 				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,
 				CE281D0E279B102100C8BA3C /* Stars.Model.Item.swift in Sources */,
+				CEDA52EC27A83DD1004DBDB9 /* Plus.swift in Sources */,
 				CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */,
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
 				CE50FFD0279EF751005C2EE6 /* Track.Item.swift in Sources */,
