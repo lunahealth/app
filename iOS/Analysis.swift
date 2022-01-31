@@ -7,38 +7,29 @@ struct Analysis: View, Equatable {
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
     @State private var phases = Moon.Phase.allCases.map { ($0, true) }
     @State private var filter = false
+    @State private var empty = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    Item(value: [.new : .top,
-                                 .waxingCrescent : .top,
-                                 .firstQuarter : .bottom,
-                                 .waxingGibbous : .medium,
-                                 .full : .low,
-                                 .waningGibbous : .high,
-                                 .lastQuarter : .bottom,
-                                 .waningCrescent : .bottom],
-                         phases: phases.compactMap { $0.1 ? $0.0 : nil })
-                        .equatable()
-                } header: {
-                    Header(trait: .period)
-                }
-                .listRowBackground(Color.clear)
-                .listSectionSeparator(.hidden)
-                
-                ForEach(traits, id: \.self) { trait in
-                    Section {
-                        Item(value: analysis[trait] ?? [:],
-                             phases: phases.compactMap { $0.1 ? $0.0 : nil })
-                            .equatable()
-                    } header: {
-                        Header(trait: trait)
+                if empty {
+                    Text("You will be able to analyse your data once you start tracking traits.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .padding(.vertical)
+                } else {
+                    ForEach(traits, id: \.self) { trait in
+                        Section {
+                            Item(value: analysis[trait] ?? [:],
+                                 phases: phases.compactMap { $0.1 ? $0.0 : nil })
+                                .equatable()
+                        } header: {
+                            Header(trait: trait)
+                        }
+                        .listRowBackground(Color.clear)
+                        .listSectionSeparator(.hidden)
                     }
-                    .listRowBackground(Color.clear)
-                    .listSectionSeparator(.hidden)
                 }
             }
             .listStyle(.plain)
@@ -81,9 +72,12 @@ struct Analysis: View, Equatable {
         .navigationViewStyle(.stack)
         .task {
             traits = await cloud.model.settings.traits.sorted()
-            analysis = await cloud.analysis {
-                observatory.moon(for: $0).phase
-            }
+            analysis = await cloud
+                .analysis {
+                    observatory.moon(for: $0).phase
+                }
+            
+            empty = analysis.flatMap { $0.value.map { $0.value } }.isEmpty
         }
     }
     
