@@ -19,6 +19,7 @@ struct Analysis: View, Equatable {
                                  .waningGibbous : .high,
                                  .lastQuarter : .bottom,
                                  .waningCrescent : .bottom])
+                        .equatable()
                 } header: {
                     Header(trait: .period)
                 }
@@ -28,6 +29,7 @@ struct Analysis: View, Equatable {
                 ForEach(traits, id: \.self) { trait in
                     Section {
                         Item(value: analysis[trait] ?? [:])
+                            .equatable()
                     } header: {
                         Header(trait: trait)
                     }
