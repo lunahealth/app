@@ -14,7 +14,7 @@ extension Analysis {
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
                 Canvas { context, size in
-                    let width = (size.width - 20) / .init(phases.count)
+                    let width = (size.width - 20) / .init(phases.filter { value[$0] != nil }.count)
                     let height = (size.height - bottom) / .init(Level.allCases.count)
                     let spacing = size.height - bottom
                     let frame = min(CGFloat(dates.firstIndex(of: timeline.date)!), 55)
@@ -113,9 +113,9 @@ extension Analysis {
                                                radius: 7,
                                                center: bottom)
                                 }
+                            
+                            x += width
                         }
-                        
-                        x += width
                     }
                 }
             }
