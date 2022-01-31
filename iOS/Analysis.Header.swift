@@ -19,15 +19,16 @@ extension Analysis {
                     .foregroundColor(.accentColor)
                 }
                 .frame(height: 38)
-                HStack(spacing: 20) {
+                HStack {
                     ForEach(Level.allCases, id: \.self) { level in
                         VStack(spacing: 0) {
                             Image(systemName: level.symbol)
                                 .font(.system(size: 13))
                                 .frame(width: 26, height: 26)
                             Text(level.title(for: trait))
-                                .font(.caption)
+                                .font(.system(size: 12))
                         }
+                        .frame(width: 58)
                     }
                 }
                 .foregroundStyle(.secondary)

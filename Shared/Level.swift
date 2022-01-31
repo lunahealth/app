@@ -27,7 +27,7 @@ extension Level {
             case .period:
                 return "Nothing"
             case .mood:
-                return "Very low"
+                return "Bad"
             case .nutrition:
                 return "Worst"
             case .sleep:
@@ -57,7 +57,7 @@ extension Level {
             case .period:
                 return "Regular"
             case .mood:
-                return "Indifferent"
+                return "Meh"
             case .nutrition:
                 return "Regular"
             case .sleep:
@@ -72,7 +72,7 @@ extension Level {
             case .period:
                 return "Much"
             case .mood:
-                return "Happy"
+                return "Good"
             case .nutrition:
                 return "Good"
             case .sleep:
@@ -81,9 +81,9 @@ extension Level {
         case .top:
             switch trait {
             case .exercise:
-                return "A lot"
+                return "Lots"
             case .focus:
-                return "A lot"
+                return "Amazing"
             case .period:
                 return "A lot"
             case .mood:
@@ -91,7 +91,7 @@ extension Level {
             case .nutrition:
                 return "Best"
             case .sleep:
-                return "A lot"
+                return "Great"
             }
         }
     }
