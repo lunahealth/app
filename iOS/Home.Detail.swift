@@ -26,8 +26,8 @@ extension Home {
                 } label: {
                     Image(systemName: "calendar")
                         .font(.system(size: 22))
-                        .foregroundStyle(.secondary)
                         .tint(.primary)
+                        .foregroundStyle(.secondary)
                         .frame(width: 40, height: 40)
                         .contentShape(Rectangle())
                 }

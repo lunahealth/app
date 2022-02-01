@@ -10,6 +10,15 @@ struct Cal: View, Equatable {
     
     var body: some View {
         VStack {
+            Spacer()
+            if calendar.count > month {
+                Ring(observatory: observatory, month: calendar[month].items.flatMap { $0 })
+                    .id(month)
+            }
+            Spacer()
+        }
+        .animation(.easeInOut(duration: 0.6), value: month)
+        .safeAreaInset(edge: .top, spacing: 0) {
             HStack(spacing: 0) {
                 Spacer()
                     .frame(width: 42)
@@ -20,10 +29,10 @@ struct Cal: View, Equatable {
                 } label: {
                     Image(systemName: "chevron.left.circle.fill")
                         .font(.system(size: 28).weight(.light))
+                        .tint(.accentColor)
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
                         .frame(width: 40, height: 35)
-                        .padding(.top, 10)
                         .contentShape(Rectangle())
                 }
                 .disabled(month < 1)
@@ -32,10 +41,9 @@ struct Cal: View, Equatable {
                 if !calendar.isEmpty, month < calendar.count, month >= 0 {
                     Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
                          format: .dateTime.year().month(.wide))
-                        .font(.callout.weight(.medium))
-                        .foregroundStyle(.secondary)
+                        .font(.footnote.weight(.medium))
+                        .foregroundStyle(.primary)
                         .frame(width: 170)
-                        .padding(.top, 10)
                 }
                 
                 Button {
@@ -43,10 +51,10 @@ struct Cal: View, Equatable {
                 } label: {
                     Image(systemName: "chevron.right.circle.fill")
                         .font(.system(size: 28).weight(.light))
+                        .tint(.accentColor)
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
                         .frame(width: 40, height: 35)
-                        .padding(.top, 10)
                         .contentShape(Rectangle())
                 }
                 .disabled(month >= calendar.count - 1)
@@ -59,17 +67,14 @@ struct Cal: View, Equatable {
                     Image(systemName: "xmark.circle.fill")
                         .font(.system(size: 30).weight(.light))
                         .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
                         .frame(width: 32, height: 36)
-                        .padding([.top, .trailing], 10)
+                        .padding(.trailing, 10)
                         .contentShape(Rectangle())
                 }
             }
-            Spacer()
-            if let month = calendar.last {
-                Ring(observatory: observatory, month: month.items.flatMap { $0 })
-            }
-            Spacer()
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial)
         }
         .background(Image("Background")
                         .resizable()

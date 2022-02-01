@@ -94,7 +94,7 @@ struct Plus: View {
             .font(.callout)
             .multilineTextAlignment(.center)
             .fixedSize(horizontal: false, vertical: true)
-            .frame(maxWidth: 200)
+            .frame(maxWidth: 190)
             .allowsHitTesting(false)
         
         Spacer()

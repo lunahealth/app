@@ -33,7 +33,7 @@ extension Cal.Month {
                                         .font(.callout)
                                     Spacer()
                                     Image(systemName: day.content.traits[trait]!.symbol)
-                                        .font(.system(size: 20))
+                                        .font(.system(size: 16))
                                         .frame(width: 70)
                                 }
                                 .padding(.vertical)

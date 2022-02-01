@@ -63,7 +63,7 @@ struct Settings: View {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 24).weight(.light))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                             .frame(width: 26, height: 40)
                             .padding(.leading)
                             .contentShape(Rectangle())

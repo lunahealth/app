@@ -21,7 +21,7 @@ extension Cal {
                              ? "Today"
                              : month[selection - 1].content.date.offset)
                             .font(.callout)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                             .padding(.top, 10)
                     }
                     
@@ -32,7 +32,7 @@ extension Cal {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 30).weight(.light))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                             .frame(width: 32, height: 36)
                             .padding([.top, .trailing], 10)
                             .contentShape(Rectangle())
