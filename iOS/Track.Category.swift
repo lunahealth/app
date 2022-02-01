@@ -38,6 +38,7 @@ extension Track {
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.title2.weight(.light))
                         .foregroundColor(trait.color)
+                        .shadow(color: .black.opacity(0.5), radius: 1)
                 }
                 .frame(width: 120, height: 120)
             }
