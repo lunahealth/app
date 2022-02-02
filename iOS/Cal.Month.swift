@@ -12,34 +12,6 @@ extension Cal {
         
         var body: some View {
             VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    Spacer()
-                        .frame(width: 42)
-                    Spacer()
-                    
-                    if selection > 0 && selection <= month.count {
-                        Text(month[selection - 1].today
-                             ? "Today"
-                             : month[selection - 1].content.date.offset)
-                            .font(.callout)
-                            .foregroundStyle(.primary)
-                            .padding(.top, 10)
-                    }
-                    
-                    Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 30).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.primary)
-                            .frame(width: 32, height: 36)
-                            .padding([.top, .trailing], 10)
-                            .contentShape(Rectangle())
-                    }
-                }
-                
                 Header(selection: $selection, observatory: observatory, month: month)
                 
                 TabView(selection: $selection) {
@@ -62,6 +34,32 @@ extension Cal {
                 .buttonStyle(.bordered)
                 .buttonBorderShape(.capsule)
                 .padding(.bottom, 30)
+            }
+            .safeAreaInset(edge: .top, spacing: 0) {
+                VStack(spacing: 0) {
+                    HStack {
+                        Text(Calendar.current.date(from: .init(year: month.year, month: month.month))!,
+                             format: .dateTime.year().month(.wide))
+                            .font(.callout.weight(.medium))
+                            .foregroundStyle(.primary)
+                        
+                        if selection > 0 && selection <= month.count {
+                            Text(month[selection - 1].today
+                                 ? "Today"
+                                 : month[selection - 1].content.date.offset)
+                                .font(.callout)
+                                .foregroundStyle(.primary)
+                                .padding(.top, 10)
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.vertical, 10)
+                    Rectangle()
+                        .fill(.tertiary)
+                        .frame(height: 1)
+                }
+                .background(.ultraThinMaterial)
             }
             .onReceive(cloud) {
                 traits = $0.settings.traits.sorted()
