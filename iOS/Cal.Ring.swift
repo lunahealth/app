@@ -122,7 +122,20 @@ extension Cal {
             .gesture(
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { point in
+                        guard validate(point: point.location) else {
+                            selection = 0
+                            return
+                        }
                         selection = item(for: point.location)
+                    }
+                    .onEnded { point in
+                        guard
+                            validate(point: point.location),
+                            selection > 0
+                        else {
+                            selection = 0
+                            return
+                        }
                         detail = true
                     }
             )
@@ -146,6 +159,12 @@ extension Cal {
             }
             
             return month[min(max(0, Int(round(position / radPerItem))), month.count - 1)].value
+        }
+        
+        private func validate(point: CGPoint) -> Bool {
+            let distanceX = pow(point.x - center.x, 2)
+            let distanceY = pow(center.y - point.y, 2)
+            return distanceX + distanceY < 27_000
         }
         
         private var radPerItem: Double {
