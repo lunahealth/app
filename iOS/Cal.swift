@@ -36,6 +36,7 @@ struct Cal: View, Equatable {
                     Spacer()
                     
                     Button {
+                        guard month > 0 else { return }
                         month -= 1
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
@@ -45,8 +46,7 @@ struct Cal: View, Equatable {
                             .frame(width: 40, height: 35)
                             .contentShape(Rectangle())
                     }
-                    .disabled(month < 1)
-                    .opacity(month < 1 ? 0.2 : 1)
+                    .opacity(month < 1 ? 0.4 : 1)
 
                     if !calendar.isEmpty, month < calendar.count, month >= 0 {
                         Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
@@ -57,6 +57,7 @@ struct Cal: View, Equatable {
                     }
                     
                     Button {
+                        guard month < calendar.count - 1 else { return }
                         month += 1
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
@@ -66,8 +67,7 @@ struct Cal: View, Equatable {
                             .frame(width: 40, height: 35)
                             .contentShape(Rectangle())
                     }
-                    .disabled(month >= calendar.count - 1)
-                    .opacity(month >= calendar.count - 1 ? 0.2 : 1)
+                    .opacity(month >= calendar.count - 1 ? 0.4 : 1)
 
                     Spacer()
                 }
