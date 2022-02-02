@@ -16,64 +16,66 @@ struct Cal: View, Equatable {
                     .id(month)
             }
             Spacer()
-        }
-        .animation(.easeInOut(duration: 0.6), value: month)
-        .safeAreaInset(edge: .top, spacing: 0) {
-            HStack(spacing: 0) {
-                Spacer()
-                    .frame(width: 42)
-                Spacer()
-                
-                Button {
-                    month -= 1
-                } label: {
-                    Image(systemName: "chevron.left.circle.fill")
-                        .font(.system(size: 28).weight(.light))
-                        .tint(.accentColor)
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                        .frame(width: 40, height: 35)
-                        .contentShape(Rectangle())
-                }
-                .disabled(month < 1)
-                .opacity(month < 1 ? 0.3 : 1)
-
-                if !calendar.isEmpty, month < calendar.count, month >= 0 {
-                    Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
-                         format: .dateTime.year().month(.wide))
-                        .font(.footnote.weight(.medium))
-                        .foregroundStyle(.primary)
-                        .frame(width: 170)
-                }
-                
-                Button {
-                    month += 1
-                } label: {
-                    Image(systemName: "chevron.right.circle.fill")
-                        .font(.system(size: 28).weight(.light))
-                        .tint(.accentColor)
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.primary, Color.accentColor.opacity(0.3))
-                        .frame(width: 40, height: 35)
-                        .contentShape(Rectangle())
-                }
-                .disabled(month >= calendar.count - 1)
-                .opacity(month >= calendar.count - 1 ? 0.3 : 1)
-
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.system(size: 30).weight(.light))
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.primary)
-                        .frame(width: 32, height: 36)
-                        .padding(.trailing, 10)
-                        .contentShape(Rectangle())
-                }
+            Button {
+                dismiss()
+            } label: {
+                Text("Done")
+                    .font(.callout.weight(.medium))
+                    .padding(.horizontal, 10)
+                    .contentShape(Rectangle())
             }
-            .padding(.vertical, 10)
+            .tint(.accentColor)
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            Spacer()
+        }
+        .animation(.easeInOut(duration: 0.4), value: month)
+        .safeAreaInset(edge: .top, spacing: 0) {
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
+                    Spacer()
+                    
+                    Button {
+                        month -= 1
+                    } label: {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .font(.system(size: 28).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundStyle(.primary)
+                            .frame(width: 40, height: 35)
+                            .contentShape(Rectangle())
+                    }
+                    .disabled(month < 1)
+                    .opacity(month < 1 ? 0.2 : 1)
+
+                    if !calendar.isEmpty, month < calendar.count, month >= 0 {
+                        Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
+                             format: .dateTime.year().month(.wide))
+                            .font(.callout.weight(.medium))
+                            .foregroundStyle(.primary)
+                            .frame(width: 220)
+                    }
+                    
+                    Button {
+                        month += 1
+                    } label: {
+                        Image(systemName: "chevron.right.circle.fill")
+                            .font(.system(size: 28).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundStyle(.primary)
+                            .frame(width: 40, height: 35)
+                            .contentShape(Rectangle())
+                    }
+                    .disabled(month >= calendar.count - 1)
+                    .opacity(month >= calendar.count - 1 ? 0.2 : 1)
+
+                    Spacer()
+                }
+                .padding(.vertical, 10)
+                Rectangle()
+                    .fill(.tertiary)
+                    .frame(height: 1)
+            }
             .background(.ultraThinMaterial)
         }
         .background(Image("Background")
