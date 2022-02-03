@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 private let bottom = 70.0
-private let frames = 45.0
+private let frames = 130.0
 
 extension Analysis {
     struct Item: View, Equatable {
@@ -10,7 +10,7 @@ extension Analysis {
         let phases: [Moon.Phase]
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
-        private let dates = (40 ..< 100).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 1000_000_0, to: .now)! }
+        private let dates = (40 ..< .init(frames + 50)).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 500_000_0, to: .now)! }
         
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
@@ -36,7 +36,7 @@ extension Analysis {
                                         .stroke(.init {
                                             $0.move(to: bottom)
                                             $0.addLine(to: top)
-                                        }, with: .linearGradient(.init(colors: [.accentColor.opacity(percent), .clear]),
+                                        }, with: .linearGradient(.init(colors: [.accentColor, .clear]),
                                                                  startPoint: top,
                                                                  endPoint: bottom),
                                                 style: .init(lineWidth: 8, lineCap: .round))
@@ -61,7 +61,7 @@ extension Analysis {
                                                       startAngle: .radians(0),
                                                       endAngle: .radians(.pi2),
                                                       clockwise: false)
-                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor.opacity(percent), location: 0),
+                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor, location: 0),
                                                                                .init(color: .clear, location: 1)]),
                                                                  center: top,
                                                                  startRadius: 0,
@@ -75,7 +75,7 @@ extension Analysis {
                                                       startAngle: .radians(0),
                                                       endAngle: .radians(.pi2),
                                                       clockwise: false)
-                                        }, with: .radialGradient(.init(stops: [.init(color: .black.opacity(percent), location: 0),
+                                        }, with: .radialGradient(.init(stops: [.init(color: .black, location: 0),
                                                                                .init(color: .clear, location: 1)]),
                                                                  center: top,
                                                                  startRadius: 0,
@@ -119,7 +119,7 @@ extension Analysis {
                     }
                 }
             }
-            .frame(height: 220)
+            .frame(height: 260)
             .padding(.vertical)
         }
         

@@ -9,29 +9,34 @@ extension Analysis {
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.accentColor.opacity(0.2))
+                        .fill(Color.accentColor.opacity(0.4))
                     HStack {
                         Image(systemName: trait.symbol)
-                            .font(.system(size: 14).weight(.light))
+                            .font(.system(size: 16))
                         Text(trait.title)
-                            .font(.callout.weight(.medium))
+                            .font(.callout)
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.primary)
                 }
-                .frame(height: 38)
+                .frame(height: 42)
                 HStack {
                     ForEach(Level.allCases, id: \.self) { level in
-                        VStack(spacing: 0) {
-                            Image(systemName: level.symbol)
-                                .font(.system(size: 13))
-                                .frame(width: 26, height: 26)
-                            Text(level.title(for: trait))
-                                .font(.system(size: 12))
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.accentColor.opacity(0.2))
+                            VStack(spacing: 0) {
+                                Image(systemName: level.symbol)
+                                    .font(.system(size: 13).weight(.medium))
+                                    .frame(width: 26, height: 26)
+                                    .foregroundColor(.primary)
+                                Text(level.title(for: trait))
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.secondary)
+                            }
                         }
-                        .frame(width: 58)
+                        .frame(width: 64, height: 56)
                     }
                 }
-                .foregroundStyle(.secondary)
                 .foregroundColor(.primary)
             }
             .padding(.vertical, 5)
