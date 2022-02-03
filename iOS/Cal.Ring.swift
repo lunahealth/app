@@ -70,7 +70,7 @@ extension Cal {
                                 }, with: .color(.init("Path").opacity(0.2)),
                                                style: .init(lineWidth: 28, lineCap: .butt))
                             }
-                        } else if date >= Calendar.global.date(byAdding: .day, value: 1, to: .now)! {
+                        } else {
                             context.stroke(.init {
                                 $0.move(to: .init(x: center.x, y: center.y))
                                 $0.addLine(to: .init(x: center.x, y: center.y - radius))
@@ -78,8 +78,7 @@ extension Cal {
                                            style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
                         }
                         
-                        if selection > 0,
-                           selection == day.value {
+                        if selection == day.value {
                             context.stroke(.init {
                                 $0.addArc(center: center,
                                           radius: radius / 2,
@@ -100,7 +99,7 @@ extension Cal {
                             con.translateBy(x: center.x, y: center.y)
                             con.rotate(by: .radians(-rotation))
                             con.translateBy(x: -center.x, y: -center.y)
-                            con.opacity = date <= .now ? 1 : 0.65
+                            con.opacity = date <= .now ? 1 : 0.45
                             con.draw(moon: observatory.moon(for: date),
                                          image: moonImage,
                                          shadow: shadowImage,
@@ -110,7 +109,12 @@ extension Cal {
 
                         context.draw(Text(day.value.formatted())
                                         .font(.system(size: 11).monospacedDigit())
-                                        .foregroundColor(date <= .now ? .primary : .secondary),
+                                        .foregroundColor(
+                                            selection == day.value
+                                            ? .white
+                                            : date <= .now
+                                                ? .primary
+                                                : .init(.tertiaryLabel)),
                                      at: .init(x: center.x, y: center.y - radius + 46))
 
                         context.translateBy(x: center.x, y: center.y)
@@ -126,7 +130,15 @@ extension Cal {
                             selection = 0
                             return
                         }
-                        selection = item(for: point.location)
+                        
+                        let index = item(for: point.location)
+                        
+                        guard month[index].content.date <= .now else {
+                            selection = 0
+                            return
+                        }
+                        
+                        selection = month[index].value
                     }
                     .onEnded { point in
                         guard
@@ -144,7 +156,9 @@ extension Cal {
                     selection = 0
                 }
             } content: {
-                Month(selection: $selection, observatory: observatory, month: month)
+                Month(selection: $selection,
+                      observatory: observatory,
+                      month: month.filter { $0.content.date <= .now })
                     .equatable()
             }
         }
@@ -158,7 +172,7 @@ extension Cal {
                 position += .pi2
             }
             
-            return month[min(max(0, Int(round(position / radPerItem))), month.count - 1)].value
+            return min(max(0, Int(round(position / radPerItem))), month.count - 1)
         }
         
         private func validate(point: CGPoint) -> Bool {
