@@ -23,7 +23,7 @@ extension Analysis {
                     ForEach(Level.allCases, id: \.self) { level in
                         ZStack {
                             RoundedRectangle(cornerRadius: 6)
-                                .fill(Color.accentColor.opacity(0.2))
+                                .fill(Color.accentColor.opacity(0.1))
                             VStack(spacing: 0) {
                                 Image(systemName: level.symbol)
                                     .font(.system(size: 13).weight(.medium))

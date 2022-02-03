@@ -121,6 +121,7 @@ extension Analysis {
             }
             .frame(height: 260)
             .padding(.vertical)
+            .padding(.bottom)
         }
         
         static func == (lhs: Self, rhs: Self) -> Bool {

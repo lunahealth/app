@@ -32,14 +32,14 @@ extension Track {
                 .allowsHitTesting(false)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    HStack(spacing: 10) {
                         Spacer()
-                            .frame(width: 20)
+                            .frame(width: 10)
                         ForEach(status.traits, id: \.self) { trait in
                             Category(status: status, trait: trait, animation: animation)
                         }
                         Spacer()
-                            .frame(width: 20)
+                            .frame(width: 10)
                     }
                     .frame(maxHeight: .greatestFiniteMagnitude)
                 }

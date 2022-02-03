@@ -28,7 +28,6 @@ struct Analysis: View, Equatable {
                             Header(trait: trait)
                         }
                         .listRowBackground(Color.clear)
-                        .listSectionSeparator(.hidden)
                     }
                 }
             }
