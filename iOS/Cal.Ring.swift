@@ -5,122 +5,127 @@ import Selene
 private let side = 340.0
 private let radius = side / 2
 private let center = CGPoint(x: radius, y: radius)
+private let frames = 45.0
 
 extension Cal {
-    struct Ring: View {
+    struct Ring: View, Equatable {
         weak var observatory: Observatory!
         let month: [Days<Journal>.Item]
         @State private var selection = 0
         @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
+        private let dates = (0 ..< .init(frames) + 10).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 2000_000_0, to: .now)! }
         
         var body: some View {
-            Canvas { context, size in
-                
-                let half = radPerItem / 2
-                let start = -(.pi_2 - 0.005)
-                let end = (start + radPerItem) - 0.01
-                var rotation = -(radPerItem + half)
-                
-                month
-                    .forEach { day in
-                        rotation += radPerItem
-                        let date = day.content.date
-                        
-                        context.translateBy(x: center.x, y: center.y)
-                        context.rotate(by: .radians(rotation))
-                        context.translateBy(x: -center.x, y: -center.y)
-                        
-                        if date <= .now {
-                            if day.today {
+            TimelineView(.explicit(dates)) { timeline in
+                Canvas { context, size in
+                    let percent = min(CGFloat(dates.firstIndex(of: timeline.date)!), frames) / frames
+                    let half = radPerItem / 2
+                    let start = -(.pi_2 - 0.005)
+                    let end = (start + radPerItem) - 0.01
+                    var rotation = -(radPerItem + half)
+
+                    month
+                        .prefix(.init(.init(month.count) * percent))
+                        .forEach { day in
+                            rotation += radPerItem
+                            let date = day.content.date
+                            
+                            context.translateBy(x: center.x, y: center.y)
+                            context.rotate(by: .radians(rotation))
+                            context.translateBy(x: -center.x, y: -center.y)
+                            
+                            if date <= .now {
+                                if day.today {
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius / 2,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.accentColor),
+                                                   style: .init(lineWidth: radius, lineCap: .butt))
+                                    
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius - 45,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.init(.systemBackground).opacity(0.3)),
+                                                   style: .init(lineWidth: 28, lineCap: .butt))
+                                } else {
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius - 31,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.accentColor.opacity(0.25)),
+                                                   style: .init(lineWidth: 56, lineCap: .butt))
+                                    
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius - 45,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.init("Path").opacity(0.2)),
+                                                   style: .init(lineWidth: 28, lineCap: .butt))
+                                }
+                            } else {
+                                context.stroke(.init {
+                                    $0.move(to: .init(x: center.x, y: center.y))
+                                    $0.addLine(to: .init(x: center.x, y: center.y - radius))
+                                }, with: .color(.primary.opacity(0.3)),
+                                               style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+                            }
+                            
+                            if selection == day.value {
                                 context.stroke(.init {
                                     $0.addArc(center: center,
                                               radius: radius / 2,
                                               startAngle: .radians(start),
                                               endAngle: .radians(end),
                                               clockwise: false)
-                                }, with: .color(.accentColor),
+                                }, with: .color(.blue),
                                                style: .init(lineWidth: radius, lineCap: .butt))
-                                
-                                context.stroke(.init {
-                                    $0.addArc(center: center,
-                                              radius: radius - 45,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
-                                              clockwise: false)
-                                }, with: .color(.init(.systemBackground).opacity(0.3)),
-                                               style: .init(lineWidth: 28, lineCap: .butt))
-                            } else {
-                                context.stroke(.init {
-                                    $0.addArc(center: center,
-                                              radius: radius - 31,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
-                                              clockwise: false)
-                                }, with: .color(.accentColor.opacity(0.25)),
-                                               style: .init(lineWidth: 56, lineCap: .butt))
-                                
-                                context.stroke(.init {
-                                    $0.addArc(center: center,
-                                              radius: radius - 45,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
-                                              clockwise: false)
-                                }, with: .color(.init("Path").opacity(0.2)),
-                                               style: .init(lineWidth: 28, lineCap: .butt))
                             }
-                        } else {
-                            context.stroke(.init {
-                                $0.move(to: .init(x: center.x, y: center.y))
-                                $0.addLine(to: .init(x: center.x, y: center.y - radius))
-                            }, with: .color(.primary.opacity(0.3)),
-                                           style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+
+                            context.translateBy(x: center.x, y: center.y)
+                            context.rotate(by: .radians(half))
+                            context.translateBy(x: -center.x, y: -center.y)
+
+                            context.drawLayer { con in
+                                let center = CGPoint(x: center.x, y: center.y - radius + 18)
+                                
+                                con.translateBy(x: center.x, y: center.y)
+                                con.rotate(by: .radians(-rotation))
+                                con.translateBy(x: -center.x, y: -center.y)
+                                con.opacity = date <= .now ? 1 : 0.45
+                                con.draw(moon: observatory.moon(for: date),
+                                             image: moonImage,
+                                             shadow: shadowImage,
+                                             radius: 7,
+                                         center: center)
+                            }
+
+                            context.draw(Text(day.value.formatted())
+                                            .font(.system(size: 11).monospacedDigit())
+                                            .foregroundColor(
+                                                selection == day.value
+                                                ? .white
+                                                : date <= .now
+                                                    ? .primary
+                                                    : .init(.tertiaryLabel)),
+                                         at: .init(x: center.x, y: center.y - radius + 46))
+
+                            context.translateBy(x: center.x, y: center.y)
+                            context.rotate(by: .radians(-(rotation + half)))
+                            context.translateBy(x: -center.x, y: -center.y)
                         }
-                        
-                        if selection == day.value {
-                            context.stroke(.init {
-                                $0.addArc(center: center,
-                                          radius: radius / 2,
-                                          startAngle: .radians(start),
-                                          endAngle: .radians(end),
-                                          clockwise: false)
-                            }, with: .color(.blue),
-                                           style: .init(lineWidth: radius, lineCap: .butt))
-                        }
-
-                        context.translateBy(x: center.x, y: center.y)
-                        context.rotate(by: .radians(half))
-                        context.translateBy(x: -center.x, y: -center.y)
-
-                        context.drawLayer { con in
-                            let center = CGPoint(x: center.x, y: center.y - radius + 18)
-                            
-                            con.translateBy(x: center.x, y: center.y)
-                            con.rotate(by: .radians(-rotation))
-                            con.translateBy(x: -center.x, y: -center.y)
-                            con.opacity = date <= .now ? 1 : 0.45
-                            con.draw(moon: observatory.moon(for: date),
-                                         image: moonImage,
-                                         shadow: shadowImage,
-                                         radius: 7,
-                                     center: center)
-                        }
-
-                        context.draw(Text(day.value.formatted())
-                                        .font(.system(size: 11).monospacedDigit())
-                                        .foregroundColor(
-                                            selection == day.value
-                                            ? .white
-                                            : date <= .now
-                                                ? .primary
-                                                : .init(.tertiaryLabel)),
-                                     at: .init(x: center.x, y: center.y - radius + 46))
-
-                        context.translateBy(x: center.x, y: center.y)
-                        context.rotate(by: .radians(-(rotation + half)))
-                        context.translateBy(x: -center.x, y: -center.y)
-                    }
+                }
             }
             .frame(width: side, height: side)
             .gesture(
@@ -183,6 +188,10 @@ extension Cal {
         
         private var radPerItem: Double {
             .pi2 / .init(month.count)
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.month == rhs.month && lhs.selection == rhs.selection
         }
     }
 }
