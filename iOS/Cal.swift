@@ -12,7 +12,8 @@ struct Cal: View, Equatable {
         VStack {
             Spacer()
             if calendar.count > month {
-                Ring(observatory: observatory, month: calendar[month].items.flatMap { $0 })
+                Ring(observatory: observatory,
+                     month: calendar[month].items.flatMap { $0 })
                     .id(month)
             }
             Spacer()

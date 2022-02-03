@@ -24,7 +24,7 @@ extension Cal.Month {
                         Spacer()
                             .frame(width: 50)
                     }
-                    .frame(height: 160)
+                    .frame(height: 200)
                 }
                 .onChange(of: selection) { selected in
                     withAnimation(.easeInOut(duration: 0.35)) {

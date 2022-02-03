@@ -35,32 +35,6 @@ extension Cal {
                 .buttonBorderShape(.capsule)
                 .padding(.bottom, 30)
             }
-            .safeAreaInset(edge: .top, spacing: 0) {
-                VStack(spacing: 0) {
-                    HStack {
-                        Text(Calendar.current.date(from: .init(year: month.year, month: month.month))!,
-                             format: .dateTime.year().month(.wide))
-                            .font(.callout.weight(.medium))
-                            .foregroundStyle(.primary)
-                        
-                        if selection > 0 && selection <= month.count {
-                            Text(month[selection - 1].today
-                                 ? "Today"
-                                 : month[selection - 1].content.date.offset)
-                                .font(.callout)
-                                .foregroundStyle(.primary)
-                                .padding(.top, 10)
-                        }
-                        
-                        Spacer()
-                    }
-                    .padding(.vertical, 10)
-                    Rectangle()
-                        .fill(.tertiary)
-                        .frame(height: 1)
-                }
-                .background(.ultraThinMaterial)
-            }
             .onReceive(cloud) {
                 traits = $0.settings.traits.sorted()
             }

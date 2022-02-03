@@ -28,9 +28,17 @@ extension Cal.Month.Header {
                         .font(.footnote)
                         .tint(.primary)
                         .foregroundStyle(selection == day.value ? .primary : .secondary)
+                    Text(day.content.date, format: .dateTime.month(.abbreviated))
+                        .font(.footnote)
+                        .tint(.primary)
+                        .foregroundStyle(selection == day.value ? .primary : .secondary)
+                    Text(day.today ? "Today" : " ")
+                        .font(.caption2)
+                        .tint(.primary)
+                        .foregroundStyle(selection == day.value ? .primary : .secondary)
                 }
             }
-            .frame(width: 66, height: 90)
+            .frame(width: 66, height: 124)
             .contentShape(Rectangle())
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.35)) {

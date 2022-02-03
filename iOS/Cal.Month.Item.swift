@@ -12,50 +12,40 @@ extension Cal.Month {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
                         .fill(Color.accentColor.opacity(0.2))
-                    if day.content.date > .now {
-                        Text("Coming soon...")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    } else if day.content.traits.isEmpty {
-                        Text("No traits tracked this day.")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                    } else {
-                        VStack(spacing: 0) {
-                            ForEach(traits, id: \.self) { trait in
-                                if trait != traits.first {
-                                    Rectangle()
-                                        .fill(.quaternary)
-                                        .frame(height: 1)
-                                        .padding(.horizontal)
-                                }
-                                HStack {
-                                    Image(systemName: trait.symbol)
-                                        .font(.system(size: 14))
-                                        .foregroundColor(day.content.traits[trait] == nil ? .secondary : trait.color)
-                                        .frame(width: 34)
-                                    Text(trait.title)
-                                        .font(.callout)
-                                        .foregroundColor(day.content.traits[trait] == nil ? .secondary : .primary)
-                                    Spacer()
-                                    if let symbol = day.content.traits[trait]?.symbol {
-                                        ZStack {
-                                            Circle()
-                                                .fill(Color.accentColor.opacity(0.2))
-                                                .frame(width: 28, height: 28)
-                                            Image(systemName: symbol)
-                                                .font(.system(size: 11).weight(.medium))
-                                        }
-                                    } else {
-                                        
-                                    }
-                                }
-                                .frame(height: 42)
+                    VStack(spacing: 0) {
+                        ForEach(traits, id: \.self) { trait in
+                            if trait != traits.first {
+                                Rectangle()
+                                    .fill(.quaternary)
+                                    .frame(height: 1)
+                                    .padding(.horizontal)
                             }
+                            HStack {
+                                Image(systemName: trait.symbol)
+                                    .font(.system(size: 14))
+                                    .foregroundColor(day.content.traits[trait] == nil ? .secondary : trait.color)
+                                    .frame(width: 34)
+                                Text(trait.title)
+                                    .font(.callout)
+                                    .foregroundColor(day.content.traits[trait] == nil ? .secondary : .primary)
+                                Spacer()
+                                if let symbol = day.content.traits[trait]?.symbol {
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color.accentColor.opacity(0.2))
+                                            .frame(width: 28, height: 28)
+                                        Image(systemName: symbol)
+                                            .font(.system(size: 11).weight(.medium))
+                                    }
+                                } else {
+                                    
+                                }
+                            }
+                            .frame(height: 42)
                         }
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
                     }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
                 }
                 .frame(width: 230)
                 .fixedSize()
