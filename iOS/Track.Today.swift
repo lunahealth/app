@@ -1,39 +1,30 @@
 import SwiftUI
-import Selene
 
 extension Track {
     struct Today: View {
         @ObservedObject var status: Status
-        let moon: Moon
         let proxy: ScrollViewProxy
         let animation: Namespace.ID
         
         var body: some View {
             ZStack {
                 VStack {
-                    Canvas { context, size in
-                        context.draw(moon: moon,
-                                     image: .init("MoonSmall"),
-                                     shadow: .init("ShadowSmall"),
-                                     radius: 17,
-                                     center: .init(x: 18, y: 18))
-                    }
-                    .frame(width: 36, height: 36)
-                    .padding(.top, 30)
-                    Text("Today")
+                    Text("Log your day")
                         .font(.body.weight(.medium))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
+                        .padding(.top, 30)
                     Spacer()
                     
                     if !status.traits.isEmpty && status.traits.count <= (status.journal?.traits.count ?? 0) {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 35).weight(.light))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.accentColor)
+                            .foregroundStyle(.primary)
                             .padding(.bottom, 2)
                         Text("Completed")
                             .font(.callout)
-                            .foregroundStyle(.primary)
+                            .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .padding(.bottom)
                     }

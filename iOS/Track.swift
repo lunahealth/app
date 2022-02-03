@@ -2,7 +2,6 @@ import SwiftUI
 import Selene
 
 struct Track: View {
-    weak var observatory: Observatory!
     @StateObject private var status = Status()
     @Namespace private var animation
     
@@ -13,7 +12,7 @@ struct Track: View {
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
             } else {
-                Today(status: status, moon: observatory.moon(for: .now), proxy: proxy, animation: animation)
+                Today(status: status, proxy: proxy, animation: animation)
             }
         }
         .frame(maxWidth: .greatestFiniteMagnitude)
