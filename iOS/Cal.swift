@@ -46,6 +46,6 @@ struct Cal: View, Equatable {
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.month == rhs.month && lhs.calendar == rhs.calendar
+        true
     }
 }
