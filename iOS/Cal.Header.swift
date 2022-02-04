@@ -31,6 +31,7 @@ extension Cal {
                             .font(.callout.weight(.medium))
                             .foregroundStyle(.primary)
                             .frame(width: 220)
+                            .id(month)
                     }
                     
                     Button {
@@ -54,7 +55,7 @@ extension Cal {
                     .frame(height: 1)
             }
             .background(.ultraThinMaterial)
-            .animation(.easeInOut(duration: 0.3), value: month)
+            .animation(.easeInOut(duration: 0.4), value: month)
         }
     }
 }

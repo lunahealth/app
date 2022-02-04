@@ -5,7 +5,7 @@ import Selene
 private let side = 340.0
 private let radius = side / 2
 private let center = CGPoint(x: radius, y: radius)
-private let frames = 45.0
+private let frames = 40.0
 
 extension Cal {
     struct Ring: View, Equatable {
@@ -15,12 +15,15 @@ extension Cal {
         @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
-        private let dates = (0 ..< .init(frames) + 10).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 2000_000_0, to: .now)! }
+        private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
+            $0.0.append(Date(timeIntervalSince1970: $0.1 + (.init($1) / 40)))
+        }.0
         
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
                 Canvas { context, size in
-                    let percent = min(CGFloat(dates.firstIndex(of: timeline.date)!), frames) / frames
+                    let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
+                    let percent = index / frames
                     let half = radPerItem / 2
                     let start = -(.pi_2 - 0.005)
                     let end = (start + radPerItem) - 0.01

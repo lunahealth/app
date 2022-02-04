@@ -29,8 +29,9 @@ struct Cal: View, Equatable {
             .tint(.accentColor)
             .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)
-            Spacer()
+            .padding(.bottom, 30)
         }
+        .animation(.easeInOut(duration: 0.5), value: month)
         .safeAreaInset(edge: .top, spacing: 0) {
             Header(month: $month, calendar: calendar)
         }
