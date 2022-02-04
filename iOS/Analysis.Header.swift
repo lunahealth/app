@@ -27,14 +27,14 @@ extension Analysis {
                             VStack(spacing: 0) {
                                 Image(systemName: level.symbol)
                                     .font(.system(size: 13).weight(.medium))
-                                    .frame(width: 26, height: 26)
+                                    .frame(width: 20, height: 20)
                                     .foregroundColor(.primary)
                                 Text(level.title(for: trait))
-                                    .font(.system(size: 12))
+                                    .font(.system(size: 11))
                                     .foregroundColor(.secondary)
                             }
                         }
-                        .frame(width: 64, height: 56)
+                        .frame(width: 64, height: 44)
                     }
                 }
                 .foregroundColor(.primary)

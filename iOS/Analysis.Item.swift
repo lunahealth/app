@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 private let bottom = 70.0
-private let frames = 100.0
+private let frames = 40.0
 
 extension Analysis {
     struct Item: View, Equatable {
@@ -10,7 +10,9 @@ extension Analysis {
         let phases: [Moon.Phase]
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
-        private let dates = (40 ..< .init(frames + 50)).map { Calendar.current.date(byAdding: .nanosecond, value: $0 * 500_000_0, to: .now)! }
+        private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
+            $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.25 + (.init($1) / 50)))
+        }.0
         
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
@@ -18,7 +20,8 @@ extension Analysis {
                     let width = (size.width - 20) / .init(phases.filter { value[$0] != nil }.count)
                     let height = (size.height - bottom) / .init(Level.allCases.count)
                     let spacing = size.height - bottom
-                    let percent = min(CGFloat(dates.firstIndex(of: timeline.date)!), frames) / frames
+                    let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
+                    let percent = index / frames
                     let sparkHorizontal = 60 * (1 - percent)
                     let sparkVertical = 10 * (1 - percent)
                     var x = (width / 2) + 10
@@ -27,9 +30,28 @@ extension Analysis {
                         if let level = value[phase] {
                             let bottom = CGPoint(x: x, y: size.height - 22)
                             let expected = spacing - (.init(Level.allCases.firstIndex(of: level)!) * height)
-                            let delta = (bottom.y - expected) * percent
+                            let distance = bottom.y - expected
+                            let delta = min(percent * size.height, distance)
                             let top = CGPoint(x: x, y: bottom.y - delta)
 
+                            context
+                                .fill(.init {
+                                    $0.addArc(center: bottom,
+                                              radius: 9,
+                                              startAngle: .radians(0),
+                                              endAngle: .radians(.pi2),
+                                              clockwise: false)
+                                }, with: .color(.accentColor))
+                            
+                            context
+                                .drawLayer { layer in
+                                    layer.draw(phase: phase,
+                                               image: moonImage,
+                                               shadow: shadowImage,
+                                               radius: 7,
+                                               center: bottom)
+                                }
+                            
                             context
                                 .drawLayer { layer in
                                     layer.addFilter(.blur(radius: 6))
@@ -38,9 +60,9 @@ extension Analysis {
                                         .stroke(.init {
                                             $0.move(to: bottom)
                                             $0.addLine(to: top)
-                                        }, with: .linearGradient(.init(colors: [.accentColor, .clear]),
-                                                                 startPoint: top,
-                                                                 endPoint: bottom),
+                                        }, with: .linearGradient(.init(colors: [.accentColor.opacity(1), .clear]),
+                                                                 startPoint: bottom,
+                                                                 endPoint: top),
                                                 style: .init(lineWidth: 8, lineCap: .round))
 
                                     layer
@@ -97,24 +119,6 @@ extension Analysis {
                             context.draw(Text(Image(systemName: level.symbol))
                                             .font(.system(size: 13).weight(.medium))
                                             .foregroundColor(.white), at: top)
-                            
-                            context
-                                .fill(.init {
-                                    $0.addArc(center: bottom,
-                                              radius: 9,
-                                              startAngle: .radians(0),
-                                              endAngle: .radians(.pi2),
-                                              clockwise: false)
-                                }, with: .color(.accentColor))
-                            
-                            context
-                                .drawLayer { layer in
-                                    layer.draw(phase: phase,
-                                               image: moonImage,
-                                               shadow: shadowImage,
-                                               radius: 7,
-                                               center: bottom)
-                                }
                             
                             x += width
                         }
