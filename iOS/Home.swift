@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 import Selene
 
 struct Home: View {
@@ -36,6 +37,12 @@ struct Home: View {
         .onReceive(cloud) {
             observatory.update(to: $0.coords)
             moon = observatory.moon(for: date)
+            
+            if Defaults.coordinates != $0.coords {
+                Defaults.coordinates = $0.coords
+                WidgetCenter.shared.reloadAllTimelines()
+                print("reload")
+            }
         }
         .onChange(of: date) {
             moon = observatory.moon(for: $0)

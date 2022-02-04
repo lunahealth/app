@@ -29,13 +29,13 @@ extension GraphicsContext {
         
         stroke(.init {
             $0.addArc(center: center,
-                      radius: radius,
+                      radius: radius - 0.25,
                       startAngle: .degrees(0),
                       endAngle: .degrees(360),
                       clockwise: false)
-        }, with: .color(.black.opacity(0.3)), lineWidth: 0.5)
+        }, with: .color(.black.opacity(0.2)), lineWidth: 0.5)
         
-        draw(shadow, at: center)
+        draw(shadow.antialiased(true), at: center)
         
         switch phase {
         case .new:
@@ -46,7 +46,6 @@ extension GraphicsContext {
                           endAngle: .degrees(0),
                           clockwise: false)
             })
-            
         case .waxingGibbous, .waningGibbous:
             let bottom = CGPoint(x: center.x, y: center.y + radius)
             let delta = radius * (1 - (.init(fraction) / 50.0))
@@ -102,7 +101,7 @@ extension GraphicsContext {
             })
         }
         
-        draw(image, at: center)
+        draw(image.antialiased(true), at: center)
     }
 }
 

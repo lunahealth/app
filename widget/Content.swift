@@ -8,6 +8,7 @@ struct Content: View {
     
     var body: some View {
         ZStack {
+            Color(.secondarySystemBackground)
             Canvas { context, size in
                 context.draw(moon: entry.moon,
                              image: .init("Moon"),
@@ -19,8 +20,10 @@ struct Content: View {
                 Text(entry.moon.fraction, format: .number)
                     .font(.title.weight(.medium).monospacedDigit())
                 + Text("%\n")
+                    .foregroundColor(.secondary)
                     .font(.caption)
                 + Text(entry.moon.phase.name)
+                    .foregroundColor(.secondary)
                     .font(.footnote)
             }
             .multilineTextAlignment(.trailing)
