@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 private let bottom = 70.0
-private let frames = 130.0
+private let frames = 100.0
 
 extension Analysis {
     struct Item: View, Equatable {
@@ -19,6 +19,8 @@ extension Analysis {
                     let height = (size.height - bottom) / .init(Level.allCases.count)
                     let spacing = size.height - bottom
                     let percent = min(CGFloat(dates.firstIndex(of: timeline.date)!), frames) / frames
+                    let sparkHorizontal = 60 * (1 - percent)
+                    let sparkVertical = 10 * (1 - percent)
                     var x = (width / 2) + 10
                     
                     phases.forEach { phase in
@@ -43,25 +45,25 @@ extension Analysis {
 
                                     layer
                                         .fill(.init {
-                                            $0.move(to: .init(x: top.x - 35, y: top.y))
-                                            $0.addLine(to: .init(x: top.x, y: top.y - 8))
-                                            $0.addLine(to: .init(x: top.x + 35, y: top.y))
-                                            $0.addLine(to: .init(x: top.x, y: top.y + 8))
-                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor.opacity(percent), location: 0),
+                                            $0.move(to: .init(x: top.x - sparkHorizontal, y: top.y))
+                                            $0.addLine(to: .init(x: top.x, y: top.y - sparkVertical))
+                                            $0.addLine(to: .init(x: top.x + sparkHorizontal, y: top.y))
+                                            $0.addLine(to: .init(x: top.x, y: top.y + sparkVertical))
+                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor, location: 0),
                                                                                .init(color: .clear, location: 1)]),
                                                                  center: top,
                                                                  startRadius: 0,
-                                                                 endRadius: 40,
+                                                                 endRadius: 60,
                                                                  options: .linearColor))
                                     
                                     layer
                                         .fill(.init {
                                             $0.addArc(center: top,
-                                                      radius: 20,
+                                                      radius: 16,
                                                       startAngle: .radians(0),
                                                       endAngle: .radians(.pi2),
                                                       clockwise: false)
-                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor, location: 0),
+                                        }, with: .radialGradient(.init(stops: [.init(color: .accentColor.opacity(percent), location: 0),
                                                                                .init(color: .clear, location: 1)]),
                                                                  center: top,
                                                                  startRadius: 0,
@@ -71,11 +73,11 @@ extension Analysis {
                                     layer
                                         .fill(.init {
                                             $0.addArc(center: top,
-                                                      radius: 18,
+                                                      radius: 14,
                                                       startAngle: .radians(0),
                                                       endAngle: .radians(.pi2),
                                                       clockwise: false)
-                                        }, with: .radialGradient(.init(stops: [.init(color: .black, location: 0),
+                                        }, with: .radialGradient(.init(stops: [.init(color: .black.opacity(percent), location: 0),
                                                                                .init(color: .clear, location: 1)]),
                                                                  center: top,
                                                                  startRadius: 0,
@@ -86,7 +88,7 @@ extension Analysis {
                             context
                                 .fill(.init {
                                     $0.addArc(center: top,
-                                              radius: 12,
+                                              radius: 14,
                                               startAngle: .radians(0),
                                               endAngle: .radians(.pi2),
                                               clockwise: false)
@@ -99,7 +101,7 @@ extension Analysis {
                             context
                                 .fill(.init {
                                     $0.addArc(center: bottom,
-                                              radius: 12,
+                                              radius: 9,
                                               startAngle: .radians(0),
                                               endAngle: .radians(.pi2),
                                               clockwise: false)
