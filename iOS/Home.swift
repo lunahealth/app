@@ -41,7 +41,6 @@ struct Home: View {
             if Defaults.coordinates != $0.coords {
                 Defaults.coordinates = $0.coords
                 WidgetCenter.shared.reloadAllTimelines()
-                print("reload")
             }
         }
         .onChange(of: date) {
