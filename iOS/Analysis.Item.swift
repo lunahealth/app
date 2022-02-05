@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 private let bottom = 70.0
-private let frames = 40.0
+private let frames = 35.0
 
 extension Analysis {
     struct Item: View, Equatable {
@@ -11,7 +11,7 @@ extension Analysis {
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
-            $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.25 + (.init($1) / 50)))
+            $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.15 + (.init($1) / 50)))
         }.0
         
         var body: some View {
@@ -48,7 +48,7 @@ extension Analysis {
                                     layer.draw(phase: phase,
                                                image: moonImage,
                                                shadow: shadowImage,
-                                               radius: 7,
+                                               radius: 8,
                                                center: bottom)
                                 }
                             

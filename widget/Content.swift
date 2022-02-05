@@ -8,27 +8,30 @@ struct Content: View {
     
     var body: some View {
         ZStack {
-            Color(.secondarySystemBackground)
+            LinearGradient(colors: [.init(white: 0.2),
+                                    .init("AccentColor")], startPoint: .top, endPoint: .bottom)
             Canvas { context, size in
                 context.draw(moon: entry.moon,
                              image: .init("Moon"),
-                             shadow: .init("ShadowAlphaless"),
+                             shadow: .init("Shadow"),
                              radius: radius,
                              center: .init(x: radius + pad, y: radius + pad))
             }
-            Group {
+            
+            VStack(alignment: .trailing, spacing: 0) {
+                Spacer()
                 Text(entry.moon.fraction, format: .number)
                     .font(.title.weight(.medium).monospacedDigit())
-                + Text("%\n")
-                    .foregroundColor(.secondary)
+                + Text("%")
                     .font(.caption)
-                + Text(entry.moon.phase.name)
-                    .foregroundColor(.secondary)
+                Text(entry.moon.phase.name)
                     .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, 16)
             }
-            .multilineTextAlignment(.trailing)
-            .padding([.trailing, .bottom], pad)
-            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .bottomTrailing)
+            .foregroundColor(.white)
+            .padding(.trailing, pad)
+            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
         }
     }
 }

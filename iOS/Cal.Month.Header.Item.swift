@@ -19,7 +19,7 @@ extension Cal.Month.Header {
                         context.draw(moon: moon,
                                      image: .init("MoonSmall"),
                                      shadow: .init("ShadowSmall"),
-                                     radius: 17,
+                                     radius: 18,
                                      center: .init(x: 18, y: 18))
                     }
                     .frame(width: 36, height: 36)

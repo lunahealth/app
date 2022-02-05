@@ -39,33 +39,33 @@ extension Cal {
                             context.rotate(by: .radians(rotation))
                             context.translateBy(x: -center.x, y: -center.y)
                             
-                            if date <= .now {
+                            if selection == day.value {
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: (radius / 2) - 1.5,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.accentColor),
+                                               style: .init(lineWidth: radius - 3, lineCap: .butt))
+                                
+                                context.stroke(.init {
+                                    $0.addArc(center: center,
+                                              radius: radius - 45,
+                                              startAngle: .radians(start),
+                                              endAngle: .radians(end),
+                                              clockwise: false)
+                                }, with: .color(.white),
+                                               style: .init(lineWidth: 28, lineCap: .butt))
+                            } else if date <= .now {
                                 if day.today {
-                                    context.stroke(.init {
-                                        $0.addArc(center: center,
-                                                  radius: radius / 2,
-                                                  startAngle: .radians(start),
-                                                  endAngle: .radians(end),
-                                                  clockwise: false)
-                                    }, with: .color(.accentColor),
-                                                   style: .init(lineWidth: radius, lineCap: .butt))
-                                    
-                                    context.stroke(.init {
-                                        $0.addArc(center: center,
-                                                  radius: radius - 45,
-                                                  startAngle: .radians(start),
-                                                  endAngle: .radians(end),
-                                                  clockwise: false)
-                                    }, with: .color(.init(.systemBackground).opacity(0.3)),
-                                                   style: .init(lineWidth: 28, lineCap: .butt))
-                                } else {
                                     context.stroke(.init {
                                         $0.addArc(center: center,
                                                   radius: radius - 31,
                                                   startAngle: .radians(start),
                                                   endAngle: .radians(end),
                                                   clockwise: false)
-                                    }, with: .color(.accentColor.opacity(0.25)),
+                                    }, with: .color(.accentColor.opacity(0.7)),
                                                    style: .init(lineWidth: 56, lineCap: .butt))
                                     
                                     context.stroke(.init {
@@ -74,7 +74,25 @@ extension Cal {
                                                   startAngle: .radians(start),
                                                   endAngle: .radians(end),
                                                   clockwise: false)
-                                    }, with: .color(.init("Path").opacity(0.2)),
+                                    }, with: .color(.accentColor.opacity(0.6)),
+                                                   style: .init(lineWidth: 28, lineCap: .butt))
+                                } else {
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius - 31,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.accentColor.opacity(0.2)),
+                                                   style: .init(lineWidth: 56, lineCap: .butt))
+                                    
+                                    context.stroke(.init {
+                                        $0.addArc(center: center,
+                                                  radius: radius - 45,
+                                                  startAngle: .radians(start),
+                                                  endAngle: .radians(end),
+                                                  clockwise: false)
+                                    }, with: .color(.init("Path").opacity(0.15)),
                                                    style: .init(lineWidth: 28, lineCap: .butt))
                                 }
                             } else {
@@ -83,17 +101,6 @@ extension Cal {
                                     $0.addLine(to: .init(x: center.x, y: center.y - radius))
                                 }, with: .color(.primary.opacity(0.3)),
                                                style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
-                            }
-                            
-                            if selection == day.value {
-                                context.stroke(.init {
-                                    $0.addArc(center: center,
-                                              radius: radius / 2,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
-                                              clockwise: false)
-                                }, with: .color(.blue),
-                                               style: .init(lineWidth: radius, lineCap: .butt))
                             }
 
                             context.translateBy(x: center.x, y: center.y)
@@ -110,7 +117,7 @@ extension Cal {
                                 con.draw(moon: observatory.moon(for: date),
                                              image: moonImage,
                                              shadow: shadowImage,
-                                             radius: 7,
+                                             radius: 8,
                                          center: center)
                             }
 
@@ -118,7 +125,7 @@ extension Cal {
                                             .font(.system(size: 11).monospacedDigit())
                                             .foregroundColor(
                                                 selection == day.value
-                                                ? .white
+                                                ? .black
                                                 : date <= .now
                                                     ? .primary
                                                     : .init(.tertiaryLabel)),

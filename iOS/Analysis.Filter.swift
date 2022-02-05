@@ -17,7 +17,7 @@ extension Analysis {
                                 context.draw(phase: item.wrappedValue.0,
                                              image: moonImage,
                                              shadow: shadowImage,
-                                             radius: 7,
+                                             radius: 8,
                                              center: .init(x: 8, y: 8))
                             }
                             .frame(width: 16, height: 16)

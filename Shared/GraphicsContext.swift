@@ -27,14 +27,6 @@ extension GraphicsContext {
         rotate(by: .radians(.pi_2 - angle))
         translateBy(x: -center.x, y: -center.y)
         
-        stroke(.init {
-            $0.addArc(center: center,
-                      radius: radius - 0.25,
-                      startAngle: .degrees(0),
-                      endAngle: .degrees(360),
-                      clockwise: false)
-        }, with: .color(.black.opacity(0.2)), lineWidth: 0.5)
-        
         draw(shadow.antialiased(true), at: center)
         
         switch phase {
