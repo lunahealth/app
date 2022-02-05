@@ -15,7 +15,7 @@ extension Settings {
                            subtitle: "Clear your data from 1 trait",
                            symbol: "delete.backward")
                 }
-                .alert("What trait to delete?", isPresented: $trait) {
+                .confirmationDialog("What trait to delete?", isPresented: $trait) {
                     Button("Cancel", role: .cancel) {
                         
                     }
@@ -37,7 +37,7 @@ extension Settings {
                            subtitle: "To have a completely fresh start",
                            symbol: "trash")
                 }
-                .alert("Delete everything?", isPresented: $all) {
+                .confirmationDialog("Delete everything?", isPresented: $all) {
                     Button("Cancel", role: .cancel) {
                         
                     }
