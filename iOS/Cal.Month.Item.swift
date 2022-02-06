@@ -20,16 +20,20 @@ extension Cal.Month {
                                     .frame(height: 1)
                                     .padding(.horizontal)
                             }
-                            HStack {
-                                Image(systemName: trait.symbol)
-                                    .font(.system(size: 14))
-                                    .foregroundColor(day.content.traits[trait] == nil ? .secondary : trait.color)
-                                    .frame(width: 34)
-                                Text(trait.title)
-                                    .font(.callout)
-                                    .foregroundColor(day.content.traits[trait] == nil ? .secondary : .primary)
-                                Spacer()
-                                if let symbol = day.content.traits[trait]?.symbol {
+                            
+                            if let symbol = day.content.traits[trait]?.symbol {
+                                HStack {
+                                    Image(systemName: trait.symbol)
+                                        .font(.system(size: 14))
+                                        .foregroundStyle(trait.color)
+                                        .frame(width: 34)
+                                    Text(trait.title)
+                                        .font(.callout)
+                                        .foregroundStyle(.primary)
+                                        .foregroundColor(.primary)
+                                    
+                                    Spacer()
+                                    
                                     ZStack {
                                         Circle()
                                             .fill(Color.accentColor.opacity(0.2))
@@ -37,11 +41,21 @@ extension Cal.Month {
                                         Image(systemName: symbol)
                                             .font(.system(size: 11).weight(.medium))
                                     }
-                                } else {
-                                    
                                 }
+                                .frame(height: 42)
+                            } else {
+                                HStack {
+                                    Image(systemName: trait.symbol)
+                                        .font(.system(size: 14))
+                                        .frame(width: 34)
+                                    Text(trait.title)
+                                        .font(.callout)
+                                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                                }
+                                .foregroundStyle(.tertiary)
+                                .foregroundColor(.primary)
+                                .frame(height: 42)
                             }
-                            .frame(height: 42)
                         }
                     }
                     .padding(.horizontal)
