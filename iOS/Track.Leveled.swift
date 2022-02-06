@@ -17,7 +17,7 @@ extension Track {
                     .foregroundColor(trait.color)
                     .shadow(color: .black.opacity(0.4), radius: 1)
                 Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                    .font(.system(size: 18).weight(.medium))
+                    .font(.system(size: 26).weight(.medium))
                     .frame(width: 70, height: 70)
                 Text(trait.title)
                     .matchedGeometryEffect(id: "\(trait).text", in: animation)

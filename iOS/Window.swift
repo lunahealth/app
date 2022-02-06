@@ -7,10 +7,11 @@ struct Window: View {
     @State private var settings = false
     @State private var analysis = false
     @State private var track = false
+    @State private var date = Date.now
     @State private var observatory = Observatory()
     
     var body: some View {
-        Home(observatory: observatory)
+        Home(observatory: observatory, date: $date)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 HStack {
                     Option(active: $analysis,
@@ -25,6 +26,7 @@ struct Window: View {
                     Spacer()
                     
                     Button {
+                        date = .now
                         track = true
                     } label: {
                         ZStack {

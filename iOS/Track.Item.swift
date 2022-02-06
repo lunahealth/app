@@ -17,7 +17,7 @@ extension Track {
                     .shadow(color: .black.opacity(selected ? 0 : 0.3), radius: 2)
                 Image(systemName: level.symbol)
                     .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
-                    .foregroundColor(.primary)
+                    .foregroundColor(selected ? .white : .primary)
             }
         }
     }

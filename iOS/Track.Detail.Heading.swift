@@ -18,9 +18,13 @@ extension Track.Detail {
                     } label: {
                         Image(systemName: "arrow.backward.circle.fill")
                             .font(.system(size: 28).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
                             .frame(width: 45, height: 40)
                             .padding(.leading)
                     }
+                    .tint(.primary)
+                    .foregroundStyle(.secondary)
+                    
                     Spacer()
                     
                     if status.journal?.traits[trait] != nil {
@@ -40,6 +44,7 @@ extension Track.Detail {
                                 .frame(maxWidth: 90)
                         }
                         .tint(.primary)
+                        .foregroundStyle(.secondary)
                     }
                 }
                 
@@ -47,8 +52,8 @@ extension Track.Detail {
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.largeTitle.weight(.light))
-                        .foregroundColor(trait.color)
-                        .shadow(color: .black.opacity(0.4), radius: 1)
+                        .foregroundStyle(.secondary)
+                        .foregroundColor(.primary)
                     Text(trait.title)
                         .matchedGeometryEffect(id: "\(trait).text", in: animation)
                         .font(.title3)

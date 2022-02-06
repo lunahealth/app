@@ -4,7 +4,7 @@ import Selene
 
 struct Home: View {
     weak var observatory: Observatory!
-    @State private var date = Date.now
+    @Binding var date: Date
     @State private var moon: Moon?
     @State private var wheel: Wheel?
     private let haptics = UIImpactFeedbackGenerator(style: .soft)

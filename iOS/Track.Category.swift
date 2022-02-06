@@ -15,7 +15,7 @@ extension Track {
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(status.journal?.traits[trait] == nil ? .primary : .primary)
+                        .fill(.primary)
                         .foregroundColor(status.journal?.traits[trait] == nil ? .init(.tertiarySystemBackground) : .accentColor)
                         .shadow(color: .black.opacity(0.3), radius: 4)
                     if let level = status.journal?.traits[trait] {
@@ -31,16 +31,15 @@ extension Track {
                     Text(trait.title)
                         .matchedGeometryEffect(id: "\(trait).text", in: animation)
                         .font(.footnote)
-                        .foregroundColor(.primary)
+                        .foregroundColor(status.journal?.traits[trait] == nil ? .primary : .white)
                         .padding(.bottom, 10)
                         .frame(maxHeight: .greatestFiniteMagnitude, alignment: .bottom)
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.title2.weight(.light))
-                        .foregroundColor(status.journal?.traits[trait] == nil ? trait.color : .primary)
-                        .shadow(color: .black.opacity(status.journal?.traits[trait] == nil ? 1 : 0), radius: 0.5)
+                        .foregroundColor(status.journal?.traits[trait] == nil ? trait.color : .white)
                 }
-                .frame(width: 130, height: 130)
+                .frame(width: 100, height: 100)
             }
             .foregroundColor(.secondary)
             .id(trait)
