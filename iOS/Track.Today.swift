@@ -32,7 +32,7 @@ extension Track {
                 .allowsHitTesting(false)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
+                    HStack(spacing: 6) {
                         Spacer()
                             .frame(width: 10)
                         ForEach(status.traits, id: \.self) { trait in

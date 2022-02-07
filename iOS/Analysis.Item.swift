@@ -35,24 +35,6 @@ extension Analysis {
                             let top = CGPoint(x: x, y: bottom.y - delta)
 
                             context
-                                .fill(.init {
-                                    $0.addArc(center: bottom,
-                                              radius: 9,
-                                              startAngle: .radians(0),
-                                              endAngle: .radians(.pi2),
-                                              clockwise: false)
-                                }, with: .color(.accentColor))
-                            
-                            context
-                                .drawLayer { layer in
-                                    layer.draw(phase: phase,
-                                               image: moonImage,
-                                               shadow: shadowImage,
-                                               radius: 8,
-                                               center: bottom)
-                                }
-                            
-                            context
                                 .drawLayer { layer in
                                     layer.addFilter(.blur(radius: 6))
                                     
@@ -105,6 +87,24 @@ extension Analysis {
                                                                  startRadius: 0,
                                                                  endRadius: 18,
                                                                  options: .linearColor))
+                                }
+                            
+                            context
+                                .fill(.init {
+                                    $0.addArc(center: bottom,
+                                              radius: 9,
+                                              startAngle: .radians(0),
+                                              endAngle: .radians(.pi2),
+                                              clockwise: false)
+                                }, with: .color(.accentColor))
+                            
+                            context
+                                .drawLayer { layer in
+                                    layer.draw(phase: phase,
+                                               image: moonImage,
+                                               shadow: shadowImage,
+                                               radius: 8,
+                                               center: bottom)
                                 }
                             
                             context

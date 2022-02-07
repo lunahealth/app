@@ -10,15 +10,9 @@ extension Analysis {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color.accentColor.opacity(0.4))
-                    HStack {
-                        Image(systemName: trait.symbol)
-                            .font(.system(size: 16))
-                        Text(trait.title)
-                            .font(.callout)
-                    }
-                    .foregroundColor(.primary)
+                    Label(trait.title, systemImage: trait.symbol)
                 }
-                .frame(height: 42)
+                .frame(height: 46)
                 HStack {
                     ForEach(Level.allCases, id: \.self) { level in
                         ZStack {
@@ -37,8 +31,8 @@ extension Analysis {
                         .frame(width: 64, height: 44)
                     }
                 }
-                .foregroundColor(.primary)
             }
+            .foregroundColor(.primary)
             .padding(.vertical, 5)
         }
     }
