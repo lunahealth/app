@@ -9,6 +9,7 @@ extension Cal {
         let month: Int
         let calendar: [Days<Journal>]
         @State private var detail = false
+        @Namespace private var animation
         
         var body: some View {
             VStack(spacing: 0) {
@@ -16,7 +17,8 @@ extension Cal {
                     Month(selection: $selection,
                           detail: $detail,
                           observatory: observatory,
-                          month: calendar[month].items.flatMap { $0 }.filter { $0.content.date <= .now })
+                          month: calendar[month].items.flatMap { $0 }.filter { $0.content.date <= .now },
+                          animation: animation)
                 } else {
                     Spacer()
                     if calendar.count > month {
@@ -24,11 +26,12 @@ extension Cal {
                              detail: $detail,
                              observatory: observatory,
                              month: calendar[month].items.flatMap { $0 })
+                            .matchedGeometryEffect(id: "calendar", in: animation)
                     }
                     Spacer()
                 }
             }
-            .animation(.easeInOut(duration: 1), value: detail)
+            .animation(.easeInOut(duration: 0.35), value: detail)
         }
     }
 }

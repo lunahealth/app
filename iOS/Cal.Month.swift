@@ -8,10 +8,12 @@ extension Cal {
         @Binding var detail: Bool
         let observatory: Observatory
         let month: [Days<Journal>.Item]
+        let animation: Namespace.ID
         @State private var traits = [Trait]()
         
         var body: some View {
             Header(selection: $selection, observatory: observatory, month: month)
+                .matchedGeometryEffect(id: "calendar", in: animation)
             
             TabView(selection: $selection) {
                 ForEach(month, id: \.value) { day in
@@ -26,7 +28,7 @@ extension Cal {
             
             Button {
                 detail = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                     selection = 0
                 }
             } label: {
