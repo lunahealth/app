@@ -31,7 +31,7 @@ extension Cal {
                         .contentShape(Rectangle())
                 }
                 .tint(.accentColor)
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
                 .padding(.bottom, 30)
             }

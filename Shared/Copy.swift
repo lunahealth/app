@@ -26,7 +26,7 @@ Whatever you do with this app is up to you and we **don't** want to know about i
     static let froob = """
 **Moon Health** is brought to you completely **free** by an indie team.
 
-By purchasing **The Dark Side of the Moon** you support the development and improvement of app.
+By purchasing **The Dark Side of the Moon** you support the development and improvement of this app.
 
 It is an In-App Purchase, it is non-consumable, meaning it is a **1 time only** purchase and it is _optional_, you can keep using the app even without it.
 """
