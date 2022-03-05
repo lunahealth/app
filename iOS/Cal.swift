@@ -8,29 +8,20 @@ struct Cal: View, Equatable {
     @State private var calendar = [Days<Journal>]()
     
     var body: some View {
-        VStack {
-            Spacer()
-            if calendar.count > month {
-                Ring(observatory: observatory,
-                     month: calendar[month].items.flatMap { $0 })
-                    .equatable()
-                    .id(month)
+        Content(observatory: observatory, month: month, calendar: calendar)
+            .animation(.easeInOut(duration: 0.5), value: month)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                Header(month: $month, calendar: calendar)
             }
-            Spacer()
-        }
-        .animation(.easeInOut(duration: 0.5), value: month)
-        .safeAreaInset(edge: .top, spacing: 0) {
-            Header(month: $month, calendar: calendar)
-        }
-        .background(Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
-        .onReceive(cloud) {
-            calendar = $0.calendar
-            month = calendar.count - 1
-        }
+            .background(Image("Background")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .edgesIgnoringSafeArea(.all)
+                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
+            .onReceive(cloud) {
+                calendar = $0.calendar
+                month = calendar.count - 1
+            }
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
