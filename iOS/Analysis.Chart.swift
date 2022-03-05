@@ -31,6 +31,7 @@ extension Analysis {
                         }
                     
                     var x = CGFloat(55)
+                    var previous = CGPoint.zero
                     
                     context.stroke(.init { path in
                         Moon
@@ -45,10 +46,21 @@ extension Analysis {
                                 
                                 if phase == .new {
                                     path.move(to: point)
+                                    
                                 } else {
-                                    path.addLine(to: point)
+//                                    path.addLine(to: point)
+                                    path.addCurve(to: point,
+                                                  control1: .init(
+                                                    x: point.x,
+                                                    y: previous.y),
+                                                  control2: .init(
+                                                    x: previous.x,
+                                                    y: point.y))
+//                                    path.addQuadCurve(to: point, control: .init(
+//                                        x: point.x,
+//                                        y: previous.y))
                                 }
-                                
+                                previous = point
                                 x += horizontal
                             }
                     }, with: .color(.primary), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
