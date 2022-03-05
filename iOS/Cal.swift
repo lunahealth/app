@@ -6,7 +6,6 @@ struct Cal: View, Equatable {
     weak var observatory: Observatory!
     @State private var month = 0
     @State private var calendar = [Days<Journal>]()
-    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
@@ -18,18 +17,6 @@ struct Cal: View, Equatable {
                     .id(month)
             }
             Spacer()
-            Button {
-                dismiss()
-            } label: {
-                Text("Done")
-                    .font(.callout.weight(.medium))
-                    .padding(.horizontal, 10)
-                    .contentShape(Rectangle())
-            }
-            .tint(.accentColor)
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.capsule)
-            .padding(.bottom, 30)
         }
         .animation(.easeInOut(duration: 0.5), value: month)
         .safeAreaInset(edge: .top, spacing: 0) {

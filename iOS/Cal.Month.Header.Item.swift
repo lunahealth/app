@@ -9,7 +9,7 @@ extension Cal.Month.Header {
         let moon: Moon
         
         var body: some View {
-            VStack(spacing: 2) {
+            VStack(spacing: 6) {
                 Text(day.today ? "Today" : " ")
                     .font(.caption2)
                     .tint(.primary)
@@ -33,13 +33,9 @@ extension Cal.Month.Header {
                             .font(.footnote)
                             .tint(.primary)
                             .foregroundStyle(selection == day.value ? .primary : .secondary)
-                        Text(day.content.date, format: .dateTime.month(.abbreviated))
-                            .font(.footnote)
-                            .tint(.primary)
-                            .foregroundStyle(selection == day.value ? .primary : .secondary)
                     }
                 }
-                .frame(width: 66, height: 100)
+                .frame(width: 66, height: 85)
                 .contentShape(Rectangle())
             }
             .onTapGesture {

@@ -6,10 +6,13 @@ extension Cal {
     struct Header: View {
         @Binding var month: Int
         let calendar: [Days<Journal>]
+        @Environment(\.dismiss) private var dismiss
         
         var body: some View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
+                    Spacer()
+                        .frame(width: 60)
                     Spacer()
                     
                     Button {
@@ -19,18 +22,18 @@ extension Cal {
                         Image(systemName: "chevron.left.circle.fill")
                             .font(.system(size: 28).weight(.light))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.primary)
-                            .frame(width: 40, height: 35)
+                            .foregroundColor(.primary)
+                            .frame(width: 40, height: 40)
                             .contentShape(Rectangle())
                     }
-                    .opacity(month < 1 ? 0.4 : 1)
+                    .opacity(month < 1 ? 0.3 : 1)
 
                     if !calendar.isEmpty, month < calendar.count, month >= 0 {
                         Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
                              format: .dateTime.year().month(.wide))
                             .font(.callout.weight(.medium))
                             .foregroundStyle(.primary)
-                            .frame(width: 220)
+                            .frame(width: 165)
                             .id(month)
                     }
                     
@@ -41,13 +44,24 @@ extension Cal {
                         Image(systemName: "chevron.right.circle.fill")
                             .font(.system(size: 28).weight(.light))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.primary)
-                            .frame(width: 40, height: 35)
+                            .foregroundColor(.primary)
+                            .frame(width: 40, height: 40)
                             .contentShape(Rectangle())
                     }
-                    .opacity(month >= calendar.count - 1 ? 0.4 : 1)
-
+                    .opacity(month >= calendar.count - 1 ? 0.3 : 1)
+                    
                     Spacer()
+
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 28).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(.primary)
+                            .frame(width: 60, height: 40)
+                            .contentShape(Rectangle())
+                    }
                 }
                 .padding(.vertical, 10)
                 Rectangle()
