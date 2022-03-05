@@ -21,7 +21,7 @@ extension Home {
                                       startAngle: .degrees(0),
                                       endAngle: .degrees(360),
                                       clockwise: false)
-                        }, with: .color(.white.opacity(0.03)))
+                        }, with: .color(.white.opacity(0.015)))
                     }
 
                 context.draw(moon: moon,

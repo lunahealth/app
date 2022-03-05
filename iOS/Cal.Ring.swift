@@ -97,28 +97,28 @@ extension Cal {
                                 }
                             } else {
                                 context.stroke(.init {
-                                    $0.move(to: .init(x: center.x, y: center.y))
-                                    $0.addLine(to: .init(x: center.x, y: center.y - radius))
-                                }, with: .color(.primary.opacity(0.3)),
-                                               style: .init(lineWidth: 1, dash: [1, 3, 3, 5]))
+                                    $0.move(to: .init(x: center.x, y: center.y - 20))
+                                    $0.addLine(to: .init(x: center.x, y: center.y - (radius - 50)))
+                                }, with: .color(.primary.opacity(0.4)),
+                                               style: .init(lineWidth: 1, dash: [1, 3]))
                             }
 
                             context.translateBy(x: center.x, y: center.y)
                             context.rotate(by: .radians(half))
                             context.translateBy(x: -center.x, y: -center.y)
 
-                            context.drawLayer { con in
-                                let center = CGPoint(x: center.x, y: center.y - radius + 18)
-                                
-                                con.translateBy(x: center.x, y: center.y)
-                                con.rotate(by: .radians(-rotation))
-                                con.translateBy(x: -center.x, y: -center.y)
-                                con.opacity = date <= .now ? 1 : 0.45
-                                con.draw(moon: observatory.moon(for: date),
-                                             image: moonImage,
-                                             shadow: shadowImage,
-                                             radius: 8,
-                                         center: center)
+                            if date <= .now {
+                                context.drawLayer { con in
+                                    let center = CGPoint(x: center.x, y: center.y - radius + 18)
+                                    con.translateBy(x: center.x, y: center.y)
+                                    con.rotate(by: .radians(-rotation))
+                                    con.translateBy(x: -center.x, y: -center.y)
+                                    con.draw(moon: observatory.moon(for: date),
+                                                 image: moonImage,
+                                                 shadow: shadowImage,
+                                                 radius: 8,
+                                             center: center)
+                                }
                             }
 
                             context.draw(Text(day.value.formatted())
@@ -128,7 +128,7 @@ extension Cal {
                                                 ? .black
                                                 : date <= .now
                                                     ? .primary
-                                                    : .init(.tertiaryLabel)),
+                                                    : .secondary),
                                          at: .init(x: center.x, y: center.y - radius + 46))
 
                             context.translateBy(x: center.x, y: center.y)
