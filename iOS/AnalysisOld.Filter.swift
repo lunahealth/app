@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-extension Analysis {
+extension AnalysisOld {
     struct Filter: View {
         @Binding var phases: [(Moon.Phase, Bool)]
         @Environment(\.dismiss) private var dismiss

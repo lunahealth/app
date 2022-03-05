@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-extension Analysis {
+extension AnalysisOld {
     struct Header: View {
         let trait: Trait
         

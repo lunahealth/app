@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-struct Analysis: View, Equatable {
+struct AnalysisOld: View, Equatable {
     let observatory: Observatory
     @State private var traits = [Trait]()
     @State private var analysis = [Trait : [Moon.Phase : Level]]()

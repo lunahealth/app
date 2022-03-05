@@ -4,7 +4,7 @@ import Selene
 private let bottom = 70.0
 private let frames = 35.0
 
-extension Analysis {
+extension AnalysisOld {
     struct Item: View, Equatable {
         let value: [Moon.Phase : Level]
         let phases: [Moon.Phase]
