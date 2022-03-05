@@ -54,7 +54,7 @@ extension Cal {
                     }
                 }
                 .foregroundColor(.white)
-                .font(.system(size: 22).weight(.light))
+                .font(.system(size: 24).weight(.light))
                 .symbolRenderingMode(.hierarchical)
                 .padding(.vertical, 5)
                 Rectangle()
