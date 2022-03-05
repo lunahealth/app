@@ -2,7 +2,7 @@ import SwiftUI
 import Selene
 
 struct Analysis: View, Equatable {
-    weak var observatory: Observatory!
+    let observatory: Observatory
     @State private var traits = [Trait]()
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
     @State private var phases = Moon.Phase.allCases.map { ($0, true) }

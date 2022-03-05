@@ -3,7 +3,7 @@ import Dater
 import Selene
 
 struct Cal: View, Equatable {
-    weak var observatory: Observatory!
+    let observatory: Observatory
     @State private var month = 0
     @State private var calendar = [Days<Journal>]()
     

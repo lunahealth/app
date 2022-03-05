@@ -3,7 +3,7 @@ import Selene
 
 extension Home {
     struct Detail: View {
-        weak var observatory: Observatory!
+        let observatory: Observatory
         let moon: Moon
         let date: Date
         @State private var calendar = false

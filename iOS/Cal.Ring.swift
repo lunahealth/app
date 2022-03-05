@@ -9,7 +9,7 @@ private let frames = 40.0
 
 extension Cal {
     struct Ring: View, Equatable {
-        weak var observatory: Observatory!
+        let observatory: Observatory
         let month: [Days<Journal>.Item]
         @State private var selection = 0
         @State private var detail = false

@@ -3,7 +3,7 @@ import Selene
 
 extension Track {
     struct Detail: View {
-        weak var status: Track.Status!
+        let status: Track.Status
         let trait: Trait
         let animation: Namespace.ID
         

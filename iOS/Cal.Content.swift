@@ -4,7 +4,7 @@ import Dater
 
 extension Cal {
     struct Content: View {
-        weak var observatory: Observatory!
+        let observatory: Observatory
         let month: Int
         let calendar: [Days<Journal>]
         

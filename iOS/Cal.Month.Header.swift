@@ -5,7 +5,7 @@ import Selene
 extension Cal.Month {
     struct Header: View {
         @Binding var selection: Int
-        weak var observatory: Observatory!
+        let observatory: Observatory
         let month: [Days<Journal>.Item]
 
         var body: some View {

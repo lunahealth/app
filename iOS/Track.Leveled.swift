@@ -3,7 +3,7 @@ import Selene
 
 extension Track {
     struct Leveled: View {
-        weak var status: Status!
+        let status: Status
         let trait: Trait
         let level: Level
         let animation: Namespace.ID

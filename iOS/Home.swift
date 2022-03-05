@@ -3,7 +3,7 @@ import WidgetKit
 import Selene
 
 struct Home: View {
-    weak var observatory: Observatory!
+    let observatory: Observatory
     @Binding var date: Date
     @State private var moon: Moon?
     @State private var wheel: Wheel?

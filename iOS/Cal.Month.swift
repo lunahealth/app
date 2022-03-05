@@ -5,7 +5,7 @@ import Selene
 extension Cal {
     struct Month: View, Equatable {
         @Binding var selection: Int
-        weak var observatory: Observatory!
+        let observatory: Observatory
         let month: [Days<Journal>.Item]
         @State private var traits = [Trait]()
         @Environment(\.dismiss) private var dismiss
