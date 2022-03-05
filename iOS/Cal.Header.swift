@@ -20,10 +20,7 @@ extension Cal {
                         month -= 1
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
-                            .font(.system(size: 28).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.primary)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 40, height: 44)
                             .contentShape(Rectangle())
                     }
                     .opacity(month < 1 ? 0.3 : 1)
@@ -32,7 +29,6 @@ extension Cal {
                         Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
                              format: .dateTime.year().month(.wide))
                             .font(.callout.weight(.medium))
-                            .foregroundStyle(.primary)
                             .frame(width: 165)
                             .id(month)
                     }
@@ -42,10 +38,7 @@ extension Cal {
                         month += 1
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
-                            .font(.system(size: 28).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.primary)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 40, height: 44)
                             .contentShape(Rectangle())
                     }
                     .opacity(month >= calendar.count - 1 ? 0.3 : 1)
@@ -56,19 +49,19 @@ extension Cal {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 28).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.primary)
-                            .frame(width: 60, height: 40)
+                            .frame(width: 60, height: 44)
                             .contentShape(Rectangle())
                     }
                 }
-                .padding(.vertical, 10)
+                .foregroundColor(.white)
+                .font(.system(size: 22).weight(.light))
+                .symbolRenderingMode(.hierarchical)
+                .padding(.vertical, 5)
                 Rectangle()
-                    .fill(.tertiary)
+                    .fill(Color(white: 1, opacity: 0.3))
                     .frame(height: 1)
             }
-            .background(.ultraThinMaterial)
+            .background(Color.accentColor)
             .animation(.easeInOut(duration: 0.4), value: month)
         }
     }
