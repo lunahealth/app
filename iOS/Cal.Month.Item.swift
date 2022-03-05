@@ -11,7 +11,7 @@ extension Cal.Month {
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.accentColor.opacity(0.2))
+                        .fill(Color.accentColor.opacity(0.3))
                     VStack(spacing: 0) {
                         ForEach(traits, id: \.self) { trait in
                             if trait != traits.first {
@@ -22,11 +22,11 @@ extension Cal.Month {
                             }
                             
                             if let symbol = day.content.traits[trait]?.symbol {
-                                HStack {
+                                HStack(spacing: 0) {
                                     Image(systemName: trait.symbol)
                                         .font(.system(size: 14))
                                         .foregroundStyle(trait.color)
-                                        .frame(width: 34)
+                                        .frame(width: 38)
                                     Text(trait.title)
                                         .font(.callout)
                                         .foregroundStyle(.primary)
@@ -44,24 +44,25 @@ extension Cal.Month {
                                 }
                                 .frame(height: 42)
                             } else {
-                                HStack {
+                                HStack(spacing: 0) {
                                     Image(systemName: trait.symbol)
                                         .font(.system(size: 14))
-                                        .frame(width: 34)
+                                        .frame(width: 38)
                                     Text(trait.title)
                                         .font(.callout)
                                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                                    Spacer()
                                 }
                                 .foregroundStyle(.tertiary)
-                                .foregroundColor(.primary)
                                 .frame(height: 42)
                             }
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.leading, 10)
+                    .padding(.trailing)
                     .padding(.vertical, 8)
                 }
-                .frame(width: 230)
+                .frame(width: 200)
                 .fixedSize()
                 Spacer()
             }

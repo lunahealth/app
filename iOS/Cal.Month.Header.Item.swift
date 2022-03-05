@@ -17,7 +17,7 @@ extension Cal.Month.Header {
                 ZStack {
                     if selection == day.value {
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.accentColor.opacity(0.3))
+                            .fill(Color.accentColor.opacity(0.5))
                     }
                     VStack {
                         Canvas { context, size in

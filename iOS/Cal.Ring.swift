@@ -8,11 +8,11 @@ private let center = CGPoint(x: radius, y: radius)
 private let frames = 40.0
 
 extension Cal {
-    struct Ring: View, Equatable {
+    struct Ring: View {
+        @Binding var selection: Int
+        @Binding var detail: Bool
         let observatory: Observatory
         let month: [Days<Journal>.Item]
-        @State private var selection = 0
-        @State private var detail = false
         private let moonImage = Image("MoonMini")
         private let shadowImage = Image("ShadowMini")
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
@@ -166,16 +166,6 @@ extension Cal {
                         detail = true
                     }
             )
-            .sheet(isPresented: $detail) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    selection = 0
-                }
-            } content: {
-                Month(selection: $selection,
-                      observatory: observatory,
-                      month: month.filter { $0.content.date <= .now })
-                    .equatable()
-            }
         }
         
         private func item(for point: CGPoint) -> Int {
@@ -198,10 +188,6 @@ extension Cal {
         
         private var radPerItem: Double {
             .pi2 / .init(month.count)
-        }
-        
-        static func == (lhs: Self, rhs: Self) -> Bool {
-            lhs.month == rhs.month && lhs.selection == rhs.selection
         }
     }
 }

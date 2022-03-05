@@ -5,13 +5,14 @@ import Selene
 struct Cal: View, Equatable {
     let observatory: Observatory
     @State private var month = 0
+    @State private var selection = 0
     @State private var calendar = [Days<Journal>]()
     
     var body: some View {
-        Content(observatory: observatory, month: month, calendar: calendar)
+        Content(selection: $selection, observatory: observatory, month: month, calendar: calendar)
             .animation(.easeInOut(duration: 0.5), value: month)
             .safeAreaInset(edge: .top, spacing: 0) {
-                Header(month: $month, calendar: calendar)
+                Header(month: $month, selection: $selection, calendar: calendar)
             }
             .background(Image("Background")
                             .resizable()

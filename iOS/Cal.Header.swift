@@ -5,6 +5,7 @@ import Selene
 extension Cal {
     struct Header: View {
         @Binding var month: Int
+        @Binding var selection: Int
         let calendar: [Days<Journal>]
         @Environment(\.dismiss) private var dismiss
         
@@ -17,6 +18,9 @@ extension Cal {
                     
                     Button {
                         guard month > 0 else { return }
+                        if selection > 1 {
+                            selection = 1
+                        }
                         month -= 1
                     } label: {
                         Image(systemName: "chevron.left.circle.fill")
@@ -35,6 +39,9 @@ extension Cal {
                     
                     Button {
                         guard month < calendar.count - 1 else { return }
+                        if selection > 1 {
+                            selection = 1
+                        }
                         month += 1
                     } label: {
                         Image(systemName: "chevron.right.circle.fill")
@@ -56,7 +63,7 @@ extension Cal {
                 .foregroundColor(.white)
                 .font(.system(size: 24).weight(.light))
                 .symbolRenderingMode(.hierarchical)
-                .padding(.vertical, 5)
+                .padding(.vertical, 7)
                 Rectangle()
                     .fill(Color(white: 1, opacity: 0.3))
                     .frame(height: 1)
