@@ -14,14 +14,11 @@ struct Window: View {
         Home(observatory: observatory, date: $date)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 HStack {
-                    Option(active: $analysis,
-                           title: "Analysis",
-                           symbol: "chart.line.uptrend.xyaxis")
+                    Option(active: $settings,
+                           title: "Settings",
+                           symbol: "gear")
                         .padding(.leading)
-                        .sheet(isPresented: $analysis) {
-                            Analysis(observatory: observatory)
-                                .equatable()
-                        }
+                        .sheet(isPresented: $settings, content: Settings.init)
                     
                     Spacer()
                     
@@ -46,11 +43,14 @@ struct Window: View {
                     
                     Spacer()
                     
-                    Option(active: $settings,
-                           title: "Settings",
-                           symbol: "gear")
+                    Option(active: $analysis,
+                           title: "Analysis",
+                           symbol: "chart.line.uptrend.xyaxis")
                         .padding(.trailing)
-                        .sheet(isPresented: $settings, content: Settings.init)
+                        .sheet(isPresented: $analysis) {
+                            Analysis(observatory: observatory)
+                                .equatable()
+                        }
                 }
                 .padding(.bottom, 10)
             }
