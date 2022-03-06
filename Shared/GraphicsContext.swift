@@ -38,9 +38,12 @@ extension GraphicsContext {
             }
         }
         
+        if phase != .full {
+            draw(render.shadow.antialiased(true), at: center)
+        }
+        
         switch phase {
         case .new:
-            draw(render.shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
                           radius: render.radius,
@@ -49,7 +52,6 @@ extension GraphicsContext {
                           clockwise: false)
             })
         case .waxingGibbous, .waningGibbous:
-            draw(render.shadow.antialiased(true), at: center)
             let bottom = CGPoint(x: center.x, y: center.y + render.radius)
             let delta = render.radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
@@ -66,9 +68,7 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y + vertical),
                             control2: .init(x: center.x - horizontal, y: center.y - vertical))
             })
-            draw(render.image.antialiased(true), at: center)
         case .firstQuarter, .lastQuarter:
-            draw(render.shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
                           radius: render.radius,
@@ -76,9 +76,7 @@ extension GraphicsContext {
                           endAngle: .degrees(-90),
                           clockwise: false)
             })
-            draw(render.image.antialiased(true), at: center)
         case .waxingCrescent, .waningCrescent:
-            draw(render.shadow.antialiased(true), at: center)
             let bottom = CGPoint(x: center.x, y: center.y + render.radius)
             let delta = render.radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
@@ -95,7 +93,6 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y - vertical),
                             control2: .init(x: center.x - horizontal, y: center.y + vertical))
             })
-            draw(render.image.antialiased(true), at: center)
         default:
             clip(to: .init {
                 $0.addArc(center: center,
@@ -104,6 +101,9 @@ extension GraphicsContext {
                           endAngle: .degrees(360),
                           clockwise: false)
             })
+        }
+        
+        if phase != .new {
             draw(render.image.antialiased(true), at: center)
         }
     }
