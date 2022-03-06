@@ -7,8 +7,6 @@ struct Content: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.init(white: 0.2),
-                                    .init("AccentColor")], startPoint: .top, endPoint: .bottom)
             Canvas { context, size in
                 context.draw(moon: entry.moon,
                              render: .regular,
@@ -30,5 +28,6 @@ struct Content: View {
             .padding(.trailing, pad)
             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
         }
+        .background(Image("Background"))
     }
 }
