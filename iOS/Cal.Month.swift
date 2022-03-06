@@ -35,6 +35,8 @@ extension Cal {
                 Image(systemName: "calendar.circle.fill")
                     .font(.system(size: 40).weight(.light))
                     .symbolRenderingMode(.hierarchical)
+                    .frame(width: 45, height: 45)
+                    .contentShape(Rectangle())
             }
             .padding(.bottom)
         }

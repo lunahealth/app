@@ -5,6 +5,7 @@ struct Analysis: View, Equatable {
     let observatory: Observatory
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var scheme
+    @State private var since = Analysing.all
     
     var body: some View {
         VStack {
@@ -21,7 +22,25 @@ struct Analysis: View, Equatable {
                                              .waningCrescent : .medium])
             }
             .frame(height: 230)
+            Picker("Since", selection: $since) {
+                Text("All")
+                    .tag(Analysing.all)
+                Text("Last month")
+                    .tag(Analysing.month)
+            }
+            .pickerStyle(.segmented)
+            .padding()
             Spacer()
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "arrow.down.circle.fill")
+                    .font(.system(size: 32).weight(.light))
+                    .symbolRenderingMode(.hierarchical)
+                    .frame(width: 40, height: 40)
+                    .contentShape(Rectangle())
+            }
+            .padding(.bottom)
         }
         .background(Color(.secondarySystemBackground))
     }
