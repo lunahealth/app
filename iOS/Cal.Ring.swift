@@ -13,8 +13,6 @@ extension Cal {
         @Binding var detail: Bool
         let observatory: Observatory
         let month: [Days<Journal>.Item]
-        private let moonImage = Image("MoonMini")
-        private let shadowImage = Image("ShadowMini")
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
             $0.0.append(Date(timeIntervalSince1970: $0.1 + (.init($1) / 40)))
         }.0
@@ -114,9 +112,7 @@ extension Cal {
                                     con.rotate(by: .radians(-rotation))
                                     con.translateBy(x: -center.x, y: -center.y)
                                     con.draw(moon: observatory.moon(for: date),
-                                                 image: moonImage,
-                                                 shadow: shadowImage,
-                                                 radius: 8,
+                                             render: .mini,
                                              center: center)
                                 }
                             }

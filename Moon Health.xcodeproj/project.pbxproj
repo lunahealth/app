@@ -75,6 +75,8 @@
 		CEB59D1327A40AEC002FDED9 /* Cal.Month.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1227A40AEC002FDED9 /* Cal.Month.Header.swift */; };
 		CEB59D1527A40D77002FDED9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1427A40D77002FDED9 /* Date.swift */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
+		CEBDAB6F27D4F4C9002E9F01 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
+		CEBDAB7027D4F4C9002E9F01 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
 		CEDA52EA27A80C74004DBDB9 /* SheetBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA52E927A80C74004DBDB9 /* SheetBasic.swift */; };
 		CEDA52EC27A83DD1004DBDB9 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA52EB27A83DD1004DBDB9 /* Plus.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
@@ -180,6 +182,7 @@
 		CEB59D1227A40AEC002FDED9 /* Cal.Month.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Month.Header.swift; sourceTree = "<group>"; };
 		CEB59D1427A40D77002FDED9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
+		CEBDAB6E27D4F4C9002E9F01 /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		CEDA52E927A80C74004DBDB9 /* SheetBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetBasic.swift; sourceTree = "<group>"; };
 		CEDA52EB27A83DD1004DBDB9 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 		CEE3401127721C19005A99E9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */,
 				CE9B399E278333BE0006E8AF /* Copy.swift */,
 				CEB59D1427A40D77002FDED9 /* Date.swift */,
 				CE9B398827832FB50006E8AF /* Global.swift */,
@@ -264,6 +268,7 @@
 				CEA44A72279ED12C0031DDD0 /* Level.swift */,
 				CEF8399E276B6DC300134178 /* Locator.swift */,
 				CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */,
+				CEBDAB6E27D4F4C9002E9F01 /* Render.swift */,
 				CE9B3994278331930006E8AF /* Store.Item.swift */,
 				CE9B3992278331860006E8AF /* Store.State.swift */,
 				CE9B39902783317A0006E8AF /* Store.swift */,
@@ -271,7 +276,6 @@
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
 				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
-				CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -458,6 +462,7 @@
 				CEA7622A27AD585400A6019D /* Entry.swift in Sources */,
 				CEA7621527AD552700A6019D /* Bundle.swift in Sources */,
 				CEA7622C27AD5EE500A6019D /* Moon.Phase.swift in Sources */,
+				CEBDAB7027D4F4C9002E9F01 /* Render.swift in Sources */,
 				CEA7622B27AD5B8000A6019D /* GraphicsContext.swift in Sources */,
 				CEA7622627AD57F700A6019D /* Provider.swift in Sources */,
 				CEA7622427AD57AF00A6019D /* Luna.swift in Sources */,
@@ -513,6 +518,7 @@
 				CE89018B27A6D24500744526 /* AnalysisOld.Header.swift in Sources */,
 				CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */,
 				CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */,
+				CEBDAB6F27D4F4C9002E9F01 /* Render.swift in Sources */,
 				CE9CC56127A55E810008D933 /* Cal.Month.Header.Item.swift in Sources */,
 				CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */,
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,

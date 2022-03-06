@@ -22,9 +22,7 @@ extension Cal.Month.Header {
                     VStack {
                         Canvas { context, size in
                             context.draw(moon: moon,
-                                         image: .init("MoonSmall"),
-                                         shadow: .init("ShadowSmall"),
-                                         radius: 18,
+                                         render: .small,
                                          center: .init(x: 18, y: 18))
                         }
                         .frame(width: 36, height: 36)

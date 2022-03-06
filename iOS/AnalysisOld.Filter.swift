@@ -5,8 +5,6 @@ extension AnalysisOld {
     struct Filter: View {
         @Binding var phases: [(Moon.Phase, Bool)]
         @Environment(\.dismiss) private var dismiss
-        private let moonImage = Image("MoonMini")
-        private let shadowImage = Image("ShadowMini")
         
         var body: some View {
             NavigationView {
@@ -15,9 +13,7 @@ extension AnalysisOld {
                         HStack {
                             Canvas { context, _ in
                                 context.draw(phase: item.wrappedValue.0,
-                                             image: moonImage,
-                                             shadow: shadowImage,
-                                             radius: 8,
+                                             render: .mini,
                                              center: .init(x: 8, y: 8))
                             }
                             .frame(width: 16, height: 16)

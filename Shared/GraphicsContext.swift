@@ -2,65 +2,63 @@ import SwiftUI
 import Selene
 
 extension GraphicsContext {
-    mutating func draw(phase: Moon.Phase, image: Image, shadow: Image, radius: Double, center: CGPoint) {
+    mutating func draw(phase: Moon.Phase, render: Render, center: CGPoint) {
         draw(phase: phase,
              angle: phase.angle,
              fraction: phase.fraction,
-             image: image,
-             shadow: shadow,
-             radius: radius,
+             render: render,
              center: center)
     }
     
-    mutating func draw(moon: Moon, image: Image, shadow: Image, radius: Double, center: CGPoint) {
-        draw(phase: moon.phase, angle: moon.angle, fraction: moon.fraction, image: image, shadow: shadow, radius: radius, center: center)
+    mutating func draw(moon: Moon, render: Render, center: CGPoint) {
+        draw(phase: moon.phase, angle: moon.angle, fraction: moon.fraction, render: render, center: center)
     }
     
     private mutating func draw(phase: Moon.Phase,
                                angle: Double,
                                fraction: Int,
-                               image: Image,
-                               shadow: Image,
-                               radius: Double,
+                               render: Render,
                                center: CGPoint) {
         translateBy(x: center.x, y: center.y)
         rotate(by: .radians(.pi_2 - angle))
         translateBy(x: -center.x, y: -center.y)
         
-        drawLayer { layer in
-            layer.addFilter(.blur(radius: radius / 3))
-            
-            layer
-                .fill(.init {
-                    $0.addArc(center: center,
-                              radius: radius,
-                              startAngle: .radians(0),
-                              endAngle: .radians(.pi2),
-                              clockwise: false)
-                }, with: .color(.accentColor))
+        if render.blur {
+            drawLayer { layer in
+                layer.addFilter(.blur(radius: render.radius / 3))
+                
+                layer
+                    .fill(.init {
+                        $0.addArc(center: center,
+                                  radius: render.radius,
+                                  startAngle: .radians(0),
+                                  endAngle: .radians(.pi2),
+                                  clockwise: false)
+                    }, with: .color(.accentColor))
+            }
         }
         
         switch phase {
         case .new:
-            draw(shadow.antialiased(true), at: center)
+            draw(render.shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
-                          radius: radius,
+                          radius: render.radius,
                           startAngle: .degrees(0),
                           endAngle: .degrees(0),
                           clockwise: false)
             })
         case .waxingGibbous, .waningGibbous:
-            draw(shadow.antialiased(true), at: center)
-            let bottom = CGPoint(x: center.x, y: center.y + radius)
-            let delta = radius * (1 - (.init(fraction) / 50.0))
+            draw(render.shadow.antialiased(true), at: center)
+            let bottom = CGPoint(x: center.x, y: center.y + render.radius)
+            let delta = render.radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
             let vertical = delta / 1.25
             
             clip(to: .init {
                 $0.move(to: bottom)
                 $0.addArc(center: center,
-                          radius: radius,
+                          radius: render.radius,
                           startAngle: .degrees(90),
                           endAngle: .degrees(-90),
                           clockwise: false)
@@ -68,28 +66,28 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y + vertical),
                             control2: .init(x: center.x - horizontal, y: center.y - vertical))
             })
-            draw(image.antialiased(true), at: center)
+            draw(render.image.antialiased(true), at: center)
         case .firstQuarter, .lastQuarter:
-            draw(shadow.antialiased(true), at: center)
+            draw(render.shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
-                          radius: radius,
+                          radius: render.radius,
                           startAngle: .degrees(90),
                           endAngle: .degrees(-90),
                           clockwise: false)
             })
-            draw(image.antialiased(true), at: center)
+            draw(render.image.antialiased(true), at: center)
         case .waxingCrescent, .waningCrescent:
-            draw(shadow.antialiased(true), at: center)
-            let bottom = CGPoint(x: center.x, y: center.y + radius)
-            let delta = radius * (1 - (.init(fraction) / 50.0))
+            draw(render.shadow.antialiased(true), at: center)
+            let bottom = CGPoint(x: center.x, y: center.y + render.radius)
+            let delta = render.radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
             let vertical = delta / 1.25
             
             clip(to: .init {
                 $0.move(to: bottom)
                 $0.addArc(center: center,
-                          radius: radius,
+                          radius: render.radius,
                           startAngle: .degrees(90),
                           endAngle: .degrees(-90),
                           clockwise: false)
@@ -97,16 +95,16 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y - vertical),
                             control2: .init(x: center.x - horizontal, y: center.y + vertical))
             })
-            draw(image.antialiased(true), at: center)
+            draw(render.image.antialiased(true), at: center)
         default:
             clip(to: .init {
                 $0.addArc(center: center,
-                          radius: radius,
+                          radius: render.radius,
                           startAngle: .degrees(0),
                           endAngle: .degrees(360),
                           clockwise: false)
             })
-            draw(image.antialiased(true), at: center)
+            draw(render.image.antialiased(true), at: center)
         }
     }
 }

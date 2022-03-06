@@ -1,6 +1,5 @@
 import SwiftUI
 
-private let radius = 34.0
 private let pad = 20.0
 
 struct Content: View {
@@ -12,10 +11,8 @@ struct Content: View {
                                     .init("AccentColor")], startPoint: .top, endPoint: .bottom)
             Canvas { context, size in
                 context.draw(moon: entry.moon,
-                             image: .init("Moon"),
-                             shadow: .init("Shadow"),
-                             radius: radius,
-                             center: .init(x: radius + pad, y: radius + pad))
+                             render: .regular,
+                             center: .init(x: Render.regular.radius + pad, y: Render.regular.radius + pad))
             }
             
             VStack(alignment: .trailing, spacing: 0) {

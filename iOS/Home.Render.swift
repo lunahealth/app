@@ -1,8 +1,6 @@
 import SwiftUI
 import Selene
 
-private let radius = 34.0
-
 extension Home {
     struct Render: View {
         let moon: Moon
@@ -17,7 +15,7 @@ extension Home {
                     .forEach { point in
                         context.fill(.init {
                             $0.addArc(center: point,
-                                      radius: radius,
+                                      radius: Moonhealth.Render.regular.radius,
                                       startAngle: .degrees(0),
                                       endAngle: .degrees(360),
                                       clockwise: false)
@@ -25,9 +23,7 @@ extension Home {
                     }
 
                 context.draw(moon: moon,
-                             image: .init("Moon"),
-                             shadow: .init("Shadow"),
-                             radius: radius,
+                             render: .regular,
                              center: current)
             }
             .onReceive(timer) { _ in
