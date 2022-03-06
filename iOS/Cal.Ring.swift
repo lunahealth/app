@@ -92,14 +92,14 @@ extension Cal {
                                                   startAngle: .radians(start),
                                                   endAngle: .radians(end),
                                                   clockwise: false)
-                                    }, with: .color(.init("Path").opacity(0.15)),
+                                    }, with: .color(.accentColor.opacity(0.2)),
                                                    style: .init(lineWidth: 28, lineCap: .butt))
                                 }
                             } else {
                                 context.stroke(.init {
                                     $0.move(to: .init(x: center.x, y: center.y - 20))
                                     $0.addLine(to: .init(x: center.x, y: center.y - (radius - 50)))
-                                }, with: .color(.primary.opacity(0.4)),
+                                }, with: .color(.primary.opacity(0.6)),
                                                style: .init(lineWidth: 1, dash: [1, 3]))
                             }
 

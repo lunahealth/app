@@ -27,10 +27,22 @@ extension GraphicsContext {
         rotate(by: .radians(.pi_2 - angle))
         translateBy(x: -center.x, y: -center.y)
         
-        draw(shadow.antialiased(true), at: center)
+        drawLayer { layer in
+            layer.addFilter(.blur(radius: radius / 3))
+            
+            layer
+                .fill(.init {
+                    $0.addArc(center: center,
+                              radius: radius,
+                              startAngle: .radians(0),
+                              endAngle: .radians(.pi2),
+                              clockwise: false)
+                }, with: .color(.accentColor))
+        }
         
         switch phase {
         case .new:
+            draw(shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
                           radius: radius,
@@ -39,6 +51,7 @@ extension GraphicsContext {
                           clockwise: false)
             })
         case .waxingGibbous, .waningGibbous:
+            draw(shadow.antialiased(true), at: center)
             let bottom = CGPoint(x: center.x, y: center.y + radius)
             let delta = radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
@@ -55,8 +68,9 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y + vertical),
                             control2: .init(x: center.x - horizontal, y: center.y - vertical))
             })
-            
+            draw(image.antialiased(true), at: center)
         case .firstQuarter, .lastQuarter:
+            draw(shadow.antialiased(true), at: center)
             clip(to: .init {
                 $0.addArc(center: center,
                           radius: radius,
@@ -64,8 +78,9 @@ extension GraphicsContext {
                           endAngle: .degrees(-90),
                           clockwise: false)
             })
-            
+            draw(image.antialiased(true), at: center)
         case .waxingCrescent, .waningCrescent:
+            draw(shadow.antialiased(true), at: center)
             let bottom = CGPoint(x: center.x, y: center.y + radius)
             let delta = radius * (1 - (.init(fraction) / 50.0))
             let horizontal = delta * 1.25
@@ -82,7 +97,7 @@ extension GraphicsContext {
                             control1: .init(x: center.x - horizontal, y: center.y - vertical),
                             control2: .init(x: center.x - horizontal, y: center.y + vertical))
             })
-            
+            draw(image.antialiased(true), at: center)
         default:
             clip(to: .init {
                 $0.addArc(center: center,
@@ -91,9 +106,8 @@ extension GraphicsContext {
                           endAngle: .degrees(360),
                           clockwise: false)
             })
+            draw(image.antialiased(true), at: center)
         }
-        
-        draw(image.antialiased(true), at: center)
     }
 }
 

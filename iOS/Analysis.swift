@@ -8,16 +8,19 @@ struct Analysis: View, Equatable {
     
     var body: some View {
         VStack {
-            Chart(trait: .sleep, value: [.new : .bottom,
-                                         .waxingCrescent : .low,
-                                         .firstQuarter : .top,
-                                         .waxingGibbous : .medium,
-                                         .full : .top,
-                                         .waningGibbous : .medium,
-                                         .lastQuarter : .high,
-                                         .waningCrescent : .medium])
-                .background(Color(.tertiarySystemBackground))
-                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.1), radius: 3)
+            ZStack {
+                Color(.tertiarySystemBackground)
+                    .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.1), radius: 3)
+                Chart(trait: .sleep, value: [.new : .bottom,
+                                             .waxingCrescent : .low,
+                                             .firstQuarter : .top,
+                                             .waxingGibbous : .medium,
+                                             .full : .top,
+                                             .waningGibbous : .medium,
+                                             .lastQuarter : .high,
+                                             .waningCrescent : .medium])
+            }
+            .frame(height: 230)
             Spacer()
         }
         .background(Color(.secondarySystemBackground))

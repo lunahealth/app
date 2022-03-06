@@ -15,7 +15,7 @@ extension Home {
                     .stroke(LinearGradient(gradient: .init(colors: [
                         .init(white: 1, opacity: 0.4),
                         .init(white: 1, opacity: 0)]), startPoint: .top, endPoint: .bottom), style: .init(lineWidth: 9))
-                    .shadow(color: .init("Path").opacity(0.5), radius: 10)
+                    .shadow(color: .accentColor.opacity(0.5), radius: 10)
                     .padding(pad)
                     .contentShape(Rectangle())
                     .onChange(of: proxy.size) {

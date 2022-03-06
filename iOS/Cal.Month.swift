@@ -33,8 +33,7 @@ extension Cal {
                 }
             } label: {
                 Image(systemName: "calendar.circle.fill")
-                    .foregroundColor(.white)
-                    .font(.system(size: 38).weight(.light))
+                    .font(.system(size: 40).weight(.light))
                     .symbolRenderingMode(.hierarchical)
             }
             .padding(.bottom)
