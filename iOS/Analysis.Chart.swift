@@ -17,19 +17,20 @@ extension Analysis {
                     
                     let vertical = (size.height - 35) / .init(Level.allCases.count)
                     let horizontal = (size.width - 80) / .init(Moon.Phase.allCases.count - 1)
-                    var levels = [Level : CGFloat]()
+                    var ys = [Level : CGFloat]()
                     var y = size.height - vertical
                     
                     Level
                         .allCases
                         .forEach { level in
                             context.draw(Text(Image(systemName: level.symbol))
-                                            .font(.system(size: 13).weight(.medium))
-                                            .foregroundColor(.primary), at: .init(x: 26, y: y))
-                            levels[level] = y
+                                            .font(.system(size: 12).weight(.light))
+                                            .foregroundColor(.primary), at: .init(x: 24, y: y))
+                            ys[level] = y
                             y -= vertical
                         }
                     
+                    var xs = [Moon.Phase : CGFloat]()
                     var x = CGFloat(55)
                     var previous = CGPoint.zero
                     
@@ -40,7 +41,7 @@ extension Analysis {
                             .forEach { phase in
                                 let y = value[phase]
                                     .flatMap {
-                                        levels[$0]
+                                        ys[$0]
                                     } ?? 20
                                 let point = CGPoint(x: x, y: y)
                                 
@@ -48,7 +49,6 @@ extension Analysis {
                                     path.move(to: point)
                                     
                                 } else {
-//                                    path.addLine(to: point)
                                     path.addCurve(to: point,
                                                   control1: .init(
                                                     x: point.x,
@@ -56,14 +56,44 @@ extension Analysis {
                                                   control2: .init(
                                                     x: previous.x,
                                                     y: point.y))
-//                                    path.addQuadCurve(to: point, control: .init(
-//                                        x: point.x,
-//                                        y: previous.y))
                                 }
                                 previous = point
+                                xs[phase] = x
                                 x += horizontal
                             }
-                    }, with: .color(.primary), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    }, with: .color(.accentColor), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    
+                    Moon
+                        .Phase
+                        .allCases
+                        .forEach { phase in
+                            context.blendMode = .clear
+                            
+                            let point = CGPoint(x: xs[phase] ?? 0,
+                                                y: value[phase]
+                                                    .flatMap {
+                                                        ys[$0]
+                                                    } ?? 20)
+                            
+                            context.fill(.init {
+                                $0.addArc(center: point,
+                                          radius: 5,
+                                          startAngle: .radians(0),
+                                          endAngle: .radians(.pi2),
+                                          clockwise: true)
+                            }, with: .backdrop)
+                            
+                            context.blendMode = .normal
+                            
+                            context.stroke(.init {
+                                $0.addArc(center: point,
+                                          radius: 3,
+                                          startAngle: .radians(0),
+                                          endAngle: .radians(.pi2),
+                                          clockwise: true)
+                            }, with: .color(.accentColor.opacity(0.5)), lineWidth: 1)
+                        }
+                    
                     
                     /*
                     let width = (size.width - 20) / .init(phases.filter { value[$0] != nil }.count)

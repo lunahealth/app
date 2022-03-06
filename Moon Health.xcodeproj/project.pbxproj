@@ -290,8 +290,8 @@
 			children = (
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
-				CE6B7A8B27D3A99800E3912B /* Analysis.swift */,
 				CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */,
+				CE6B7A8B27D3A99800E3912B /* Analysis.swift */,
 				CE89018F27A6EA5900744526 /* AnalysisOld.Filter.swift */,
 				CE89018A27A6D24500744526 /* AnalysisOld.Header.swift */,
 				CE89018C27A6D5CB00744526 /* AnalysisOld.Item.swift */,
