@@ -3,54 +3,37 @@ import Selene
 
 struct Analysis: View, Equatable {
     let observatory: Observatory
-    @State private var since = Analysing.all
+    @State private var since = Defaults.currentSince
     @State private var traits = [Trait]()
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
     @State private var trait: Trait?
+    @State private var stats: Stats?
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.colorScheme) private var scheme
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
-                Color(.tertiarySystemBackground)
-                    .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
-                if let trait = trait, let analysis = analysis[trait] {
-                    Chart(trait: trait, value: analysis)
-                        .equatable()
-                        .id(analysis)
-                }
-            }
-            .frame(height: 230)
-            .zIndex(1)
-            HStack(spacing: 0) {
-                ForEach(traits, id: \.self) { item in
-                    Button {
-                        trait = item
-                    } label: {
-                        Image(systemName: item.symbol)
-                            .font(.system(size: 13))
-                            .foregroundColor(item == trait ? .white : .secondary)
-                            .contentShape(Rectangle())
-                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-                    }
-                    .background(item == trait ? Color.accentColor : .clear)
-                }
-            }
-            .frame(height: 50)
-            .background(Color(white: 0, opacity: scheme == .dark ? 0.2 : 0.04))
-            Rectangle()
-                .fill(Color(white: 0, opacity: scheme == .dark ? 0.3 : 0.1))
-                .frame(height: 1)
+            Display(analysis: analysis, trait: trait)
+            Strip(trait: $trait, traits: traits)
+            
             Picker("Since", selection: $since) {
                 Text("All")
                     .tag(Analysing.all)
-                Text("Last month")
+                Text("Month")
                     .tag(Analysing.month)
+                Text("Fortnight")
+                    .tag(Analysing.fortnight)
             }
             .pickerStyle(.segmented)
-            .padding()
+            .padding([.top, .trailing, .leading])
+            
+            if let trait = trait, let stats = stats {
+                Info(trait: trait, stats: stats)
+                    .animation(.easeInOut(duration: 0.3), value: stats)
+                    .padding(.horizontal, 30)
+            }
+            
             Spacer()
+            
             Button {
                 dismiss()
             } label: {
@@ -63,15 +46,28 @@ struct Analysis: View, Equatable {
             .padding(.bottom)
         }
         .background(Color(.secondarySystemBackground))
+        .onChange(of: trait) { value in
+            Defaults.currentTrait = value
+            
+            Task {
+                await update(trait: value)
+            }
+        }
         .onChange(of: since) { value in
+            Defaults.currentSince = value
             Task {
                 await update(since: value)
             }
         }
         .task {
-            traits = await cloud.model.settings.traits.sorted()
             await update(since: since)
-            trait = traits.first
+            traits = await cloud.model.settings.traits.sorted()
+            trait = Defaults
+                .currentTrait
+                .flatMap {
+                    traits.contains($0) ? $0 : nil
+                } ?? traits.first
+            await update(trait: trait)
         }
     }
     
@@ -80,6 +76,12 @@ struct Analysis: View, Equatable {
             .analysis(since: since) {
                 observatory.moon(for: $0).phase
             }
+    }
+    
+    private func update(trait: Trait?) async {
+        guard let trait = trait else { return }
+        stats = await cloud
+            .stats(trait: trait)
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {

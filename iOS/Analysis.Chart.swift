@@ -9,7 +9,7 @@ extension Analysis {
         let value: [Moon.Phase : Level]
         
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
-            $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.1 + (.init($1) / 50)))
+            $0.0.append(Date(timeIntervalSince1970: $0.1 + (.init($1) / 50)))
         }.0
         
         var body: some View {

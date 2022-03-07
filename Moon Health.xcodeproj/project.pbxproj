@@ -63,6 +63,9 @@
 		CEA7622A27AD585400A6019D /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7622927AD585400A6019D /* Entry.swift */; };
 		CEA7622B27AD5B8000A6019D /* GraphicsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2927787882004D93D5 /* GraphicsContext.swift */; };
 		CEA7622C27AD5EE500A6019D /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
+		CEA79FA227D6448200FD65FB /* Analysis.Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA79FA127D6448200FD65FB /* Analysis.Display.swift */; };
+		CEA79FA427D644E900FD65FB /* Analysis.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA79FA327D644E900FD65FB /* Analysis.Strip.swift */; };
+		CEA79FA627D6457100FD65FB /* Analysis.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA79FA527D6457100FD65FB /* Analysis.Info.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
@@ -166,6 +169,9 @@
 		CEA7622727AD57FD00A6019D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		CEA7622927AD585400A6019D /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		CEA7622D27AD621E00A6019D /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
+		CEA79FA127D6448200FD65FB /* Analysis.Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Display.swift; sourceTree = "<group>"; };
+		CEA79FA327D644E900FD65FB /* Analysis.Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Strip.swift; sourceTree = "<group>"; };
+		CEA79FA527D6457100FD65FB /* Analysis.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Info.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
@@ -287,6 +293,9 @@
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
 				CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */,
+				CEA79FA127D6448200FD65FB /* Analysis.Display.swift */,
+				CEA79FA527D6457100FD65FB /* Analysis.Info.swift */,
+				CEA79FA327D644E900FD65FB /* Analysis.Strip.swift */,
 				CE6B7A8B27D3A99800E3912B /* Analysis.swift */,
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
@@ -478,6 +487,7 @@
 				CE9B39912783317A0006E8AF /* Store.swift in Sources */,
 				CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */,
 				CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */,
+				CEA79FA627D6457100FD65FB /* Analysis.Info.swift in Sources */,
 				CE230B6927AC1F6000A80BCE /* Settings.Delete.swift in Sources */,
 				CE96636E27A2AD6A00EF43C1 /* Cal.Ring.swift in Sources */,
 				CE8B89A627A044CD006490BB /* Cal.swift in Sources */,
@@ -499,6 +509,7 @@
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */,
 				CEB0A76327872EB900B5F5BF /* Info.swift in Sources */,
+				CEA79FA227D6448200FD65FB /* Analysis.Display.swift in Sources */,
 				CE281D0A279B0F2200C8BA3C /* Stars.swift in Sources */,
 				CE50FFCC279EDDE3005C2EE6 /* Track.Detail.Heading.swift in Sources */,
 				CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */,
@@ -509,6 +520,7 @@
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
 				CE8B89A427A03DAE006490BB /* Track.Today.swift in Sources */,
+				CEA79FA427D644E900FD65FB /* Analysis.Strip.swift in Sources */,
 				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
 				CE6B7A8E27D3AB2D00E3912B /* Analysis.Chart.swift in Sources */,
 				CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */,

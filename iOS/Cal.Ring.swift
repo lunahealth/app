@@ -117,7 +117,7 @@ extension Cal {
                                 }
                             }
 
-                            context.draw(Text(day.value.formatted())
+                            context.draw(Text(day.value, format: .number)
                                             .font(.system(size: 11).monospacedDigit())
                                             .foregroundColor(
                                                 selection == day.value
