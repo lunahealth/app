@@ -4,5 +4,5 @@ import Selene
 let cloud = Cloud<Archive>.new(identifier: "iCloud.moonhealth")
 
 #if os(iOS)
-let store = Store()
+var store = Store()
 #endif
