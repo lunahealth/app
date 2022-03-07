@@ -10,7 +10,7 @@ extension Window {
             Button {
                 active = true
             } label: {
-                VStack(spacing: 0) {
+                VStack(spacing: 4) {
                     Image(systemName: symbol)
                         .font(.system(size: 22))
                         .frame(height: 25)
