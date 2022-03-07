@@ -48,7 +48,7 @@ extension Analysis {
                                 
                                 let point = CGPoint(x: x, y: y)
                                 
-                                if phase == .new {
+                                if points.isEmpty {
                                     path.move(to: point)
                                 } else {
                                     path.addCurve(to: point,
