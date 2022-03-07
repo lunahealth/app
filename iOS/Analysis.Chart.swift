@@ -31,7 +31,7 @@ extension Analysis {
                             y -= vertical
                         }
                     
-                    var xs = [Moon.Phase : CGFloat]()
+                    var points = [Moon.Phase : CGPoint]()
                     var x = CGFloat(55)
                     var previous = CGPoint.zero
                     
@@ -40,10 +40,7 @@ extension Analysis {
                             .Phase
                             .allCases
                             .forEach { phase in
-                                guard let y = value[phase].flatMap({ ys[$0] }) else {
-                                    x += horizontal
-                                    return
-                                }
+                                guard let y = value[phase].flatMap({ ys[$0] }) else { return }
                                 
                                 let point = CGPoint(x: x, y: y)
                                 
@@ -59,7 +56,7 @@ extension Analysis {
                                                     y: point.y))
                                 }
                                 previous = point
-                                xs[phase] = x
+                                points[phase] = point
                                 x += horizontal
                             }
                     }, with: .color(.accentColor), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
@@ -68,11 +65,9 @@ extension Analysis {
                         .Phase
                         .allCases
                         .forEach { phase in
-                            guard let y = value[phase].flatMap({ ys[$0] }) else { return }
+                            guard let point = points[phase] else { return }
                             
                             context.blendMode = .clear
-                            
-                            let point = CGPoint(x: xs[phase] ?? 0, y: y)
                             
                             context.fill(.init {
                                 $0.addArc(center: point,
