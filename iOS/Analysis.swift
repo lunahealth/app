@@ -20,6 +20,7 @@ struct Analysis: View, Equatable {
                                              .waningGibbous : .medium,
                                              .lastQuarter : .high,
                                              .waningCrescent : .medium])
+                    .equatable()
             }
             .frame(height: 230)
             Picker("Since", selection: $since) {
