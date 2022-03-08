@@ -4,67 +4,64 @@ import Selene
 
 extension Cal {
     struct Header: View {
-        @Binding var month: Int
+        @Binding var index: Int
         @Binding var selection: Int
         let calendar: [Days<Journal>]
         @Environment(\.dismiss) private var dismiss
         
         var body: some View {
-            VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    Spacer()
-                        .frame(width: 60)
-                    Spacer()
-                    
-                    Button {
-                        guard month > 0 else { return }
-                        if selection > 1 {
-                            selection = 1
-                        }
-                        month -= 1
-                    } label: {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .frame(width: 40, height: 44)
-                            .contentShape(Rectangle())
+            HStack(spacing: 0) {
+                Spacer()
+                    .frame(width: 60)
+                Spacer()
+                
+                Button {
+                    guard index > 0 else { return }
+                    if selection > 1 {
+                        selection = 1
                     }
-                    .opacity(month < 1 ? 0.3 : 1)
-
-                    if !calendar.isEmpty, month < calendar.count, month >= 0 {
-                        Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
-                             format: .dateTime.year().month(.wide))
-                            .font(.footnote)
-                            .frame(width: 165)
-                            .id(month)
-                    }
-                    
-                    Button {
-                        guard month < calendar.count - 1 else { return }
-                        if selection > 1 {
-                            selection = 1
-                        }
-                        month += 1
-                    } label: {
-                        Image(systemName: "chevron.right.circle.fill")
-                            .frame(width: 40, height: 44)
-                            .contentShape(Rectangle())
-                    }
-                    .opacity(month >= calendar.count - 1 ? 0.3 : 1)
-                    
-                    Spacer()
-
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .frame(width: 60, height: 44)
-                            .contentShape(Rectangle())
-                    }
+                    index -= 1
+                } label: {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .frame(width: 40, height: 44)
+                        .contentShape(Rectangle())
                 }
-                .font(.system(size: 24).weight(.light))
-                .symbolRenderingMode(.hierarchical)
-                .padding(.vertical, 8)
+                .opacity(index < 1 ? 0.3 : 1)
+
+                if !calendar.isEmpty, index < calendar.count, index >= 0 {
+                    Text(Calendar.current.date(from: .init(year: calendar[index].year, month: calendar[index].month))!,
+                         format: .dateTime.year().month(.wide))
+                        .font(.footnote)
+                        .frame(width: 165)
+                        .id(index)
+                }
+                
+                Button {
+                    guard index < calendar.count - 1 else { return }
+                    if selection > 1 {
+                        selection = 1
+                    }
+                    index += 1
+                } label: {
+                    Image(systemName: "chevron.right.circle.fill")
+                        .frame(width: 40, height: 44)
+                        .contentShape(Rectangle())
+                }
+                .opacity(index >= calendar.count - 1 ? 0.3 : 1)
+                
+                Spacer()
+
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .frame(width: 60, height: 44)
+                        .contentShape(Rectangle())
+                }
             }
-            .animation(.easeInOut(duration: 0.4), value: month)
+            .font(.system(size: 24).weight(.light))
+            .symbolRenderingMode(.hierarchical)
+            .padding(.top, 8)
         }
     }
 }

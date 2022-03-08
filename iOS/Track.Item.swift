@@ -14,7 +14,6 @@ extension Track {
                     .fill(.primary)
                     .matchedGeometryEffect(id: "\(trait).\(level).circle", in: animation)
                     .foregroundColor(selected ? .accentColor : .init(.tertiarySystemBackground))
-                    .shadow(color: .black.opacity(selected ? 0 : 0.3), radius: 2)
                 Image(systemName: level.symbol)
                     .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
                     .foregroundColor(selected ? .white : .primary)

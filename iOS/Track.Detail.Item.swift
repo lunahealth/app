@@ -21,6 +21,7 @@ extension Track.Detail {
                     Track.Item(trait: trait, level: level, selected: selected, animation: animation)
                         .font(.system(size: 18).weight(.medium))
                         .frame(width: 50, height: 50)
+                        .modifier(Shadowed())
                     Text(level.title(for: trait))
                         .font(.caption2)
                         .foregroundColor(.primary)

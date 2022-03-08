@@ -17,7 +17,7 @@ extension Track {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(.primary)
                         .foregroundColor(status.journal?.traits[trait] == nil ? .init(.tertiarySystemBackground) : .accentColor)
-                        .shadow(color: .black.opacity(0.3), radius: 3)
+                        .modifier(Shadowed())
                     if let level = status.journal?.traits[trait] {
                         VStack(alignment: .trailing) {
                             Track.Item(trait: trait, level: level, selected: true, animation: animation)

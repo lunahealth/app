@@ -27,6 +27,7 @@ extension Analysis {
             Rectangle()
                 .fill(Color(white: 0, opacity: scheme == .dark ? 0.3 : 0.1))
                 .frame(height: 1)
+                .padding(.bottom)
         }
     }
 }

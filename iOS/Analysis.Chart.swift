@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let frames = 70.0
+private let frames = 50.0
 
 extension Analysis {
     struct Chart: View, Equatable {
@@ -18,7 +18,7 @@ extension Analysis {
                 Canvas { context, size in
                     let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
                     let percent = index / frames
-                    let vertical = (size.height - 55) / .init(Level.allCases.count)
+                    let vertical = (size.height - 75) / .init(Level.allCases.count)
                     let horizontal = (size.width - 80) / .init(Moon.Phase.allCases.count - 1)
                     var ys = [Level : CGFloat]()
                     var y = size.height - (vertical + 20)

@@ -9,65 +9,34 @@ extension Cal.Month {
         @Environment(\.colorScheme) private var scheme
         
         var body: some View {
-            VStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(.tertiarySystemBackground))
-                        .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
-                    VStack(spacing: 0) {
-                        ForEach(traits, id: \.self) { trait in
-                            if trait != traits.first {
-                                Rectangle()
-                                    .fill(.quaternary)
-                                    .frame(height: 1)
-                                    .padding(.horizontal)
-                            }
-                            
-                            if let symbol = day.content.traits[trait]?.symbol {
-                                HStack(spacing: 0) {
-                                    Image(systemName: trait.symbol)
-                                        .font(.system(size: 14))
-                                        .foregroundStyle(trait.color)
-                                        .frame(width: 38)
-                                    Text(trait.title)
-                                        .font(.callout)
-                                        .foregroundStyle(.primary)
-                                        .foregroundColor(.primary)
-                                    
-                                    Spacer()
-                                    
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color.accentColor.opacity(0.2))
-                                            .frame(width: 28, height: 28)
-                                        Image(systemName: symbol)
-                                            .font(.system(size: 11).weight(.medium))
-                                    }
-                                }
-                                .frame(height: 42)
-                            } else {
-                                HStack(spacing: 0) {
-                                    Image(systemName: trait.symbol)
-                                        .font(.system(size: 14))
-                                        .frame(width: 38)
-                                    Text(trait.title)
-                                        .font(.callout)
-                                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                                    Spacer()
-                                }
-                                .foregroundStyle(.tertiary)
-                                .frame(height: 42)
-                            }
+            VStack(spacing: 0) {
+                ForEach(traits, id: \.self) { trait in
+                    HStack(spacing: 0) {
+                        if let level = day.content.traits[trait] {
+                            Text(level.title(for: trait))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .frame(width: 120, alignment: .trailing)
+                            Image(systemName: level.symbol)
+                                .font(.system(size: 12).weight(.light))
+                                .frame(width: 30)
+                        } else {
+                            Spacer()
                         }
+                        Image(systemName: trait.symbol)
+                            .font(.system(size: 12))
+                            .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .primary)
+                            .frame(width: 30)
+                            .offset(x: -4)
+                        Text(trait.title)
+                            .font(.caption)
+                            .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .secondary)
+                            .frame(width: 120, alignment: .leading)
                     }
-                    .padding(.leading, 10)
-                    .padding(.trailing)
-                    .padding(.vertical, 8)
+                    .frame(height: 34)
                 }
-                .frame(width: 200)
-                .fixedSize()
-                Spacer()
             }
+            .frame(width: 300)
         }
     }
 }

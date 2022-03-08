@@ -10,7 +10,6 @@ private let frames = 40.0
 extension Cal {
     struct Ring: View {
         @Binding var selection: Int
-        @Binding var detail: Bool
         let observatory: Observatory
         let month: [Days<Journal>.Item]
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
@@ -159,7 +158,6 @@ extension Cal {
                             selection = 0
                             return
                         }
-                        detail = true
                     }
             )
         }

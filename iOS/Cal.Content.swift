@@ -14,27 +14,25 @@ extension Cal {
         
         var body: some View {
             VStack(spacing: 0) {
+                
+                if calendar.count > month {
+                    ZStack {
+                        Color(.tertiarySystemBackground)
+                            .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
+//                        Ring(selection: $selection,
+//                             detail: $detail,
+//                             observatory: observatory,
+//                             month: calendar[month].items.flatMap { $0 })
+//                            .padding(.vertical)
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                }
                 if detail {
                     Month(selection: $selection,
                           detail: $detail,
                           observatory: observatory,
                           month: calendar[month].items.flatMap { $0 }.filter { $0.content.date <= .now },
                           animation: animation)
-                } else {
-                    if calendar.count > month {
-                        ZStack {
-                            Color(.tertiarySystemBackground)
-                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
-                            Ring(selection: $selection,
-                                 detail: $detail,
-                                 observatory: observatory,
-                                 month: calendar[month].items.flatMap { $0 })
-                                .matchedGeometryEffect(id: "calendar", in: animation)
-                                .padding(.vertical)
-                        }
-                        .fixedSize(horizontal: false, vertical: true)
-                    }
-                    Spacer()
                 }
             }
             .animation(.easeInOut(duration: 0.35), value: detail)

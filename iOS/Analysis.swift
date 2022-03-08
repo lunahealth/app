@@ -6,44 +6,20 @@ struct Analysis: View, Equatable {
     @State private var since = Defaults.currentSince
     @State private var traits = [Trait]()
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
+    @State private var stats = [Stats]()
     @State private var trait: Trait?
-    @State private var stats: Stats?
-    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 0) {
-            Display(analysis: analysis, trait: trait)
+            Display(since: $since, analysis: analysis, trait: trait)
             Strip(trait: $trait, traits: traits)
             
-            Picker("Since", selection: $since) {
-                Text("All")
-                    .tag(Analysing.all)
-                Text("Month")
-                    .tag(Analysing.month)
-                Text("Fortnight")
-                    .tag(Analysing.fortnight)
-            }
-            .pickerStyle(.segmented)
-            .padding([.top, .trailing, .leading])
-            
-            if let trait = trait, let stats = stats {
+            if let trait = trait {
                 Info(trait: trait, stats: stats)
+                    .padding(.top)
                     .animation(.easeInOut(duration: 0.3), value: stats)
-                    .padding(.horizontal, 30)
             }
-            
             Spacer()
-            
-            Button {
-                dismiss()
-            } label: {
-                Image(systemName: "arrow.down.circle.fill")
-                    .font(.system(size: 32).weight(.light))
-                    .symbolRenderingMode(.hierarchical)
-                    .frame(width: 40, height: 40)
-                    .contentShape(Rectangle())
-            }
-            .padding(.bottom)
         }
         .background(Color(.secondarySystemBackground))
         .onChange(of: trait) { value in

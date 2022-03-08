@@ -2,8 +2,8 @@ import SwiftUI
 import Dater
 import Selene
 
-extension Cal.Month {
-    struct Header: View {
+extension Cal {
+    struct Strip: View {
         @Binding var selection: Int
         let observatory: Observatory
         let month: [Days<Journal>.Item]
@@ -24,7 +24,7 @@ extension Cal.Month {
                         Spacer()
                             .frame(width: 50)
                     }
-                    .frame(height: 200)
+                    .frame(height: 70)
                 }
                 .onChange(of: selection) { selected in
                     withAnimation(.easeInOut(duration: 0.35)) {
