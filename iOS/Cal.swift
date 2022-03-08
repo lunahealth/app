@@ -23,7 +23,6 @@ struct Cal: View, Equatable {
                 Ring(selection: $selection,
                      observatory: observatory,
                      month: month)
-                    .padding(.vertical)
             }
             .fixedSize(horizontal: false, vertical: true)
             .zIndex(-1)

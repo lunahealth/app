@@ -13,15 +13,15 @@ extension Cal.Strip {
                 if selection == day.value {
                     context.draw(moon: moon,
                                  render: .small,
-                                 center: .init(x: 32, y: 23))
+                                 center: .init(x: 26, y: 23))
                 } else {
                     context.draw(moon: moon,
                                  render: .mini,
-                                 center: .init(x: 32, y: 23))
+                                 center: .init(x: 26, y: 23))
                 }
             }
             .opacity(selection == day.value ? 1 : 0.5)
-            .frame(width: 64, height: 60)
+            .frame(width: 52, height: 60)
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.4)) {
                     selection = day.value

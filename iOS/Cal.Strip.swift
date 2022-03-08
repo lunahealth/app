@@ -24,7 +24,7 @@ extension Cal {
                         Spacer()
                             .frame(width: 50)
                     }
-                    .frame(height: 70)
+                    .frame(height: 60)
                 }
                 .onChange(of: selection) { selected in
                     withAnimation(.easeInOut(duration: 0.35)) {

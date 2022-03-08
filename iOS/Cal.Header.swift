@@ -23,7 +23,8 @@ extension Cal {
                     index -= 1
                 } label: {
                     Image(systemName: "chevron.left.circle.fill")
-                        .frame(width: 40, height: 44)
+                        .font(.system(size: 24).weight(.light))
+                        .frame(width: 45, height: 45)
                         .contentShape(Rectangle())
                 }
                 .opacity(index < 1 ? 0.3 : 1)
@@ -32,7 +33,7 @@ extension Cal {
                     Text(Calendar.current.date(from: .init(year: calendar[index].year, month: calendar[index].month))!,
                          format: .dateTime.year().month(.wide))
                         .font(.footnote)
-                        .frame(width: 165)
+                        .frame(width: 150)
                         .id(index)
                 }
                 
@@ -44,7 +45,8 @@ extension Cal {
                     index += 1
                 } label: {
                     Image(systemName: "chevron.right.circle.fill")
-                        .frame(width: 40, height: 44)
+                        .font(.system(size: 24).weight(.light))
+                        .frame(width: 45, height: 45)
                         .contentShape(Rectangle())
                 }
                 .opacity(index >= calendar.count - 1 ? 0.3 : 1)
@@ -54,14 +56,14 @@ extension Cal {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .frame(width: 60, height: 44)
+                    Image(systemName: "xmark")
+                        .font(.system(size: 14))
+                        .frame(width: 45, height: 45)
                         .contentShape(Rectangle())
+                        .foregroundColor(.secondary)
                 }
             }
-            .font(.system(size: 24).weight(.light))
             .symbolRenderingMode(.hierarchical)
-            .padding(.top, 8)
         }
     }
 }
