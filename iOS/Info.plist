@@ -12,6 +12,8 @@
 	<dict>
 		<key>UIImageName</key>
 		<string>Background</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
 	</dict>
 </dict>
 </plist>
