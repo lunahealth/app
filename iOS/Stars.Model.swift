@@ -6,10 +6,6 @@ extension Stars {
         private(set) var items = [Item]()
         private var first = true
         
-        deinit {
-            print("deinit")
-        }
-        
         func tick(date: Date, size: CGSize) {
             if first {
                 first = false
