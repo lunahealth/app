@@ -8,13 +8,14 @@ struct Cal: View, Equatable {
     @State private var day = 0
     @State private var calendar = [Days<Journal>]()
     @State private var month = [Days<Journal>.Item]()
+    @State private var active = [Days<Journal>.Item]()
     @State private var traits = [Trait]()
     
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
                 Header(index: $index, calendar: calendar)
-                Strip(day: $day, observatory: observatory, month: month)
+                Strip(day: $day, observatory: observatory, month: active)
             }
             .background(Color(.tertiarySystemBackground)
                             .modifier(Shadowed()))
@@ -27,7 +28,7 @@ struct Cal: View, Equatable {
             .fixedSize(horizontal: false, vertical: true)
             .zIndex(-1)
             TabView(selection: $day) {
-                ForEach(month, id: \.value) { day in
+                ForEach(active, id: \.value) { day in
                     Item(day: day, traits: traits)
                         .tag(day.value)
                 }
@@ -60,6 +61,7 @@ struct Cal: View, Equatable {
     
     private func update(index: Int) {
         month = calendar[index].items.flatMap { $0 }
+        active = month.filter { $0.content.date <= .now }
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {

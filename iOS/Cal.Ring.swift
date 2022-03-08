@@ -105,6 +105,23 @@ extension Cal {
                             context.translateBy(x: center.x, y: center.y)
                             context.rotate(by: .radians(-(rotation + half)))
                             context.translateBy(x: -center.x, y: -center.y)
+                            
+                            if day == item.value {
+                                if item.today {
+                                    context.draw(Text("Today")
+                                                    .foregroundColor(.primary)
+                                                    .font(.footnote),
+                                                 at: .init(x: center.x, y: center.y - 22))
+                                }
+                                context.draw(Text(item.value, format: .number)
+                                                .font(.body.weight(.light).monospacedDigit())
+                                                .foregroundColor(.primary),
+                                             at: .init(x: center.x, y: center.y + 25))
+                                context.draw(Text(item.content.date, format: .dateTime.weekday(.wide))
+                                                .font(.callout)
+                                                .foregroundColor(.secondary),
+                                             at: center)
+                            }
                         }
                 }
             }
@@ -113,28 +130,11 @@ extension Cal {
             .gesture(
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { point in
-                        guard validate(point: point.location) else {
-                            day = 0
-                            return
-                        }
-                        
+                        guard validate(point: point.location) else { return }
                         let index = item(for: point.location)
                         
-                        guard month[index].content.date <= .now else {
-                            day = 0
-                            return
-                        }
-                        
+                        guard month[index].content.date <= .now else { return }
                         day = month[index].value
-                    }
-                    .onEnded { point in
-                        guard
-                            validate(point: point.location),
-                            day > 0
-                        else {
-                            day = 0
-                            return
-                        }
                     }
             )
         }
