@@ -29,6 +29,7 @@
 		CE6B7A8E27D3AB2D00E3912B /* Analysis.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */; };
 		CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */; };
 		CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */; };
+		CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */; };
 		CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Detail.swift */; };
 		CE8B89A427A03DAE006490BB /* Track.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A327A03DAE006490BB /* Track.Today.swift */; };
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
@@ -137,6 +138,7 @@
 		CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Chart.swift; sourceTree = "<group>"; };
 		CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.swift; sourceTree = "<group>"; };
 		CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Item.swift; sourceTree = "<group>"; };
+		CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Detail.swift; sourceTree = "<group>"; };
 		CE8B89A327A03DAE006490BB /* Track.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Today.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
+				CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */,
 				CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */,
 				CEA79FA127D6448200FD65FB /* Analysis.Display.swift */,
 				CEA79FA527D6457100FD65FB /* Analysis.Info.swift */,
@@ -444,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */,
 				CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */,
 				CEF83991276B674900134178 /* Assets.xcassets in Resources */,
 			);
@@ -791,6 +795,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
@@ -866,6 +871,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health access your location to follor the Phases of the Moon on your area.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
