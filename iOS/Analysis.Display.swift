@@ -13,14 +13,7 @@ extension Analysis {
                 Color(.tertiarySystemBackground)
                     .modifier(Shadowed())
                 if let trait = trait, let analysis = analysis[trait] {
-                    Chart(trait: trait, value: [.new : .bottom,
-                                                .waxingCrescent : .low,
-                                                .firstQuarter : .top,
-                                                .waxingGibbous : .medium,
-                                                .full : .top,
-                                                .waningGibbous : .medium,
-                                                .lastQuarter : .high,
-                                                .waningCrescent : .medium])
+                    Chart(trait: trait, value: analysis)
                         .equatable()
                         .id(analysis)
                 }
