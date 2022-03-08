@@ -28,7 +28,7 @@ struct Cal: View, Equatable {
             .zIndex(-1)
             TabView(selection: $selection) {
                 ForEach(month, id: \.value) { day in
-                    Month.Item(day: day, traits: traits)
+                    Item(day: day, traits: traits)
                         .tag(day.value)
                 }
             }
@@ -39,17 +39,27 @@ struct Cal: View, Equatable {
                             .modifier(Shadowed()))
         }
         .animation(.easeInOut(duration: 0.5), value: index)
+        .onChange(of: index) { value in
+            if selection > 1 {
+                selection = 1
+            }
+            update(index: value)
+        }
         .onReceive(cloud) {
             traits = $0.settings.traits.sorted()
             calendar = $0.calendar
             index = calendar.count - 1
-            month = calendar[index].items.flatMap { $0 }
+            update(index: index)
             selection = month
                 .filter {
                     $0.content.date <= .now
                 }
                 .count
         }
+    }
+    
+    private func update(index: Int) {
+        month = calendar[index].items.flatMap { $0 }
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {

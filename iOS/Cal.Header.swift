@@ -17,9 +17,6 @@ extension Cal {
                 
                 Button {
                     guard index > 0 else { return }
-                    if selection > 1 {
-                        selection = 1
-                    }
                     index -= 1
                 } label: {
                     Image(systemName: "chevron.left.circle.fill")
@@ -39,9 +36,6 @@ extension Cal {
                 
                 Button {
                     guard index < calendar.count - 1 else { return }
-                    if selection > 1 {
-                        selection = 1
-                    }
                     index += 1
                 } label: {
                     Image(systemName: "chevron.right.circle.fill")

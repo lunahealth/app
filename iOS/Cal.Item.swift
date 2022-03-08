@@ -2,7 +2,7 @@ import SwiftUI
 import Dater
 import Selene
 
-extension Cal.Month {
+extension Cal {
     struct Item: View {
         let day: Days<Journal>.Item
         let traits: [Trait]
@@ -21,7 +21,14 @@ extension Cal.Month {
                                 .font(.system(size: 16).weight(.light))
                                 .frame(width: 40)
                         } else {
-                            Spacer()
+                            Text("—")
+                                .font(.footnote)
+                                .foregroundStyle(.quaternary)
+                                .frame(width: 120, alignment: .trailing)
+                            Image(systemName: "questionmark")
+                                .font(.system(size: 12).weight(.light))
+                                .foregroundStyle(.tertiary)
+                                .frame(width: 40)
                         }
                         Image(systemName: trait.symbol)
                             .font(.system(size: 14))
