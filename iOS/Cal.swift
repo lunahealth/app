@@ -5,7 +5,7 @@ import Selene
 struct Cal: View, Equatable {
     let observatory: Observatory
     @State private var index = 0
-    @State private var selection = 0
+    @State private var day = 0
     @State private var calendar = [Days<Journal>]()
     @State private var month = [Days<Journal>.Item]()
     @State private var traits = [Trait]()
@@ -13,20 +13,20 @@ struct Cal: View, Equatable {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
-                Header(index: $index, selection: $selection, calendar: calendar)
-                Strip(selection: $selection, observatory: observatory, month: month)
+                Header(index: $index, calendar: calendar)
+                Strip(day: $day, observatory: observatory, month: month)
             }
             .background(Color(.tertiarySystemBackground)
                             .modifier(Shadowed()))
             ZStack {
                 Color(.secondarySystemBackground)
-                Ring(selection: $selection,
+                Ring(day: $day,
                      observatory: observatory,
                      month: month)
             }
             .fixedSize(horizontal: false, vertical: true)
             .zIndex(-1)
-            TabView(selection: $selection) {
+            TabView(selection: $day) {
                 ForEach(month, id: \.value) { day in
                     Item(day: day, traits: traits)
                         .tag(day.value)
@@ -40,8 +40,8 @@ struct Cal: View, Equatable {
         }
         .animation(.easeInOut(duration: 0.5), value: index)
         .onChange(of: index) { value in
-            if selection > 1 {
-                selection = 1
+            if day > 1 {
+                day = 1
             }
             update(index: value)
         }
@@ -50,7 +50,7 @@ struct Cal: View, Equatable {
             calendar = $0.calendar
             index = calendar.count - 1
             update(index: index)
-            selection = month
+            day = month
                 .filter {
                     $0.content.date <= .now
                 }

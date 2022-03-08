@@ -11,7 +11,7 @@ private let frames = 40.0
 
 extension Cal {
     struct Ring: View {
-        @Binding var selection: Int
+        @Binding var day: Int
         let observatory: Observatory
         let month: [Days<Journal>.Item]
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
@@ -30,43 +30,24 @@ extension Cal {
 
                     month
                         .prefix(.init(.init(month.count) * percent))
-                        .forEach { day in
+                        .forEach { item in
                             rotation += radPerItem
-                            let date = day.content.date
                             
                             context.translateBy(x: center.x, y: center.y)
                             context.rotate(by: .radians(rotation))
                             context.translateBy(x: -center.x, y: -center.y)
                             
-                            if selection == day.value {
+                            if day == item.value {
                                 context.stroke(.init {
                                     $0.addArc(center: center,
-                                              radius: (radius / 2) - 1.5,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
+                                              radius: radius - 36,
+                                              startAngle: .radians(start + 0.04),
+                                              endAngle: .radians(end - 0.04),
                                               clockwise: false)
                                 }, with: .color(.accentColor),
-                                               style: .init(lineWidth: radius - 3, lineCap: .butt))
-                                
-                                context.stroke(.init {
-                                    $0.addArc(center: center,
-                                              radius: radius - 45,
-                                              startAngle: .radians(start),
-                                              endAngle: .radians(end),
-                                              clockwise: false)
-                                }, with: .color(.white),
-                                               style: .init(lineWidth: 28, lineCap: .butt))
-                            } else if date <= .now {
-                                if day.today {
-                                    context.stroke(.init {
-                                        $0.addArc(center: center,
-                                                  radius: radius - 31,
-                                                  startAngle: .radians(start),
-                                                  endAngle: .radians(end),
-                                                  clockwise: false)
-                                    }, with: .color(.accentColor.opacity(0.7)),
-                                                   style: .init(lineWidth: 56, lineCap: .butt))
-                                    
+                                               style: .init(lineWidth: 62, lineCap: .butt))
+                            } else if item.content.date <= .now {
+                                if item.today {
                                     context.stroke(.init {
                                         $0.addArc(center: center,
                                                   radius: radius - 45,
@@ -78,15 +59,6 @@ extension Cal {
                                 } else {
                                     context.stroke(.init {
                                         $0.addArc(center: center,
-                                                  radius: radius - 31,
-                                                  startAngle: .radians(start),
-                                                  endAngle: .radians(end),
-                                                  clockwise: false)
-                                    }, with: .color(.accentColor.opacity(0.2)),
-                                                   style: .init(lineWidth: 56, lineCap: .butt))
-                                    
-                                    context.stroke(.init {
-                                        $0.addArc(center: center,
                                                   radius: radius - 45,
                                                   startAngle: .radians(start),
                                                   endAngle: .radians(end),
@@ -96,8 +68,8 @@ extension Cal {
                                 }
                             } else {
                                 context.stroke(.init {
-                                    $0.move(to: .init(x: center.x, y: center.y - 20))
-                                    $0.addLine(to: .init(x: center.x, y: center.y - (radius - 50)))
+                                    $0.move(to: .init(x: center.x, y: center.y - (radius - 60)))
+                                    $0.addLine(to: .init(x: center.x, y: center.y - (radius - 30)))
                                 }, with: .color(.primary.opacity(0.6)),
                                                style: .init(lineWidth: 1, dash: [1, 3]))
                             }
@@ -106,27 +78,29 @@ extension Cal {
                             context.rotate(by: .radians(half))
                             context.translateBy(x: -center.x, y: -center.y)
 
-                            if date <= .now {
-                                context.drawLayer { con in
-                                    let center = CGPoint(x: center.x, y: center.y - radius + 18)
-                                    con.translateBy(x: center.x, y: center.y)
-                                    con.rotate(by: .radians(-rotation))
-                                    con.translateBy(x: -center.x, y: -center.y)
-                                    con.draw(moon: observatory.moon(for: date),
-                                             render: .mini,
-                                             center: center)
+                            if day != item.value {
+                                if item.content.date <= .now {
+                                    context.drawLayer { con in
+                                        let center = CGPoint(x: center.x, y: center.y - radius + 18)
+                                        con.translateBy(x: center.x, y: center.y)
+                                        con.rotate(by: .radians(-rotation))
+                                        con.translateBy(x: -center.x, y: -center.y)
+                                        con.draw(moon: observatory.moon(for: item.content.date),
+                                                 render: .mini,
+                                                 center: center)
+                                    }
                                 }
-                            }
 
-                            context.draw(Text(day.value, format: .number)
-                                            .font(.system(size: 11).monospacedDigit())
-                                            .foregroundColor(
-                                                selection == day.value
-                                                ? .black
-                                                : date <= .now
-                                                    ? .primary
-                                                    : .secondary),
-                                         at: .init(x: center.x, y: center.y - radius + 46))
+                                context.draw(Text(item.value, format: .number)
+                                                .font(.system(size: 11).monospacedDigit())
+                                                .foregroundColor(
+                                                    day == item.value
+                                                    ? .black
+                                                    : item.content.date <= .now
+                                                        ? .primary
+                                                        : .secondary),
+                                             at: .init(x: center.x, y: center.y - radius + 46))
+                            }
 
                             context.translateBy(x: center.x, y: center.y)
                             context.rotate(by: .radians(-(rotation + half)))
@@ -140,25 +114,25 @@ extension Cal {
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { point in
                         guard validate(point: point.location) else {
-                            selection = 0
+                            day = 0
                             return
                         }
                         
                         let index = item(for: point.location)
                         
                         guard month[index].content.date <= .now else {
-                            selection = 0
+                            day = 0
                             return
                         }
                         
-                        selection = month[index].value
+                        day = month[index].value
                     }
                     .onEnded { point in
                         guard
                             validate(point: point.location),
-                            selection > 0
+                            day > 0
                         else {
-                            selection = 0
+                            day = 0
                             return
                         }
                     }

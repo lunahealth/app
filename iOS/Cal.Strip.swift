@@ -4,7 +4,7 @@ import Selene
 
 extension Cal {
     struct Strip: View {
-        @Binding var selection: Int
+        @Binding var day: Int
         let observatory: Observatory
         let month: [Days<Journal>.Item]
 
@@ -16,7 +16,7 @@ extension Cal {
                             .frame(width: 50)
                         
                         ForEach(month, id: \.value) {
-                            Item(selection: $selection, day: $0, moon: observatory.moon(for: $0.content.date))
+                            Item(day: $day, today: $0, moon: observatory.moon(for: $0.content.date))
                                 .tag($0.value)
                                 .id($0.value)
                         }
@@ -26,13 +26,13 @@ extension Cal {
                     }
                     .frame(height: 60)
                 }
-                .onChange(of: selection) { selected in
+                .onChange(of: day) { selected in
                     withAnimation(.easeInOut(duration: 0.35)) {
                         proxy.scrollTo(selected, anchor: .bottom)
                     }
                 }
                 .onAppear {
-                    proxy.scrollTo(selection, anchor: .bottom)
+                    proxy.scrollTo(day, anchor: .bottom)
                 }
             }
         }

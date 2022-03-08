@@ -4,13 +4,13 @@ import Selene
 
 extension Cal.Strip {
     struct Item: View {
-        @Binding var selection: Int
-        let day: Days<Journal>.Item
+        @Binding var day: Int
+        let today: Days<Journal>.Item
         let moon: Moon
         
         var body: some View {
             Canvas { context, size in
-                if selection == day.value {
+                if day == today.value {
                     context.draw(moon: moon,
                                  render: .small,
                                  center: .init(x: 26, y: 23))
@@ -20,11 +20,11 @@ extension Cal.Strip {
                                  center: .init(x: 26, y: 23))
                 }
             }
-            .opacity(selection == day.value ? 1 : 0.5)
+            .opacity(day == today.value ? 1 : 0.5)
             .frame(width: 52, height: 60)
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.4)) {
-                    selection = day.value
+                    day = today.value
                 }
             }
         }

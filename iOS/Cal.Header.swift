@@ -5,7 +5,6 @@ import Selene
 extension Cal {
     struct Header: View {
         @Binding var index: Int
-        @Binding var selection: Int
         let calendar: [Days<Journal>]
         @Environment(\.dismiss) private var dismiss
         
