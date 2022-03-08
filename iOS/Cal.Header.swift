@@ -32,7 +32,7 @@ extension Cal {
                     if !calendar.isEmpty, month < calendar.count, month >= 0 {
                         Text(Calendar.current.date(from: .init(year: calendar[month].year, month: calendar[month].month))!,
                              format: .dateTime.year().month(.wide))
-                            .font(.callout.weight(.medium))
+                            .font(.footnote)
                             .frame(width: 165)
                             .id(month)
                     }
@@ -60,15 +60,10 @@ extension Cal {
                             .contentShape(Rectangle())
                     }
                 }
-                .foregroundColor(.white)
                 .font(.system(size: 24).weight(.light))
                 .symbolRenderingMode(.hierarchical)
-                .padding(.vertical, 7)
-                Rectangle()
-                    .fill(Color(white: 1, opacity: 0.3))
-                    .frame(height: 1)
+                .padding(.vertical, 8)
             }
-            .background(Color.accentColor)
             .animation(.easeInOut(duration: 0.4), value: month)
         }
     }

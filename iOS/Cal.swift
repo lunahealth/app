@@ -14,11 +14,7 @@ struct Cal: View, Equatable {
             .safeAreaInset(edge: .top, spacing: 0) {
                 Header(month: $month, selection: $selection, calendar: calendar)
             }
-            .background(Image("Background")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .edgesIgnoringSafeArea(.all)
-                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude))
+            .background(Color(.secondarySystemBackground))
             .onReceive(cloud) {
                 calendar = $0.calendar
                 month = calendar.count - 1

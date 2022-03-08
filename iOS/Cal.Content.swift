@@ -9,6 +9,7 @@ extension Cal {
         let month: Int
         let calendar: [Days<Journal>]
         @State private var detail = false
+        @Environment(\.colorScheme) private var scheme
         @Namespace private var animation
         
         var body: some View {
@@ -20,13 +21,18 @@ extension Cal {
                           month: calendar[month].items.flatMap { $0 }.filter { $0.content.date <= .now },
                           animation: animation)
                 } else {
-                    Spacer()
                     if calendar.count > month {
-                        Ring(selection: $selection,
-                             detail: $detail,
-                             observatory: observatory,
-                             month: calendar[month].items.flatMap { $0 })
-                            .matchedGeometryEffect(id: "calendar", in: animation)
+                        ZStack {
+                            Color(.tertiarySystemBackground)
+                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
+                            Ring(selection: $selection,
+                                 detail: $detail,
+                                 observatory: observatory,
+                                 month: calendar[month].items.flatMap { $0 })
+                                .matchedGeometryEffect(id: "calendar", in: animation)
+                                .padding(.vertical)
+                        }
+                        .fixedSize(horizontal: false, vertical: true)
                     }
                     Spacer()
                 }

@@ -6,12 +6,14 @@ extension Cal.Month {
     struct Item: View {
         let day: Days<Journal>.Item
         let traits: [Trait]
+        @Environment(\.colorScheme) private var scheme
         
         var body: some View {
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.accentColor.opacity(0.3))
+                        .fill(Color(.tertiarySystemBackground))
+                        .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3)
                     VStack(spacing: 0) {
                         ForEach(traits, id: \.self) { trait in
                             if trait != traits.first {

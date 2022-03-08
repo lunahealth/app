@@ -28,8 +28,10 @@ extension Cal {
             
             Button {
                 detail = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                    selection = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [selection] in
+                    if selection == self.selection {
+                        self.selection = 0
+                    }
                 }
             } label: {
                 Image(systemName: "calendar.circle.fill")
