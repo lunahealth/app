@@ -7,6 +7,7 @@ extension Analysis {
     struct Chart: View, Equatable {
         let trait: Trait
         let value: [Moon.Phase : Level]
+        @Environment(\.colorScheme) private var scheme
         
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
             $0.0.append(Date(timeIntervalSince1970: $0.1 + (.init($1) / 50)))
@@ -14,21 +15,20 @@ extension Analysis {
         
         var body: some View {
             TimelineView(.explicit(dates)) { timeline in
-                
                 Canvas { context, size in
                     let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
                     let percent = index / frames
-                    let vertical = (size.height - 60) / .init(Level.allCases.count)
-                    let horizontal = (size.width - 80) / .init(Moon.Phase.allCases.count - 1)
+                    let vertical = (size.height - 20) / .init(Level.allCases.count)
+                    let horizontal = (size.width - 90) / .init(Moon.Phase.allCases.count - 1)
                     var ys = [Level : CGFloat]()
-                    var y = size.height - (vertical + 20)
+                    var y = size.height - (vertical - 10)
                     
                     Level
                         .allCases
                         .forEach { level in
                             context.draw(Text(Image(systemName: level.symbol))
-                                            .font(.system(size: 12).weight(.light))
-                                            .foregroundColor(.primary), at: .init(x: 24, y: y))
+                                            .font(.system(size: 13).weight(.light))
+                                            .foregroundColor(.primary), at: .init(x: 28, y: y))
                             ys[level] = y
                             y -= vertical
                         }
@@ -36,7 +36,7 @@ extension Analysis {
                     guard index > 1 else { return }
                     
                     var points = [(Moon.Phase, CGPoint)]()
-                    var x = CGFloat(55)
+                    var x = CGFloat(65)
                     var previous = CGPoint.zero
                     
                     context.stroke(.init { path in
@@ -64,7 +64,7 @@ extension Analysis {
                                 x += horizontal
                             }
                         path = path.trimmedPath(from: 0, to: percent)
-                    }, with: .color(.accentColor), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    }, with: .color(scheme == .dark ? .primary : .accentColor), style: .init(lineWidth: 2, lineCap: .round, lineJoin: .round))
 
                     guard percent > 0 else { return }
                     
@@ -75,7 +75,7 @@ extension Analysis {
                             
                             context.fill(.init {
                                 $0.addArc(center: point.1,
-                                          radius: 6,
+                                          radius: 12,
                                           startAngle: .radians(0),
                                           endAngle: .radians(.pi2),
                                           clockwise: true)
@@ -83,19 +83,19 @@ extension Analysis {
                             
                             context.blendMode = .normal
                             
-                            context.stroke(.init {
+                            context.fill(.init {
                                 $0.addArc(center: point.1,
-                                          radius: 4,
+                                          radius: 10,
                                           startAngle: .radians(0),
                                           endAngle: .radians(.pi2),
                                           clockwise: true)
-                            }, with: .color(.primary.opacity(0.75)), lineWidth: 1)
-
+                            }, with: .color(scheme == .dark ? .black : .accentColor.opacity(0.6)))
+                            
                             context
                                 .drawLayer { layer in
                                     layer.draw(phase: point.0,
                                                render: .mini,
-                                               center: .init(x: point.1.x, y: size.height - 22))
+                                               center: point.1)
                                 }
                         }
                 }

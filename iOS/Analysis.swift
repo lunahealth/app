@@ -15,15 +15,41 @@ struct Analysis: View, Equatable {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack {
-                Display(since: $since, analysis: analysis, trait: trait)
-                    .frame(height: display)
-                    .zIndex(-1)
+                ZStack(alignment: .top) {
+                    Color(.tertiarySystemBackground)
+                    if let trait = trait, let analysis = analysis[trait] {
+                        Chart(trait: trait, value: [.new : .bottom,
+                                                    .waxingCrescent : .low,
+                                                    .firstQuarter : .top,
+                                                    .waxingGibbous : .medium,
+                                                    .full : .top,
+                                                    .waningGibbous : .medium,
+                                                    .lastQuarter : .high,
+                                                    .waningCrescent : .medium])
+                            .equatable()
+                            .id(analysis)
+                    }
+                }
+                .frame(height: display)
+                .zIndex(-1)
                 Color(.secondarySystemBackground)
                     .edgesIgnoringSafeArea(.bottom)
             }
             ScrollView {
                 VStack(spacing: 0) {
                     Strip(trait: $trait, traits: traits)
+                    Spacer()
+                        .frame(height: 20)
+                    Picker("Since", selection: $since) {
+                        Text("All")
+                            .tag(Analysing.all)
+                        Text("Month")
+                            .tag(Analysing.month)
+                        Text("Fortnight")
+                            .tag(Analysing.fortnight)
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 280)
                     Spacer()
                         .frame(height: 20)
                     if let trait = trait {
@@ -39,8 +65,9 @@ struct Analysis: View, Equatable {
             Button {
                 dismiss()
             } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: 14))
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 22))
+                    .symbolRenderingMode(.hierarchical)
                     .frame(width: 50, height: 50)
                     .contentShape(Rectangle())
                     .foregroundColor(.secondary)
