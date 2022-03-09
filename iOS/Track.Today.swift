@@ -9,12 +9,12 @@ extension Track {
         var body: some View {
             ZStack {
                 VStack {
-//                    Text("Log your day")
-//                        .font(.body.weight(.medium))
-//                        .foregroundStyle(.primary)
-//                        .padding(.top, 30)
+                    Text("Log your day")
+                        .font(.body.weight(.medium))
+                        .foregroundStyle(.primary)
+                        .padding(.top, 30)
                     Spacer()
-//
+
                     if !status.traits.isEmpty && status.traits.count <= (status.journal?.traits.count ?? 0) {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 35).weight(.light))
