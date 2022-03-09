@@ -10,16 +10,16 @@ extension Analysis {
             ForEach(stats, id: \.level) { item in
                 HStack {
                     Text(item.percent, format: .percent.precision(.significantDigits(2)))
-                        .font(.callout.weight(.light).monospacedDigit())
+                        .font(.body.weight(.light).monospacedDigit())
                         .frame(width: 140, alignment: .trailing)
                     
                     ZStack {
                         Circle()
                             .fill(Color(.tertiarySystemBackground))
-                            .frame(width: 34, height: 34)
+                            .frame(width: 40, height: 40)
                             .modifier(Shadowed())
                         Image(systemName: item.level.symbol)
-                            .font(.system(size: 13).weight(.light))
+                            .font(.system(size: 15).weight(.light))
                     }
                     .fixedSize()
                     .padding(.horizontal, 5)
@@ -29,7 +29,7 @@ extension Analysis {
                         .font(.footnote)
                         .frame(width: 140, alignment: .leading)
                 }
-                .frame(height: 60)
+                .frame(height: 67)
             }
         }
     }

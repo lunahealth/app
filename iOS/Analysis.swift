@@ -44,13 +44,13 @@ struct Analysis: View, Equatable {
                     .pickerStyle(.segmented)
                     .frame(width: 280)
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 30)
                     if let trait = trait {
                         Info(trait: trait, stats: stats)
                             .animation(.easeInOut(duration: 0.3), value: stats)
                     }
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 30)
                 }
                 .background(Color(.secondarySystemBackground))
                 .padding(.top, display)
@@ -70,13 +70,14 @@ struct Analysis: View, Equatable {
             Defaults.currentTrait = value
             
             Task {
-                await update(trait: value)
+                await update(since: since, trait: value)
             }
         }
         .onChange(of: since) { value in
             Defaults.currentSince = value
             Task {
                 await update(since: value)
+                await update(since: since, trait: trait)
             }
         }
         .task {
@@ -87,7 +88,7 @@ struct Analysis: View, Equatable {
                 .flatMap {
                     traits.contains($0) ? $0 : nil
                 } ?? traits.first
-            await update(trait: trait)
+            await update(since: since, trait: trait)
         }
     }
     
@@ -98,10 +99,10 @@ struct Analysis: View, Equatable {
             }
     }
     
-    private func update(trait: Trait?) async {
+    private func update(since: Analysing, trait: Trait?) async {
         guard let trait = trait else { return }
         stats = await cloud
-            .stats(trait: trait)
+            .stats(since: since, trait: trait)
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
