@@ -9,43 +9,28 @@ extension Cal {
         @Environment(\.colorScheme) private var scheme
         
         var body: some View {
-            VStack(spacing: 0) {
+            HStack(spacing: 12) {
                 ForEach(traits, id: \.self) { trait in
-                    HStack(spacing: 0) {
-                        if let level = day.content.traits[trait] {
-                            Text(level.title(for: trait))
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
-                                .frame(width: 115, alignment: .trailing)
-                            Image(systemName: level.symbol)
-                                .font(.system(size: 16).weight(.light))
-                                .frame(width: 45)
-                        } else {
-                            Text("—")
-                                .font(.footnote)
-                                .foregroundStyle(.tertiary)
-                                .frame(width: 115, alignment: .trailing)
-                            Image(systemName: "questionmark")
-                                .font(.system(size: 12).weight(.light))
-                                .foregroundStyle(.tertiary)
-                                .frame(width: 45)
+                    ZStack {
+                        Capsule()
+                            .fill(Color(.secondarySystemBackground))
+                            .modifier(Shadowed())
+                        VStack(spacing: 0) {
+                            if let level = day.content.traits[trait] {
+                                Image(systemName: level.symbol)
+                                    .font(.system(size: 13).weight(.medium))
+                                    .frame(height: 25)
+                            }
+                            Image(systemName: trait.symbol)
+                                .font(.system(size: 12))
+                                .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .primary)
+                                .frame(height: 25)
                         }
-                        Image(systemName: trait.symbol)
-                            .font(.system(size: 14))
-                            .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .primary)
-                            .frame(width: 45)
-                            .offset(x: -4)
-                        Text(trait.title)
-                            .font(.footnote)
-                            .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .secondary)
-                            .frame(width: 120, alignment: .leading)
+                        .padding(.vertical, 10)
                     }
-                    .frame(height: 40)
+                    .frame(width: 34, height: 70)
                 }
-                Spacer()
             }
-            .frame(width: 320)
-            .padding(.top, 10)
         }
     }
 }

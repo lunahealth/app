@@ -35,8 +35,7 @@ struct Cal: View, Equatable {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .edgesIgnoringSafeArea(.bottom)
             .background(Color(.tertiarySystemBackground)
-                            .edgesIgnoringSafeArea(.bottom)
-                            .modifier(Shadowed()))
+                            .edgesIgnoringSafeArea(.bottom))
         }
         .animation(.easeInOut(duration: 0.5), value: index)
         .onChange(of: index) { value in

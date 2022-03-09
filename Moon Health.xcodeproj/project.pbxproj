@@ -33,6 +33,8 @@
 		CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Detail.swift */; };
 		CE8B89A427A03DAE006490BB /* Track.Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A327A03DAE006490BB /* Track.Today.swift */; };
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
+		CE8DD68127D91BDD0093E04A /* Cal.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */; };
+		CE8DD68227D91BDD0093E04A /* Cal.Strip.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */; };
 		CE8F63AF27A461CB00470B70 /* Cal.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F63AE27A461CB00470B70 /* Cal.Item.swift */; };
 		CE96636E27A2AD6A00EF43C1 /* Cal.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */; };
 		CE9B398527832CC20006E8AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398427832CC20006E8AF /* Settings.swift */; };
@@ -48,7 +50,6 @@
 		CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A0278334040006E8AF /* UIApplication.swift */; };
 		CE9B39A3278334270006E8AF /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A2278334270006E8AF /* Froob.swift */; };
 		CE9B39A527833A770006E8AF /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A427833A770006E8AF /* Trait.swift */; };
-		CE9CC56127A55E810008D933 /* Cal.Strip.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CC56027A55E810008D933 /* Cal.Strip.Item.swift */; };
 		CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2296B279C3C770063F124 /* Track.Category.swift */; };
 		CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44A72279ED12C0031DDD0 /* Level.swift */; };
 		CEA7621027AD552700A6019D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA7620F27AD552700A6019D /* WidgetKit.framework */; platformFilter = maccatalyst; };
@@ -70,7 +71,6 @@
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
-		CEB59D1327A40AEC002FDED9 /* Cal.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1227A40AEC002FDED9 /* Cal.Strip.swift */; };
 		CEB59D1527A40D77002FDED9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB59D1427A40D77002FDED9 /* Date.swift */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
 		CEBDAB6F27D4F4C9002E9F01 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
@@ -140,6 +140,8 @@
 		CE8B89A127A02483006490BB /* Home.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Detail.swift; sourceTree = "<group>"; };
 		CE8B89A327A03DAE006490BB /* Track.Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Today.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
+		CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cal.Strip.swift; sourceTree = "<group>"; };
+		CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cal.Strip.Item.swift; sourceTree = "<group>"; };
 		CE8F63AE27A461CB00470B70 /* Cal.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Item.swift; sourceTree = "<group>"; };
 		CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Ring.swift; sourceTree = "<group>"; };
 		CE9B398427832CC20006E8AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -155,7 +157,6 @@
 		CE9B39A0278334040006E8AF /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE9B39A2278334270006E8AF /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
 		CE9B39A427833A770006E8AF /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
-		CE9CC56027A55E810008D933 /* Cal.Strip.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Strip.Item.swift; sourceTree = "<group>"; };
 		CEA2296B279C3C770063F124 /* Track.Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Category.swift; sourceTree = "<group>"; };
 		CEA44A72279ED12C0031DDD0 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		CEA7620E27AD552700A6019D /* Moonhealth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Moonhealth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +176,6 @@
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		CEB59D1227A40AEC002FDED9 /* Cal.Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Strip.swift; sourceTree = "<group>"; };
 		CEB59D1427A40D77002FDED9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
 		CEBDAB6E27D4F4C9002E9F01 /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
@@ -300,8 +300,8 @@
 				CE230B6627ABE92900A80BCE /* Cal.Header.swift */,
 				CE8F63AE27A461CB00470B70 /* Cal.Item.swift */,
 				CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */,
-				CE9CC56027A55E810008D933 /* Cal.Strip.Item.swift */,
-				CEB59D1227A40AEC002FDED9 /* Cal.Strip.swift */,
+				CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */,
+				CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */,
 				CE8B89A527A044CD006490BB /* Cal.swift */,
 				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
@@ -477,11 +477,13 @@
 				CEDA52EA27A80C74004DBDB9 /* SheetBasic.swift in Sources */,
 				CE8B89A227A02483006490BB /* Home.Detail.swift in Sources */,
 				CE230B6727ABE92900A80BCE /* Cal.Header.swift in Sources */,
+				CE8DD68227D91BDD0093E04A /* Cal.Strip.Item.swift in Sources */,
 				CE9B3993278331860006E8AF /* Store.State.swift in Sources */,
 				CE9B3995278331930006E8AF /* Store.Item.swift in Sources */,
 				CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */,
 				CEF8398D276B674900134178 /* App.swift in Sources */,
 				CE9B39912783317A0006E8AF /* Store.swift in Sources */,
+				CE8DD68127D91BDD0093E04A /* Cal.Strip.swift in Sources */,
 				CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */,
 				CE9B39A1278334040006E8AF /* UIApplication.swift in Sources */,
 				CEA79FA627D6457100FD65FB /* Analysis.Info.swift in Sources */,
@@ -500,7 +502,6 @@
 				CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */,
 				CE50FFD0279EF751005C2EE6 /* Track.Item.swift in Sources */,
 				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
-				CEB59D1327A40AEC002FDED9 /* Cal.Strip.swift in Sources */,
 				CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */,
@@ -510,7 +511,6 @@
 				CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */,
 				CE37BE2A27787882004D93D5 /* GraphicsContext.swift in Sources */,
 				CEBDAB6F27D4F4C9002E9F01 /* Render.swift in Sources */,
-				CE9CC56127A55E810008D933 /* Cal.Strip.Item.swift in Sources */,
 				CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */,
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,

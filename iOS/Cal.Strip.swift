@@ -24,7 +24,7 @@ extension Cal {
                         Spacer()
                             .frame(width: 50)
                     }
-                    .frame(height: 100)
+                    .frame(height: 70)
                 }
                 .onChange(of: day) { selected in
                     withAnimation(.easeInOut(duration: 0.35)) {
@@ -35,6 +35,8 @@ extension Cal {
                     proxy.scrollTo(day, anchor: .bottom)
                 }
             }
+            .background(Color(.tertiarySystemBackground)
+                            .modifier(Shadowed()))
         }
     }
 }

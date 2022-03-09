@@ -2,11 +2,9 @@ import SwiftUI
 import Dater
 import Selene
 
-private let pad = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) >= 700
-private let width = 340.0
-private let height = pad ? width : 260
-private let radius = height / 2
-private let center = CGPoint(x: width / 2, y: radius)
+private let size = 340.0
+private let radius = size / 2
+private let center = CGPoint(x: radius, y: radius)
 private let frames = 50.0
 
 extension Cal {
@@ -110,23 +108,23 @@ extension Cal {
                                 if item.today {
                                     context.draw(Text("Today")
                                                     .foregroundColor(.primary)
-                                                    .font(.footnote),
-                                                 at: .init(x: center.x, y: center.y - 22))
+                                                    .font(.callout),
+                                                 at: .init(x: center.x, y: center.y - 24))
                                 }
                                 context.draw(Text(item.value, format: .number)
-                                                .font(.body.weight(.light).monospacedDigit())
+                                                .font(.title3.weight(.light).monospacedDigit())
                                                 .foregroundColor(.primary),
                                              at: .init(x: center.x, y: center.y + 25))
                                 context.draw(Text(item.content.date, format: .dateTime.weekday(.wide))
                                                 .font(.callout)
-                                                .foregroundColor(.secondary),
+                                                .foregroundColor(.primary),
                                              at: center)
                             }
                         }
                 }
             }
-            .frame(width: width, height: height)
-            .padding(.vertical, pad ? 16 : 4)
+            .frame(width: size, height: size)
+            .padding(.vertical, 20)
             .gesture(
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { point in
@@ -154,7 +152,7 @@ extension Cal {
         private func validate(point: CGPoint) -> Bool {
             let distanceX = pow(point.x - center.x, 2)
             let distanceY = pow(center.y - point.y, 2)
-            return distanceX + distanceY < 27_000
+            return distanceX + distanceY < 30_000
         }
         
         private var radPerItem: Double {
