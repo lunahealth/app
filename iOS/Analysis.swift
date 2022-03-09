@@ -1,6 +1,8 @@
 import SwiftUI
 import Selene
 
+private let display = 260.0
+
 struct Analysis: View, Equatable {
     let observatory: Observatory
     @State private var since = Defaults.currentSince
@@ -8,20 +10,42 @@ struct Analysis: View, Equatable {
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
     @State private var stats = [Stats]()
     @State private var trait: Trait?
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack(spacing: 0) {
-            Display(since: $since, analysis: analysis, trait: trait)
-            Strip(trait: $trait, traits: traits)
-            
-            if let trait = trait {
-                Info(trait: trait, stats: stats)
-                    .padding(.top)
-                    .animation(.easeInOut(duration: 0.3), value: stats)
+        ZStack(alignment: .topTrailing) {
+            VStack {
+                Display(since: $since, analysis: analysis, trait: trait)
+                    .frame(height: display)
+                    .zIndex(-1)
+                Color(.secondarySystemBackground)
+                    .edgesIgnoringSafeArea(.bottom)
             }
-            Spacer()
+            ScrollView {
+                VStack(spacing: 0) {
+                    Strip(trait: $trait, traits: traits)
+                    Spacer()
+                        .frame(height: 20)
+                    if let trait = trait {
+                        Info(trait: trait, stats: stats)
+                            .animation(.easeInOut(duration: 0.3), value: stats)
+                    }
+                    Spacer()
+                        .frame(height: 20)
+                }
+                .background(Color(.secondarySystemBackground))
+                .padding(.top, display)
+            }
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 14))
+                    .frame(width: 50, height: 50)
+                    .contentShape(Rectangle())
+                    .foregroundColor(.secondary)
+            }
         }
-        .background(Color(.secondarySystemBackground))
         .onChange(of: trait) { value in
             Defaults.currentTrait = value
             

@@ -18,7 +18,7 @@ extension Analysis {
                 Canvas { context, size in
                     let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
                     let percent = index / frames
-                    let vertical = (size.height - 75) / .init(Level.allCases.count)
+                    let vertical = (size.height - 60) / .init(Level.allCases.count)
                     let horizontal = (size.width - 80) / .init(Moon.Phase.allCases.count - 1)
                     var ys = [Level : CGFloat]()
                     var y = size.height - (vertical + 20)

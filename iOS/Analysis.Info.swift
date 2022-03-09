@@ -29,6 +29,7 @@ extension Analysis {
                         .font(.footnote)
                         .frame(width: 140, alignment: .leading)
                 }
+                .frame(height: 60)
             }
         }
     }
