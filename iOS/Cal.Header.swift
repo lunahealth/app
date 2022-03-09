@@ -9,9 +9,10 @@ extension Cal {
         @Environment(\.dismiss) private var dismiss
         
         var body: some View {
-            HStack(spacing: 0) {
+            HStack(alignment: .top, spacing: 0) {
                 Spacer()
-                    .frame(width: 60)
+                    .frame(width: 45)
+                
                 Spacer()
                 
                 Button {
@@ -20,7 +21,7 @@ extension Cal {
                 } label: {
                     Image(systemName: "chevron.left.circle.fill")
                         .font(.system(size: 24).weight(.light))
-                        .frame(width: 45, height: 45)
+                        .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
                 }
                 .opacity(index < 1 ? 0.3 : 1)
@@ -28,8 +29,8 @@ extension Cal {
                 if !calendar.isEmpty, index < calendar.count, index >= 0 {
                     Text(Calendar.current.date(from: .init(year: calendar[index].year, month: calendar[index].month))!,
                          format: .dateTime.year().month(.wide))
-                        .font(.footnote)
-                        .frame(width: 150)
+                        .font(.callout)
+                        .frame(width: 170, height: 60)
                         .id(index)
                 }
                 
@@ -39,7 +40,7 @@ extension Cal {
                 } label: {
                     Image(systemName: "chevron.right.circle.fill")
                         .font(.system(size: 24).weight(.light))
-                        .frame(width: 45, height: 45)
+                        .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
                 }
                 .opacity(index >= calendar.count - 1 ? 0.3 : 1)
@@ -57,6 +58,8 @@ extension Cal {
                 }
             }
             .symbolRenderingMode(.hierarchical)
+            .background(Color(.tertiarySystemBackground)
+                            .modifier(Shadowed()))
         }
     }
 }

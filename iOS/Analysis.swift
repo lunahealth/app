@@ -61,7 +61,7 @@ struct Analysis: View, Equatable {
                 Image(systemName: "xmark.circle.fill")
                     .font(.system(size: 22))
                     .symbolRenderingMode(.hierarchical)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 45, height: 45)
                     .contentShape(Rectangle())
                     .foregroundColor(.secondary)
             }

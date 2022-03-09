@@ -13,12 +13,8 @@ struct Cal: View, Equatable {
     
     var body: some View {
         VStack(spacing: 0) {
-            VStack(spacing: 0) {
-                Header(index: $index, calendar: calendar)
-                Strip(day: $day, observatory: observatory, month: active)
-            }
-            .background(Color(.tertiarySystemBackground)
-                            .modifier(Shadowed()))
+            Header(index: $index, calendar: calendar)
+            
             ZStack {
                 Color(.secondarySystemBackground)
                 Ring(day: $day,
@@ -27,6 +23,9 @@ struct Cal: View, Equatable {
             }
             .fixedSize(horizontal: false, vertical: true)
             .zIndex(-1)
+            
+            Strip(day: $day, observatory: observatory, month: active)
+            
             TabView(selection: $day) {
                 ForEach(active, id: \.value) { day in
                     Item(day: day, traits: traits)

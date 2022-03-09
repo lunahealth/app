@@ -10,15 +10,9 @@ extension Cal.Strip {
         
         var body: some View {
             Canvas { context, size in
-                if day == today.value {
-                    context.draw(moon: moon,
-                                 render: .small,
-                                 center: .init(x: 26, y: 23))
-                } else {
-                    context.draw(moon: moon,
-                                 render: .mini,
-                                 center: .init(x: 26, y: 23))
-                }
+                context.draw(moon: moon,
+                             render: .small,
+                             center: .init(x: 26, y: 23))
             }
             .opacity(day == today.value ? 1 : 0.5)
             .frame(width: 52, height: 60)

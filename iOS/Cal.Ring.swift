@@ -7,7 +7,7 @@ private let width = 340.0
 private let height = pad ? width : 260
 private let radius = height / 2
 private let center = CGPoint(x: width / 2, y: radius)
-private let frames = 40.0
+private let frames = 50.0
 
 extension Cal {
     struct Ring: View {
@@ -15,7 +15,7 @@ extension Cal {
         let observatory: Observatory
         let month: [Days<Journal>.Item]
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
-            $0.0.append(Date(timeIntervalSince1970: $0.1 + (.init($1) / 40)))
+            $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.1 + (.init($1) / 40)))
         }.0
         
         var body: some View {
@@ -41,8 +41,8 @@ extension Cal {
                                 context.stroke(.init {
                                     $0.addArc(center: center,
                                               radius: radius - 36,
-                                              startAngle: .radians(start + 0.04),
-                                              endAngle: .radians(end - 0.04),
+                                              startAngle: .radians(start + 0.07),
+                                              endAngle: .radians(end - 0.07),
                                               clockwise: false)
                                 }, with: .color(.accentColor),
                                                style: .init(lineWidth: 62, lineCap: .butt))
