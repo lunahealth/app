@@ -26,9 +26,19 @@ extension Analysis {
                     Level
                         .allCases
                         .forEach { level in
+                            let point = CGPoint(x: 28, y: y)
+                            
+                            context.fill(.init {
+                                $0.addArc(center: point,
+                                          radius: 12,
+                                          startAngle: .radians(0),
+                                          endAngle: .radians(.pi2),
+                                          clockwise: true)
+                            }, with: .color(scheme == .dark ? .black : .accentColor.opacity(0.15)))
+                            
                             context.draw(Text(Image(systemName: level.symbol))
-                                            .font(.system(size: 13).weight(.light))
-                                            .foregroundColor(.primary), at: .init(x: 28, y: y))
+                                            .font(.system(size: 10).weight(.light))
+                                            .foregroundColor(.primary), at: point)
                             ys[level] = y
                             y -= vertical
                         }
@@ -64,7 +74,7 @@ extension Analysis {
                                 x += horizontal
                             }
                         path = path.trimmedPath(from: 0, to: percent)
-                    }, with: .color(scheme == .dark ? .primary : .accentColor), style: .init(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                    }, with: .color(scheme == .dark ? .primary : .accentColor), style: .init(lineWidth: 1, lineCap: .round, lineJoin: .round))
 
                     guard percent > 0 else { return }
                     
@@ -75,7 +85,7 @@ extension Analysis {
                             
                             context.fill(.init {
                                 $0.addArc(center: point.1,
-                                          radius: 12,
+                                          radius: 11,
                                           startAngle: .radians(0),
                                           endAngle: .radians(.pi2),
                                           clockwise: true)
@@ -85,7 +95,7 @@ extension Analysis {
                             
                             context.fill(.init {
                                 $0.addArc(center: point.1,
-                                          radius: 10,
+                                          radius: 9,
                                           startAngle: .radians(0),
                                           endAngle: .radians(.pi2),
                                           clockwise: true)
