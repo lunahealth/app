@@ -12,7 +12,9 @@ struct Track: View {
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
             } else {
-                Today(status: status, animation: animation)
+                ForEach(status.traits, id: \.self) { trait in
+                    Category(status: status, trait: trait, animation: animation)
+                }
             }
         }
         .sheet(isPresented: $status.preferences, content: Settings.Traits.init)

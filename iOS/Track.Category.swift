@@ -6,6 +6,7 @@ extension Track {
         @ObservedObject var status: Track.Status
         let trait: Trait
         let animation: Namespace.ID
+        @Environment(\.colorScheme) private var scheme
         
         var body: some View {
             Button {
@@ -13,38 +14,46 @@ extension Track {
                     status.trait = trait
                 }
             } label: {
-                ZStack {
-                    Capsule()
-                        .fill(.primary)
-                        .foregroundColor(status.journal?.traits[trait] == nil ? .init(.tertiarySystemBackground) : .accentColor)
-                        .modifier(Shadowed())
-                    HStack(spacing: 0) {
-                        Image(systemName: trait.symbol)
-                            .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                            .font(.system(size: 16).weight(.light))
-                            .foregroundColor(status.journal?.traits[trait] == nil ? trait.color : .white)
-                            .frame(width: 42)
-                            .padding(.leading, 8)
-                        
-                        Text(trait.title)
-                            .matchedGeometryEffect(id: "\(trait).text", in: animation)
-                            .font(.caption)
-                            .foregroundColor(status.journal?.traits[trait] == nil ? .primary : .white)
-                            .frame(width: 60, alignment: .center)
-                        
-                        
+                VStack(spacing: 4) {
+                    ZStack {
                         if let level = status.journal?.traits[trait] {
-                            Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                                .font(.system(size: 15).weight(.medium))
-                                .frame(width: 42)
-                                .padding(.trailing, 8)
+                            Capsule()
+                                .fill(Color(.tertiarySystemBackground))
+                                .frame(width: 92, height: 42)
+                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.4), radius: 4)
+                            HStack(spacing: 0) {
+                                Image(systemName: trait.symbol)
+                                    .matchedGeometryEffect(id: "\(trait).image", in: animation)
+                                    .font(.system(size: 13))
+                                    .frame(width: 35)
+                                Image(systemName: level.symbol)
+                                    .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
+                                    .font(.system(size: 15).weight(.medium))
+                                    .frame(width: 35)
+                            }
+                            .padding(.horizontal, 10)
+                            .foregroundColor(.secondary)
                         } else {
-                            Spacer()
+                            Circle()
+                                .fill(scheme == .dark ? .black : Color.accentColor)
+                                .frame(width: 42, height: 42)
+                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.4), radius: 4)
+                            Circle()
+                                .fill(trait.color)
+                                .frame(width: 40, height: 40)
+                            Image(systemName: trait.symbol)
+                                .matchedGeometryEffect(id: "\(trait).image", in: animation)
+                                .font(.system(size: 13))
+                                .foregroundColor(.white)
                         }
                     }
+                    Text(trait.title)
+                        .matchedGeometryEffect(id: "\(trait).text", in: animation)
+                        .font(.caption)
+                        .foregroundStyle(status.journal?.traits[trait] == nil ? .primary : .secondary)
+                        .zIndex(-1)
                 }
-                .frame(width: 160, height: 40)
-                .padding(.vertical, 6)
+                .padding(.vertical, 7)
             }
             .foregroundColor(.secondary)
             .id(trait)

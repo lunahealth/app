@@ -37,11 +37,11 @@ struct Home: View {
                         .frame(height: 150)
                         .frame(maxWidth: maxWidth)
                         .opacity(track ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.3), value: track)
+                        .animation(.easeInOut(duration: 0.4), value: track)
                     
-                    if track {
-                        Track()
-                    }
+                    Track()
+                        .opacity(track ? 1 : 0)
+                        .animation(.easeInOut(duration: 0.4), value: track)
                 }
             }
         }

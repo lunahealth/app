@@ -8,6 +8,7 @@ extension Home {
         let date: Date
         let track: Bool
         @State private var calendar = false
+        @State private var completed = false
         
         var body: some View {
             HStack {
@@ -20,6 +21,7 @@ extension Home {
                 + Text("\n")
                 + Text(date, format: .dateTime.year(.defaultDigits).month(.wide).day(.defaultDigits).weekday(.wide))
                     .font(.callout)
+                
                 Spacer()
                 
                 Button {
@@ -37,9 +39,21 @@ extension Home {
                     Cal(observatory: observatory)
                         .equatable()
                 }
+                
+                if track && completed {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 30).weight(.light))
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundColor(.primary)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 10)
+            .onReceive(cloud) {
+                let traits = $0.settings.traits
+                let journal = $0[.now]
+                completed = !traits.isEmpty && traits.count <= (journal?.traits.count ?? 0)
+            }
         }
     }
 }

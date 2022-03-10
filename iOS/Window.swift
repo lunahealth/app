@@ -28,7 +28,7 @@ struct Window: View {
                                 track = false
                             } label: {
                                 Label("Back", systemImage: "chevron.left")
-                                    .padding(.horizontal, 7)
+                                    .padding(.horizontal, 5)
                             }
                             .buttonStyle(.borderedProminent)
                             .tint(.pink)
