@@ -2,6 +2,8 @@ import SwiftUI
 import WidgetKit
 import Selene
 
+private let maxWidth = 550.0
+
 struct Home: View {
     let observatory: Observatory
     @Binding var date: Date
@@ -17,7 +19,11 @@ struct Home: View {
             
             if let moon = moon {
                 Group {
-                    Control(date: $date, navigator: $navigator, moon: moon, track: track)
+                    Control(date: $date,
+                            navigator: $navigator,
+                            moon: moon,
+                            track: track,
+                            maxWidth: maxWidth)
                     
                     if let wheel = navigator {
                         Render(current: wheel.origin,
@@ -30,13 +36,16 @@ struct Home: View {
                         Info(date: $date, moon: moon)
                             .padding(.horizontal, 90)
                             .frame(height: 150)
+                            .frame(maxWidth: maxWidth)
+                            .opacity(track ? 0 : 1)
+                            .animation(.easeInOut(duration: 0.3), value: track)
                     }
                 }
             }
         }
         .safeAreaInset(edge: .top, spacing: 0) {
             if let moon = moon {
-                Detail(observatory: observatory, moon: moon, date: date)
+                Detail(observatory: observatory, moon: moon, date: date, track: track)
             }
         }
         .onReceive(cloud) {

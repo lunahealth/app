@@ -18,22 +18,38 @@ struct Window: View {
                                title: "Settings",
                                symbol: "gear")
                             .padding(.leading)
+                            .opacity(track ? 0 : 1)
                             .sheet(isPresented: $settings, content: Settings.init)
                         
                         Spacer()
                         
-                        Button {
-                            date = .now
-                            track = true
-                        } label: {
-                            ZStack {
-                                Image("Track")
-                                Text("Track")
-                                    .font(.system(size: 13).weight(.medium))
-                                    .foregroundColor(.black)
+                        if track {
+                            Button {
+                                track = false
+                            } label: {
+                                ZStack {
+                                    Image("Track")
+                                    Text("Moon")
+                                        .font(.system(size: 13).weight(.medium))
+                                        .foregroundColor(.black)
+                                }
+                                .fixedSize()
+                                .contentShape(Rectangle())
                             }
-                            .fixedSize()
-                            .contentShape(Rectangle())
+                        } else {
+                            Button {
+                                date = .now
+                                track = true
+                            } label: {
+                                ZStack {
+                                    Image("Track")
+                                    Text("Track")
+                                        .font(.system(size: 13).weight(.medium))
+                                        .foregroundColor(.black)
+                                }
+                                .fixedSize()
+                                .contentShape(Rectangle())
+                            }
                         }
                         
                         Spacer()
@@ -42,12 +58,12 @@ struct Window: View {
                                title: "Analysis",
                                symbol: "chart.line.uptrend.xyaxis")
                             .padding(.trailing)
+                            .opacity(track ? 0 : 1)
                             .sheet(isPresented: $analysis) {
                                 Analysis(observatory: observatory)
                                     .equatable()
                             }
                     }
-                    .opacity(track ? 0 : 1)
                     .padding(.bottom, 10)
                     .animation(.easeInOut(duration: 0.3), value: track)
             }

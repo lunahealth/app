@@ -6,6 +6,7 @@ extension Home {
         let observatory: Observatory
         let moon: Moon
         let date: Date
+        let track: Bool
         @State private var calendar = false
         
         var body: some View {
@@ -30,6 +31,8 @@ extension Home {
                         .frame(width: 40, height: 40)
                         .contentShape(Rectangle())
                 }
+                .opacity(track ? 0 : 1)
+                .animation(.easeInOut(duration: 0.3), value: track)
                 .sheet(isPresented: $calendar) {
                     Cal(observatory: observatory)
                         .equatable()
