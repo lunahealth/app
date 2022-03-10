@@ -3,9 +3,9 @@ import Selene
 
 extension Home {
     struct Render: View {
-        let moon: Moon
-        let wheel: Wheel
         @State var current: CGPoint
+        let moon: Moon
+        let navigator: Navigator
         @State private var trail = [CGPoint]()
         private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
@@ -27,12 +27,12 @@ extension Home {
                              center: current)
             }
             .onReceive(timer) { _ in
-                if wheel.origin != current {
+                if navigator.origin != current {
                     trail.append(current)
-                    current = wheel.approach(from: current)
+                    current = navigator.approach(from: current)
                 }
                 
-                if wheel.origin == current || trail.count > 35 {
+                if navigator.origin == current || trail.count > 35 {
                     if !trail.isEmpty {
                         trail.removeFirst()
                     }

@@ -6,8 +6,9 @@ private let pad = 45.0
 extension Home {
     struct Control: View {
         @Binding var date: Date
-        @Binding var wheel: Wheel?
+        @Binding var navigator: Navigator?
         let moon: Moon
+        let track: Bool
         
         var body: some View {
             GeometryReader { proxy in
@@ -19,18 +20,21 @@ extension Home {
                     .padding(pad)
                     .contentShape(Rectangle())
                     .onChange(of: proxy.size) {
-                        update(moon: moon, size: $0)
+                        update(moon: moon, size: $0, track: track)
                     }
                     .onChange(of: moon) {
-                        update(moon: $0, size: proxy.size)
+                        update(moon: $0, size: proxy.size, track: track)
+                    }
+                    .onChange(of: track) {
+                        update(moon: moon, size: proxy.size, track: $0)
                     }
                     .onAppear {
-                        update(moon: moon, size: proxy.size)
+                        update(moon: moon, size: proxy.size, track: track)
                     }
                     .gesture(
                         DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged { value in
-                                if let move = wheel?.move(point: value.location) {
+                                if let move = navigator?.move(point: value.location) {
                                     date = move
                                 }
                             }
@@ -38,8 +42,8 @@ extension Home {
             }
         }
         
-        private func update(moon: Moon, size: CGSize) {
-            wheel = .init(date: date, moon: moon, correction: .pi_2, size: size, padding: pad)
+        private func update(moon: Moon, size: CGSize, track: Bool) {
+            navigator = track ? Tracker() : Wheel(date: date, moon: moon, correction: .pi_2, size: size, padding: pad)
         }
     }
 }

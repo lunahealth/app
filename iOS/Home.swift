@@ -5,8 +5,9 @@ import Selene
 struct Home: View {
     let observatory: Observatory
     @Binding var date: Date
+    let track: Bool
     @State private var moon: Moon?
-    @State private var wheel: Wheel?
+    @State private var navigator: Navigator?
     private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
@@ -16,17 +17,21 @@ struct Home: View {
             
             if let moon = moon {
                 Group {
-                    Control(date: $date, wheel: $wheel, moon: moon)
-                    if let wheel = wheel {
-                        Render(moon: moon, wheel: wheel, current: wheel.origin)
+                    Control(date: $date, navigator: $navigator, moon: moon, track: track)
+                    
+                    if let wheel = navigator {
+                        Render(current: wheel.origin,
+                               moon: moon,
+                               navigator: wheel)
                             .allowsHitTesting(false)
                     }
                     
-                    Info(date: $date, moon: moon)
-                        .padding(.horizontal, 90)
-                        .frame(height: 150)
+                    if !track {
+                        Info(date: $date, moon: moon)
+                            .padding(.horizontal, 90)
+                            .frame(height: 150)
+                    }
                 }
-                .frame(maxWidth: 550)
             }
         }
         .safeAreaInset(edge: .top, spacing: 0) {
