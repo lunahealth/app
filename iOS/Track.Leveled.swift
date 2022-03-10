@@ -27,7 +27,6 @@ extension Track {
             .frame(maxWidth: .greatestFiniteMagnitude)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    status.previous = status.trait
                     withAnimation(.easeInOut(duration: 0.35)) {
                         status.level = nil
                         status.trait = nil

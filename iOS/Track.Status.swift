@@ -7,7 +7,6 @@ extension Track {
         @Published var preferences = false
         @Published var trait: Trait?
         @Published var level: Level?
-        @Published var previous: Trait?
         @Published private(set) var traits = [Trait]()
         @Published private(set) var journal: Journal?
         let date = Date.now

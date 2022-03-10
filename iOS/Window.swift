@@ -27,15 +27,13 @@ struct Window: View {
                             Button {
                                 track = false
                             } label: {
-                                ZStack {
-                                    Image("Track")
-                                    Text("Moon")
-                                        .font(.system(size: 13).weight(.medium))
-                                        .foregroundColor(.black)
-                                }
-                                .fixedSize()
-                                .contentShape(Rectangle())
+                                Label("Back", systemImage: "chevron.left")
+                                    .padding(.horizontal, 7)
                             }
+                            .buttonStyle(.borderedProminent)
+                            .tint(.pink)
+                            .buttonBorderShape(.capsule)
+                            .padding(.bottom)
                         } else {
                             Button {
                                 date = .now

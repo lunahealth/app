@@ -32,13 +32,15 @@ struct Home: View {
                             .allowsHitTesting(false)
                     }
                     
-                    if !track {
-                        Info(date: $date, moon: moon)
-                            .padding(.horizontal, 90)
-                            .frame(height: 150)
-                            .frame(maxWidth: maxWidth)
-                            .opacity(track ? 0 : 1)
-                            .animation(.easeInOut(duration: 0.3), value: track)
+                    Info(date: $date, moon: moon)
+                        .padding(.horizontal, 90)
+                        .frame(height: 150)
+                        .frame(maxWidth: maxWidth)
+                        .opacity(track ? 0 : 1)
+                        .animation(.easeInOut(duration: 0.3), value: track)
+                    
+                    if track {
+                        Track()
                     }
                 }
             }

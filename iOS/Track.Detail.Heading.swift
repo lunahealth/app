@@ -11,7 +11,6 @@ extension Track.Detail {
             ZStack(alignment: .top) {
                 HStack {
                     Button {
-                        status.previous = status.trait
                         withAnimation(.easeInOut(duration: 0.3)) {
                             status.trait = nil
                         }
@@ -29,8 +28,6 @@ extension Track.Detail {
                     
                     if status.journal?.traits[trait] != nil {
                         Button {
-                            status.previous = status.trait
-                            
                             Task {
                                 await cloud.remove(trait: trait)
                             }

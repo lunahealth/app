@@ -12,7 +12,7 @@ extension Settings.Traits {
                     Image(systemName: trait.symbol)
                         .font(.system(size: 16))
                         .foregroundColor(active ? trait.color : .init(.tertiaryLabel))
-                        .frame(width: 34, height: 34)
+                        .frame(width: 40, height: 46)
                     Text(trait.title)
                         .font(.callout)
                         .foregroundColor(active ? .primary : .secondary)
