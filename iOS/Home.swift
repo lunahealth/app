@@ -39,7 +39,7 @@ struct Home: View {
                         .opacity(track ? 0 : 1)
                         .animation(.easeInOut(duration: 0.4), value: track)
                     
-                    Track()
+                    Track(track: track)
                         .opacity(track ? 1 : 0)
                         .animation(.easeInOut(duration: 0.4), value: track)
                 }

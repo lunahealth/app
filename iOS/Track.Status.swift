@@ -7,11 +7,11 @@ extension Track {
         @Published var preferences = false
         @Published var trait: Trait?
         @Published var level: Level?
+        @Published var first = true
         @Published private(set) var traits = [Trait]()
         @Published private(set) var journal: Journal?
-        let date = Date.now
-        private var first = true
         private var subs = Set<AnyCancellable>()
+        private let date = Date.now
         
         init() {
             cloud
@@ -26,10 +26,6 @@ extension Track {
                         .sorted()
                     
                     self.journal = model[self.date]
-                    
-                    if self.first && self.traits.isEmpty {
-                        self.preferences = true
-                    }
                 }
                 .store(in: &subs)
         }

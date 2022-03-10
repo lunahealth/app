@@ -2,6 +2,7 @@ import SwiftUI
 import Selene
 
 struct Track: View {
+    let track: Bool
     @StateObject private var status = Status()
     @Namespace private var animation
     
@@ -15,6 +16,12 @@ struct Track: View {
                 ForEach(status.traits, id: \.self) { trait in
                     Category(status: status, trait: trait, animation: animation)
                 }
+            }
+        }
+        .onChange(of: track) {
+            if $0 && status.first && status.traits.isEmpty {
+                status.first = false
+                status.preferences = true
             }
         }
         .sheet(isPresented: $status.preferences, content: Settings.Traits.init)
