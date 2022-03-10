@@ -39,8 +39,8 @@ extension Cal {
                                 context.stroke(.init {
                                     $0.addArc(center: center,
                                               radius: radius - 36,
-                                              startAngle: .radians(start + 0.07),
-                                              endAngle: .radians(end - 0.07),
+                                              startAngle: .radians(start + 0.08),
+                                              endAngle: .radians(end - 0.08),
                                               clockwise: false)
                                 }, with: .color(.accentColor),
                                                style: .init(lineWidth: 62, lineCap: .butt))
