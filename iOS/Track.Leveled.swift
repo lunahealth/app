@@ -9,30 +9,38 @@ extension Track {
         let animation: Namespace.ID
         
         var body: some View {
-            VStack(spacing: 20) {
-                Spacer()
-                Image(systemName: trait.symbol)
-                    .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                    .font(.largeTitle.weight(.light))
-                    .foregroundColor(trait.color)
-                Track.Item(trait: trait, level: level, selected: true, animation: animation)
-                    .font(.system(size: 26).weight(.medium))
-                    .frame(width: 70, height: 70)
-                Text(trait.title)
-                    .matchedGeometryEffect(id: "\(trait).text", in: animation)
-                    .font(.title3)
-                    .minimumScaleFactor(0.1)
-                Spacer()
+            ZStack {
+                Capsule()
+                    .fill(trait.color)
+                    .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
+                    .frame(width: 52, height: 140)
+                    .modifier(ShadowedHard())
+                VStack(spacing: 0) {
+                    Image(systemName: level.symbol)
+                        .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
+                        .font(.system(size: 20).weight(.medium))
+                        .frame(height: 60)
+                    Image(systemName: trait.symbol)
+                        .matchedGeometryEffect(id: "\(trait).image", in: animation)
+                        .font(.system(size: 24))
+                        .frame(height: 60)
+                }
+                .foregroundColor(.white)
+                .padding(.vertical, 10)
             }
-            .frame(maxWidth: .greatestFiniteMagnitude)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    withAnimation(.easeInOut(duration: 0.35)) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                    withAnimation(.easeInOut(duration: 0.45)) {
                         status.level = nil
                         status.trait = nil
                     }
                 }
             }
+            Text(trait.title)
+                .matchedGeometryEffect(id: "\(trait).text", in: animation)
+                .font(.callout.weight(.medium))
+                .minimumScaleFactor(0.1)
+                .padding(.top)
         }
     }
 }

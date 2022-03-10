@@ -18,9 +18,13 @@ extension Track {
                     ZStack {
                         if let level = status.journal?.traits[trait] {
                             Capsule()
-                                .fill(Color(.tertiarySystemBackground))
+                                .fill(Color(.systemBackground))
                                 .frame(width: 92, height: 42)
-                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.4), radius: 4)
+                                .modifier(ShadowedHard())
+                            Capsule()
+                                .fill(Color(.systemFill))
+                                .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
+                                .frame(width: 92, height: 42)
                             HStack(spacing: 0) {
                                 Image(systemName: trait.symbol)
                                     .matchedGeometryEffect(id: "\(trait).image", in: animation)
@@ -37,9 +41,10 @@ extension Track {
                             Circle()
                                 .fill(scheme == .dark ? .black : Color.accentColor)
                                 .frame(width: 42, height: 42)
-                                .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.4), radius: 4)
+                                .modifier(ShadowedHard())
                             Circle()
                                 .fill(trait.color)
+                                .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
                                 .frame(width: 40, height: 40)
                             Image(systemName: trait.symbol)
                                 .matchedGeometryEffect(id: "\(trait).image", in: animation)
