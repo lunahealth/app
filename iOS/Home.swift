@@ -47,7 +47,7 @@ struct Home: View {
         }
         .safeAreaInset(edge: .top, spacing: 0) {
             if let moon = moon {
-                Detail(observatory: observatory, moon: moon, date: date, track: track)
+                Header(date: $date, observatory: observatory, moon: moon, track: track)
             }
         }
         .onReceive(cloud) {

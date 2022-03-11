@@ -24,7 +24,7 @@ extension Home {
                         .font(.body.weight(.medium))
                         .frame(maxWidth: .greatestFiniteMagnitude)
                 } else {
-                    Button(date.offset) {
+                    Button("date.offset") {
                         date = .now
                     }
                     .font(.callout)
