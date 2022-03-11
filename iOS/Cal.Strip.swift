@@ -8,6 +8,7 @@ extension Cal {
         let observatory: Observatory
         let month: [Days<Journal>.Item]
         private let haptics = UIImpactFeedbackGenerator(style: .soft)
+        private let audio = Audio()
 
         var body: some View {
             ScrollViewReader { proxy in
@@ -33,6 +34,10 @@ extension Cal {
                 .onChange(of: day) { selected in
                     if Defaults.enableHaptics {
                         haptics.impactOccurred()
+                    }
+                    
+                    if Defaults.enableSounds {
+                        audio.play()
                     }
                     
                     withAnimation(.easeInOut(duration: 0.35)) {
