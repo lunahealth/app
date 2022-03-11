@@ -2,7 +2,7 @@ import Foundation
 import CoreGraphics
 
 private let maxOpacity = 0.97
-private let maxDelta = 0.03
+private let maxDelta = 0.05
 
 extension Stars.Model {
     struct Item {
