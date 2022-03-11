@@ -31,7 +31,9 @@ extension Cal {
                 .background(Color(.tertiarySystemBackground)
                                 .modifier(Shadowed()))
                 .onChange(of: day) { selected in
-                    haptics.impactOccurred()
+                    if Defaults.enableHaptics {
+                        haptics.impactOccurred()
+                    }
                     
                     withAnimation(.easeInOut(duration: 0.35)) {
                         proxy.scrollTo(selected, anchor: .bottom)
@@ -39,7 +41,10 @@ extension Cal {
                 }
                 .onAppear {
                     proxy.scrollTo(day, anchor: .bottom)
-                    haptics.prepare()
+                    
+                    if Defaults.enableHaptics {
+                        haptics.prepare()
+                    }
                 }
             }
         }

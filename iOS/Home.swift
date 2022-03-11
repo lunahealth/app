@@ -61,11 +61,17 @@ struct Home: View {
         }
         .onChange(of: date) {
             moon = observatory.moon(for: $0)
-            haptics.impactOccurred()
+            
+            if Defaults.enableHaptics {
+                haptics.impactOccurred()
+            }
         }
         .onAppear {
             moon = observatory.moon(for: date)
-            haptics.prepare()
+            
+            if Defaults.enableHaptics {
+                haptics.prepare()
+            }
         }
     }
 }

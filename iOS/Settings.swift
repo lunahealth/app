@@ -29,6 +29,7 @@ struct Settings: View {
                 }
                 .headerProminence(.increased)
                 
+                Effects()
                 Delete()
                 Notifications()
                 
