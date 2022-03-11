@@ -10,6 +10,7 @@ struct Cal: View, Equatable {
     @State private var month = [Days<Journal>.Item]()
     @State private var active = [Days<Journal>.Item]()
     @State private var traits = [Trait]()
+    @State private var preferences = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -30,17 +31,33 @@ struct Cal: View, Equatable {
                 .fill(Color.primary.opacity(0.1))
                 .frame(height: 1)
             
-            TabView(selection: $day) {
-                ForEach(active, id: \.value) { day in
-                    Item(day: day, traits: traits)
-                        .tag(day.value)
+            if traits.isEmpty {
+                Spacer()
+                
+                Button {
+                    preferences = true
+                } label: {
+                    Text("Adjust preferences")
+                        .font(.footnote)
                 }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                
+                Spacer()
+            } else {
+                TabView(selection: $day) {
+                    ForEach(active, id: \.value) { day in
+                        Item(day: day, traits: traits)
+                            .tag(day.value)
+                    }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .background(Color(.tertiarySystemBackground))
+                .zIndex(1)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .background(Color(.tertiarySystemBackground))
-            .zIndex(1)
         }
         .animation(.easeInOut(duration: 0.5), value: index)
+        .sheet(isPresented: $preferences, content: Settings.Traits.init)
         .onChange(of: index) { value in
             if day > 1 {
                 day = 1

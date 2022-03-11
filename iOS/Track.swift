@@ -12,6 +12,16 @@ struct Track: View {
                 Leveled(status: status, trait: trait, level: level, animation: animation)
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
+            } else if status.traits.isEmpty {
+                Button {
+                    status.preferences = true
+                } label: {
+                    Text("Adjust preferences")
+                        .font(.callout)
+                }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .modifier(ShadowedHard())
             } else {
                 ForEach(status.traits, id: \.self) { trait in
                     Category(status: status, trait: trait, animation: animation)

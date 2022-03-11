@@ -10,6 +10,7 @@ struct Analysis: View, Equatable {
     @State private var analysis = [Trait : [Moon.Phase : Level]]()
     @State private var stats = [Stats]()
     @State private var trait: Trait?
+    @State private var preferences = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -17,10 +18,18 @@ struct Analysis: View, Equatable {
             VStack {
                 ZStack(alignment: .top) {
                     Color(.tertiarySystemBackground)
-                    if let trait = trait, let analysis = analysis[trait] {
-                        Chart(trait: trait, value: analysis)
-                            .equatable()
-                            .id(analysis)
+                    
+                    if traits.isEmpty {
+                        Text("Not enough data yet")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .padding(.top)
+                    } else {
+                        if let trait = trait, let analysis = analysis[trait] {
+                            Chart(trait: trait, value: analysis)
+                                .equatable()
+                                .id(analysis)
+                        }
                     }
                 }
                 .frame(height: display)
@@ -43,12 +52,27 @@ struct Analysis: View, Equatable {
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 280)
+                    
                     Spacer()
                         .frame(height: 30)
-                    if let trait = trait {
-                        Info(trait: trait, stats: stats)
-                            .animation(.easeInOut(duration: 0.3), value: stats)
+                    
+                    if traits.isEmpty {
+                        Button {
+                            preferences = true
+                        } label: {
+                            Text("Adjust preferences")
+                                .font(.footnote)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.capsule)
+                        .padding(.top)
+                    } else {
+                        if let trait = trait {
+                            Info(trait: trait, stats: stats)
+                                .animation(.easeInOut(duration: 0.3), value: stats)
+                        }
                     }
+                    
                     Spacer()
                         .frame(height: 30)
                 }
@@ -66,6 +90,7 @@ struct Analysis: View, Equatable {
                     .foregroundColor(.secondary)
             }
         }
+        .sheet(isPresented: $preferences, content: Settings.Traits.init)
         .onChange(of: trait) { value in
             Defaults.currentTrait = value
             
@@ -80,15 +105,22 @@ struct Analysis: View, Equatable {
                 await update(since: since, trait: trait)
             }
         }
-        .task {
-            await update(since: since)
-            traits = await cloud.model.settings.traits.sorted()
+        .onReceive(cloud) {
+            traits = $0.settings.traits.sorted()
             trait = Defaults
                 .currentTrait
                 .flatMap {
                     traits.contains($0) ? $0 : nil
                 } ?? traits.first
-            await update(since: since, trait: trait)
+            
+            Task {
+                await update(since: since)
+                await update(since: since, trait: trait)
+            }
+            
+            if traits.isEmpty {
+                preferences = true
+            }
         }
     }
     
