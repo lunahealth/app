@@ -10,7 +10,7 @@ struct Home: View {
     let track: Bool
     @State private var moon: Moon?
     @State private var navigator: Navigator?
-    private let haptics = UIImpactFeedbackGenerator(style: .soft)
+    private let haptics = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
         ZStack {
