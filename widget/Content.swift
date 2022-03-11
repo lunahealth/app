@@ -12,20 +12,20 @@ struct Content: View {
                              render: .regular,
                              center: .init(x: Render.regular.radius + pad, y: Render.regular.radius + pad))
             }
+            .accentColor(.init("AccentColor"))
             
             VStack(alignment: .trailing, spacing: 0) {
                 Spacer()
                 Text(entry.moon.fraction, format: .number)
                     .font(.title.weight(.medium).monospacedDigit())
                 + Text("%")
-                    .font(.caption)
+                    .font(.caption.monospacedDigit())
                 Text(entry.moon.phase.name)
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 14)
             }
             .foregroundColor(.white)
-            .padding(.trailing, pad)
+            .padding(.trailing, 16)
             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
         }
         .background(Image("Background"))
