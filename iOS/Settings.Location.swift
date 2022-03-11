@@ -8,18 +8,25 @@ extension Settings {
         @State private var region = MKCoordinateRegion()
         @State private var loaded = false
         @Environment(\.dismiss) private var dismiss
+        @Environment(\.colorScheme) private var scheme
         
         var body: some View {
-            VStack {
+            VStack(spacing: 0) {
                 if loaded {
                     Map(coordinateRegion: $region,
                         showsUserLocation: true,
                         userTrackingMode: .constant(.none))
                         .edgesIgnoringSafeArea(.all)
                 }
+                
+                Rectangle()
+                    .fill(Color(white: 0, opacity: scheme == .dark ? 1 : 0.4))
+                    .frame(height: 1)
+                
                 Text(.init(Copy.location))
-                    .font(.footnote)
-                    .padding()
+                    .font(.callout)
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical, 30)
                 
                 LocationButton(.currentLocation) {
                     locator.manager.requestLocation()
@@ -28,20 +35,21 @@ extension Settings {
                 .symbolVariant(.fill)
                 .clipShape(Capsule())
                 .font(.callout)
+                .padding(.vertical, 30)
                 
                 Button {
                     Task {
                         await save(latitude: region.center.latitude, longitude: region.center.longitude)
                     }
                 } label: {
-                    Text("Use map position")
-                        .font(.footnote)
-                        .frame(height: 45)
+                    Text("Location from Map")
+                        .font(.callout)
                         .contentShape(Rectangle())
                 }
-                .buttonStyle(.borderless)
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .tint(.secondary)
-                .padding(.bottom)
+                .padding(.bottom, 30)
             }
             .onChange(of: locator.coordinate) {
                 if let coordinate = $0 {

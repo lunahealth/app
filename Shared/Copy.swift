@@ -6,7 +6,8 @@ No In-App Purchases available at the moment, try again later.
 """
     
     static let location = """
-Update your location to follow the Moon.
+Choose your location
+to follow the Moon
 """
     
     static let notifications = """

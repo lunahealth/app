@@ -10,9 +10,9 @@ extension Settings.Traits {
             Toggle(isOn: $active) {
                 HStack {
                     Image(systemName: trait.symbol)
-                        .font(.system(size: 16))
+                        .font(.system(size: 18).weight(.medium))
                         .foregroundColor(active ? trait.color : .init(.tertiaryLabel))
-                        .frame(width: 40, height: 46)
+                        .frame(width: 40, height: 48)
                     Text(trait.title)
                         .font(.callout)
                         .foregroundColor(active ? .primary : .secondary)

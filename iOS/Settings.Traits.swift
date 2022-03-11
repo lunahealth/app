@@ -9,7 +9,7 @@ extension Settings {
         var body: some View {
             NavigationView {
                 List {
-                    Section("Choose the traits you want to track.") {
+                    Section("What you want to track") {
                         ForEach(all, id: \.self) { trait in
                             Item(trait: trait)
                         }
@@ -19,7 +19,7 @@ extension Settings {
                 .navigationTitle("Traits")
                 .navigationBarTitleDisplayMode(.inline)
                 .toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                .listStyle(.grouped)
+                .listStyle(.insetGrouped)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
