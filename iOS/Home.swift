@@ -7,9 +7,10 @@ private let maxWidth = 550.0
 struct Home: View {
     let observatory: Observatory
     @Binding var date: Date
-    let track: Bool
+    @Binding var track: Bool
     @State private var moon: Moon?
     @State private var navigator: Navigator?
+    @State private var calendar = false
     private let haptics = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
@@ -32,12 +33,23 @@ struct Home: View {
                             .allowsHitTesting(false)
                     }
                     
-                    Info(date: $date, moon: moon)
-                        .padding(.horizontal, 90)
-                        .frame(height: 150)
-                        .frame(maxWidth: maxWidth)
-                        .opacity(track ? 0 : 1)
-                        .animation(.easeInOut(duration: 0.4), value: track)
+                    Button {
+                        date = .now
+                        calendar = true
+                    } label: {
+                        Image(systemName: "calendar.circle.fill")
+                            .font(.system(size: 42).weight(.light))
+                            .symbolRenderingMode(.hierarchical)
+                            .tint(.white)
+                            .frame(width: 40, height: 40)
+                            .contentShape(Rectangle())
+                    }
+                    .opacity(track ? 0 : 1)
+                    .animation(.easeInOut(duration: 0.3), value: track)
+                    .sheet(isPresented: $calendar) {
+                        Cal(observatory: observatory)
+                            .equatable()
+                    }
                     
                     Track(track: track)
                         .opacity(track ? 1 : 0)
@@ -47,7 +59,7 @@ struct Home: View {
         }
         .safeAreaInset(edge: .top, spacing: 0) {
             if let moon = moon {
-                Header(date: $date, observatory: observatory, moon: moon, track: track)
+                Header(date: $date, track: $track, observatory: observatory, moon: moon)
             }
         }
         .onReceive(cloud) {

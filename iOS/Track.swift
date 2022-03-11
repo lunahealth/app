@@ -19,10 +19,8 @@ struct Track: View {
             }
         }
         .onChange(of: track) {
-            if $0 && status.first && status.traits.isEmpty {
-                status.first = false
-                status.preferences = true
-            }
+            guard $0 else { return }
+            status.refresh.send()
         }
         .sheet(isPresented: $status.preferences, content: Settings.Traits.init)
     }

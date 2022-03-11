@@ -77,7 +77,6 @@
 		CEDA52EC27A83DD1004DBDB9 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA52EB27A83DD1004DBDB9 /* Plus.swift */; };
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
-		CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400D2771F1FD005A99E9 /* Home.Info.swift */; };
 		CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400F277202C9005A99E9 /* Home.Render.swift */; };
 		CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Media.xcassets */; };
 		CEF8398D276B674900134178 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8398C276B674900134178 /* App.swift */; };
@@ -180,7 +179,6 @@
 		CEDA52ED27A8412F004DBDB9 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		CEE3400D2771F1FD005A99E9 /* Home.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Info.swift; sourceTree = "<group>"; };
 		CEE3400F277202C9005A99E9 /* Home.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Render.swift; sourceTree = "<group>"; };
 		CEE3401227721C2A005A99E9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEF83989276B674900134178 /* Moonhealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonhealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,7 +301,6 @@
 				CE9B39A2278334270006E8AF /* Froob.swift */,
 				CEAFCF03277350C800CFEE46 /* Home.Control.swift */,
 				CE8B89A127A02483006490BB /* Home.Header.swift */,
-				CEE3400D2771F1FD005A99E9 /* Home.Info.swift */,
 				CEE3400F277202C9005A99E9 /* Home.Render.swift */,
 				CEE3400B2771F005005A99E9 /* Home.swift */,
 				CEB0A76227872EB900B5F5BF /* Info.swift */,
@@ -488,7 +485,6 @@
 				CE62AEC827997CFA000E7470 /* Window.Option.swift in Sources */,
 				CE281D0C279B0F9600C8BA3C /* Stars.Model.swift in Sources */,
 				CEF8399F276B6DC300134178 /* Locator.swift in Sources */,
-				CEE3400E2771F1FD005A99E9 /* Home.Info.swift in Sources */,
 				CE281D0E279B102100C8BA3C /* Stars.Model.Item.swift in Sources */,
 				CEDA52EC27A83DD1004DBDB9 /* Plus.swift in Sources */,
 				CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */,

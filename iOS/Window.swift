@@ -11,46 +11,29 @@ struct Window: View {
     @State private var observatory = Observatory()
     
     var body: some View {
-        Home(observatory: observatory, date: $date, track: track)
+        Home(observatory: observatory, date: $date, track: $track)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                     HStack {
                         Option(active: $settings,
                                title: "Settings",
                                symbol: "gear")
                             .padding(.leading)
-                            .opacity(track ? 0 : 1)
                             .sheet(isPresented: $settings, content: Settings.init)
                         
                         Spacer()
                         
-                        if track {
-                            Button {
-                                track = false
-                            } label: {
-                                Label("Back", systemImage: "chevron.left.circle.fill")
-                                    .symbolRenderingMode(.hierarchical)
-                                    .imageScale(.large)
-                                    .font(.callout)
-                                    .padding(.horizontal, 2)
+                        Button {
+                            date = .now
+                            track = true
+                        } label: {
+                            ZStack {
+                                Image("Track")
+                                Text("Track")
+                                    .font(.system(size: 13).weight(.medium))
+                                    .foregroundColor(.black)
                             }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.accentColor)
-                            .buttonBorderShape(.capsule)
-                            .padding(.bottom)
-                        } else {
-                            Button {
-                                date = .now
-                                track = true
-                            } label: {
-                                ZStack {
-                                    Image("Track")
-                                    Text("Track")
-                                        .font(.system(size: 13).weight(.medium))
-                                        .foregroundColor(.black)
-                                }
-                                .fixedSize()
-                                .contentShape(Rectangle())
-                            }
+                            .fixedSize()
+                            .contentShape(Rectangle())
                         }
                         
                         Spacer()
@@ -59,13 +42,14 @@ struct Window: View {
                                title: "Analysis",
                                symbol: "chart.line.uptrend.xyaxis")
                             .padding(.trailing)
-                            .opacity(track ? 0 : 1)
                             .sheet(isPresented: $analysis) {
                                 Analysis(observatory: observatory)
                                     .equatable()
                             }
                     }
-                    .padding(.bottom, 10)
+                    .frame(height: track ? 0 : nil)
+                    .opacity(track ? 0 : 1)
+                    .padding(.bottom, track ? 0 : 10)
                     .animation(.easeInOut(duration: 0.3), value: track)
             }
             .sheet(isPresented: $location) {

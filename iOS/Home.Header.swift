@@ -4,9 +4,9 @@ import Selene
 extension Home {
     struct Header: View {
         @Binding var date: Date
+        @Binding var track: Bool
         let observatory: Observatory
         let moon: Moon
-        let track: Bool
         @State private var calendar = false
         @State private var completed = false
         
@@ -52,8 +52,18 @@ extension Home {
                     if completed {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 32).weight(.light))
-                            .padding(.trailing)
                     }
+                    Spacer()
+                    Button {
+                        track = false
+                    } label: {
+                        Text("Done")
+                            .padding(.horizontal, 2)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.white)
+                    .buttonBorderShape(.capsule)
+                    .padding(.trailing)
                 } else {
                     Button {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? .now
@@ -64,26 +74,6 @@ extension Home {
                             .contentShape(Rectangle())
                     }
                 }
-                
-//                Spacer()
-//
-//                Button {
-//                    calendar = true
-//                } label: {
-//                    Image(systemName: "calendar")
-//                        .font(.system(size: 22).weight(.light))
-//                        .tint(.primary)
-//                        .frame(width: 40, height: 40)
-//                        .contentShape(Rectangle())
-//                }
-//                .opacity(track ? 0 : 1)
-//                .animation(.easeInOut(duration: 0.3), value: track)
-//                .sheet(isPresented: $calendar) {
-//                    Cal(observatory: observatory)
-//                        .equatable()
-//                }
-//
-                
             }
             .symbolRenderingMode(.hierarchical)
             .foregroundColor(.white)
