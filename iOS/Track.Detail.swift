@@ -32,7 +32,7 @@ extension Track {
                     Item(status: status, trait: trait, level: level, animation: animation)
                 }
             }
-            .padding(.vertical, 20)
+            .padding(.vertical)
             
             Button {
                 Task {

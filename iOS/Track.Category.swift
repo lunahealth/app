@@ -43,7 +43,7 @@ extension Track {
                                 .frame(width: 42, height: 42)
                                 .modifier(ShadowedHard())
                             Circle()
-                                .fill(Color(white: 0, opacity: scheme == .dark ? 1 : 0.5))
+                                .fill(Color(white: 0, opacity: scheme == .dark ? 1 : 0.2))
                                 .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
                                 .frame(width: 40, height: 40)
                             Image(systemName: trait.symbol)
