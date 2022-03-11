@@ -27,11 +27,14 @@ struct Window: View {
                             Button {
                                 track = false
                             } label: {
-                                Label("Back", systemImage: "chevron.left")
-                                    .padding(.horizontal, 5)
+                                Label("Back", systemImage: "chevron.left.circle.fill")
+                                    .symbolRenderingMode(.hierarchical)
+                                    .imageScale(.large)
+                                    .font(.callout)
+                                    .padding(.horizontal, 2)
                             }
                             .buttonStyle(.borderedProminent)
-                            .tint(.pink)
+                            .tint(.accentColor)
                             .buttonBorderShape(.capsule)
                             .padding(.bottom)
                         } else {

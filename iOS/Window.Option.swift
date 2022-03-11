@@ -17,7 +17,7 @@ extension Window {
                     Text(title)
                         .font(.system(size: 11))
                 }
-                .tint(.primary)
+                .tint(.white)
                 .frame(width: 74)
                 .contentShape(Rectangle())
             }

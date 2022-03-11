@@ -12,15 +12,19 @@ extension Home {
         
         var body: some View {
             HStack {
-                Text(moon.fraction, format: .number)
-                    .font(.title.weight(.medium).monospacedDigit())
-                + Text("% ")
-                    .font(.caption)
-                + Text(moon.phase.name)
-                    .font(.footnote)
-                + Text("\n")
-                + Text(date, format: .dateTime.year(.defaultDigits).month(.wide).day(.defaultDigits).weekday(.wide))
-                    .font(.callout)
+                Group {
+                    Text(moon.fraction, format: .number)
+                        .font(.title.weight(.medium).monospacedDigit())
+                    + Text("% ")
+                        .font(.caption)
+                    + Text(moon.phase.name)
+                        .font(.footnote)
+                    + Text("\n")
+                    + Text(date, format: .dateTime.year(.defaultDigits).month(.wide).day(.defaultDigits).weekday(.wide))
+                        .font(.callout)
+                }
+                .foregroundColor(.white)
+                .modifier(ShadowedHard())
                 
                 Spacer()
                 
