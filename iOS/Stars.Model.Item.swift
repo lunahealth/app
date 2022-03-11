@@ -1,6 +1,9 @@
 import Foundation
 import CoreGraphics
 
+private let maxOpacity = 0.97
+private let maxDelta = 0.03
+
 extension Stars.Model {
     struct Item {
         let radius: Double
@@ -13,12 +16,12 @@ extension Stars.Model {
         private let step: Int
         
         static func new(size: CGSize) -> Self {
-            .init(radius: .random(in: 0.2 ... 3),
-                  x: .random(in: 0 ..< size.width),
+            .init(radius: .random(in: 0.6 ... 2),
+                  x: .random(in: 0 ..< size.width * 2),
                   y: .random(in: 0 ..< size.height),
-                  opacity: .random(in: 0 ... 0.95),
+                  opacity: .random(in: 0 ... maxOpacity),
                   direction: .random(),
-                  delta: .random(in: 0 ... 0.01),
+                  delta: .random(in: 0 ... maxDelta),
                   step: 0,
                   blur: 0)
         }
@@ -63,7 +66,7 @@ extension Stars.Model {
                              y: y,
                              opacity: opacity,
                              direction: .random(),
-                             delta: .random(in: 0 ... 0.01),
+                             delta: .random(in: 0 ... maxDelta),
                              step: 0,
                              blur: 0)
             }
@@ -97,7 +100,7 @@ extension Stars.Model {
         }
         
         private var apply: Double {
-            max(min(direction ? opacity + delta : opacity - delta, 0.95), 0)
+            max(min(direction ? opacity + delta : opacity - delta, maxOpacity), 0)
         }
     }
 }

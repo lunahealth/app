@@ -17,6 +17,7 @@ struct Home: View {
         ZStack {
             Stars()
                 .equatable()
+                .edgesIgnoringSafeArea(.all)
             
             if let moon = moon {
                 Group {
