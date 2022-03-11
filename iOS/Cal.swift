@@ -26,6 +26,10 @@ struct Cal: View, Equatable {
             
             Strip(day: $day, observatory: observatory, month: active)
             
+            Rectangle()
+                .fill(Color.primary.opacity(0.1))
+                .frame(height: 1)
+            
             TabView(selection: $day) {
                 ForEach(active, id: \.value) { day in
                     Item(day: day, traits: traits)
@@ -33,9 +37,8 @@ struct Cal: View, Equatable {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .edgesIgnoringSafeArea(.bottom)
-            .background(Color(.tertiarySystemBackground)
-                            .edgesIgnoringSafeArea(.bottom))
+            .background(Color(.tertiarySystemBackground))
+            .zIndex(1)
         }
         .animation(.easeInOut(duration: 0.5), value: index)
         .onChange(of: index) { value in

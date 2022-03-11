@@ -19,16 +19,17 @@ extension Cal {
                             if let level = day.content.traits[trait] {
                                 Image(systemName: level.symbol)
                                     .font(.system(size: 13).weight(.medium))
-                                    .frame(height: 25)
+                                    .frame(height: 30)
                             }
                             Image(systemName: trait.symbol)
                                 .font(.system(size: 12))
                                 .foregroundStyle(day.content.traits[trait] == nil ? .tertiary : .primary)
-                                .frame(height: 25)
+                                .frame(height: 30)
                         }
                         .padding(.vertical, 10)
                     }
-                    .frame(width: 34, height: 70)
+                    .frame(width: 36)
+                    .fixedSize(horizontal: false, vertical: true)
                 }
             }
         }

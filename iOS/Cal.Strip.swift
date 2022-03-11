@@ -17,7 +17,7 @@ extension Cal {
                             .frame(width: 30)
                         
                         ForEach(month, id: \.value) {
-                            Item(day: $day, today: $0, moon: observatory.moon(for: $0.content.date))
+                            Item(day: $day, item: $0, moon: observatory.moon(for: $0.content.date))
                                 .tag($0.value)
                                 .id($0.value)
                         }
@@ -25,8 +25,11 @@ extension Cal {
                         Spacer()
                             .frame(width: 30)
                     }
-                    .frame(height: 70)
+                    .frame(height: 64)
                 }
+                .edgesIgnoringSafeArea(.all)
+                .background(Color(.tertiarySystemBackground)
+                                .modifier(Shadowed()))
                 .onChange(of: day) { selected in
                     haptics.impactOccurred()
                     
@@ -39,8 +42,6 @@ extension Cal {
                     haptics.prepare()
                 }
             }
-            .background(Color(.tertiarySystemBackground)
-                            .modifier(Shadowed()))
         }
     }
 }
