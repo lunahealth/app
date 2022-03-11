@@ -20,6 +20,8 @@ struct Track: View {
         }
         .onChange(of: track) {
             guard $0 else { return }
+            status.level = nil
+            status.trait = nil
             status.refresh.send()
         }
         .sheet(isPresented: $status.preferences, content: Settings.Traits.init)

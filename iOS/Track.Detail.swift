@@ -13,26 +13,18 @@ extension Track {
                     status.trait = nil
                 }
             } label: {
-                VStack(spacing: 0) {
+                ZStack {
+                    Circle()
+                        .fill(trait.color)
+                        .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
+                        .modifier(ShadowedHard())
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                        .font(.system(size: 22))
+                        .font(.system(size: 16))
                         .foregroundColor(.white)
-                    ZStack {
-                        Capsule()
-                            .fill(trait.color)
-                            .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                            .modifier(ShadowedHard())
-                        Text(trait.title)
-                            .matchedGeometryEffect(id: "\(trait).text", in: animation)
-                            .font(.callout.weight(.medium))
-                            .foregroundColor(.white)
-                            .minimumScaleFactor(0.1)
-                    }
-                    .frame(width: 110, height: 30)
-                    .padding(.top, 8)
-                    .padding(.bottom)
                 }
+                .frame(width: 48, height: 48)
+                .padding(.bottom)
             }
             
             HStack(spacing: 0) {
@@ -40,7 +32,7 @@ extension Track {
                     Item(status: status, trait: trait, level: level, animation: animation)
                 }
             }
-            .padding(.vertical, 40)
+            .padding(.vertical, 20)
             
             Button {
                 Task {
@@ -52,8 +44,11 @@ extension Track {
                 }
             } label: {
                 Text("Cancel")
-                    .font(.callout)
+                    .font(.callout.weight(.medium))
             }
+            .foregroundStyle(.secondary)
+            .foregroundColor(.white)
+            .tint(.white)
             .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)
             .padding(.top)
