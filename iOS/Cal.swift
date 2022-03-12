@@ -67,13 +67,17 @@ struct Cal: View, Equatable {
         .onReceive(cloud) {
             traits = $0.settings.traits.sorted()
             calendar = $0.calendar
-            index = calendar.count - 1
-            update(index: index)
-            day = month
-                .filter {
-                    $0.content.date <= .now
-                }
-                .count
+            
+            if day == 0 {
+                index = calendar.count - 1
+                update(index: index)
+                
+                day = month
+                    .filter {
+                        $0.content.date <= .now
+                    }
+                    .count
+            }
         }
     }
     

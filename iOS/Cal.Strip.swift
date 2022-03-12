@@ -31,7 +31,12 @@ extension Cal {
                 .edgesIgnoringSafeArea(.all)
                 .background(Color(.tertiarySystemBackground)
                                 .modifier(Shadowed()))
-                .onChange(of: day) { selected in
+                .onChange(of: day) { [previous = day] selected in
+                    guard selected != previous, previous != 0 else {
+                        proxy.scrollTo(selected, anchor: .bottom)
+                        return
+                    }
+                    
                     if Defaults.enableHaptics {
                         haptics.impactOccurred()
                     }

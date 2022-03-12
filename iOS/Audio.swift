@@ -12,10 +12,10 @@ final class Audio {
     
     private func detachedPlay() {
         guard
-            let file = Bundle.main.url(forResource: "Basso", withExtension: "aiff"),
+            let file = Bundle.main.url(forResource: "Tink", withExtension: "aiff"),
             let item = try? AVAudioPlayer(contentsOf: file)
         else { return }
-        
+        item.volume = 0.5
         items.insert(item)
         item.play()
     }
