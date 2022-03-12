@@ -11,7 +11,7 @@ struct Home: View {
     @State private var moon: Moon?
     @State private var navigator: Navigator?
     @State private var calendar = false
-    private let haptics = UIImpactFeedbackGenerator(style: .medium)
+    private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
         ZStack {
