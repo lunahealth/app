@@ -23,8 +23,10 @@ struct Track: View {
                 .buttonBorderShape(.capsule)
                 .modifier(Shadowed(level: .medium))
             } else {
-                ForEach(status.traits, id: \.self) { trait in
-                    Category(status: status, trait: trait, animation: animation)
+                VStack(spacing: 18) {
+                    ForEach(status.traits, id: \.self) { trait in
+                        Category(status: status, trait: trait, animation: animation)
+                    }
                 }
             }
         }

@@ -23,7 +23,7 @@ extension Shadowed {
             case .medium:
                 return 0.4
             case .maximum:
-                return 0.55
+                return 0.5
             }
         }
     }

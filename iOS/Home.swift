@@ -20,42 +20,40 @@ struct Home: View {
                 .edgesIgnoringSafeArea(.all)
             
             if let moon = moon {
-                Group {
-                    Control(date: $date,
-                            navigator: $navigator,
-                            moon: moon,
-                            track: track,
-                            maxWidth: maxWidth)
-                    
-                    if let wheel = navigator {
-                        Render(current: wheel.origin,
-                               moon: moon,
-                               navigator: wheel)
-                            .allowsHitTesting(false)
-                    }
-                    
-                    Button {
-                        date = .now
-                        calendar = true
-                    } label: {
-                        Image(systemName: "calendar.circle.fill")
-                            .font(.system(size: 42).weight(.light))
-                            .symbolRenderingMode(.hierarchical)
-                            .tint(.white)
-                            .frame(width: 40, height: 40)
-                            .contentShape(Rectangle())
-                    }
-                    .opacity(track ? 0 : 1)
-                    .animation(.easeInOut(duration: 0.3), value: track)
-                    .sheet(isPresented: $calendar) {
-                        Cal(observatory: observatory)
-                            .equatable()
-                    }
-                    
-                    Track(track: track)
-                        .opacity(track ? 1 : 0)
-                        .animation(.easeInOut(duration: 0.4), value: track)
+                Control(date: $date,
+                        navigator: $navigator,
+                        moon: moon,
+                        track: track,
+                        maxWidth: maxWidth)
+                
+                if let wheel = navigator {
+                    Render(current: wheel.origin,
+                           moon: moon,
+                           navigator: wheel)
+                        .allowsHitTesting(false)
                 }
+                
+                Button {
+                    date = .now
+                    calendar = true
+                } label: {
+                    Image(systemName: "calendar.circle.fill")
+                        .font(.system(size: 42).weight(.light))
+                        .symbolRenderingMode(.hierarchical)
+                        .tint(.white)
+                        .frame(width: 40, height: 40)
+                        .contentShape(Rectangle())
+                }
+                .opacity(track ? 0 : 1)
+                .animation(.easeInOut(duration: 0.3), value: track)
+                .sheet(isPresented: $calendar) {
+                    Cal(observatory: observatory)
+                        .equatable()
+                }
+                
+                Track(track: track)
+                    .opacity(track ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.4), value: track)
             }
         }
         .safeAreaInset(edge: .top, spacing: 0) {

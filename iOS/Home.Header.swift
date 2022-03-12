@@ -20,6 +20,7 @@ extension Home {
                             .font(.system(size: 26).weight(.light))
                             .frame(width: 40, height: 40)
                             .contentShape(Rectangle())
+                            .padding(.top, 5)
                     }
                 }
                 
@@ -27,21 +28,20 @@ extension Home {
                     Spacer()
                     if !Calendar.current.isDateInToday(date) {
                         Text(date, format: .dateTime.year(.defaultDigits).month(.defaultDigits).day(.defaultDigits).weekday(.abbreviated))
-                            .font(.system(size: 15).weight(.medium))
-                            .padding(.bottom, 3)
+                            .font(.system(size: 12).weight(.medium))
                     }
                     
                     Text(moon.fraction, format: .number)
                         .font(.system(size: 50).weight(.light).monospacedDigit())
                     + Text("%")
-                        .font(.system(size: 20).weight(.light).monospacedDigit())
+                        .font(.system(size: 20).weight(.medium).monospacedDigit())
                     
                     Text(moon.phase.name)
                         .font(.system(size: 14).weight(.medium))
-                        .padding(.top, 3)
+                        .padding(.top, 2)
                 }
-                .frame(width: 170, height: 115)
-                .modifier(Shadowed(level: .medium))
+                .frame(width: 140, height: 105)
+                .modifier(Shadowed(level: .maximum))
                 
                 if track {
                     Spacer()
@@ -68,6 +68,7 @@ extension Home {
                             .font(.system(size: 26).weight(.light))
                             .frame(width: 40, height: 40)
                             .contentShape(Rectangle())
+                            .padding(.top, 5)
                     }
                 }
             }
