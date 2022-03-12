@@ -54,6 +54,7 @@ extension Home {
                         track = false
                     } label: {
                         Text("Done")
+                            .fontWeight(.medium)
                             .padding(.horizontal, 2)
                     }
                     .buttonStyle(.bordered)
