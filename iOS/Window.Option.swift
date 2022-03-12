@@ -10,12 +10,13 @@ extension Window {
             Button {
                 active = true
             } label: {
-                VStack(spacing: 4) {
+                VStack(spacing: 0) {
                     Image(systemName: symbol)
-                        .font(.system(size: 22))
-                        .frame(height: 25)
+                        .font(.system(size: 22).weight(.medium))
+                        .frame(height: 30)
                     Text(title)
                         .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
                 }
                 .tint(.white)
                 .frame(width: 74)

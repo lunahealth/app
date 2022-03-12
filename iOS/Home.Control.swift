@@ -17,10 +17,10 @@ extension Home {
                     Spacer()
                     Circle()
                         .stroke(LinearGradient(gradient: .init(colors: [
-                            .init(white: 1, opacity: 0.4),
-                            .init(white: 1, opacity: 0)]), startPoint: .top, endPoint: .bottom), style: .init(lineWidth: 9))
-                        .shadow(color: .accentColor.opacity(0.5), radius: 10)
-                        .padding(pad)
+                            .init(white: 1, opacity: 0.3),
+                            .init(white: 1, opacity: 0)]), startPoint: .top, endPoint: .bottom), style: .init(lineWidth: 6))
+                        .shadow(color: .accentColor, radius: 10)
+                        .padding(pad - 7)
                         .contentShape(Rectangle())
                         .frame(maxWidth: maxWidth)
                         .opacity(track ? 0 : 1)

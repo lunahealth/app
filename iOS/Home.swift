@@ -38,10 +38,10 @@ struct Home: View {
                     calendar = true
                 } label: {
                     Image(systemName: "calendar.circle.fill")
-                        .font(.system(size: 42).weight(.light))
+                        .font(.system(size: 44).weight(.ultraLight))
                         .symbolRenderingMode(.hierarchical)
                         .tint(.white)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 50, height: 50)
                         .contentShape(Rectangle())
                 }
                 .opacity(track ? 0 : 1)
