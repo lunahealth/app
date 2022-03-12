@@ -23,7 +23,7 @@ extension Track.Detail {
                         Circle()
                             .fill(Color(white: 0, opacity: scheme == .dark ? 1 : 0.3))
                             .frame(width: 48, height: 48)
-                            .modifier(ShadowedHard())
+                            .modifier(Shadowed(level: .medium))
                         Circle()
                             .fill(selected ? Color.accentColor : .white)
                             .matchedGeometryEffect(id: "\(trait).\(level).circle", in: animation)

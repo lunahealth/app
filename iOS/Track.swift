@@ -21,7 +21,7 @@ struct Track: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
-                .modifier(ShadowedHard())
+                .modifier(Shadowed(level: .medium))
             } else {
                 ForEach(status.traits, id: \.self) { trait in
                     Category(status: status, trait: trait, animation: animation)

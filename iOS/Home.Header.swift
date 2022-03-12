@@ -41,7 +41,7 @@ extension Home {
                         .padding(.top, 3)
                 }
                 .frame(width: 170, height: 115)
-                .modifier(ShadowedHard())
+                .modifier(Shadowed(level: .medium))
                 
                 if track {
                     Spacer()

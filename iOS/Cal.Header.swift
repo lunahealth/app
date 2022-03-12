@@ -59,7 +59,7 @@ extension Cal {
             }
             .symbolRenderingMode(.hierarchical)
             .background(Color(.tertiarySystemBackground)
-                            .modifier(Shadowed()))
+                            .modifier(Shadowed(level: .minimum)))
         }
     }
 }

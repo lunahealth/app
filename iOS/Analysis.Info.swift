@@ -17,7 +17,7 @@ extension Analysis {
                         Circle()
                             .fill(Color(.tertiarySystemBackground))
                             .frame(width: 40, height: 40)
-                            .modifier(Shadowed())
+                            .modifier(Shadowed(level: .minimum))
                         Image(systemName: item.level.symbol)
                             .font(.system(size: 15).weight(.light))
                     }

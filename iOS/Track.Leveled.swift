@@ -14,7 +14,7 @@ extension Track {
                     .fill(trait.color)
                     .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
                     .frame(width: 45, height: 100)
-                    .modifier(ShadowedHard())
+                    .modifier(Shadowed(level: .medium))
                 VStack(spacing: 0) {
                     Image(systemName: level.symbol)
                         .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)

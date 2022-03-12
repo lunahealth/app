@@ -30,7 +30,7 @@ extension Cal {
                 }
                 .edgesIgnoringSafeArea(.all)
                 .background(Color(.tertiarySystemBackground)
-                                .modifier(Shadowed()))
+                                .modifier(Shadowed(level: .minimum)))
                 .onChange(of: day) { [previous = day] selected in
                     guard selected != previous, previous != 0 else {
                         proxy.scrollTo(selected, anchor: .bottom)

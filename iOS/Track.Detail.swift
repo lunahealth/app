@@ -17,7 +17,7 @@ extension Track {
                     Circle()
                         .fill(trait.color)
                         .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                        .modifier(ShadowedHard())
+                        .modifier(Shadowed(level: .medium))
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.system(size: 16))

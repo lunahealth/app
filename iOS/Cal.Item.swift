@@ -14,7 +14,7 @@ extension Cal {
                     ZStack {
                         Capsule()
                             .fill(Color(.secondarySystemBackground))
-                            .modifier(Shadowed())
+                            .modifier(Shadowed(level: .minimum))
                         VStack(spacing: 0) {
                             if let level = day.content.traits[trait] {
                                 Image(systemName: level.symbol)
