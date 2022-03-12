@@ -25,26 +25,22 @@ extension Home {
                 
                 VStack(alignment: track ? .leading : .center, spacing: 0) {
                     Spacer()
-                    if Calendar.current.isDateInToday(date) {
-                        Text("Today")
-                            .font(.callout.weight(.medium))
-                            .padding(.bottom, 3)
-                    } else {
+                    if !Calendar.current.isDateInToday(date) {
                         Text(date, format: .dateTime.year(.defaultDigits).month(.defaultDigits).day(.defaultDigits).weekday(.abbreviated))
-                            .font(.callout.weight(.medium))
+                            .font(.system(size: 15).weight(.medium))
                             .padding(.bottom, 3)
                     }
                     
                     Text(moon.fraction, format: .number)
-                        .font(.largeTitle.weight(.medium).monospacedDigit())
+                        .font(.system(size: 50).weight(.light).monospacedDigit())
                     + Text("%")
-                        .font(.title3.weight(.medium).monospacedDigit())
+                        .font(.system(size: 20).weight(.light).monospacedDigit())
                     
                     Text(moon.phase.name)
-                        .font(.footnote.weight(.medium))
+                        .font(.system(size: 14).weight(.medium))
                         .padding(.top, 3)
                 }
-                .frame(width: 170, height: 90)
+                .frame(width: 170, height: 115)
                 .modifier(ShadowedHard())
                 
                 if track {
