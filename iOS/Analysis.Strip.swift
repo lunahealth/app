@@ -11,7 +11,7 @@ extension Analysis {
             border
             ZStack {
                 Color(.secondarySystemBackground)
-                    .shadow(color: .black.opacity(scheme == .dark ? 1 : 0.15), radius: 3, y: -4)
+                    .shadow(color: .black.opacity(scheme == .dark ? 0.3 : 0.08), radius: 3, y: -4)
                 HStack(spacing: 0) {
                     ForEach(traits, id: \.self) { item in
                         Button {
