@@ -2,9 +2,10 @@ import SwiftUI
 import Dater
 import Selene
 
+private let pad = 20.0
 private let size = 340.0
 private let radius = size / 2
-private let center = CGPoint(x: radius, y: radius)
+private let center = CGPoint(x: radius, y: radius + pad)
 private let frames = 50.0
 
 extension Cal {
@@ -123,8 +124,7 @@ extension Cal {
                         }
                 }
             }
-            .frame(width: size, height: size)
-            .padding(.vertical, 20)
+            .frame(width: size, height: size + pad + pad)
             .gesture(
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { point in

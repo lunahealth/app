@@ -26,6 +26,7 @@ struct Cal: View, Equatable {
             .zIndex(-1)
             
             Strip(day: $day, observatory: observatory, month: active)
+                .zIndex(2)
             
             Rectangle()
                 .fill(Color.primary.opacity(0.1))
@@ -52,6 +53,7 @@ struct Cal: View, Equatable {
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                .edgesIgnoringSafeArea(.all)
                 .background(Color(.tertiarySystemBackground))
                 .zIndex(1)
             }
