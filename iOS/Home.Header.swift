@@ -44,22 +44,28 @@ extension Home {
                 .modifier(Shadowed(level: .maximum))
                 
                 if track {
+                    
                     Spacer()
-                    if completed {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 32).weight(.light))
+                    VStack(alignment: .trailing) {
+                        Button {
+                            track = false
+                        } label: {
+                            Text("Done")
+                                .fontWeight(.medium)
+                                .padding(.horizontal, 2)
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(.white)
+                        .buttonBorderShape(.capsule)
+                        
+                        Label("Completed!", systemImage: "checkmark.circle.fill")
+                            .font(.body)
+                            .imageScale(.large)
+                            .modifier(Shadowed(level: .medium))
+                            .padding(.top, 5)
+                            .opacity(completed ? 1 : 0)
+                            .animation(.easeInOut(duration: 0.4), value: completed)
                     }
-                    Spacer()
-                    Button {
-                        track = false
-                    } label: {
-                        Text("Done")
-                            .fontWeight(.medium)
-                            .padding(.horizontal, 2)
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.white)
-                    .buttonBorderShape(.capsule)
                     .padding(.trailing)
                 } else {
                     Button {
