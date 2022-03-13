@@ -15,7 +15,7 @@ final class Audio {
             let file = Bundle.main.url(forResource: "Tink", withExtension: "aiff"),
             let item = try? AVAudioPlayer(contentsOf: file)
         else { return }
-        item.volume = 0.5
+        item.volume = 0.4
         items.insert(item)
         item.play()
     }

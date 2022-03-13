@@ -7,6 +7,8 @@ extension Cal {
         @Binding var day: Int
         let active: [Days<Journal>.Item]
         let traits: [Trait]
+        private let haptics = UIImpactFeedbackGenerator(style: .soft)
+        private let audio = Audio()
         
         var body: some View {
             TabView(selection: $day) {
@@ -17,7 +19,23 @@ extension Cal {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .animation(.easeInOut(duration: 0.4), value: day)
-            .zIndex(1)
+            .background(Color(.tertiarySystemBackground))
+            .onChange(of: day) { [previous = day] selected in
+                guard selected != previous, previous != 0 else { return }
+                
+                if Defaults.enableHaptics {
+                    haptics.impactOccurred()
+                }
+                
+                if Defaults.enableSounds {
+                    audio.play()
+                }
+            }
+            .onAppear {
+                if Defaults.enableHaptics {
+                    haptics.prepare()
+                }
+            }
         }
     }
 }

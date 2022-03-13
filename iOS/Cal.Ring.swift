@@ -13,6 +13,7 @@ extension Cal {
         @Binding var day: Int
         let observatory: Observatory
         let month: [Days<Journal>.Item]
+        @Environment(\.colorScheme) private var scheme
         private let dates = (0 ... .init(frames)).reduce(into: ([Date](), Date.now.timeIntervalSince1970)) {
             $0.0.append(Date(timeIntervalSince1970: $0.1 + 0.1 + (.init($1) / 40)))
         }.0
@@ -106,20 +107,19 @@ extension Cal {
                             context.translateBy(x: -center.x, y: -center.y)
                             
                             if day == item.value {
-                                if item.today {
-                                    context.draw(Text("Today")
-                                                    .foregroundColor(.primary)
-                                                    .font(.callout),
-                                                 at: .init(x: center.x, y: center.y - 24))
+                                context.drawLayer {
+                                    $0.fill(.init {
+                                        $0.addArc(center: center,
+                                                  radius: 19,
+                                                  startAngle: .radians(0),
+                                                  endAngle: .radians(.pi2),
+                                                  clockwise: true)
+                                    }, with: .color(.init(white: 0, opacity: scheme == .dark ? 1 : 0.2)))
+                                    
+                                    $0.draw(moon: observatory.moon(for: item.content.date),
+                                                 render: .regular,
+                                                 center: center)
                                 }
-                                context.draw(Text(item.value, format: .number)
-                                                .font(.title3.weight(.light).monospacedDigit())
-                                                .foregroundColor(.primary),
-                                             at: .init(x: center.x, y: center.y + 25))
-                                context.draw(Text(item.content.date, format: .dateTime.weekday(.wide))
-                                                .font(.callout)
-                                                .foregroundColor(.primary),
-                                             at: center)
                             }
                         }
                 }

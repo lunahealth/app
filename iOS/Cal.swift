@@ -11,26 +11,23 @@ struct Cal: View, Equatable {
     @State private var active = [Days<Journal>.Item]()
     @State private var traits = [Trait]()
     @State private var preferences = false
+    @Environment(\.colorScheme) private var scheme
     
     var body: some View {
         VStack(spacing: 0) {
             Header(index: $index, calendar: calendar)
             
+            border
+            
             ZStack {
-                Color(.secondarySystemBackground)
+                scheme == .dark ? Color.black : .accentColor.opacity(0.3)
                 Ring(day: $day,
                      observatory: observatory,
                      month: month)
             }
             .fixedSize(horizontal: false, vertical: true)
-            .zIndex(-1)
             
-            Strip(day: $day, observatory: observatory, month: active)
-                .zIndex(2)
-            
-            Rectangle()
-                .fill(Color.primary.opacity(0.1))
-                .frame(height: 1)
+            border
             
             if traits.isEmpty {
                 Spacer()
@@ -72,6 +69,12 @@ struct Cal: View, Equatable {
                     .count
             }
         }
+    }
+    
+    private var border: some View {
+        Rectangle()
+            .fill(scheme == .dark ? Color(white: 1, opacity: 0.3) : .accentColor.opacity(0.5))
+            .frame(height: 1)
     }
     
     private func update(index: Int) {
