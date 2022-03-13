@@ -13,24 +13,24 @@ extension Track {
                 Capsule()
                     .fill(trait.color)
                     .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                    .frame(width: 45, height: 100)
+                    .frame(width: 100, height: 45)
                     .modifier(Shadowed(level: .medium))
-                VStack(spacing: 0) {
-                    Image(systemName: level.symbol)
-                        .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
-                        .font(.system(size: 18).weight(.bold))
-                        .frame(height: 40)
+                HStack(spacing: 0) {
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.system(size: 18).weight(.bold))
-                        .frame(height: 40)
+                        .frame(width: 40)
+                    Image(systemName: level.symbol)
+                        .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
+                        .font(.system(size: 18).weight(.bold))
+                        .frame(width: 40)
                 }
                 .foregroundColor(.white)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
                         status.level = nil
                         status.trait = nil
                     }

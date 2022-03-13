@@ -9,7 +9,7 @@ extension Track {
         
         var body: some View {
             Button {
-                withAnimation(.easeInOut(duration: 0.4)) {
+                withAnimation(.easeInOut(duration: 0.3)) {
                     status.trait = nil
                 }
             } label: {
@@ -39,7 +39,7 @@ extension Track {
                     await cloud.remove(trait: trait)
                 }
                 
-                withAnimation(.easeInOut(duration: 0.4)) {
+                withAnimation(.easeInOut(duration: 0.3)) {
                     status.trait = nil
                 }
             } label: {

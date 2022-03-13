@@ -14,7 +14,7 @@ extension Track.Detail {
                 Task {
                     await cloud.track(trait: trait, level: level)
                 }
-                withAnimation(.easeInOut(duration: 0.45)) {
+                withAnimation(.easeInOut(duration: 0.3)) {
                     status.level = level
                 }
             } label: {
