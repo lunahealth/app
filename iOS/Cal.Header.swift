@@ -21,15 +21,16 @@ extension Cal {
                 } label: {
                     Image(systemName: "chevron.left.circle.fill")
                         .font(.system(size: 24).weight(.light))
+                        .foregroundColor(.primary)
                         .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
                 }
-                .opacity(index < 1 ? 0.3 : 1)
+                .opacity(index < 1 ? 0.2 : 1)
 
                 if !calendar.isEmpty, index < calendar.count, index >= 0 {
                     Text(Calendar.current.date(from: .init(year: calendar[index].year, month: calendar[index].month))!,
                          format: .dateTime.year().month(.wide))
-                        .font(.callout)
+                        .font(.body)
                         .frame(width: 170, height: 60)
                         .id(index)
                 }
@@ -40,10 +41,11 @@ extension Cal {
                 } label: {
                     Image(systemName: "chevron.right.circle.fill")
                         .font(.system(size: 24).weight(.light))
+                        .foregroundColor(.primary)
                         .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
                 }
-                .opacity(index >= calendar.count - 1 ? 0.3 : 1)
+                .opacity(index >= calendar.count - 1 ? 0.2 : 1)
                 
                 Spacer()
 
