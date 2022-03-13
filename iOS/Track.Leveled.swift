@@ -29,7 +29,7 @@ extension Track {
                 .padding(.horizontal, 10)
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         status.level = nil
                         status.trait = nil

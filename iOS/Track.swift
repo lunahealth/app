@@ -17,7 +17,7 @@ struct Track: View {
                     status.preferences = true
                 } label: {
                     Text("Adjust preferences")
-                        .font(.callout)
+                        .font(.callout.weight(.medium))
                 }
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
