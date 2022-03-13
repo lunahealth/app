@@ -2,7 +2,7 @@ import SwiftUI
 import Dater
 import Selene
 
-extension Cal {
+extension Cal.Content {
     struct Item: View {
         let day: Days<Journal>.Item
         let traits: [Trait]

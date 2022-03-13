@@ -12,9 +12,7 @@ extension Cal.Strip {
         
         var body: some View {
             Button {
-                withAnimation(.easeInOut(duration: 0.4)) {
-                    day = item.value
-                }
+                day = item.value
             } label: {
                 Canvas { context, size in
                     if day == item.value {
@@ -34,6 +32,10 @@ extension Cal.Strip {
                                      render: .small,
                                      center: point)
                     } else {
+                        context.fill(.init {
+                            $0.addRect(.init(origin: .zero, size: .init(width: 52, height: 64)))
+                        }, with: .color(.red))
+                        
                         context.fill(.init {
                             $0.addArc(center: point,
                                       radius: 9,

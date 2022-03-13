@@ -46,16 +46,7 @@ struct Cal: View, Equatable {
                 
                 Spacer()
             } else {
-                TabView(selection: $day) {
-                    ForEach(active, id: \.value) { day in
-                        Item(day: day, traits: traits)
-                            .tag(day.value)
-                    }
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .edgesIgnoringSafeArea(.all)
-                .background(Color(.tertiarySystemBackground))
-                .zIndex(1)
+                Content(day: $day, active: active, traits: traits)
             }
         }
         .animation(.easeInOut(duration: 0.5), value: index)

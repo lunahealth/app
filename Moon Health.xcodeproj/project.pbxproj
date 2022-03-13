@@ -31,7 +31,8 @@
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
 		CE8DD68127D91BDD0093E04A /* Cal.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */; };
 		CE8DD68227D91BDD0093E04A /* Cal.Strip.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */; };
-		CE8F63AF27A461CB00470B70 /* Cal.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F63AE27A461CB00470B70 /* Cal.Item.swift */; };
+		CE8EF15327DE0E5600E4441D /* Cal.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF15227DE0E5600E4441D /* Cal.Content.swift */; };
+		CE8F63AF27A461CB00470B70 /* Cal.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F63AE27A461CB00470B70 /* Cal.Content.Item.swift */; };
 		CE96636E27A2AD6A00EF43C1 /* Cal.Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */; };
 		CE98852A27DCBE4600A60C96 /* Shadowed.Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98852927DCBE4600A60C96 /* Shadowed.Level.swift */; };
 		CE9B398527832CC20006E8AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398427832CC20006E8AF /* Settings.swift */; };
@@ -135,7 +136,8 @@
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cal.Strip.swift; sourceTree = "<group>"; };
 		CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cal.Strip.Item.swift; sourceTree = "<group>"; };
-		CE8F63AE27A461CB00470B70 /* Cal.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Item.swift; sourceTree = "<group>"; };
+		CE8EF15227DE0E5600E4441D /* Cal.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Content.swift; sourceTree = "<group>"; };
+		CE8F63AE27A461CB00470B70 /* Cal.Content.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Content.Item.swift; sourceTree = "<group>"; };
 		CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Ring.swift; sourceTree = "<group>"; };
 		CE98852927DCBE4600A60C96 /* Shadowed.Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadowed.Level.swift; sourceTree = "<group>"; };
 		CE9B398427832CC20006E8AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -292,8 +294,9 @@
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
 				CE9CE8B427DB6EA5006D67C7 /* Audio.swift */,
+				CE8F63AE27A461CB00470B70 /* Cal.Content.Item.swift */,
+				CE8EF15227DE0E5600E4441D /* Cal.Content.swift */,
 				CE230B6627ABE92900A80BCE /* Cal.Header.swift */,
-				CE8F63AE27A461CB00470B70 /* Cal.Item.swift */,
 				CE96636D27A2AD6A00EF43C1 /* Cal.Ring.swift */,
 				CE8DD68027D91BDD0093E04A /* Cal.Strip.Item.swift */,
 				CE8DD67F27D91BDD0093E04A /* Cal.Strip.swift */,
@@ -479,6 +482,7 @@
 				CEA79FA627D6457100FD65FB /* Analysis.Info.swift in Sources */,
 				CE230B6927AC1F6000A80BCE /* Settings.Delete.swift in Sources */,
 				CE96636E27A2AD6A00EF43C1 /* Cal.Ring.swift in Sources */,
+				CE8EF15327DE0E5600E4441D /* Cal.Content.swift in Sources */,
 				CE8B89A627A044CD006490BB /* Cal.swift in Sources */,
 				CE98852A27DCBE4600A60C96 /* Shadowed.Level.swift in Sources */,
 				CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */,
@@ -513,7 +517,7 @@
 				CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */,
 				CE9B398527832CC20006E8AF /* Settings.swift in Sources */,
 				CE6B7A8C27D3A99800E3912B /* Analysis.swift in Sources */,
-				CE8F63AF27A461CB00470B70 /* Cal.Item.swift in Sources */,
+				CE8F63AF27A461CB00470B70 /* Cal.Content.Item.swift in Sources */,
 				CE9B39A3278334270006E8AF /* Froob.swift in Sources */,
 				CE9B398927832FB50006E8AF /* Global.swift in Sources */,
 				CE62AECA279986D8000E7470 /* Track.swift in Sources */,
