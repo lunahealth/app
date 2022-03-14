@@ -32,15 +32,15 @@ extension Home {
                     }
                     
                     Text(moon.fraction, format: .number)
-                        .font(.system(size: 50).weight(.light).monospacedDigit())
+                        .font(.system(size: 50).weight(.light))
                     + Text("%")
-                        .font(.system(size: 20).weight(.medium).monospacedDigit())
+                        .font(.system(size: 14).weight(.medium))
                     
                     Text(moon.phase.name)
-                        .font(.system(size: 14).weight(.medium))
+                        .font(.system(size: 16).weight(.medium))
                         .padding(.top, 2)
                 }
-                .frame(width: 140, height: 105)
+                .frame(width: 150, height: 105)
                 .modifier(Shadowed(level: .maximum))
                 
                 if track {
