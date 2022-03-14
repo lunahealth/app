@@ -26,7 +26,14 @@ struct Analysis: View, Equatable {
                             .padding(.top, 30)
                     } else {
                         if let trait = trait, let analysis = analysis[trait] {
-                            Chart(trait: trait, value: analysis)
+                            Chart(trait: trait, value: [.new : .bottom,
+                                                        .waxingCrescent : .low,
+                                                        .firstQuarter : .top,
+                                                        .waxingGibbous : .high,
+                                                        .full : .top,
+                                                        .waningGibbous : .medium,
+                                                        .lastQuarter : .high,
+                                                        .waningCrescent : .high])
                                 .equatable()
                                 .id(analysis)
                         }
@@ -71,7 +78,11 @@ struct Analysis: View, Equatable {
                         .padding(.top)
                     } else {
                         if let trait = trait {
-                            Info(trait: trait, stats: stats)
+                            Info(trait: trait, stats: [.init(level: .high, percent: 0.25),
+                                                       .init(level: .top, percent: 0.16),
+                                                       .init(level: .medium, percent: 0.14),
+                                                       .init(level: .low, percent: 0.1),
+                                                       .init(level: .bottom, percent: 0.05)])
                                 .animation(.easeInOut(duration: 0.3), value: stats)
                         }
                     }
