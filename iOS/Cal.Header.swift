@@ -19,8 +19,8 @@ extension Cal {
                     guard index > 0 else { return }
                     index -= 1
                 } label: {
-                    Image(systemName: "chevron.left.circle.fill")
-                        .font(.system(size: 24).weight(.light))
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 16))
                         .foregroundColor(.primary)
                         .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
@@ -39,8 +39,8 @@ extension Cal {
                     guard index < calendar.count - 1 else { return }
                     index += 1
                 } label: {
-                    Image(systemName: "chevron.right.circle.fill")
-                        .font(.system(size: 24).weight(.light))
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 16))
                         .foregroundColor(.primary)
                         .frame(width: 40, height: 60)
                         .contentShape(Rectangle())
@@ -53,13 +53,12 @@ extension Cal {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
-                        .font(.system(size: 14))
-                        .frame(width: 45, height: 45)
+                        .font(.system(size: 16))
+                        .frame(width: 50, height: 50)
                         .contentShape(Rectangle())
                         .foregroundColor(.secondary)
                 }
             }
-            .symbolRenderingMode(.hierarchical)
             .background(Color(.tertiarySystemBackground))
         }
     }

@@ -23,7 +23,7 @@ struct Analysis: View, Equatable {
                         Text("Not enough data yet")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
-                            .padding(.top)
+                            .padding(.top, 30)
                     } else {
                         if let trait = trait, let analysis = analysis[trait] {
                             Chart(trait: trait, value: analysis)
@@ -83,9 +83,9 @@ struct Analysis: View, Equatable {
                 dismiss()
             } label: {
                 Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 22))
+                    .font(.system(size: 24).weight(.light))
                     .symbolRenderingMode(.hierarchical)
-                    .frame(width: 45, height: 45)
+                    .frame(width: 50, height: 50)
                     .contentShape(Rectangle())
                     .foregroundColor(.secondary)
             }
