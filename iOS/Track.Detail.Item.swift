@@ -21,26 +21,27 @@ extension Track.Detail {
                 VStack(spacing: 0) {
                     ZStack {
                         Circle()
-                            .fill(Color(white: 0, opacity: scheme == .dark ? 1 : 0.3))
-                            .frame(width: 48, height: 48)
+                            .fill(Color.white)
+                            .frame(width: 52, height: 52)
                             .modifier(Shadowed(level: .medium))
-                        Circle()
-                            .fill(selected ? Color.accentColor : .white)
-                            .matchedGeometryEffect(id: "\(trait).\(level).circle", in: animation)
-                            .frame(width: 46, height: 46)
+                        if selected {
+                            Circle()
+                                .fill(Color.accentColor)
+                                .frame(width: 48, height: 48)
+                        }
                         Image(systemName: level.symbol)
                             .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
-                            .font(.system(size: 16).weight(.medium))
+                            .font(.system(size: 18).weight(.medium))
                             .foregroundColor(selected ? .white : .black)
                     }
                     Text(level.title(for: trait))
-                        .font(.caption2.weight(.medium))
+                        .font(.footnote.weight(.medium))
                         .foregroundStyle(selected ? .primary : .secondary)
                         .foregroundColor(.white)
                         .padding(.top, 3)
                         .zIndex(-1)
                 }
-                .frame(width: 64)
+                .frame(width: 70)
             }
         }
         

@@ -20,10 +20,10 @@ extension Track {
                         .modifier(Shadowed(level: .medium))
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                        .font(.system(size: 16))
+                        .font(.system(size: 20).weight(.medium))
                         .foregroundColor(.white)
                 }
-                .frame(width: 48, height: 48)
+                .frame(width: 58, height: 58)
                 .padding(.bottom)
             }
             
@@ -45,6 +45,7 @@ extension Track {
             } label: {
                 Text("Cancel")
                     .font(.callout.weight(.medium))
+                    .padding(.horizontal, 3)
             }
             .foregroundStyle(.secondary)
             .foregroundColor(.white)

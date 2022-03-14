@@ -11,22 +11,25 @@ extension Track {
         var body: some View {
             ZStack {
                 Capsule()
+                    .fill(Color.white)
+                    .frame(width: 110, height: 49)
+                    .modifier(Shadowed(level: .medium))
+                Capsule()
                     .fill(trait.color)
                     .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                    .frame(width: 100, height: 45)
-                    .modifier(Shadowed(level: .medium))
+                    .frame(width: 106, height: 45)
                 HStack(spacing: 0) {
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
-                        .font(.system(size: 18).weight(.bold))
-                        .frame(width: 40)
+                        .font(.system(size: 20).weight(.bold))
+                        .frame(width: 45)
                     Image(systemName: level.symbol)
                         .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
-                        .font(.system(size: 18).weight(.bold))
-                        .frame(width: 40)
+                        .font(.system(size: 20).weight(.bold))
+                        .frame(width: 45)
                 }
                 .foregroundColor(.white)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {

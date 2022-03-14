@@ -17,7 +17,6 @@ struct Home: View {
         ZStack {
             Stars()
                 .equatable()
-                .edgesIgnoringSafeArea(.all)
             
             if let moon = moon {
                 Control(date: $date,
@@ -54,13 +53,14 @@ struct Home: View {
                 Track(track: track)
                     .opacity(track ? 1 : 0)
                     .animation(.easeInOut(duration: 0.4), value: track)
+                
+                VStack {
+                    Header(date: $date, track: $track, observatory: observatory, moon: moon)
+                    Spacer()
+                }
             }
         }
-        .safeAreaInset(edge: .top, spacing: 0) {
-            if let moon = moon {
-                Header(date: $date, track: $track, observatory: observatory, moon: moon)
-            }
-        }
+        .edgesIgnoringSafeArea(.all)
         .onReceive(cloud) {
             observatory.update(to: $0.coords)
             moon = observatory.moon(for: date)

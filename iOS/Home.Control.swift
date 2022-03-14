@@ -52,12 +52,14 @@ extension Home {
         }
         
         private func update(moon: Moon, size: CGSize, track: Bool) {
-            navigator = track ? Tracker() : Wheel(date: date,
-                                                  moon: moon,
-                                                  correction: .pi_2,
-                                                  size: size,
-                                                  padding: pad,
-                                                  maxWidth: maxWidth)
+            navigator = track
+            ? Tracker(size: size)
+            : Wheel(date: date,
+                    moon: moon,
+                    correction: .pi_2,
+                    size: size,
+                    padding: pad,
+                    maxWidth: maxWidth)
         }
     }
 }
