@@ -1,7 +1,7 @@
 import SwiftUI
 import Selene
 
-private let display = 260.0
+private let display = 270.0
 
 struct Analysis: View, Equatable {
     let observatory: Observatory
@@ -39,9 +39,12 @@ struct Analysis: View, Equatable {
             }
             ScrollView {
                 VStack(spacing: 0) {
+                    
                     Strip(trait: $trait, traits: traits)
+                    
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 30)
+                    
                     Picker("Since", selection: $since) {
                         Text("All")
                             .tag(Analysing.all)
@@ -74,7 +77,7 @@ struct Analysis: View, Equatable {
                     }
                     
                     Spacer()
-                        .frame(height: 30)
+                        .frame(height: 40)
                 }
                 .background(Color(.secondarySystemBackground))
                 .padding(.top, display)

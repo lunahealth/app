@@ -18,7 +18,7 @@ extension Analysis {
                 Canvas { context, size in
                     let index = CGFloat(dates.firstIndex(of: timeline.date)!) + 1
                     let percent = index / frames
-                    let vertical = (size.height - 20) / .init(Level.allCases.count)
+                    let vertical = (size.height - 30) / .init(Level.allCases.count)
                     let horizontal = (size.width - 90) / .init(Moon.Phase.allCases.count - 1)
                     var ys = [Level : CGFloat]()
                     var y = size.height - (vertical - 10)
@@ -37,7 +37,7 @@ extension Analysis {
                             }, with: .color(scheme == .dark ? .black : .accentColor.opacity(0.15)))
                             
                             context.draw(Text(Image(systemName: level.symbol))
-                                            .font(.system(size: 10).weight(.light))
+                                            .font(.system(size: 10).weight(.medium))
                                             .foregroundColor(.primary), at: point)
                             ys[level] = y
                             y -= vertical
