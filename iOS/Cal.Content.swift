@@ -8,7 +8,6 @@ extension Cal {
         let active: [Days<Journal>.Item]
         let traits: [Trait]
         private let haptics = UIImpactFeedbackGenerator(style: .soft)
-        private let audio = Audio()
         
         var body: some View {
             TabView(selection: $day) {
@@ -25,10 +24,6 @@ extension Cal {
                 
                 if Defaults.enableHaptics {
                     haptics.impactOccurred()
-                }
-                
-                if Defaults.enableSounds {
-                    audio.play()
                 }
             }
             .onAppear {

@@ -1,5 +1,4 @@
 import SwiftUI
-import AVFoundation
 
 @main struct App: SwiftUI.App {
     @Environment(\.scenePhase) private var phase
@@ -18,9 +17,6 @@ import AVFoundation
             switch $0 {
             case .active:
                 cloud.pull.send()
-                
-                try? AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
-                try? AVAudioSession.sharedInstance().setActive(true)
             default:
                 break
             }

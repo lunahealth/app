@@ -47,7 +47,6 @@
 		CE9B39A3278334270006E8AF /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A2278334270006E8AF /* Froob.swift */; };
 		CE9B39A527833A770006E8AF /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A427833A770006E8AF /* Trait.swift */; };
 		CE9CE8B127DB6BE2006D67C7 /* Settings.Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE8B027DB6BE2006D67C7 /* Settings.Effects.swift */; };
-		CE9CE8B527DB6EA5006D67C7 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE8B427DB6EA5006D67C7 /* Audio.swift */; };
 		CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2296B279C3C770063F124 /* Track.Category.swift */; };
 		CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44A72279ED12C0031DDD0 /* Level.swift */; };
 		CEA7621027AD552700A6019D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA7620F27AD552700A6019D /* WidgetKit.framework */; platformFilter = maccatalyst; };
@@ -69,7 +68,6 @@
 		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
-		CEB7D55A27DCBAA200E0E10F /* Tink.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CEB7D55927DCBAA200E0E10F /* Tink.aiff */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
 		CEBDAB6F27D4F4C9002E9F01 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
 		CEBDAB7027D4F4C9002E9F01 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
@@ -150,7 +148,6 @@
 		CE9B39A2278334270006E8AF /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
 		CE9B39A427833A770006E8AF /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		CE9CE8B027DB6BE2006D67C7 /* Settings.Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Effects.swift; sourceTree = "<group>"; };
-		CE9CE8B427DB6EA5006D67C7 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		CEA2296B279C3C770063F124 /* Track.Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Category.swift; sourceTree = "<group>"; };
 		CEA44A72279ED12C0031DDD0 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		CEA7620E27AD552700A6019D /* Moonhealth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Moonhealth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,7 +167,6 @@
 		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		CEB7D55927DCBAA200E0E10F /* Tink.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tink.aiff; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
 		CEBDAB6E27D4F4C9002E9F01 /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		CEDA52EB27A83DD1004DBDB9 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -279,7 +275,6 @@
 		CEF8398B276B674900134178 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CEB7D55927DCBAA200E0E10F /* Tink.aiff */,
 				CE532FD527807F030043B111 /* iOS.entitlements */,
 				CEF8399B276B6BEF00134178 /* Info.plist */,
 				CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */,
@@ -289,7 +284,6 @@
 				CE6B7A8B27D3A99800E3912B /* Analysis.swift */,
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
-				CE9CE8B427DB6EA5006D67C7 /* Audio.swift */,
 				CE8F63AE27A461CB00470B70 /* Cal.Content.Item.swift */,
 				CE8EF15227DE0E5600E4441D /* Cal.Content.swift */,
 				CE230B6627ABE92900A80BCE /* Cal.Header.swift */,
@@ -432,7 +426,6 @@
 				CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */,
 				CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */,
 				CEF83991276B674900134178 /* Assets.xcassets in Resources */,
-				CEB7D55A27DCBAA200E0E10F /* Tink.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +482,6 @@
 				CE9B39A527833A770006E8AF /* Trait.swift in Sources */,
 				CE070FC32785A6AB0099B09D /* Settings.Traits.Item.swift in Sources */,
 				CE9B399F278333BE0006E8AF /* Copy.swift in Sources */,
-				CE9CE8B527DB6EA5006D67C7 /* Audio.swift in Sources */,
 				CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */,
 				CEB0A76327872EB900B5F5BF /* Info.swift in Sources */,
 				CE281D0A279B0F2200C8BA3C /* Stars.swift in Sources */,
