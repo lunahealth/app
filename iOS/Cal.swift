@@ -32,6 +32,12 @@ struct Cal: View, Equatable {
             if traits.isEmpty {
                 Spacer()
                 
+                Text("Need to set your preferences\nto access your history")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom)
+                
                 Button {
                     preferences = true
                 } label: {

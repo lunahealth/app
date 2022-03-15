@@ -15,73 +15,77 @@ struct Analysis: View, Equatable {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            VStack {
-                ZStack(alignment: .top) {
-                    Color(.tertiarySystemBackground)
+            if traits.isEmpty {
+                VStack(spacing: 30) {
+                    Spacer()
+                    Text("No traits active\nNeed to set your preferences")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .center)
                     
-                    if traits.isEmpty {
-                        Text("Not enough data yet")
+                    Button {
+                        preferences = true
+                    } label: {
+                        Text("Adjust preferences")
                             .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .padding(.top, 30)
-                    } else {
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
+                    Spacer()
+                }
+                .background(Color(.secondarySystemBackground))
+            } else {
+                VStack {
+                    ZStack(alignment: .top) {
+                        Color(.tertiarySystemBackground)
+                        
                         if let trait = trait, let analysis = analysis[trait] {
                             Chart(trait: trait, value: analysis)
                                 .equatable()
                                 .id(analysis)
                         }
                     }
+                    .frame(height: display)
+                    .zIndex(-1)
+                    Color(.secondarySystemBackground)
+                        .edgesIgnoringSafeArea(.bottom)
                 }
-                .frame(height: display)
-                .zIndex(-1)
-                Color(.secondarySystemBackground)
-                    .edgesIgnoringSafeArea(.bottom)
-            }
-            ScrollView {
-                VStack(spacing: 0) {
+                ScrollView {
+                    VStack(spacing: 0) {
                     
-                    Strip(trait: $trait, traits: traits)
-                    
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    Picker("Since", selection: $since) {
-                        Text("All")
-                            .tag(Analysing.all)
-                        Text("Month")
-                            .tag(Analysing.month)
-                        Text("Fortnight")
-                            .tag(Analysing.fortnight)
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(width: 280)
-                    
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    if traits.isEmpty {
-                        Button {
-                            preferences = true
-                        } label: {
-                            Text("Adjust preferences")
-                                .font(.footnote)
+                        Strip(trait: $trait, traits: traits)
+                        
+                        Spacer()
+                            .frame(height: 30)
+                        
+                        Picker("Since", selection: $since) {
+                            Text("All")
+                                .tag(Analysing.all)
+                            Text("Month")
+                                .tag(Analysing.month)
+                            Text("Fortnight")
+                                .tag(Analysing.fortnight)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.capsule)
-                        .padding(.top)
-                    } else {
+                        .pickerStyle(.segmented)
+                        .frame(width: 280)
+                        
+                        Spacer()
+                            .frame(height: 30)
+                        
                         if let trait = trait {
                             Info(trait: trait, stats: stats)
                                 .animation(.easeInOut(duration: 0.3), value: stats)
                         }
+                        
+                        Spacer()
+                            .frame(height: 40)
                     }
-                    
-                    Spacer()
-                        .frame(height: 40)
+                    .background(Color(.secondarySystemBackground))
+                    .padding(.top, display)
                 }
-                .background(Color(.secondarySystemBackground))
-                .padding(.top, display)
             }
+            
             Button {
                 dismiss()
             } label: {

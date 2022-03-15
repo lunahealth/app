@@ -13,15 +13,24 @@ struct Track: View {
             } else if let selected = status.trait {
                 Detail(status: status, trait: selected, animation: animation)
             } else if status.traits.isEmpty {
-                Button {
-                    status.preferences = true
-                } label: {
-                    Text("Adjust preferences")
-                        .font(.callout.weight(.medium))
+                VStack(spacing: 30) {
+                    Text("Need to set your preferences\nto start tracking")
+                        .font(.callout)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .center)
+                    
+                    Button {
+                        status.preferences = true
+                    } label: {
+                        Text("Adjust preferences")
+                            .font(.body.weight(.medium))
+                            .padding(.horizontal, 4)
+                    }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    .tint(.white)
                 }
-                .buttonStyle(.borderedProminent)
-                .buttonBorderShape(.capsule)
-                .modifier(Shadowed(level: .medium))
             } else {
                 Spacer()
                     .frame(height: 30)
