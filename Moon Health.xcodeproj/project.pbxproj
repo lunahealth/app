@@ -26,6 +26,22 @@
 		CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */; };
 		CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */; };
 		CE6E7C5627E2026D00C22EA8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E7C5527E2026D00C22EA8 /* CloudKit.framework */; };
+		CE6E7C5727E208AA00C22EA8 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398827832FB50006E8AF /* Global.swift */; };
+		CE6E7C5827E208B200C22EA8 /* GraphicsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37BE2927787882004D93D5 /* GraphicsContext.swift */; };
+		CE6E7C5927E208B700C22EA8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44A72279ED12C0031DDD0 /* Level.swift */; };
+		CE6E7C5A27E208C400C22EA8 /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8399E276B6DC300134178 /* Locator.swift */; };
+		CE6E7C5B27E208C800C22EA8 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
+		CE6E7C5C27E208CD00C22EA8 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDAB6E27D4F4C9002E9F01 /* Render.swift */; };
+		CE6E7C5D27E208E000C22EA8 /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39A427833A770006E8AF /* Trait.swift */; };
+		CE6E7C5F27E2095000C22EA8 /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7C5E27E2095000C22EA8 /* App.Delegate.swift */; };
+		CE6E7C6127E2098300C22EA8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7C6027E2098300C22EA8 /* Main.swift */; };
+		CE6E7C6327E224CB00C22EA8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7C6227E224CB00C22EA8 /* Home.swift */; };
+		CE6E7C6627E2355C00C22EA8 /* Background.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6427E2355700C22EA8 /* Background.xcassets */; };
+		CE6E7C6727E2355D00C22EA8 /* Background.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6427E2355700C22EA8 /* Background.xcassets */; };
+		CE6E7C6827E2356900C22EA8 /* Moon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Moon.xcassets */; };
+		CE6E7C6A27E2358200C22EA8 /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6927E2358200C22EA8 /* Colour.xcassets */; };
+		CE6E7C6B27E2358200C22EA8 /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6927E2358200C22EA8 /* Colour.xcassets */; };
+		CE6E7C6C27E2358200C22EA8 /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6927E2358200C22EA8 /* Colour.xcassets */; };
 		CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */; };
 		CE7DA40827D787480009F46C /* Shadowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7DA40727D787480009F46C /* Shadowed.swift */; };
 		CE8B89A227A02483006490BB /* Home.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Header.swift */; };
@@ -55,7 +71,7 @@
 		CEA7621727AD552700A6019D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA7621627AD552700A6019D /* Assets.xcassets */; };
 		CEA7621B27AD552700A6019D /* Moonhealth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CEA7620E27AD552700A6019D /* Moonhealth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEA7622127AD55AC00A6019D /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7622027AD55AC00A6019D /* Selene */; };
-		CEA7622227AD570800A6019D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Media.xcassets */; };
+		CEA7622227AD570800A6019D /* Moon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Moon.xcassets */; };
 		CEA7622427AD57AF00A6019D /* Luna.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7622327AD57AF00A6019D /* Luna.swift */; };
 		CEA7622627AD57F700A6019D /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7622527AD57F700A6019D /* Provider.swift */; };
 		CEA7622827AD57FD00A6019D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7622727AD57FD00A6019D /* Content.swift */; };
@@ -74,7 +90,7 @@
 		CEE3400A2771EA6D005A99E9 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE340092771EA6D005A99E9 /* Window.swift */; };
 		CEE3400C2771F005005A99E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400B2771F005005A99E9 /* Home.swift */; };
 		CEE34010277202C9005A99E9 /* Home.Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3400F277202C9005A99E9 /* Home.Render.swift */; };
-		CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Media.xcassets */; };
+		CEE3401327721C2A005A99E9 /* Moon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE3401227721C2A005A99E9 /* Moon.xcassets */; };
 		CEF8398D276B674900134178 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8398C276B674900134178 /* App.swift */; };
 		CEF83991276B674900134178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF83990276B674900134178 /* Assets.xcassets */; };
 		CEF8399A276B695200134178 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEF83999276B695200134178 /* Selene */; };
@@ -82,7 +98,6 @@
 		CEFAAFA027E1FB3C0082B9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */; };
 		CEFAAFA627E1FB3C0082B9E9 /* Moonhealth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEFAAFAD27E1FB3C0082B9E9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAAFAC27E1FB3C0082B9E9 /* App.swift */; };
-		CEFAAFB127E1FB3D0082B9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */; };
 		CEFAAFB827E1FB3D0082B9E9 /* Moon Health.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CEFAAF9D27E1FB3B0082B9E9 /* Moon Health.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEFAAFC227E201A20082B9E9 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEFAAFC127E201A20082B9E9 /* Selene */; };
 /* End PBXBuildFile section */
@@ -169,6 +184,11 @@
 		CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Item.swift; sourceTree = "<group>"; };
 		CE6E7C5427E2026B00C22EA8 /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CE6E7C5527E2026D00C22EA8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE6E7C5E27E2095000C22EA8 /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE6E7C6027E2098300C22EA8 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		CE6E7C6227E224CB00C22EA8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CE6E7C6427E2355700C22EA8 /* Background.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Background.xcassets; sourceTree = "<group>"; };
+		CE6E7C6927E2358200C22EA8 /* Colour.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colour.xcassets; sourceTree = "<group>"; };
 		CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CE7DA40727D787480009F46C /* Shadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadowed.swift; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Header.swift; sourceTree = "<group>"; };
@@ -215,7 +235,7 @@
 		CEE340092771EA6D005A99E9 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CEE3400B2771F005005A99E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CEE3400F277202C9005A99E9 /* Home.Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Render.swift; sourceTree = "<group>"; };
-		CEE3401227721C2A005A99E9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		CEE3401227721C2A005A99E9 /* Moon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Moon.xcassets; sourceTree = "<group>"; };
 		CEF83989276B674900134178 /* Moonhealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonhealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8398C276B674900134178 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEF83990276B674900134178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,7 +245,6 @@
 		CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Moonhealth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAAFAC27E1FB3C0082B9E9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFAAFB527E1FB3D0082B9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +335,9 @@
 				CE9B39902783317A0006E8AF /* Store.swift */,
 				CE9B39A427833A770006E8AF /* Trait.swift */,
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
-				CEE3401227721C2A005A99E9 /* Media.xcassets */,
+				CE6E7C6427E2355700C22EA8 /* Background.xcassets */,
+				CE6E7C6927E2358200C22EA8 /* Colour.xcassets */,
+				CEE3401227721C2A005A99E9 /* Moon.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -396,8 +417,10 @@
 			children = (
 				CE6E7C5427E2026B00C22EA8 /* watchOS Extension.entitlements */,
 				CEFAAFB527E1FB3D0082B9E9 /* Info.plist */,
+				CE6E7C5E27E2095000C22EA8 /* App.Delegate.swift */,
 				CEFAAFAC27E1FB3C0082B9E9 /* App.swift */,
-				CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */,
+				CE6E7C6227E224CB00C22EA8 /* Home.swift */,
+				CE6E7C6027E2098300C22EA8 /* Main.swift */,
 			);
 			path = "watchOS Extension";
 			sourceTree = "<group>";
@@ -539,8 +562,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA7622227AD570800A6019D /* Media.xcassets in Resources */,
+				CEA7622227AD570800A6019D /* Moon.xcassets in Resources */,
 				CEA7621727AD552700A6019D /* Assets.xcassets in Resources */,
+				CE6E7C6727E2355D00C22EA8 /* Background.xcassets in Resources */,
+				CE6E7C6B27E2358200C22EA8 /* Colour.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,8 +574,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */,
-				CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */,
+				CEE3401327721C2A005A99E9 /* Moon.xcassets in Resources */,
 				CEF83991276B674900134178 /* Assets.xcassets in Resources */,
+				CE6E7C6A27E2358200C22EA8 /* Colour.xcassets in Resources */,
+				CE6E7C6627E2355C00C22EA8 /* Background.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEFAAFA027E1FB3C0082B9E9 /* Assets.xcassets in Resources */,
+				CE6E7C6C27E2358200C22EA8 /* Colour.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFAAFB127E1FB3D0082B9E9 /* Assets.xcassets in Resources */,
+				CE6E7C6827E2356900C22EA8 /* Moon.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +679,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6E7C6127E2098300C22EA8 /* Main.swift in Sources */,
+				CE6E7C5C27E208CD00C22EA8 /* Render.swift in Sources */,
+				CE6E7C5727E208AA00C22EA8 /* Global.swift in Sources */,
+				CE6E7C6327E224CB00C22EA8 /* Home.swift in Sources */,
+				CE6E7C5D27E208E000C22EA8 /* Trait.swift in Sources */,
+				CE6E7C5A27E208C400C22EA8 /* Locator.swift in Sources */,
 				CEFAAFAD27E1FB3C0082B9E9 /* App.swift in Sources */,
+				CE6E7C5F27E2095000C22EA8 /* App.Delegate.swift in Sources */,
+				CE6E7C5B27E208C800C22EA8 /* Moon.Phase.swift in Sources */,
+				CE6E7C5927E208B700C22EA8 /* Level.swift in Sources */,
+				CE6E7C5827E208B200C22EA8 /* GraphicsContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1086,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watchOS_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = moonhealth;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1088,6 +1127,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watchOS_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = moonhealth;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1132,6 +1172,7 @@
 				INFOPLIST_FILE = "watchOS Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health uses your location to display the current phase of The Moon";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1175,6 +1216,7 @@
 				INFOPLIST_FILE = "watchOS Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health uses your location to display the current phase of The Moon";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
