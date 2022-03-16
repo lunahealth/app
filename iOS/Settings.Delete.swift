@@ -24,7 +24,6 @@ extension Settings {
                         Button(trait.title, role: .destructive) {
                             Task {
                                 await cloud.delete(trait: trait)
-                                await UNUserNotificationCenter.send(message: "Deleted \(trait.title) data!")
                             }
                         }
                     }
@@ -45,7 +44,6 @@ extension Settings {
                     Button("Delete", role: .destructive) {
                         Task {
                             await cloud.delete()
-                            await UNUserNotificationCenter.send(message: "Deleted all data!")
                         }
                     }
                 }

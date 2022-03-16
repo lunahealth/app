@@ -75,8 +75,6 @@ struct Window: View {
                     location = true
                     Defaults.hasLocated = true
                 }
-                
-                _ = await UNUserNotificationCenter.request()
             }
     }
 }

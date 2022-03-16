@@ -1,5 +1,4 @@
 import StoreKit
-import UserNotifications
 import Combine
 
 struct Store {
@@ -49,7 +48,6 @@ struct Store {
                 }
             case .pending:
                 await load()
-                await UNUserNotificationCenter.send(message: "Purchase is pending...")
             default:
                 await load()
             }

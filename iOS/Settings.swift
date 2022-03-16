@@ -31,7 +31,6 @@ struct Settings: View {
                 
                 Effects()
                 Delete()
-                Notifications()
                 
                 Section("Moon Health") {
                     NavigationLink(destination: Plus()) {

@@ -38,7 +38,6 @@
 		CE9B398727832E0B0006E8AF /* Settings.Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398627832E0B0006E8AF /* Settings.Traits.swift */; };
 		CE9B398927832FB50006E8AF /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398827832FB50006E8AF /* Global.swift */; };
 		CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398A27832FEE0006E8AF /* App.Delegate.swift */; };
-		CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */; };
 		CE9B398F2783316D0006E8AF /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B398E2783316D0006E8AF /* Transaction.swift */; };
 		CE9B39912783317A0006E8AF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B39902783317A0006E8AF /* Store.swift */; };
 		CE9B3993278331860006E8AF /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B3992278331860006E8AF /* Store.State.swift */; };
@@ -66,7 +65,6 @@
 		CEA79FA427D644E900FD65FB /* Analysis.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA79FA327D644E900FD65FB /* Analysis.Strip.swift */; };
 		CEA79FA627D6457100FD65FB /* Analysis.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA79FA527D6457100FD65FB /* Analysis.Info.swift */; };
 		CEAFCF04277350C800CFEE46 /* Home.Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFCF03277350C800CFEE46 /* Home.Control.swift */; };
-		CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */; };
 		CEB0A76127872C9000B5F5BF /* Settings.About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76027872C9000B5F5BF /* Settings.About.swift */; };
 		CEB0A76327872EB900B5F5BF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0A76227872EB900B5F5BF /* Info.swift */; };
 		CEBA5D52279AD3E900002D12 /* Moon.Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */; };
@@ -183,7 +181,6 @@
 		CE9B398627832E0B0006E8AF /* Settings.Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Traits.swift; sourceTree = "<group>"; };
 		CE9B398827832FB50006E8AF /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CE9B398A27832FEE0006E8AF /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
-		CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 		CE9B398E2783316D0006E8AF /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		CE9B39902783317A0006E8AF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CE9B3992278331860006E8AF /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
@@ -209,7 +206,6 @@
 		CEA79FA327D644E900FD65FB /* Analysis.Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Strip.swift; sourceTree = "<group>"; };
 		CEA79FA527D6457100FD65FB /* Analysis.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Info.swift; sourceTree = "<group>"; };
 		CEAFCF03277350C800CFEE46 /* Home.Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Control.swift; sourceTree = "<group>"; };
-		CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Notifications.swift; sourceTree = "<group>"; };
 		CEB0A76027872C9000B5F5BF /* Settings.About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.About.swift; sourceTree = "<group>"; };
 		CEB0A76227872EB900B5F5BF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CEBA5D51279AD3E900002D12 /* Moon.Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.Phase.swift; sourceTree = "<group>"; };
@@ -320,7 +316,6 @@
 				CE9B39902783317A0006E8AF /* Store.swift */,
 				CE9B39A427833A770006E8AF /* Trait.swift */,
 				CE9B398E2783316D0006E8AF /* Transaction.swift */,
-				CE9B398C278331560006E8AF /* UNUserNotificationCenter.swift */,
 				CEE3401227721C2A005A99E9 /* Media.xcassets */,
 			);
 			path = Shared;
@@ -365,7 +360,6 @@
 				CE230B6827AC1F6000A80BCE /* Settings.Delete.swift */,
 				CE9CE8B027DB6BE2006D67C7 /* Settings.Effects.swift */,
 				CE070FC62785B3540099B09D /* Settings.Location.swift */,
-				CEB0A75E27871C6A00B5F5BF /* Settings.Notifications.swift */,
 				CE070FC42785B1590099B09D /* Settings.Option.swift */,
 				CE9B398427832CC20006E8AF /* Settings.swift */,
 				CE070FC22785A6AB0099B09D /* Settings.Traits.Item.swift */,
@@ -617,7 +611,6 @@
 				CE8EF15327DE0E5600E4441D /* Cal.Content.swift in Sources */,
 				CE8B89A627A044CD006490BB /* Cal.swift in Sources */,
 				CE98852A27DCBE4600A60C96 /* Shadowed.Level.swift in Sources */,
-				CEB0A75F27871C6A00B5F5BF /* Settings.Notifications.swift in Sources */,
 				CE50FFCE279EF622005C2EE6 /* Track.Leveled.swift in Sources */,
 				CE62AEC827997CFA000E7470 /* Window.Option.swift in Sources */,
 				CE281D0C279B0F9600C8BA3C /* Stars.Model.swift in Sources */,
@@ -641,7 +634,6 @@
 				CE9CE8B127DB6BE2006D67C7 /* Settings.Effects.swift in Sources */,
 				CE7DA40827D787480009F46C /* Shadowed.swift in Sources */,
 				CEA79FA427D644E900FD65FB /* Analysis.Strip.swift in Sources */,
-				CE9B398D278331560006E8AF /* UNUserNotificationCenter.swift in Sources */,
 				CE6B7A8E27D3AB2D00E3912B /* Analysis.Chart.swift in Sources */,
 				CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */,
 				CE9B398B27832FEE0006E8AF /* App.Delegate.swift in Sources */,
