@@ -10,16 +10,30 @@ extension Track {
         var body: some View {
             NavigationView {
                 ScrollViewReader { proxy in
-                    List(Level.allCases.reversed(), id: \.self) { level in
+                    List {
+                        ForEach(Level.allCases.reversed(), id: \.self) { level in
+                            Button {
+                                Task {
+                                    await cloud.track(trait: trait, level: level)
+                                }
+                                dismiss()
+                            } label: {
+                                Item(trait: trait, level: level, selected: journal?.traits[trait] == level)
+                            }
+                            .id(level)
+                            .listRowBackground(Color.clear)
+                        }
+                        
                         Button {
                             Task {
-                                await cloud.track(trait: trait, level: level)
+                                await cloud.remove(trait: trait)
                             }
                             dismiss()
                         } label: {
-                            Item(trait: trait, level: level, selected: journal?.traits[trait] == level)
+                            Text("Cancel")
                         }
-                        .id(level)
+                        .buttonStyle(.bordered)
+                        .padding()
                         .listRowBackground(Color.clear)
                     }
                     .onAppear {
