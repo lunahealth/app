@@ -25,6 +25,7 @@
 		CE6B7A8E27D3AB2D00E3912B /* Analysis.Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */; };
 		CE6DF88E279D7A2800CEC137 /* Track.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */; };
 		CE6DF890279D95E100CEC137 /* Track.Detail.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */; };
+		CE6E7C5627E2026D00C22EA8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E7C5527E2026D00C22EA8 /* CloudKit.framework */; };
 		CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */; };
 		CE7DA40827D787480009F46C /* Shadowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7DA40727D787480009F46C /* Shadowed.swift */; };
 		CE8B89A227A02483006490BB /* Home.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Header.swift */; };
@@ -80,6 +81,12 @@
 		CEF83991276B674900134178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF83990276B674900134178 /* Assets.xcassets */; };
 		CEF8399A276B695200134178 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEF83999276B695200134178 /* Selene */; };
 		CEF8399F276B6DC300134178 /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8399E276B6DC300134178 /* Locator.swift */; };
+		CEFAAFA027E1FB3C0082B9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */; };
+		CEFAAFA627E1FB3C0082B9E9 /* Moonhealth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CEFAAFAD27E1FB3C0082B9E9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFAAFAC27E1FB3C0082B9E9 /* App.swift */; };
+		CEFAAFB127E1FB3D0082B9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */; };
+		CEFAAFB827E1FB3D0082B9E9 /* Moon Health.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CEFAAF9D27E1FB3B0082B9E9 /* Moon Health.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CEFAAFC227E201A20082B9E9 /* Selene in Frameworks */ = {isa = PBXBuildFile; productRef = CEFAAFC127E201A20082B9E9 /* Selene */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +96,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = CEA7620D27AD552700A6019D;
 			remoteInfo = widgetExtension;
+		};
+		CEFAAFA727E1FB3C0082B9E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE5360E1276B6710000D3EE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEFAAFA427E1FB3C0082B9E9;
+			remoteInfo = "watchOS WatchKit Extension";
+		};
+		CEFAAFB627E1FB3D0082B9E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE5360E1276B6710000D3EE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEFAAF9C27E1FB3B0082B9E9;
+			remoteInfo = watchOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -100,6 +121,28 @@
 			dstSubfolderSpec = 13;
 			files = (
 				CEA7621B27AD552700A6019D /* Moonhealth.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFAAFB927E1FB3D0082B9E9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CEFAAFB827E1FB3D0082B9E9 /* Moon Health.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFAAFBC27E1FB3D0082B9E9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CEFAAFA627E1FB3C0082B9E9 /* Moonhealth.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +169,8 @@
 		CE6B7A8D27D3AB2D00E3912B /* Analysis.Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.Chart.swift; sourceTree = "<group>"; };
 		CE6DF88D279D7A2800CEC137 /* Track.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.swift; sourceTree = "<group>"; };
 		CE6DF88F279D95E100CEC137 /* Track.Detail.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Detail.Item.swift; sourceTree = "<group>"; };
+		CE6E7C5427E2026B00C22EA8 /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
+		CE6E7C5527E2026D00C22EA8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CE7DA40727D787480009F46C /* Shadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadowed.swift; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Header.swift; sourceTree = "<group>"; };
@@ -180,6 +225,12 @@
 		CEF83990276B674900134178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF8399B276B6BEF00134178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEF8399E276B6DC300134178 /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
+		CEFAAF9D27E1FB3B0082B9E9 /* Moon Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Moon Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Moonhealth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEFAAFAC27E1FB3C0082B9E9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEFAAFB527E1FB3D0082B9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,12 +253,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEFAAFA227E1FB3C0082B9E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEFAAFC227E201A20082B9E9 /* Selene in Frameworks */,
+				CE6E7C5627E2026D00C22EA8 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		CE532FD627807F070043B111 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E7C5527E2026D00C22EA8 /* CloudKit.framework */,
 				CE532FD727807F070043B111 /* CloudKit.framework */,
 				CEA7620F27AD552700A6019D /* WidgetKit.framework */,
 				CEA7621127AD552700A6019D /* SwiftUI.framework */,
@@ -222,6 +283,8 @@
 				CEF8398B276B674900134178 /* iOS */,
 				CEF8398A276B674900134178 /* Products */,
 				CEE3401127721C19005A99E9 /* Shared */,
+				CEFAAF9E27E1FB3B0082B9E9 /* watchOS */,
+				CEFAAFA927E1FB3C0082B9E9 /* watchOS Extension */,
 				CEA7621327AD552700A6019D /* widget */,
 			);
 			sourceTree = "<group>";
@@ -268,6 +331,8 @@
 			children = (
 				CEF83989276B674900134178 /* Moonhealth.app */,
 				CEA7620E27AD552700A6019D /* Moonhealth.appex */,
+				CEFAAF9D27E1FB3B0082B9E9 /* Moon Health.app */,
+				CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +389,25 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		CEFAAF9E27E1FB3B0082B9E9 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		CEFAAFA927E1FB3C0082B9E9 /* watchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E7C5427E2026B00C22EA8 /* watchOS Extension.entitlements */,
+				CEFAAFB527E1FB3D0082B9E9 /* Info.plist */,
+				CEFAAFAC27E1FB3C0082B9E9 /* App.swift */,
+				CEFAAFB027E1FB3D0082B9E9 /* Assets.xcassets */,
+			);
+			path = "watchOS Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,11 +439,13 @@
 				CEF83986276B674900134178 /* Frameworks */,
 				CEF83987276B674900134178 /* Resources */,
 				CEA7621C27AD552700A6019D /* Embed App Extensions */,
+				CEFAAFB927E1FB3D0082B9E9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CEA7621A27AD552700A6019D /* PBXTargetDependency */,
+				CEFAAFB727E1FB3D0082B9E9 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -369,6 +455,43 @@
 			productReference = CEF83989276B674900134178 /* Moonhealth.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CEFAAF9C27E1FB3B0082B9E9 /* watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEFAAFC027E1FB3D0082B9E9 /* Build configuration list for PBXNativeTarget "watchOS" */;
+			buildPhases = (
+				CEFAAF9B27E1FB3B0082B9E9 /* Resources */,
+				CEFAAFBC27E1FB3D0082B9E9 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEFAAFA827E1FB3C0082B9E9 /* PBXTargetDependency */,
+			);
+			name = watchOS;
+			productName = watchOS;
+			productReference = CEFAAF9D27E1FB3B0082B9E9 /* Moon Health.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CEFAAFA427E1FB3C0082B9E9 /* watchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEFAAFBF27E1FB3D0082B9E9 /* Build configuration list for PBXNativeTarget "watchOS Extension" */;
+			buildPhases = (
+				CEFAAFA127E1FB3C0082B9E9 /* Sources */,
+				CEFAAFA227E1FB3C0082B9E9 /* Frameworks */,
+				CEFAAFA327E1FB3C0082B9E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "watchOS Extension";
+			packageProductDependencies = (
+				CEFAAFC127E201A20082B9E9 /* Selene */,
+			);
+			productName = "watchOS WatchKit Extension";
+			productReference = CEFAAFA527E1FB3C0082B9E9 /* Moonhealth.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -376,7 +499,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					CEA7620D27AD552700A6019D = {
@@ -384,6 +507,12 @@
 					};
 					CEF83988276B674900134178 = {
 						CreatedOnToolsVersion = 13.2;
+					};
+					CEFAAF9C27E1FB3B0082B9E9 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					CEFAAFA427E1FB3C0082B9E9 = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
@@ -405,6 +534,8 @@
 			targets = (
 				CEF83988276B674900134178 /* iOS */,
 				CEA7620D27AD552700A6019D /* widget */,
+				CEFAAF9C27E1FB3B0082B9E9 /* watchOS */,
+				CEFAAFA427E1FB3C0082B9E9 /* watchOS Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -426,6 +557,22 @@
 				CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */,
 				CEE3401327721C2A005A99E9 /* Media.xcassets in Resources */,
 				CEF83991276B674900134178 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFAAF9B27E1FB3B0082B9E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEFAAFA027E1FB3C0082B9E9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFAAFA327E1FB3C0082B9E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEFAAFB127E1FB3D0082B9E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +655,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEFAAFA127E1FB3C0082B9E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEFAAFAD27E1FB3C0082B9E9 /* App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -515,6 +670,16 @@
 			isa = PBXTargetDependency;
 			target = CEA7620D27AD552700A6019D /* widget */;
 			targetProxy = CEA7621927AD552700A6019D /* PBXContainerItemProxy */;
+		};
+		CEFAAFA827E1FB3C0082B9E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEFAAFA427E1FB3C0082B9E9 /* watchOS Extension */;
+			targetProxy = CEFAAFA727E1FB3C0082B9E9 /* PBXContainerItemProxy */;
+		};
+		CEFAAFB727E1FB3D0082B9E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEFAAF9C27E1FB3B0082B9E9 /* watchOS */;
+			targetProxy = CEFAAFB627E1FB3D0082B9E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -554,6 +719,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 12;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Moonhealth;
@@ -561,6 +727,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
 				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -599,12 +766,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 12;
 				PRODUCT_NAME = Moonhealth;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
 				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -858,6 +1027,180 @@
 			};
 			name = Release;
 		};
+		CEFAAFBA27E1FB3D0082B9E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = watchOS_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = moonhealth;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = moonhealth.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watch";
+				PRODUCT_NAME = "Moon Health";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CEFAAFBB27E1FB3D0082B9E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = watchOS_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = moonhealth;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = moonhealth.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watch";
+				PRODUCT_NAME = "Moon Health";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEFAAFBD27E1FB3D0082B9E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "watchOS Extension/watchOS Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "watchOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = moonhealth.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watchexternsion";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CEFAAFBE27E1FB3D0082B9E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "watchOS Extension/watchOS Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "watchOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = moonhealth.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)watchexternsion";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -888,6 +1231,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CEFAAFBF27E1FB3D0082B9E9 /* Build configuration list for PBXNativeTarget "watchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEFAAFBD27E1FB3D0082B9E9 /* Debug */,
+				CEFAAFBE27E1FB3D0082B9E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEFAAFC027E1FB3D0082B9E9 /* Build configuration list for PBXNativeTarget "watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEFAAFBA27E1FB3D0082B9E9 /* Debug */,
+				CEFAAFBB27E1FB3D0082B9E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -908,6 +1269,11 @@
 			productName = Selene;
 		};
 		CEF83999276B695200134178 /* Selene */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEF83998276B695200134178 /* XCRemoteSwiftPackageReference "selene" */;
+			productName = Selene;
+		};
+		CEFAAFC127E201A20082B9E9 /* Selene */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEF83998276B695200134178 /* XCRemoteSwiftPackageReference "selene" */;
 			productName = Selene;
