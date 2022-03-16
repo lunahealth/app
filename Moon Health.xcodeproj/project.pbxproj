@@ -65,6 +65,9 @@
 		CE9CE8B127DB6BE2006D67C7 /* Settings.Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE8B027DB6BE2006D67C7 /* Settings.Effects.swift */; };
 		CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2296B279C3C770063F124 /* Track.Category.swift */; };
 		CEA44A73279ED12C0031DDD0 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44A72279ED12C0031DDD0 /* Level.swift */; };
+		CEA6294727E2477600F17079 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6294627E2477600F17079 /* Track.swift */; };
+		CEA6294927E247DE00F17079 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6294827E247DE00F17079 /* Settings.swift */; };
+		CEA6294B27E2485B00F17079 /* Settings.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6294A27E2485B00F17079 /* Settings.Item.swift */; };
 		CEA7621027AD552700A6019D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA7620F27AD552700A6019D /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		CEA7621227AD552700A6019D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA7621127AD552700A6019D /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		CEA7621527AD552700A6019D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7621427AD552700A6019D /* Bundle.swift */; };
@@ -212,6 +215,9 @@
 		CE9CE8B027DB6BE2006D67C7 /* Settings.Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Effects.swift; sourceTree = "<group>"; };
 		CEA2296B279C3C770063F124 /* Track.Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.Category.swift; sourceTree = "<group>"; };
 		CEA44A72279ED12C0031DDD0 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		CEA6294627E2477600F17079 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		CEA6294827E247DE00F17079 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CEA6294A27E2485B00F17079 /* Settings.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Item.swift; sourceTree = "<group>"; };
 		CEA7620E27AD552700A6019D /* Moonhealth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Moonhealth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7620F27AD552700A6019D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CEA7621127AD552700A6019D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -421,6 +427,9 @@
 				CEFAAFAC27E1FB3C0082B9E9 /* App.swift */,
 				CE6E7C6227E224CB00C22EA8 /* Home.swift */,
 				CE6E7C6027E2098300C22EA8 /* Main.swift */,
+				CEA6294A27E2485B00F17079 /* Settings.Item.swift */,
+				CEA6294827E247DE00F17079 /* Settings.swift */,
+				CEA6294627E2477600F17079 /* Track.swift */,
 			);
 			path = "watchOS Extension";
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 			files = (
 				CE6E7C6127E2098300C22EA8 /* Main.swift in Sources */,
 				CE6E7C5C27E208CD00C22EA8 /* Render.swift in Sources */,
+				CEA6294927E247DE00F17079 /* Settings.swift in Sources */,
 				CE6E7C5727E208AA00C22EA8 /* Global.swift in Sources */,
 				CE6E7C6327E224CB00C22EA8 /* Home.swift in Sources */,
 				CE6E7C5D27E208E000C22EA8 /* Trait.swift in Sources */,
@@ -690,6 +700,8 @@
 				CE6E7C5B27E208C800C22EA8 /* Moon.Phase.swift in Sources */,
 				CE6E7C5927E208B700C22EA8 /* Level.swift in Sources */,
 				CE6E7C5827E208B200C22EA8 /* GraphicsContext.swift in Sources */,
+				CEA6294B27E2485B00F17079 /* Settings.Item.swift in Sources */,
+				CEA6294727E2477600F17079 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

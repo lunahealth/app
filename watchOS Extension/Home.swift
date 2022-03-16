@@ -13,9 +13,21 @@ struct Home: View {
                                  render: .regular,
                                  center: .init(x: size.width / 3, y: size.height / 3))
                 }
+                
+                VStack(alignment: .trailing, spacing: 0) {
+                    Spacer()
+                    Text(moon.fraction, format: .number)
+                        .font(.system(size: 40).weight(.light))
+                    + Text("%")
+                        .font(.caption.weight(.medium))
+                    Text(moon.phase.name)
+                        .font(.footnote.weight(.medium))
+                }
+                .padding(.trailing)
+                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .trailing)
             }
         }
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.top)
         .onReceive(cloud) {
             observatory.update(to: $0.coords)
             moon = observatory.moon(for: .now)

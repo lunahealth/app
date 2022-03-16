@@ -13,7 +13,8 @@ struct Main: View {
                     .symbolRenderingMode(.hierarchical)
             } else {
                 Home()
-                Rectangle()
+                Track()
+                Settings()
             }
         }
         .onAppear {
