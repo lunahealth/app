@@ -11,10 +11,11 @@ struct Home: View {
                 Canvas { context, size in
                     context.draw(moon: moon,
                                  render: .regular,
-                                 center: .init(x: size.width / 2, y: size.height / 2))
+                                 center: .init(x: size.width / 3, y: size.height / 3))
                 }
             }
         }
+        .edgesIgnoringSafeArea(.all)
         .onReceive(cloud) {
             observatory.update(to: $0.coords)
             moon = observatory.moon(for: .now)

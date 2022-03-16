@@ -17,11 +17,11 @@ struct Content: View {
             VStack(alignment: .trailing, spacing: 0) {
                 Spacer()
                 Text(entry.moon.fraction, format: .number)
-                    .font(.title.weight(.medium).monospacedDigit())
+                    .font(.system(size: 35).weight(.light))
                 + Text("%")
-                    .font(.caption.monospacedDigit())
+                    .font(.system(size: 12).weight(.medium))
                 Text(entry.moon.phase.name)
-                    .font(.footnote)
+                    .font(.system(size: 13).weight(.medium))
                     .padding(.bottom, 14)
             }
             .foregroundColor(.white)
