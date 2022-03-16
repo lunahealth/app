@@ -5,13 +5,10 @@ struct Settings: View {
     private let all = Trait.allCases.sorted()
     
     var body: some View {
-        List {
-            Section("What to track") {
-                ForEach(all, id: \.self) { trait in
-                    Item(trait: trait)
-                }
-            }
+        NavigationView {
+            List(all, id: \.self, rowContent: Item.init(trait:))
+                .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                .navigationTitle("Preferences")
         }
-        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
     }
 }

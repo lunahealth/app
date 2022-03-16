@@ -13,8 +13,9 @@ struct Track: View {
                     .multilineTextAlignment(.center)
             } else {
                 List(traits, id: \.self) { trait in
-                    
+                    Item(journal: $journal, trait: trait)
                 }
+                .navigationTitle("Track")
             }
         }
         .onReceive(cloud) { model in
