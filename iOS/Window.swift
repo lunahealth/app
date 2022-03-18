@@ -9,16 +9,22 @@ struct Window: View {
     @State private var track = false
     @State private var date = Date.now
     @State private var observatory = Observatory()
+    @State private var moon: Moon?
+    private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
-        Home(observatory: observatory, date: $date, track: $track)
+        Home(date: $date, track: $track, observatory: observatory, moon: moon)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                     HStack {
                         Option(active: $settings,
                                title: "Settings",
                                symbol: "gear")
                             .padding(.leading)
-                            .sheet(isPresented: $settings, content: Settings.init)
+                            .sheet(isPresented: $settings, onDismiss: {
+                                update(date: date)
+                            }) {
+                                Settings()
+                            }
                         
                         Spacer()
                         
@@ -52,11 +58,19 @@ struct Window: View {
                     .padding(.bottom, track ? 0 : 10)
                     .animation(.easeInOut(duration: 0.3), value: track)
             }
-            .sheet(isPresented: $location) {
+            .sheet(isPresented: $location, onDismiss: {
+                update(date: date)
+            }) {
                 Settings.Location()
                     .equatable()
             }
             .sheet(isPresented: $froob, content: Froob.init)
+            .onChange(of: date) {
+                update(date: $0)
+                if Defaults.enableHaptics {
+                    haptics.impactOccurred()
+                }
+            }
             .task {
                 cloud.ready.notify(queue: .main) {
                     cloud.pull.send()
@@ -75,6 +89,17 @@ struct Window: View {
                     location = true
                     Defaults.hasLocated = true
                 }
+                
+                update(date: date)
+                
+                if Defaults.enableHaptics {
+                    haptics.prepare()
+                }
             }
+    }
+    
+    private func update(date: Date) {
+        observatory.update(to: Defaults.coordinates)
+        moon = observatory.moon(for: date)
     }
 }

@@ -13,9 +13,7 @@ struct Provider: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        if let coords = Defaults.coordinates {
-            observatory.update(to: coords)
-        }
+        observatory.update(to: Defaults.coordinates)
         completion(.init(entries: [.init(moon: observatory.moon(for: .now))],
                          policy: .after(Calendar.current.startOfDay(
                             for: Calendar.current.date(byAdding: .day, value: 1, to: .now) ?? .now))))

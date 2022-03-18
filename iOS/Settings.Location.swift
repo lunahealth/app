@@ -1,6 +1,8 @@
 import SwiftUI
 import MapKit
 import CoreLocationUI
+import WidgetKit
+import Selene
 
 extension Settings {
     struct Location: View, Equatable {
@@ -38,9 +40,7 @@ extension Settings {
                 .padding(.vertical, 30)
                 
                 Button {
-                    Task {
-                        await save(latitude: region.center.latitude, longitude: region.center.longitude)
-                    }
+                    save(coordinate: region.center)
                 } label: {
                     Text("Location from Map")
                         .font(.callout)
@@ -54,24 +54,22 @@ extension Settings {
             .onChange(of: locator.coordinate) {
                 if let coordinate = $0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        Task {
-                            await save(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                        }
+                        save(coordinate: coordinate)
                     }
                 }
             }
             .task {
-                let model = await cloud.model
-                region = .init(center: .init(latitude: model.coords.latitude,
-                                             longitude: model.coords.longitude),
+                region = .init(center: .init(latitude: Defaults.coordinates.latitude,
+                                             longitude: Defaults.coordinates.longitude),
                                span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1))
                 
                 loaded = true
             }
         }
         
-        private func save(latitude: Double, longitude: Double) async {
-            await cloud.coords(latitude: latitude, longitude: longitude)
+        private func save(coordinate: CLLocationCoordinate2D) {
+            Defaults.coordinates = .init(coordinate: coordinate)
+            WidgetCenter.shared.reloadAllTimelines()
             dismiss()
         }
         

@@ -28,11 +28,8 @@ struct Home: View {
             }
         }
         .edgesIgnoringSafeArea(.top)
-        .onReceive(cloud) {
-            observatory.update(to: $0.coords)
-            moon = observatory.moon(for: .now)
-        }
         .onAppear {
+            observatory.update(to: Defaults.coordinates)
             moon = observatory.moon(for: .now)
         }
     }

@@ -197,6 +197,7 @@
 		CE6E7C6927E2358200C22EA8 /* Colour.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colour.xcassets; sourceTree = "<group>"; };
 		CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CE7DA40727D787480009F46C /* Shadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadowed.swift; sourceTree = "<group>"; };
+		CE8A843327E49B1200F60817 /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Header.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		CE8EF15227DE0E5600E4441D /* Cal.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Content.swift; sourceTree = "<group>"; };
@@ -419,6 +420,7 @@
 		CEFAAF9E27E1FB3B0082B9E9 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				CE8A843327E49B1200F60817 /* watchOS.entitlements */,
 				CEFAAF9F27E1FB3C0082B9E9 /* Assets.xcassets */,
 			);
 			path = watchOS;
@@ -1097,6 +1099,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1142,6 +1145,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1196,7 +1200,6 @@
 				INFOPLIST_FILE = "watchOS Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health uses your location to display the current phase of The Moon";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1240,7 +1243,6 @@
 				INFOPLIST_FILE = "watchOS Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Moon Health";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2022 Moon Health";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Moon Health uses your location to display the current phase of The Moon";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,17 +1,15 @@
 import SwiftUI
-import WidgetKit
 import Selene
 
 private let maxWidth = 550.0
 
 struct Home: View {
-    let observatory: Observatory
     @Binding var date: Date
     @Binding var track: Bool
-    @State private var moon: Moon?
+    let observatory: Observatory
+    let moon: Moon?
     @State private var navigator: Navigator?
     @State private var calendar = false
-    private let haptics = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
         ZStack {
@@ -61,28 +59,5 @@ struct Home: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .onReceive(cloud) {
-            observatory.update(to: $0.coords)
-            moon = observatory.moon(for: date)
-            
-            if Defaults.coordinates != $0.coords {
-                Defaults.coordinates = $0.coords
-                WidgetCenter.shared.reloadAllTimelines()
-            }
-        }
-        .onChange(of: date) {
-            moon = observatory.moon(for: $0)
-            
-            if Defaults.enableHaptics {
-                haptics.impactOccurred()
-            }
-        }
-        .onAppear {
-            moon = observatory.moon(for: date)
-            
-            if Defaults.enableHaptics {
-                haptics.prepare()
-            }
-        }
     }
 }

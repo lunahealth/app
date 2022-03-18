@@ -1,4 +1,5 @@
 import SwiftUI
+import Selene
  
 @main struct App: SwiftUI.App {
     @StateObject private var locator = Locator()
@@ -14,32 +15,21 @@ import SwiftUI
                     }
 
                     WKExtension.shared().registerForRemoteNotifications()
-                    location()
+                    locator.manager.requestLocation()
                 }
         }
         .onChange(of: locator.coordinate) {
             if let coordinate = $0 {
-                Task {
-                    await cloud.coords(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                }
+                Defaults.coordinates = .init(coordinate: coordinate)
             }
         }
         .onChange(of: phase) {
             switch $0 {
             case .active:
                 cloud.pull.send()
-                location()
             default:
                 break
             }
-        }
-    }
-    
-    private func location() {
-        if CLLocationManager().authorizationStatus == .notDetermined {
-            locator.manager.requestWhenInUseAuthorization()
-        } else {
-            locator.manager.requestLocation()
         }
     }
 }
