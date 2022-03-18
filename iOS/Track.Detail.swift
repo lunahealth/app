@@ -15,9 +15,12 @@ extension Track {
             } label: {
                 ZStack {
                     Circle()
-                        .fill(trait.color)
-                        .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
+                        .stroke(trait.color, style: .init(lineWidth: 2))
                         .modifier(Shadowed(level: .medium))
+                    Circle()
+                        .fill(trait.color.opacity(0.4))
+                        .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
+                        .padding(1)
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
                         .font(.system(size: 20).weight(.medium))

@@ -11,13 +11,13 @@ extension Track {
         var body: some View {
             ZStack {
                 Capsule()
-                    .fill(Color.white)
-                    .frame(width: 110, height: 49)
+                    .stroke(trait.color, style: .init(lineWidth: 2))
+                    .frame(width: 110, height: 54)
                     .modifier(Shadowed(level: .medium))
                 Capsule()
-                    .fill(trait.color)
+                    .fill(trait.color.opacity(0.7))
                     .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                    .frame(width: 106, height: 45)
+                    .frame(width: 108, height: 52)
                 HStack(spacing: 0) {
                     Image(systemName: trait.symbol)
                         .matchedGeometryEffect(id: "\(trait).image", in: animation)
@@ -32,7 +32,7 @@ extension Track {
                 .padding(.horizontal, 5)
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         status.level = nil
                         status.trait = nil

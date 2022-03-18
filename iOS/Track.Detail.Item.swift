@@ -20,14 +20,19 @@ extension Track.Detail {
             } label: {
                 VStack(spacing: 0) {
                     ZStack {
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 52, height: 52)
-                            .modifier(Shadowed(level: .medium))
                         if selected {
                             Circle()
-                                .fill(Color.accentColor)
-                                .frame(width: 48, height: 48)
+                                .stroke(trait.color, style: .init(lineWidth: 2))
+                                .frame(width: 51, height: 51)
+                                .modifier(Shadowed(level: .medium))
+                            Circle()
+                                .fill(trait.color.opacity(0.4))
+                                .frame(width: 50, height: 50)
+                        } else {
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 52, height: 52)
+                                .modifier(Shadowed(level: .medium))
                         }
                         Image(systemName: level.symbol)
                             .matchedGeometryEffect(id: "\(trait).\(level).symbol", in: animation)
