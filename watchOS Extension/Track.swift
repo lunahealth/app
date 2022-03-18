@@ -19,6 +19,9 @@ struct Track: View {
                 }
             } else {
                 ScrollView {
+                    Spacer()
+                        .frame(height: 20)
+                    
                     if !traits.isEmpty && traits.count <= (journal?.traits.count ?? 0) {
                         Label("Completed!", systemImage: "checkmark.circle.fill")
                             .font(.callout)

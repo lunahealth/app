@@ -11,6 +11,9 @@ extension Track {
             NavigationView {
                 ScrollViewReader { proxy in
                     ScrollView {
+                        Spacer()
+                            .frame(height: 20)
+                        
                         ForEach(Level.allCases.reversed(), id: \.self) { level in
                             Button {
                                 Task {
