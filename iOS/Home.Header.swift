@@ -32,14 +32,17 @@ extension Home {
                     }
                     
                     Text(moon.fraction, format: .number)
-                        .font(.system(size: track ? 30 : 50).weight(.light))
+                        .font(.system(size: 50).weight(.light))
                     + Text("%")
                         .font(.system(size: 14).weight(.medium))
-                    
+
                     Text(moon.phase.name)
-                        .font(.system(size: track ? 12 : 16).weight(.medium))
+                        .font(.system(size: 16).weight(.medium))
                 }
-                .frame(width: 150, height: track ? 90 : 140)
+                .scaleEffect(track ? 0.7 : 1)
+                .animation(.easeInOut(duration: 0.5), value: track)
+                .frame(width: 150, height: track ? 120 : 140, alignment: track ? .leading : .center)
+                .padding(track ? .leading : [])
                 .modifier(Shadowed(level: .maximum))
                 
                 if track {
