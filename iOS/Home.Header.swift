@@ -40,7 +40,7 @@ extension Home {
                         .font(.system(size: 16).weight(.medium))
                 }
                 .scaleEffect(track ? 0.7 : 1)
-                .animation(.easeInOut(duration: 0.5), value: track)
+                .animation(.easeInOut(duration: 0.6), value: track)
                 .frame(width: 150, height: track ? 120 : 140, alignment: track ? .leading : .center)
                 .padding(track ? .leading : [])
                 .modifier(Shadowed(level: .maximum))
