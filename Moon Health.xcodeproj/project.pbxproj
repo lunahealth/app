@@ -44,6 +44,7 @@
 		CE6E7C6C27E2358200C22EA8 /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E7C6927E2358200C22EA8 /* Colour.xcassets */; };
 		CE7DA40627D76BCF0009F46C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */; };
 		CE7DA40827D787480009F46C /* Shadowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7DA40727D787480009F46C /* Shadowed.swift */; };
+		CE8A843527E4A02D00F60817 /* Cal.Content.Item.Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A843427E4A02D00F60817 /* Cal.Content.Item.Element.swift */; };
 		CE8B89A227A02483006490BB /* Home.Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A127A02483006490BB /* Home.Header.swift */; };
 		CE8B89A627A044CD006490BB /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B89A527A044CD006490BB /* Cal.swift */; };
 		CE8EF15327DE0E5600E4441D /* Cal.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF15227DE0E5600E4441D /* Cal.Content.swift */; };
@@ -198,6 +199,7 @@
 		CE7DA40527D76BCF0009F46C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CE7DA40727D787480009F46C /* Shadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadowed.swift; sourceTree = "<group>"; };
 		CE8A843327E49B1200F60817 /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
+		CE8A843427E4A02D00F60817 /* Cal.Content.Item.Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Content.Item.Element.swift; sourceTree = "<group>"; };
 		CE8B89A127A02483006490BB /* Home.Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.Header.swift; sourceTree = "<group>"; };
 		CE8B89A527A044CD006490BB /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		CE8EF15227DE0E5600E4441D /* Cal.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.Content.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				CE6B7A8B27D3A99800E3912B /* Analysis.swift */,
 				CE9B398A27832FEE0006E8AF /* App.Delegate.swift */,
 				CEF8398C276B674900134178 /* App.swift */,
+				CE8A843427E4A02D00F60817 /* Cal.Content.Item.Element.swift */,
 				CE8F63AE27A461CB00470B70 /* Cal.Content.Item.swift */,
 				CE8EF15227DE0E5600E4441D /* Cal.Content.swift */,
 				CE230B6627ABE92900A80BCE /* Cal.Header.swift */,
@@ -679,6 +682,7 @@
 				CEA2296C279C3C770063F124 /* Track.Category.swift in Sources */,
 				CE070FC72785B3540099B09D /* Settings.Location.swift in Sources */,
 				CEE3400C2771F005005A99E9 /* Home.swift in Sources */,
+				CE8A843527E4A02D00F60817 /* Cal.Content.Item.Element.swift in Sources */,
 				CE9CE8B127DB6BE2006D67C7 /* Settings.Effects.swift in Sources */,
 				CE7DA40827D787480009F46C /* Shadowed.swift in Sources */,
 				CEA79FA427D644E900FD65FB /* Analysis.Strip.swift in Sources */,

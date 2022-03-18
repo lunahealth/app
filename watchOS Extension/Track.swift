@@ -8,12 +8,27 @@ struct Track: View {
     var body: some View {
         NavigationView {
             if traits.isEmpty {
-                Text("Set your preferences\nto start tracking")
-                    .font(.footnote)
-                    .multilineTextAlignment(.center)
+                VStack {
+                    Text("Set your preferences\nto start tracking")
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                    Image(systemName: "arrow.right")
+                        .font(.callout.weight(.medium))
+                        .padding(.top)
+                }
             } else {
-                List(traits, id: \.self) { trait in
-                    Item(journal: $journal, trait: trait)
+                ScrollView {
+                    if !traits.isEmpty && traits.count <= (journal?.traits.count ?? 0) {
+                        Label("Completed!", systemImage: "checkmark.circle.fill")
+                            .font(.callout)
+                            .imageScale(.large)
+                            .padding(.vertical)
+                    }
+                    
+                    ForEach(traits, id: \.self) { trait in
+                        Item(journal: $journal, trait: trait)
+                    }
                 }
                 .navigationTitle("Track")
             }

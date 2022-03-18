@@ -15,8 +15,11 @@ extension Analysis {
                     
                     ZStack {
                         Circle()
-                            .fill(trait.color)
+                            .stroke(trait.color, style: .init(lineWidth: 2))
                             .frame(width: 40, height: 40)
+                        Circle()
+                            .fill(trait.color.opacity(0.6))
+                            .frame(width: 38, height: 38)
                         Image(systemName: item.level.symbol)
                             .font(.system(size: 16).weight(.bold))
                             .foregroundColor(.white)

@@ -17,13 +17,20 @@ extension Analysis {
                         Button {
                             trait = item
                         } label: {
-                            Image(systemName: item.symbol)
-                                .font(.system(size: item == trait ? 18 : 15).weight(.medium))
-                                .foregroundColor(item == trait ? .white : item.color)
-                                .contentShape(Rectangle())
-                                .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
+                            ZStack {
+                                if item == trait {
+                                    Rectangle()
+                                        .stroke(item.color, style: .init(lineWidth: 2))
+                                    item.color.opacity(0.6).padding(1)
+                                }
+                                
+                                Image(systemName: item.symbol)
+                                    .font(.system(size: item == trait ? 18 : 15).weight(.medium))
+                                    .foregroundColor(item == trait ? .white : item.color)
+                            }
+                            .contentShape(Rectangle())
+                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                         }
-                        .background(item == trait ? Color.accentColor : .clear)
                         .animation(.easeInOut(duration: 0.3), value: trait)
                     }
                 }

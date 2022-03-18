@@ -10,7 +10,7 @@ extension Track {
         var body: some View {
             NavigationView {
                 ScrollViewReader { proxy in
-                    List {
+                    ScrollView {
                         ForEach(Level.allCases.reversed(), id: \.self) { level in
                             Button {
                                 Task {
@@ -21,7 +21,8 @@ extension Track {
                                 Item(trait: trait, level: level, selected: journal?.traits[trait] == level)
                             }
                             .id(level)
-                            .listRowBackground(Color.clear)
+                            .buttonStyle(.plain)
+                            .padding(.vertical)
                         }
                         
                         Button {
@@ -34,7 +35,6 @@ extension Track {
                         }
                         .buttonStyle(.bordered)
                         .padding()
-                        .listRowBackground(Color.clear)
                     }
                     .onAppear {
                         if let trait = journal?.traits[trait] {

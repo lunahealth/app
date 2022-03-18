@@ -14,11 +14,11 @@ extension Track {
                     ZStack {
                         if let level = journal?.traits[trait] {
                             Capsule()
-                                .fill(Color.white)
-                                .frame(width: 100, height: 48)
+                                .stroke(trait.color, style: .init(lineWidth: 2))
+                                .frame(width: 100, height: 47)
                             Capsule()
-                                .fill(trait.color)
-                                .frame(width: 96, height: 44)
+                                .fill(trait.color.opacity(0.4))
+                                .frame(width: 98, height: 45)
                             HStack(spacing: 0) {
                                 Image(systemName: trait.symbol)
                                     .font(.system(size: fontSize).weight(.medium))
@@ -44,10 +44,10 @@ extension Track {
                         .font(.footnote.weight(.medium))
                         .foregroundStyle(journal?.traits[trait] == nil ? .secondary : .primary)
                 }
-                .frame(maxWidth: .greatestFiniteMagnitude)
-                .padding(.vertical)
+                .frame(width: 120)
             }
-            .listRowBackground(Color.clear)
+            .buttonStyle(.plain)
+            .padding(.vertical)
         }
     }
 }

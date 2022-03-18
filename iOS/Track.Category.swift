@@ -20,13 +20,13 @@ extension Track {
                     ZStack {
                         if let level = status.journal?.traits[trait] {
                             Capsule()
-                                .fill(Color.white)
-                                .frame(width: 100, height: 48)
+                                .stroke(trait.color, style: .init(lineWidth: 2))
+                                .frame(width: 100, height: 47)
                                 .modifier(Shadowed(level: .medium))
                             Capsule()
-                                .fill(trait.color)
+                                .fill(trait.color.opacity(0.4))
                                 .matchedGeometryEffect(id: "\(trait).capsule", in: animation)
-                                .frame(width: 96, height: 44)
+                                .frame(width: 98, height: 45)
                             HStack(spacing: 0) {
                                 Image(systemName: trait.symbol)
                                     .matchedGeometryEffect(id: "\(trait).image", in: animation)

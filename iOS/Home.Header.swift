@@ -43,7 +43,6 @@ extension Home {
                 .modifier(Shadowed(level: .maximum))
                 
                 if track {
-                    
                     Spacer()
                     VStack(alignment: .trailing) {
                         Button {

@@ -27,8 +27,6 @@ extension Track.Levels {
                     .foregroundStyle(selected ? .primary : .secondary)
                     .padding(.top, 3)
             }
-            .frame(maxWidth: .greatestFiniteMagnitude)
-            .padding(.vertical)
         }
     }
 }
