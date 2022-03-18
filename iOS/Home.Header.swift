@@ -24,25 +24,26 @@ extension Home {
                     }
                 }
                 
-                VStack(alignment: track ? .leading : .center, spacing: 0) {
+                VStack(spacing: 0) {
                     Spacer()
                     if !Calendar.current.isDateInToday(date) {
                         Text(date, format: .dateTime.year(.defaultDigits).month(.defaultDigits).day(.defaultDigits).weekday(.abbreviated))
                             .font(.system(size: 14).weight(.medium))
                     }
                     
-                    Text(moon.fraction, format: .number)
-                        .font(.system(size: 50).weight(.light))
-                    + Text("%")
-                        .font(.system(size: 14).weight(.medium))
+                    Group {
+                        Text(moon.fraction, format: .number)
+                            .font(.system(size: 50).weight(.light))
+                        + Text("%")
+                            .font(.system(size: 14).weight(.medium))
+                    }
 
                     Text(moon.phase.name)
-                        .font(.system(size: 16).weight(.medium))
+                        .font(.system(size: 17).weight(.medium))
                 }
                 .scaleEffect(track ? 0.7 : 1)
-                .animation(.easeInOut(duration: 0.6), value: track)
-                .frame(width: 150, height: track ? 120 : 140, alignment: track ? .leading : .center)
-                .padding(track ? .leading : [])
+                .animation(.easeInOut(duration: 0.9), value: track)
+                .frame(width: track ? 130 : 160, height: track ? 130 : 150)
                 .modifier(Shadowed(level: .maximum))
                 
                 if track {
