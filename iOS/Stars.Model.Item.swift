@@ -28,7 +28,7 @@ extension Stars.Model {
         
         var tick: Self {
             if step > 0 {
-                if step <= 10 {
+                if step <= 30 {
                     return .init(radius: radius,
                                  x: x,
                                  y: y,
@@ -36,7 +36,7 @@ extension Stars.Model {
                                  direction: direction,
                                  delta: delta,
                                  step: step + 1,
-                                 blur: Double(step) / 10 * 0.75)
+                                 blur: Double(step) / 30 * 0.75)
                 } else {
                     return .init(radius: radius,
                                  x: x,
@@ -44,8 +44,8 @@ extension Stars.Model {
                                  opacity: opacity,
                                  direction: direction,
                                  delta: delta,
-                                 step: step == 20 ? 0 : step + 1,
-                                 blur: Double(20 - step) / 10 * 0.75)
+                                 step: step == 60 ? 0 : step + 1,
+                                 blur: Double(60 - step) / 30 * 0.75)
                 }
             }
             

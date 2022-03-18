@@ -12,7 +12,7 @@ extension Stars {
                 first = false
                 items = (0 ..< .random(in: 150 ..< 500)).map { _ in .new(size: size) }
             } else {
-                x -= 0.1
+                x -= 0.07
                 items = items
                     .map(\.tick)
                 if abs(x) > size.width {

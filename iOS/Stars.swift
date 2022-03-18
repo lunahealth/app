@@ -4,7 +4,7 @@ struct Stars: View, Equatable {
     @StateObject private var model = Stars.Model()
     
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 0.1)) { timeline in
+        TimelineView(.periodic(from: .now, by: 0.05)) { timeline in
             Canvas { context, size in
                 model.tick(date: timeline.date, size: size)
 
