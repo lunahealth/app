@@ -18,12 +18,12 @@ final class Locator: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_: CLLocationManager, didFailWithError: Error) {
-        manager.requestLocation()
+        coordinate = .init(latitude: Defaults.coordinates.latitude, longitude: Defaults.coordinates.longitude)
     }
     
     #if os(iOS)
     func locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError: Error?) {
-        
+        coordinate = .init(latitude: Defaults.coordinates.latitude, longitude: Defaults.coordinates.longitude)
     }
     #endif
 }
