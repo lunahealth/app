@@ -44,14 +44,12 @@ struct Track: View {
                 }
                 .sorted()
             
-            refresh()
+            journal = model[.now]
         }
-        .onAppear(perform: refresh)
-    }
-    
-    private func refresh() {
-        Task {
-            journal = await cloud.model[.now]
+        .onAppear {
+            Task {
+                journal = await cloud.model[.now]
+            }
         }
     }
 }

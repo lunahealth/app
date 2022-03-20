@@ -10,8 +10,8 @@ extension App {
             
         }
         
-        func didFailToRegisterForRemoteNotificationsWithError(_: Error) {
-            
+        func didFailToRegisterForRemoteNotificationsWithError(_ error: Error) {
+
         }
     }
 }
