@@ -5,7 +5,7 @@ extension Home {
     struct Render: View {
         @State var current: CGPoint
         let moon: Moon
-        let navigator: Navigator
+        let navigator: any Navigator
         @State private var trail = [CGPoint]()
         private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
