@@ -15,7 +15,7 @@
       "location" : "https://github.com/archivable/package.git",
       "state" : {
         "branch" : "main",
-        "revision" : "0436ca1f8067276eac71cd1f6b9ed00312a6395f"
+        "revision" : "7daf13efb6bac4a0db632f700045c0e966ab980a"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/lunahealth/selene.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a01e7cdba70b1019d43c166dfb2af5f964d6e497"
+        "revision" : "f55ba83b474b624a6d809f0a7828f327c25a2304"
       }
     }
   ],
