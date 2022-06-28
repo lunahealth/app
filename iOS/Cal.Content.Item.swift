@@ -15,7 +15,7 @@ extension Cal.Content {
                         .font(.callout)
                         .padding(.top, 25)
                     
-                    if day.today {
+                    if Calendar.current.isDateInToday(day.content.date) {
                         Text("Today")
                             .foregroundStyle(.secondary)
                             .font(.callout)

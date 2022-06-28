@@ -47,7 +47,7 @@ extension Cal {
                                 }, with: .color(.accentColor),
                                                style: .init(lineWidth: 62, lineCap: .butt))
                             } else if item.content.date <= .now {
-                                if item.today {
+                                if Calendar.current.isDateInToday(item.content.date) {
                                     context.stroke(.init {
                                         $0.addArc(center: center,
                                                   radius: radius - 45,
@@ -132,7 +132,7 @@ extension Cal {
                         let index = item(for: point.location)
                         
                         guard month[index].content.date <= .now else { return }
-                        day = month[index].value
+                        day = .init(month[index].value)
                     }
             )
         }

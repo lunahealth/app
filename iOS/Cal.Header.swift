@@ -28,7 +28,7 @@ extension Cal {
                 .opacity(index < 1 ? 0.2 : 1)
 
                 if !calendar.isEmpty, index < calendar.count, index >= 0 {
-                    Text(Calendar.current.date(from: .init(year: calendar[index].year, month: calendar[index].month))!,
+                    Text(Calendar.current.date(from: .init(year: .init(calendar[index].year), month: .init(calendar[index].month)))!,
                          format: .dateTime.year().month(.wide))
                         .font(.body)
                         .frame(width: 170, height: 60)

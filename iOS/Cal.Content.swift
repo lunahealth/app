@@ -13,7 +13,7 @@ extension Cal {
             TabView(selection: $day) {
                 ForEach(active, id: \.value) { day in
                     Item(day: day, traits: traits)
-                        .tag(day.value)
+                        .tag(Int(day.value))
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
